@@ -25,14 +25,6 @@ alias ttyreset='echo -e \\033c'
 
 source ~/.git-aliases # load all aliases in git-aliases
 
-# server aliases
-alias primus='ssh admin@192.168.15.6'
-alias quattuor='ssh root@192.168.15.18'
-alias quinque='ssh admin@192.168.15.16'
-alias zephyr='ssh william@192.168.15.12'
-alias tuff='ssh gnom@tuffbizz.com'
-alias umd='ssh woodrufw@linux.glue.umd.edu'
-
 # environment variable settings
 export PATH=/usr/local/bin:/usr/local/sbin:/Users/admin/scripts:/Users/admin/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/X11/bin
 export PS1="\u@\h [\t] \W \$(parse_git_branch)$ " 
