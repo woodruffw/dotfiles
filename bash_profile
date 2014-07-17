@@ -106,6 +106,8 @@ function parse_git_branch()
   echo "("${ref#refs/heads/}")"
 }
 
+# prj - cd to projects
+# cds to the project folder or to a specified project
 function prj()
 {
   if [[ -z "$1" ]]
