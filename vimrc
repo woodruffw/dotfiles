@@ -3,6 +3,7 @@ syntax on
 :set autoindent
 :set backspace=indent,eol,start
 set number
+:set hlsearch
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim 
 :imap jk <Esc>
 
