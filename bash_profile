@@ -4,7 +4,8 @@
 alias cc99='gcc -O3 -std=c99 -Wall -Wno-unused-parameter -Wextra'
 alias cc89='gcc -O3 -std=c89 -Wall -Wno-unused-parameter -Wextra'
 alias cls='clear'
-alias update='brew update -v ; brew upgrade ; brew cleanup -s'
+alias brew='brew -v'
+alias update='brew update ; brew upgrade ; brew cleanup -s'
 alias df='df -kth'
 alias ls='ls -h -G -F'
 alias bashreload='source ~/.bash_profile'
@@ -27,7 +28,7 @@ source ~/.git-aliases # load all aliases in git-aliases
 
 # environment variable settings
 export PATH=/usr/local/bin:/usr/local/sbin:/Users/admin/scripts:/Users/admin/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/X11/bin
-export PS1="\u@\h [\t] \W \$(parse_git_branch)$ " 
+export PS1="\u@\h [\t] \W \[\033[0;31m\]\$(parse_git_branch)\033[0m$ " 
 export EDITOR='vim'
 
 # prints the length of the first argument
@@ -103,7 +104,7 @@ function mkhtml()
 function parse_git_branch()
 {
   ref=$(git symbolic-ref HEAD 2>/dev/null) || return
-  echo "("${ref#refs/heads/}")"
+  echo "["${ref#refs/heads/}"] "
 }
 
 # prj - cd to projects
