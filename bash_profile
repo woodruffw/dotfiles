@@ -74,6 +74,30 @@ fi
 # Functions #
 #############
 
+# getconfigs - get all the config files
+# IMPORTANT: overwrites .bash_profile/.bashrc, .vimrc, etc
+function getconfigs()
+{
+ if [ "$SYSTEM" = "Linux" ] ; then
+  curl https://www.github.com/woodruffw/dotfiles/raw/master/bash_profile > ~/.bashrc
+ elif [ "$SYSTEM" = "Darwin" ] ; then
+  curl https://www.github.com/woodruffw/dotfiles/raw/master/bash_profile > ~/.bash_profile
+ fi
+
+ curl https://www.github.com/woodruffw/dotfiles/raw/master/git-aliases > ~/.git-aliases
+ curl https://www.github.com/woodruffw/dotfiles/raw/master/gitconfig > ~/.gitconfig
+ https://www.github.com/woodruffw/dotfiles/raw/master/vimrc > ~/.vimrc
+
+ if [ `which rtorrent` ] ; then
+  https://www.github.com/woodruffw/dotfiles/raw/master/rtorrent.rc > ~/.rtorrent.rc
+ fi
+
+ if [ `which tmux` ] ; then
+  https://www.github.com/woodruffw/dotfiles/raw/master/tmux.conf > ~/.tmux.conf
+ fi
+}
+
+# strlen
 # prints the length of the first argument
 function strlen()
 {

@@ -4,7 +4,6 @@ syntax on
 :set backspace=indent,eol,start
 set number
 :set hlsearch
-:au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim 
 :imap jk <Esc>
 
 inoremap <C-s> <esc>:w<cr>a
@@ -14,5 +13,3 @@ inoremap <C-q> <esc>:q<cr>a
 nnoremap <C-q> :q<cr>
 
 silent !stty -ixon > /dev/null 2> /dev/null
-colorscheme industry
-
