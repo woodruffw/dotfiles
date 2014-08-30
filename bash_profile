@@ -31,13 +31,13 @@ alias rr='env rm -r'
 alias ttyreset='echo -e \\033c'
 
 # system-independent environment variables
-export PS1="\u@\h [\t] \W \[\033[0;31m\]\$(parse_git_branch)\033[0m$ " 
+export PS1="\u@\h [\t] \W \$(parse_git_branch)$ " 
 export EDITOR='vim'
 
 # load all aliases in git-aliases
 source ~/.git-aliases
-# load server aliases, but fail silently if they don't exist
-source ~/.server-aliases 2>/dev/null
+# load server aliases if they exist
+[ -f ~/.server-aliases ] && source ~/.server-aliases
 
 # system-dependent aliases and variables
 if [ "$SYSTEM" = "Linux" ] ; then
@@ -56,9 +56,15 @@ elif [ "$SYSTEM" = "Darwin" ] ; then
   alias profile='vim ~/.bash_profile'
   alias ls='ls -h -G -F'
 
+  # if homebrew's nginx is installed
   if [ -f /usr/local/bin/nginx ] ; then
     alias nginxconf='vim /usr/local/etc/nginx/nginx.conf'
     alias nginxreload='sudo nginx -s reload'
+  fi
+
+  # if homebrew's bash-completion is installed
+  if [ -f /usr/local/etc/bash_completion ] ; then
+    source /usr/local/etc/bash_completion
   fi
 
   export PATH=/usr/local/bin:/usr/local/sbin:/Users/admin/scripts:/Users/admin/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/X11/bin
