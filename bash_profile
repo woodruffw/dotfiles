@@ -1,6 +1,12 @@
-# bash_profile
+############################
+# bash_profile (or bashrc) #
+############################
 
 SYSTEM=`uname`
+
+############################
+# Aliases and Enivironment #
+############################
 
 # system-independent aliases
 alias s='sudo'
@@ -17,6 +23,7 @@ alias vmi='vim'
 alias vimrc='vim ~/.vimrc'
 alias htop='htop --sort-key PERCENT_CPU'
 alias mkexec='chmod +x'
+alias la='ls -a'
 alias lg='ls | grep'
 alias ll='ls | less'
 alias del='rm -i'
@@ -29,24 +36,37 @@ export EDITOR='vim'
 
 # load all aliases in git-aliases
 source ~/.git-aliases
+# load server aliases, but fail silently if they don't exist
+source ~/.server-aliases 2>/dev/null
 
 # system-dependent aliases and variables
 if [ "$SYSTEM" = "Linux" ] ; then
   alias bashreload='source ~/.bashrc'
   alias profile='vim ~/.bashrc'
   alias ls='ls -hf --color=auto'
+  if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
+    alias update='sudo apt-get update ; sudo apt-get upgrade'
+  elif [ -f /usr/bin/pacman ] ; then # Arch-based systems
+    alias update='sudo pacman -Syyu'
+  fi
+elif [ "$SYSTEM" = "Darwin" ] ; then
   alias brew='brew -v'
   alias update='brew update ; brew upgrade ; brew cleanup -s'
-elif [ "$SYSTEM" = "Darwin" ] ; then
   alias bashreload='source ~/.bash_profile'
   alias profile='vim ~/.bash_profile'
   alias ls='ls -h -G -F'
 
+  if [ -f /usr/local/bin/nginx ] ; then
+    alias nginxconf='vim /usr/local/etc/nginx/nginx.conf'
+    alias nginxreload='sudo nginx -s reload'
+  fi
+
   export PATH=/usr/local/bin:/usr/local/sbin:/Users/admin/scripts:/Users/admin/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/X11/bin
 fi
 
-alias nginxconf='vim /usr/local/etc/nginx/nginx.conf'
-alias nginxreload='sudo nginx -s reload'
+#############
+# Functions #
+#############
 
 # prints the length of the first argument
 function strlen()
@@ -73,17 +93,6 @@ function cg()
   cat $1 | grep $2
 }
 
-# nc - nasm compile
-# quickly generates a binary from an assembly file and disposes of its object file
-function nc()
-{
-  FILE=$1
-  BASE=${FILE%%.*}
-  nasm -f macho $1
-  ld $BASE.o -o $BASE
-  rm $BASE.o
-}
-
 # qc - quick compile
 # compiles with cc99 (see alias above) and outputs to a file with a "good" name
 function qc()
@@ -108,13 +117,6 @@ function man()
   man "$@"
 }
 
-# mkhtml - make html file
-# creates a html file based upon a template stored in ~/.html_template
-function mkhtml()
-{
-  cp ~/.html_template $1.html
-}
-
 # parse_git_branch
 # prints the current branch in the current repo, or returns
 # used in PS1
@@ -132,6 +134,6 @@ function prj()
   then
     cd ~/Dropbox/Programming/
   else
-    cd ~/Dropbox/Programming/$1
+    cd ~/Dropbox/Programming/$1*
   fi
 }
