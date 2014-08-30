@@ -24,8 +24,9 @@ alias vimrc='vim ~/.vimrc'
 alias htop='htop --sort-key PERCENT_CPU'
 alias mkexec='chmod +x'
 alias la='ls -a'
-alias lg='ls | grep'
-alias ll='ls | less'
+alias ll='ls -l'
+alias lsg='ls | grep'
+alias lsl='ls | less'
 alias del='rm -i'
 alias rr='env rm -r'
 alias ttyreset='echo -e \\033c'
@@ -95,6 +96,8 @@ function getconfigs()
  if [ `which tmux 2>/dev/null` ] ; then
   curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf -o ~/.tmux.conf
  fi
+
+ bashreload
 }
 
 # strlen
