@@ -86,14 +86,14 @@ function getconfigs()
 
  curl https://www.github.com/woodruffw/dotfiles/raw/master/git-aliases > ~/.git-aliases
  curl https://www.github.com/woodruffw/dotfiles/raw/master/gitconfig > ~/.gitconfig
- https://www.github.com/woodruffw/dotfiles/raw/master/vimrc > ~/.vimrc
+ curl https://www.github.com/woodruffw/dotfiles/raw/master/vimrc > ~/.vimrc
 
  if [ `which rtorrent` ] ; then
-  https://www.github.com/woodruffw/dotfiles/raw/master/rtorrent.rc > ~/.rtorrent.rc
+  curl https://www.github.com/woodruffw/dotfiles/raw/master/rtorrent.rc > ~/.rtorrent.rc
  fi
 
  if [ `which tmux` ] ; then
-  https://www.github.com/woodruffw/dotfiles/raw/master/tmux.conf > ~/.tmux.conf
+  curl https://www.github.com/woodruffw/dotfiles/raw/master/tmux.conf > ~/.tmux.conf
  fi
 }
 
