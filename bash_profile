@@ -1,22 +1,17 @@
 # bash_profile
 
-# new commands and command tweaks
+SYSTEM=`uname`
+
+# system-independent aliases
 alias s='sudo'
 alias mk='make'
 alias mkc='make clean'
 alias cc99='gcc -O3 -std=c99 -Wall -Wno-unused-parameter -Wextra'
 alias cc89='gcc -O3 -std=c89 -Wall -Wno-unused-parameter -Wextra'
 alias cls='clear'
-alias brew='brew -v'
-alias update='brew update ; brew upgrade ; brew cleanup -s'
-alias df='df -kth'
-alias ls='ls -h -G -F'
-alias bashreload='source ~/.bash_profile'
-alias profile='vim ~/.bash_profile'
-alias nginxconf='vim /usr/local/etc/nginx/nginx.conf'
-alias nginxreload='sudo nginx -s reload'
+alias df='df -kh'
 alias please='sudo !!'
-alias sv='sudo vim'
+alias svim='sudo vim'
 alias vi='vim'
 alias vmi='vim'
 alias vimrc='vim ~/.vimrc'
@@ -28,12 +23,30 @@ alias del='rm -i'
 alias rr='env rm -r'
 alias ttyreset='echo -e \\033c'
 
-source ~/.git-aliases # load all aliases in git-aliases
-
-# environment variable settings
-export PATH=/usr/local/bin:/usr/local/sbin:/Users/admin/scripts:/Users/admin/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/X11/bin
+# system-independent environment variables
 export PS1="\u@\h [\t] \W \[\033[0;31m\]\$(parse_git_branch)\033[0m$ " 
 export EDITOR='vim'
+
+# load all aliases in git-aliases
+source ~/.git-aliases
+
+# system-dependent aliases and variables
+if [ "$SYSTEM" = "Linux" ] ; then
+  alias bashreload='source ~/.bashrc'
+  alias profile='vim ~/.bashrc'
+  alias ls='ls -hf --color=auto'
+  alias brew='brew -v'
+  alias update='brew update ; brew upgrade ; brew cleanup -s'
+elif [ "$SYSTEM" = "Darwin" ] ; then
+  alias bashreload='source ~/.bash_profile'
+  alias profile='vim ~/.bash_profile'
+  alias ls='ls -h -G -F'
+
+  export PATH=/usr/local/bin:/usr/local/sbin:/Users/admin/scripts:/Users/admin/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/X11/bin
+fi
+
+alias nginxconf='vim /usr/local/etc/nginx/nginx.conf'
+alias nginxreload='sudo nginx -s reload'
 
 # prints the length of the first argument
 function strlen()
