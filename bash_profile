@@ -34,9 +34,9 @@ alias ttyreset='echo -e \\033c'
 export PS1="\u@\h [\t] \W \$(parse_git_branch)$ " 
 export EDITOR='vim'
 
-# load all aliases in git-aliases
-source ~/.git-aliases
-# load server aliases if they exist
+# load git aliases if it exists
+[ -f ~/.git-aliases ] && source ~/.git-aliases
+# load server aliases if it exists
 [ -f ~/.server-aliases ] && source ~/.server-aliases
 
 # system-dependent aliases and variables
