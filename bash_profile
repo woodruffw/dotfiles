@@ -79,21 +79,21 @@ fi
 function getconfigs()
 {
  if [ "$SYSTEM" = "Linux" ] ; then
-  curl https://www.github.com/woodruffw/dotfiles/raw/master/bash_profile -o ~/.bashrc
+  curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bashrc
  elif [ "$SYSTEM" = "Darwin" ] ; then
-  curl https://www.github.com/woodruffw/dotfiles/raw/master/bash_profile -o ~/.bash_profile
+  curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bash_profile
  fi
 
- curl https://www.github.com/woodruffw/dotfiles/raw/master/git-aliases -o ~/.git-aliases
- curl https://www.github.com/woodruffw/dotfiles/raw/master/gitconfig -o ~/.gitconfig
- curl https://www.github.com/woodruffw/dotfiles/raw/master/vimrc -o ~/.vimrc
+ curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/git-aliases -o ~/.git-aliases
+ curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/gitconfig -o ~/.gitconfig
+ curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/vimrc -o ~/.vimrc
 
  if [ `which rtorrent 2>/dev/null` ] ; then
-  curl https://www.github.com/woodruffw/dotfiles/raw/master/rtorrent.rc -o ~/.rtorrent.rc
+  curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/rtorrent.rc -o ~/.rtorrent.rc
  fi
 
  if [ `which tmux 2>/dev/null` ] ; then
-  curl https://www.github.com/woodruffw/dotfiles/raw/master/tmux.conf -o ~/.tmux.conf
+  curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf -o ~/.tmux.conf
  fi
 }
 
