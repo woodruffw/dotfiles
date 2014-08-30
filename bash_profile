@@ -21,6 +21,7 @@ alias svim='sudo vim'
 alias vi='vim'
 alias vmi='vim'
 alias vimrc='vim ~/.vimrc'
+alias gitconf='vim ~/.gitconfig'
 alias htop='htop --sort-key PERCENT_CPU'
 alias mkexec='chmod +x'
 alias la='ls -a'
@@ -32,7 +33,7 @@ alias rr='env rm -r'
 alias ttyreset='echo -e \\033c'
 
 # system-independent environment variables
-export PS1="\u@\h [\t] \W \$(parse_git_branch)$ " 
+export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
 export EDITOR='vim'
 
 # load git aliases if it exists
@@ -96,8 +97,6 @@ function getconfigs()
  if [ `which tmux 2>/dev/null` ] ; then
   curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf -o ~/.tmux.conf
  fi
-
- bashreload
 }
 
 # strlen
