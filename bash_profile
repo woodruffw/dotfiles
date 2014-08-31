@@ -29,9 +29,10 @@ alias ll='ls -l'
 alias lsg='ls | grep'
 alias lsl='ls | less'
 alias del='rm -i'
-alias rr='env rm -r'
+alias rr='rm -r'
 alias ttyreset='echo -e \\033c'
 alias ssh='ssh -o VisualHostKey=yes'
+alias ret='echo $?'
 
 # system-independent environment variables
 export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
@@ -70,7 +71,7 @@ elif [ "$SYSTEM" = "Darwin" ] ; then
     source /usr/local/etc/bash_completion
   fi
 
-  export PATH=/usr/local/bin:/usr/local/sbin:/Users/admin/scripts:/Users/admin/bin:/usr/bin:/bin:/sbin:/usr/sbin:/usr/X11/bin
+  export PATH=$PATH:/Users/$USER/bin:/Users/$USER/scripts
 fi
 
 #############
@@ -109,18 +110,6 @@ function strlen()
   echo $1 | awk '{print length}'
 }
 
-# wp - working project
-# cd to the working project, or set it if -s is tripped
-function wp()
-{
-  if [ "$1" = "-s" ] ; then
-    echo $2 > ~/.wp
-  else
-    DIR=`cat ~/.wp`
-    cd $DIR
-  fi
-}
-
 # cd - cat grep
 # pipes cat into grep
 function cg()
@@ -135,6 +124,7 @@ function qc()
   FILE=$1
   BASE=${FILE%%.*}
   cc99 $FILE -o $BASE
+  unset FILE BASE
 }
 
 # man - colorize man pages
@@ -172,3 +162,12 @@ function prj()
     cd ~/Dropbox/Programming/$1*
   fi
 }
+
+# shah - get sha1 and output just the hash
+function shah()
+{
+  shasum $1 | awk '{ print $1 }'
+}
+
+# cleanup
+unset SYSTEM
