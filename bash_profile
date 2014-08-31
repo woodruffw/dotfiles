@@ -33,6 +33,15 @@ alias rr='rm -r'
 alias ttyreset='echo -e \\033c'
 alias ssh='ssh -o VisualHostKey=yes'
 alias ret='echo $?'
+alias ..='cd ..'
+alias .2='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+
+# if colordiff is installed, alias diff to it
+if [ `which colordiff` ] ; then
+  alias diff='colordiff'
+fi
 
 # system-independent environment variables
 export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
@@ -49,7 +58,7 @@ if [ "$SYSTEM" = "Linux" ] ; then
   alias profile='vim ~/.bashrc'
   alias ls='ls -hf --color=auto'
   if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
-    alias update='sudo apt-get update ; sudo apt-get upgrade'
+    alias update='sudo apt-get update ; sudo apt-get upgrade ; sudo apt-get clean'
   elif [ -f /usr/bin/pacman ] ; then # Arch-based systems
     alias update='sudo pacman -Syyu'
   fi
@@ -107,7 +116,7 @@ function getconfigs()
 # prints the length of the first argument
 function strlen()
 {
-  echo $1 | awk '{print length}'
+  echo ${#1}
 }
 
 # cd - cat grep
