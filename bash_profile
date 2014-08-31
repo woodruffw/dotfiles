@@ -31,6 +31,7 @@ alias lsl='ls | less'
 alias del='rm -i'
 alias rr='env rm -r'
 alias ttyreset='echo -e \\033c'
+alias ssh='ssh -o VisualHostKey=yes'
 
 # system-independent environment variables
 export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
@@ -43,7 +44,7 @@ export EDITOR='vim'
 
 # system-dependent aliases and variables
 if [ "$SYSTEM" = "Linux" ] ; then
-  alias bashreload='source ~/.bashrc'
+  alias bashreload='unalias -a ; source ~/.bashrc'
   alias profile='vim ~/.bashrc'
   alias ls='ls -hf --color=auto'
   if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
@@ -54,7 +55,7 @@ if [ "$SYSTEM" = "Linux" ] ; then
 elif [ "$SYSTEM" = "Darwin" ] ; then
   alias brew='brew -v'
   alias update='brew update ; brew upgrade ; brew cleanup -s'
-  alias bashreload='source ~/.bash_profile'
+  alias bashreload='unalias -a ; source ~/.bash_profile'
   alias profile='vim ~/.bash_profile'
   alias ls='ls -h -G -F'
 
@@ -97,6 +98,8 @@ function getconfigs()
  if [ `which tmux 2>/dev/null` ] ; then
   curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf -o ~/.tmux.conf
  fi
+
+ bashreload
 }
 
 # strlen
