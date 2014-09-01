@@ -56,7 +56,7 @@ export EDITOR='vim'
 if [ "$SYSTEM" = "Linux" ] ; then
   alias bashreload='unalias -a ; source ~/.bashrc'
   alias profile='vim ~/.bashrc'
-  alias ls='ls -hf --color=auto'
+  alias ls='ls --color=auto'
   if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
     alias update='sudo apt-get update ; sudo apt-get upgrade ; sudo apt-get clean'
   elif [ -f /usr/bin/pacman ] ; then # Arch-based systems
@@ -67,7 +67,7 @@ elif [ "$SYSTEM" = "Darwin" ] ; then
   alias update='brew update ; brew upgrade ; brew cleanup -s'
   alias bashreload='unalias -a ; source ~/.bash_profile'
   alias profile='vim ~/.bash_profile'
-  alias ls='ls -h -G -F'
+  alias ls='ls -G'
 
   # if homebrew's nginx is installed
   if [ -f /usr/local/bin/nginx ] ; then
