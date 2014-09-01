@@ -82,7 +82,7 @@ elif [ "$SYSTEM" = "Darwin" ] ; then
     source /usr/local/etc/bash_completion
   fi
 
-  export PATH=$PATH:/Users/$USER/bin:/Users/$USER/scripts
+  export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/$USER/bin:/Users/$USER/scripts
 fi
 
 #############
