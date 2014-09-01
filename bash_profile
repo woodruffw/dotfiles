@@ -93,22 +93,41 @@ fi
 # IMPORTANT: overwrites .bash_profile/.bashrc, .vimrc, etc
 function getconfigs()
 {
+ printf "Fetching profile..."
  if [ "$SYSTEM" = "Linux" ] ; then
-  curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bashrc
+  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bashrc
  elif [ "$SYSTEM" = "Darwin" ] ; then
-  curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bash_profile
+  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bash_profile
  fi
+ printf "done\n"
 
- curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/git-aliases -o ~/.git-aliases
- curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/gitconfig -o ~/.gitconfig
- curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/vimrc -o ~/.vimrc
+ printf "Fetching git-aliases and gitconfigs..."
+ curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/git-aliases -o ~/.git-aliases
+ curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/gitconfig -o ~/.gitconfig
+ printf "done\n"
 
+ printf "Fetching vimrc and vim scripts..."
+ curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/vimrc -o ~/.vimrc
+ mkdir -p ~/.vim/scripts/
+ curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/vim/scripts/closetag.vim -o ~/.vim/scripts/closetag.vim
+ printf "done\n"
+
+ printf "Checking for rtorrent..."
  if [ `which rtorrent 2>/dev/null` ] ; then
-  curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/rtorrent.rc -o ~/.rtorrent.rc
+  printf "found.\nFetching rtorrent.rc..."
+  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/rtorrent.rc -o ~/.rtorrent.rc
+  printf "done\n"
+ else
+  printf "not installed. Skipping.\n"
  fi
 
+ printf "Checking for tmux..."
  if [ `which tmux 2>/dev/null` ] ; then
-  curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf -o ~/.tmux.conf
+  printf "found.\nFetching tmux.conf..."
+  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf -o ~/.tmux.conf
+  printf "done.\n"
+ else
+  printf "not installed. Skipping.\n"
  fi
 
  bashreload

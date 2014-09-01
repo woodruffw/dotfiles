@@ -13,3 +13,5 @@ inoremap <C-q> <esc>:q<cr>a
 nnoremap <C-q> :q<cr>
 
 silent !stty -ixon > /dev/null 2> /dev/null
+
+:au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim 
