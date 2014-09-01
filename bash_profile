@@ -12,6 +12,8 @@ SYSTEM=`uname`
 alias s='sudo'
 alias mk='make'
 alias mkc='make clean'
+alias smi='sudo make install'
+alias smu='sudo make uninstall'
 alias cc99='gcc -O3 -std=c99 -Wall -Wno-unused-parameter -Wextra'
 alias cc89='gcc -O3 -std=c89 -Wall -Wno-unused-parameter -Wextra'
 alias cls='clear'
