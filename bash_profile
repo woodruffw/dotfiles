@@ -61,8 +61,13 @@ if [ "$SYSTEM" = "Linux" ] ; then
   alias ls='ls --color=auto'
   if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
     alias update='sudo apt-get update ; sudo apt-get upgrade ; sudo apt-get clean'
+    alias sagi='sudo apt-get install'
+    alias sagr='sudo apt-get remove'
   elif [ -f /usr/bin/pacman ] ; then # Arch-based systems
     alias update='sudo pacman -Syyu'
+    alias sps='sudo pacman -S'
+    alias spr='sudo pacman -R'
+    alias sprs='sudo pacman -Rs'
   fi
 elif [ "$SYSTEM" = "Darwin" ] ; then
   alias brew='brew -v'
@@ -93,44 +98,44 @@ fi
 # IMPORTANT: overwrites .bash_profile/.bashrc, .vimrc, etc
 function getconfigs()
 {
- printf "Fetching profile..."
- if [ "$SYSTEM" = "Linux" ] ; then
-  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bashrc
- elif [ "$SYSTEM" = "Darwin" ] ; then
-  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bash_profile
- fi
- printf "done\n"
-
- printf "Fetching git-aliases and gitconfigs..."
- curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/git-aliases -o ~/.git-aliases
- curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/gitconfig -o ~/.gitconfig
- printf "done\n"
-
- printf "Fetching vimrc and vim scripts..."
- curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/vimrc -o ~/.vimrc
- mkdir -p ~/.vim/scripts/
- curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/vim/scripts/closetag.vim -o ~/.vim/scripts/closetag.vim
- printf "done\n"
-
- printf "Checking for rtorrent..."
- if [ `which rtorrent 2>/dev/null` ] ; then
-  printf "found.\nFetching rtorrent.rc..."
-  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/rtorrent.rc -o ~/.rtorrent.rc
+  printf "Fetching profile..."
+  if [ "$SYSTEM" = "Linux" ] ; then
+    curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bashrc
+  elif [ "$SYSTEM" = "Darwin" ] ; then
+    curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile -o ~/.bash_profile
+  fi
   printf "done\n"
- else
-  printf "not installed. Skipping.\n"
- fi
 
- printf "Checking for tmux..."
- if [ `which tmux 2>/dev/null` ] ; then
-  printf "found.\nFetching tmux.conf..."
-  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf -o ~/.tmux.conf
-  printf "done.\n"
- else
-  printf "not installed. Skipping.\n"
- fi
+  printf "Fetching git-aliases and gitconfigs..."
+  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/git-aliases -o ~/.git-aliases
+  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/gitconfig -o ~/.gitconfig
+  printf "done\n"
 
- bashreload
+  printf "Fetching vimrc and vim scripts..."
+  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/vimrc -o ~/.vimrc
+  mkdir -p ~/.vim/scripts/
+  curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/vim/scripts/closetag.vim -o ~/.vim/scripts/closetag.vim
+  printf "done\n"
+
+  printf "Checking for rtorrent..."
+  if [ `which rtorrent 2>/dev/null` ] ; then
+    printf "found.\nFetching rtorrent.rc..."
+    curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/rtorrent.rc -o ~/.rtorrent.rc
+    printf "done\n"
+  else
+    printf "not installed. Skipping.\n"
+  fi
+
+  printf "Checking for tmux..."
+  if [ `which tmux 2>/dev/null` ] ; then
+    printf "found.\nFetching tmux.conf..."
+    curl -s https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf -o ~/.tmux.conf
+    printf "done.\n"
+  else
+    printf "not installed. Skipping.\n"
+  fi
+
+  bashreload
 }
 
 # strlen
