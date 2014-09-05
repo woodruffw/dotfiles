@@ -204,3 +204,8 @@ function shah()
   shasum $1 | awk '{ print $1 }'
 }
 
+# rmhk - remove a host key from ~/.ssh/known_hosts
+function rmhk()
+{
+  sed -i "$1d" ~/.ssh/known_hosts
+}
