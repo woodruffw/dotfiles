@@ -41,7 +41,7 @@ alias .3='cd ../../..'
 alias .4='cd ../../../..'
 
 # if colordiff is installed, alias diff to it
-if [ `which colordiff` ] ; then
+if [ `which colordiff` 2> /dev/null ] ; then
   alias diff='colordiff'
 fi
 
@@ -134,6 +134,8 @@ function getconfigs()
   else
     printf "not installed. Skipping.\n"
   fi
+
+  bashreload
 }
 
 # strlen
