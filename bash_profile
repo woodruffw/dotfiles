@@ -43,7 +43,7 @@ alias cronedit='crontab -e'
 alias cronls='crontab -l'
 
 # if colordiff is installed, alias diff to it
-if [ `which colordiff` 2> /dev/null ] ; then
+if [ `which colordiff 2> /dev/null` ] ; then
   alias diff='colordiff'
 fi
 
@@ -121,7 +121,7 @@ function getconfigs()
   printf "done\n"
 
   printf "Checking for rtorrent..."
-  if [ `which rtorrent 2>/dev/null` ] ; then
+  if [ `which rtorrent 2> /dev/null` ] ; then
     printf "found.\nFetching rtorrent.rc..."
     curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/rtorrent.rc" -o ~/.rtorrent.rc
     printf "done\n"
@@ -130,7 +130,7 @@ function getconfigs()
   fi
 
   printf "Checking for tmux..."
-  if [ `which tmux 2>/dev/null` ] ; then
+  if [ `which tmux 2> /dev/null` ] ; then
     printf "found.\nFetching tmux.conf..."
     curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf" -o ~/.tmux.conf
     printf "done.\n"
