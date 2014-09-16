@@ -39,6 +39,8 @@ alias ..='cd ..'
 alias .2='cd ../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
+alias cronedit='crontab -e'
+alias cronls='crontab -l'
 
 # if colordiff is installed, alias diff to it
 if [ `which colordiff` 2> /dev/null ] ; then
