@@ -14,4 +14,8 @@ nnoremap <C-q> :q<cr>
 
 silent !stty -ixon > /dev/null 2> /dev/null
 
-:au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim 
+:au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+
+if system('uname') =~ 'Darwin'
+  au BufEnter /private/tmp/crontab.* setl backupcopy=yes
+endif
