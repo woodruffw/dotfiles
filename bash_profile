@@ -80,6 +80,7 @@ elif [ "$SYSTEM" = "Darwin" ] ; then
   if [ -f /usr/local/bin/nginx ] ; then
     alias nginxconf='vim /usr/local/etc/nginx/nginx.conf'
     alias nginxreload='sudo nginx -s reload'
+    alias www='cd /usr/local/var/www'
   fi
 
   # if homebrew's bash-completion is installed
