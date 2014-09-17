@@ -36,3 +36,10 @@ function gpod()
 	git push origin :$1
 }
 
+function quickcommit()
+{
+	git add .
+	git commit -m "commit @ $(date)"
+	git push origin master
+}
+
