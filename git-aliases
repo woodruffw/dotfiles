@@ -5,7 +5,7 @@
 #  Licensed under the MIT License (http://opensource.org/licenses/MIT)
 
 alias gi='git init'
-alias ga='git add'
+alias ga='git add --all'
 alias gd='git diff'
 alias gdmom='git diff master origin/master'
 alias gp='git push'
