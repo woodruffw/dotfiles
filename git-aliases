@@ -32,6 +32,7 @@ alias gcm='git commit -m'
 alias gl='git log'
 alias gsl='git shortlog'
 alias ggc='git gc'
+alias gsg='git stage'
 
 function gpod()
 {
