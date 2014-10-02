@@ -10,6 +10,7 @@ SYSTEM=`uname`
 
 # system-independent aliases
 alias s='sudo'
+alias m='man'
 alias mk='make'
 alias mkc='make clean'
 alias smi='sudo make install'
