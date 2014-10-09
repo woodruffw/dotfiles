@@ -64,8 +64,10 @@ if [ "$SYSTEM" = "Linux" ] ; then
   alias ls='ls --color=auto'
   if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
     alias update='sudo apt-get update ; sudo apt-get upgrade ; sudo apt-get clean'
+    alias sagu='sudo apt-get update'
     alias sagi='sudo apt-get install'
     alias sagr='sudo apt-get remove'
+    alias sagar='sudo apt-get autoremove'
   elif [ -f /usr/bin/pacman ] ; then # Arch-based systems
     alias update='sudo pacman -Syyu'
     alias sps='sudo pacman -S'
