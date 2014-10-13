@@ -148,6 +148,8 @@ function getconfigs()
   mkdir -p ~/scripts
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/$" -o ~/scripts/$
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/%" -o ~/scripts/%
+  chmod +x ~/scripts/*
+  printf "done\n"
 
   bashreload
 }
