@@ -76,7 +76,7 @@ if [ "$SYSTEM" = "Linux" ] ; then
   fi
 
   export PATH="$PATH:/home/$USER/bin:/home/$USER/scripts"
-  
+
 elif [ "$SYSTEM" = "Darwin" ] ; then
   alias brew='brew -v'
   alias update='brew update ; brew upgrade ; brew cleanup -s'
@@ -143,6 +143,11 @@ function getconfigs()
   else
     printf "not installed. Skipping.\n"
   fi
+
+  printf "Fetching scripts..."
+  mkdir -p ~/scripts
+  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/$" -o ~/scripts/$
+  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/%" -o ~/scripts/%
 
   bashreload
 }
