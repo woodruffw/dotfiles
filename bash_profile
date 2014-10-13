@@ -74,6 +74,9 @@ if [ "$SYSTEM" = "Linux" ] ; then
     alias spr='sudo pacman -R'
     alias sprs='sudo pacman -Rs'
   fi
+
+  export PATH="$PATH:/home/$USER/bin:/home/$USER/scripts"
+  
 elif [ "$SYSTEM" = "Darwin" ] ; then
   alias brew='brew -v'
   alias update='brew update ; brew upgrade ; brew cleanup -s'
