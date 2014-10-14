@@ -3,6 +3,7 @@
 ############################
 
 SYSTEM=`uname`
+HOST=`hostname`
 
 ############################
 # Aliases and Enivironment #
@@ -34,7 +35,7 @@ alias lsl='ls | less'
 alias del='rm -i'
 alias rr='rm -r'
 alias ttyreset='echo -e \\033c'
-alias ssh='ssh -o VisualHostKey=yes'
+alias ssh='ssh -o VisualHostKey=yes -X'
 alias ret='echo $?'
 alias ..='cd ..'
 alias .2='cd ../..'
@@ -152,7 +153,9 @@ function getconfigs()
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/%" -o ~/scripts/%
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colorscheme" -o ~/scripts/colorscheme
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colorscheme2" -o ~/scripts/colorscheme2
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/afs-umd" -o ~/scripts/afs-umd
+  if [ "$HOST" = "mercury" ] ; then
+    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/afs-umd" -o ~/scripts/afs-umd
+  fi
   chmod +x ~/scripts/*
   printf "done\n"
 
