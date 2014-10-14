@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# afs-umd: connect to the UMD AFS shares
+
+[ -x /sbin/afsd ] || exit 1
+kinit woodrufw
+aklog
