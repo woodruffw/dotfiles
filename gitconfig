@@ -1,3 +1,7 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
 [user]
 	email = william@tuffbizz.com
 	name = William Woodruff

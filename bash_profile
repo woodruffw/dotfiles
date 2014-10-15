@@ -16,6 +16,7 @@ alias mk='make'
 alias mkc='make clean'
 alias smi='sudo make install'
 alias smu='sudo make uninstall'
+alias cm='cmake'
 alias cc99='gcc -O3 -std=c99 -Wall -Wno-unused-parameter -Wextra'
 alias cc89='gcc -O3 -std=c89 -Wall -Wno-unused-parameter -Wextra'
 alias cls='clear'
@@ -45,6 +46,7 @@ alias cronedit='crontab -e'
 alias cronls='crontab -l'
 alias reboot='sudo reboot'
 alias rmhk='ssh-keygen -R'
+alias path='echo $PATH'
 
 # if colordiff is installed, alias diff to it
 if [ `which colordiff 2> /dev/null` ] ; then
@@ -153,9 +155,12 @@ function getconfigs()
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/%" -o ~/scripts/%
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colorscheme" -o ~/scripts/colorscheme
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colorscheme2" -o ~/scripts/colorscheme2
+
+  # afs-umd is only required on mercury
   if [ "$HOST" = "mercury" ] ; then
     curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/afs-umd" -o ~/scripts/afs-umd
   fi
+
   chmod +x ~/scripts/*
   printf "done\n"
 
