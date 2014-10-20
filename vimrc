@@ -12,6 +12,10 @@ nnoremap <C-s> :w<cr>
 inoremap <C-q> <esc>:q<cr>a
 nnoremap <C-q> :q<cr>
 
+inoremap { {<CR>}<Esc>ko
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+
 silent !stty -ixon > /dev/null 2> /dev/null
 
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
