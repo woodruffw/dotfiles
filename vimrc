@@ -1,6 +1,7 @@
 :set mouse=a
 syntax on
-:set autoindent
+set autoindent
+set smartindent
 :set backspace=indent,eol,start
 set number
 :set hlsearch
