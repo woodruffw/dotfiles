@@ -46,3 +46,8 @@ function quickcommit()
 	git push origin master
 }
 
+function gfg()
+{
+	git clone https://github.com/woodruffw/$1.git
+}
+
