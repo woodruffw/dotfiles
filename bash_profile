@@ -67,6 +67,12 @@ if [ "$SYSTEM" = "Linux" ] ; then
   alias bashreload='unalias -a ; source ~/.bashrc'
   alias profile='vim ~/.bashrc'
   alias ls='ls --color=auto'
+
+  if [ "$HOST" = "athena" ] ; then
+    alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
+    alias www='cd /usr/share/nginx/html'
+  fi
+
   if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
     alias update='sudo apt-get update ; sudo apt-get upgrade ; sudo apt-get clean'
     alias sagu='sudo apt-get update'
