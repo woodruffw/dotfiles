@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# wwwbackup: back woodruffw.us files up to git repository
+
+[ "$(hostname)" = "athena" ] || echo "Wrong host, dummy." && exit 1
+
 rm -rf ~/website/www/*
 cp -r /usr/share/nginx/html/* ~/website/www/
 pushd . > /dev/null
