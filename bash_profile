@@ -172,7 +172,7 @@ function getconfigs()
 
   # wwwbackup is only required on athena
   if [ "$HOST" = "athena" ] ; then
-    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/wwwbackup" -o ~/scripts/afs-umd
+    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/wwwbackup" -o ~/scripts/wwwbackup
   fi
 
   chmod +x ~/scripts/*
