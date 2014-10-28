@@ -173,7 +173,6 @@ function getconfigs()
   # wwwbackup is only required on athena
   if [ "$HOST" = "athena" ] ; then
     curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/wwwbackup" -o ~/scripts/wwwbackup
-    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/athena.cron" -o ~/scripts/tasks.cron
   fi
 
   chmod +x ~/scripts/*
@@ -247,14 +246,3 @@ function shah()
 {
   shasum $1 | awk '{ print $1 }'
 }
-
-#########
-# TASKS #
-#########
-
-# make sure the most recent version of the tasks cronfile has been loaded
-if [ "$HOST" = "athena" ]; then
-  crontab -r
-  crontab ~/scripts/tasks.cron
-fi
-
