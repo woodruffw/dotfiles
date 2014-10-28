@@ -3,9 +3,9 @@
 rm -rf ~/website/www/*
 cp -r /usr/share/nginx/html/* ~/website/www/
 pushd . > /dev/null
-cd ~/website
-git add .
-git commit -m "scripted backup at $(date)"
+cd ~/website 
+git add --all . > /dev/null
+git commit -m "scripted commit at $(date)" > /dev/null
 popd > /dev/null
 
 exit 0
