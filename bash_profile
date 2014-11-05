@@ -2,8 +2,8 @@
 # bash_profile (or bashrc) #
 ############################
 
-SYSTEM=`uname`
-HOST=`hostname`
+system=`uname`
+host=`hostname`
 
 ############################
 # Aliases and Enivironment #
@@ -66,12 +66,12 @@ export EDITOR='vim'
 [ -f ~/.server-aliases ] && source ~/.server-aliases
 
 # system-dependent aliases and variables
-if [ "$SYSTEM" = "Linux" ] ; then
+if [ "$system" = "Linux" ] ; then
   alias bashreload='unalias -a ; source ~/.bashrc'
   alias profile='vim ~/.bashrc'
   alias ls='ls --color=auto'
 
-  if [ "$HOST" = "athena" ] ; then
+  if [ "$host" = "athena" ] ; then
     alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
     alias www='cd /usr/share/nginx/html'
   fi
@@ -91,7 +91,7 @@ if [ "$SYSTEM" = "Linux" ] ; then
 
   export PATH="$PATH:/home/$USER/bin:/home/$USER/scripts"
 
-elif [ "$SYSTEM" = "Darwin" ] ; then
+elif [ "$system" = "Darwin" ] ; then
   alias brew='brew -v'
   alias update='brew update ; brew upgrade ; brew cleanup -s'
   alias bashreload='unalias -a ; source ~/.bash_profile'
@@ -140,9 +140,9 @@ function getconfigs()
   fi
 
   printf "Reloading profile..."
-  if [ "$SYSTEM" = "Linux" ] ; then
+  if [ "$system" = "Linux" ] ; then
     cp ~/.dotfiles/bash_profile ~/.bashrc
-  elif [ "$SYSTEM" = "Darwin" ] ; then
+  elif [ "$system" = "Darwin" ] ; then
     cp ~/.dotfiles/bash_profile ~/.bash_profile
   fi
   printf "done\n"
@@ -185,12 +185,12 @@ function getconfigs()
   cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
 
   # afs-umd is only required on mercury
-  if [ "$HOST" = "mercury" ] ; then
+  if [ "$host" = "mercury" ] ; then
     cp ~/.dotfiles/scripts/afs-umd ~/scripts/afs-umd
   fi
 
   # wwwbackup is only required on athena
-  if [ "$HOST" = "athena" ] ; then
+  if [ "$host" = "athena" ] ; then
     cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
   fi
 
