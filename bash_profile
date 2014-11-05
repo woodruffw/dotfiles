@@ -164,6 +164,7 @@ function getconfigs()
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/%" -o ~/scripts/%
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colorscheme" -o ~/scripts/colorscheme
   curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colorscheme2" -o ~/scripts/colorscheme2
+  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colormake" -o ~/scripts/colormake
 
   # afs-umd is only required on mercury
   if [ "$HOST" = "mercury" ] ; then
@@ -193,16 +194,6 @@ function strlen()
 function cg()
 {
   cat $1 | grep $2
-}
-
-# qc - quick compile
-# compiles with cc99 (see alias above) and outputs to a file with a "good" name
-function qc()
-{
-  FILE=$1
-  BASE=${FILE%%.*}
-  cc99 $FILE -o $BASE
-  unset FILE BASE
 }
 
 # man - colorize man pages
