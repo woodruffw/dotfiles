@@ -12,6 +12,7 @@ HOST=`hostname`
 # system-independent aliases
 alias s='sudo'
 alias m='man'
+alias make='colormake'
 alias mk='make'
 alias mkc='make clean'
 alias smi='sudo make install'
