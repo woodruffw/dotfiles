@@ -122,10 +122,15 @@ fi
 # IMPORTANT: overwrites .bash_profile/.bashrc, .vimrc, etc
 function getconfigs()
 {
+  if [ ! `which git 2> /dev/null` ] ; then
+    echo "Fatal: git required to fetch configs."
+    exit 1
+  fi
+
   pushd . > /dev/null
 
   # make sure the dotfiles repo exists and isn't clobbered
-  if [[ ! -d ~/.dotfiles/.git ]]; then
+  if [[ ! -d ~/.dotfiles/.git ]] ; then
     rm -rf ~/.dotfiles
     git clone https://github.com/woodruffw/dotfiles ~/.dotfiles > /dev/null
     cd ~/.dotfiles
