@@ -191,7 +191,7 @@ function getconfigs()
 
   # wwwbackup is only required on athena
   if [ "$HOST" = "athena" ] ; then
-    cp ~/.dotfiles/scripts/wwwbackup -o ~/scripts/wwwbackup
+    cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
   fi
 
   chmod +x ~/scripts/*
