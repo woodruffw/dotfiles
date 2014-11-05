@@ -122,29 +122,42 @@ fi
 # IMPORTANT: overwrites .bash_profile/.bashrc, .vimrc, etc
 function getconfigs()
 {
-  printf "Fetching profile..."
+  pushd . > /dev/null
+
+  # make sure the dotfiles repo exists and isn't clobbered
+  if [[ ! -d ~/.dotfiles/.git ]]; then
+    rm -rf ~/.dotfiles
+    git clone https://github.com/woodruffw/dotfiles ~/.dotfiles
+    cd ~/.dotfiles
+  else
+    cd ~/.dotfiles
+    git fetch origin
+    git merge origin/master
+  fi
+
+  printf "Reloading profile..."
   if [ "$SYSTEM" = "Linux" ] ; then
-    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile" -o ~/.bashrc
+    cp ~/.dotfiles/bash_profile ~/.bashrc
   elif [ "$SYSTEM" = "Darwin" ] ; then
-    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/bash_profile" -o ~/.bash_profile
+    cp ~/.dotfiles/bash_profile ~/.bash_profile
   fi
   printf "done\n"
 
-  printf "Fetching git-aliases and gitconfig..."
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/git-aliases" -o ~/.git-aliases
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/gitconfig" -o ~/.gitconfig
+  printf "Reloading git-aliases and gitconfig..."
+  cp ~/.dotfiles/git-aliases ~/.git-aliases
+  cp ~/.dotfiles/gitconfig ~/.gitconfig
   printf "done\n"
 
-  printf "Fetching vimrc and vim scripts..."
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/vimrc" -o ~/.vimrc
+  printf "Reloading vimrc and vim scripts..."
+  cp ~/.dotfiles/vimrc ~/.vimrc
   mkdir -p ~/.vim/scripts/
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/vim/scripts/closetag.vim" -o ~/.vim/scripts/closetag.vim
+  cp ~/.dotfiles/vim/scripts/closetag.vim ~/.vim/scripts/closetag.vim
   printf "done\n"
 
   printf "Checking for rtorrent..."
   if [ `which rtorrent 2> /dev/null` ] ; then
-    printf "found.\nFetching rtorrent.rc..."
-    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/rtorrent.rc" -o ~/.rtorrent.rc
+    printf "found.\nReloading rtorrent.rc..."
+    cp ~/.dotfiles/rtorrent.rc ~/.rtorrent.rc
     printf "done\n"
   else
     printf "not installed. Skipping.\n"
@@ -152,8 +165,8 @@ function getconfigs()
 
   printf "Checking for tmux..."
   if [ `which tmux 2> /dev/null` ] ; then
-    printf "found.\nFetching tmux.conf..."
-    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/tmux.conf" -o ~/.tmux.conf
+    printf "found.\nReloading tmux.conf..."
+    cp ~/.dotfiles/tmux.conf ~/.tmux.conf
     printf "done.\n"
   else
     printf "not installed. Skipping.\n"
@@ -161,24 +174,26 @@ function getconfigs()
 
   printf "Fetching scripts..."
   mkdir -p ~/scripts
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/$" -o ~/scripts/$
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/%" -o ~/scripts/%
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colorscheme" -o ~/scripts/colorscheme
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colorscheme2" -o ~/scripts/colorscheme2
-  curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/colormake" -o ~/scripts/colormake
+  cp ~/.dotfiles/scripts/$ ~/scripts/$
+  cp ~/.dotfiles/scripts/% ~/scripts/%
+  cp ~/.dotfiles/scripts/colorscheme ~/scripts/colorscheme
+  cp ~/.dotfiles/scripts/colorscheme2 ~/scripts/colorscheme2
+  cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
 
   # afs-umd is only required on mercury
   if [ "$HOST" = "mercury" ] ; then
-    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/afs-umd" -o ~/scripts/afs-umd
+    cp ~/.dotfiles/scripts/afs-umd ~/scripts/afs-umd
   fi
 
   # wwwbackup is only required on athena
   if [ "$HOST" = "athena" ] ; then
-    curl -s "https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/wwwbackup" -o ~/scripts/wwwbackup
+    cp ~/.dotfiles/scripts/wwwbackup -o ~/scripts/wwwbackup
   fi
 
   chmod +x ~/scripts/*
   printf "done\n"
+
+  popd > /dev/null
 
   bashreload
 }
