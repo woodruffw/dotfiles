@@ -135,7 +135,7 @@ function getconfigs()
     cd ~/.dotfiles
   else
     cd ~/.dotfiles
-    git fetch origin > /dev/null
+    git fetch origin --quiet > /dev/null
     git merge origin/master > /dev/null
   fi
 
