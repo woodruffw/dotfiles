@@ -127,12 +127,12 @@ function getconfigs()
   # make sure the dotfiles repo exists and isn't clobbered
   if [[ ! -d ~/.dotfiles/.git ]]; then
     rm -rf ~/.dotfiles
-    git clone https://github.com/woodruffw/dotfiles ~/.dotfiles
+    git clone https://github.com/woodruffw/dotfiles ~/.dotfiles > /dev/null
     cd ~/.dotfiles
   else
     cd ~/.dotfiles
-    git fetch origin
-    git merge origin/master
+    git fetch origin > /dev/null
+    git merge origin/master > /dev/null
   fi
 
   printf "Reloading profile..."
