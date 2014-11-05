@@ -4,7 +4,7 @@
 
 # what an ugly command.
 # one of these days i'll make it better.
-make $@ 2>&1 | sed -e 's/.*\bWARN.*/\x1b[33m&\033[0m/i'\
+make $@ 2>&1 | sed -e 's/.*\bWARN.*/\x1b[33m&\x1b[0m/i'\
 				-e 's/.*\bERR.*/\x1b[31m&\x1b[0m/i' \
 				-e 's/.*\bGCC/\x1b[36m&\x1b[0m/i' \
 				-e 's/.*\bCC/\x1b[36m&\x1b[0m/i' \
