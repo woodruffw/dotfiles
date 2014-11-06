@@ -11,5 +11,6 @@ make $@ 2>&1 | sed -e 's/\bWARN.*/\x1b[33m&\x1b[0m/i'\
 				-e 's/\bCLANG/\x1b[36m&\x1b[0m/i' \
 				-e 's/\bRM/\x1b[32m&\x1b[0m/i' \
 				-e 's/\bCD/\x1b[32m&\x1b[0m/i' \
+				-e 's/\bLD/\x1b[32m&\x1b[0m/i' \
 				-e 's/\bINSTALL/\x1b[32m&\x1b[0m/i' \
 				-e 's/\bMAKE/\x1b[34m&\x1b[0m/i'
