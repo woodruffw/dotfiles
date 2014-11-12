@@ -59,6 +59,7 @@ fi
 # system-independent environment variables
 export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
 export EDITOR='vim'
+export MARKPATH=$HOME/.marks
 
 # load git aliases if it exists
 [ -f ~/.git-aliases ] && source ~/.git-aliases
@@ -257,3 +258,52 @@ function shah()
 {
   shasum $1 | awk '{ print $1 }'
 }
+
+# jmp (jump) and friends, shamelessly taken from:
+# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+function jmp()
+{
+  cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+
+function mark()
+{
+  mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+
+function unmark()
+{
+  rm -i "$MARKPATH/$1"
+}
+
+function marks()
+{
+  ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+}
+
+
+########################
+# COMPLETION FUNCTIONS #
+########################
+
+function _completemarks()
+{
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  return 0
+}
+
+function _completeprj()
+{
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(ls ~/Dropbox/Programming)
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+}
+
+###########################
+# COMPLETION ASSOCIATIONS #
+###########################
+
+complete -F _completemarks jmp unmark
+complete -F _completeprj prj
