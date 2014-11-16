@@ -306,3 +306,4 @@ function _completeprj()
 
 complete -F _completemarks jmp unmark
 complete -F _completeprj prj
+
