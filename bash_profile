@@ -291,14 +291,14 @@ function marks()
 function _completemarks()
 {
   local curw=${COMP_WORDS[COMP_CWORD]}
-  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+  local wordlist=$(find $MARKPATH -type l -printf "%f\n" 2> /dev/null)
   COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
 }
 
 function _completeprj()
 {
   local curw=${COMP_WORDS[COMP_CWORD]}
-  local wordlist=$(ls ~/Dropbox/Programming)
+  local wordlist=$(ls ~/Dropbox/Programming 2> /dev/null)
   COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
 }
 
@@ -308,3 +308,4 @@ function _completeprj()
 
 complete -F _completemarks jmp unmark
 complete -F _completeprj prj
+
