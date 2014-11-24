@@ -65,6 +65,8 @@ export MARKPATH=$HOME/.marks
 [ -f ~/.git-aliases ] && source ~/.git-aliases
 # load server aliases if it exists
 [ -f ~/.server-aliases ] && source ~/.server-aliases
+# load bash completion if it exists
+[ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # system-dependent aliases and variables
 if [ "$system" = "Linux" ] ; then
