@@ -61,6 +61,10 @@ export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ "
 export EDITOR='vim'
 export MARKPATH=$HOME/.marks
 
+# unset LESSOPEN and LESSPIPE (never used, and a security hole)
+unset LESSOPEN
+unset LESSPIPE
+
 # load git aliases if it exists
 [ -f ~/.git-aliases ] && source ~/.git-aliases
 # load server aliases if it exists
