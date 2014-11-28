@@ -295,7 +295,7 @@ function marks()
 function _completemarks()
 {
   local curw=${COMP_WORDS[COMP_CWORD]}
-  local wordlist=$(find $MARKPATH -type l -printf "%f\n" 2> /dev/null)
+  local wordlist=$(ls $MARKPATH 2> /dev/null)
   COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
 }
 
