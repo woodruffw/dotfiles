@@ -19,8 +19,7 @@ mail = SendGrid::Mail.new do |m|
 	m.from = "dailymail@#{host}"
 	m.to = 'william@tuffbizz.com'
 	m.subject = "Daily report for #{host}"
-	m.text = %{
-Greetings from #{host}!
+	m.text = %{Greetings from #{host}!
 Uptime: #{uptime}
 Internal IP: #{internal_ip}
 External IP: #{external_ip}
