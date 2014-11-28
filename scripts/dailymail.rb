@@ -7,7 +7,7 @@ require 'net/http'
 host = Socket.gethostname
 uptime = `uptime`
 internal_ip = Socket.ip_address_list.detect{|ip| ip.ipv4_private?}.ip_address
-external_ip = Net::HTTP.get('http://ipecho.net/plain')
+external_ip = Net::HTTP.get(URI('http://ipecho.net/plain'))
 disks = `df -h`
 
 client = SendGrid::Client.new do |c|
@@ -20,12 +20,12 @@ mail = SendGrid::Mail.new do |m|
 	m.to = 'william@tuffbizz.com'
 	m.subject = "Daily report for #{host}"
 	m.text = %{
-		Uptime: #{uptime}
-		Internal IP: #{internal_ip}
-		External IP: #{external_ip}
-		Disk status:
-		#{disks}
-	}
+Greetings from #{host}!
+Uptime: #{uptime}
+Internal IP: #{internal_ip}
+External IP: #{external_ip}
+Disk status:
+#{disks}}
 end
 
 client.send(mail)
