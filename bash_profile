@@ -154,24 +154,24 @@ function getconfigs()
   elif [ "$system" = "Darwin" ] ; then
     cp ~/.dotfiles/bash_profile ~/.bash_profile
   fi
-  printf "done\n"
+  printf "done.\n"
 
   printf "Reloading git-aliases and gitconfig..."
   cp ~/.dotfiles/git-aliases ~/.git-aliases
   cp ~/.dotfiles/gitconfig ~/.gitconfig
-  printf "done\n"
+  printf "done.\n"
 
   printf "Reloading vimrc and vim scripts..."
   cp ~/.dotfiles/vimrc ~/.vimrc
   mkdir -p ~/.vim/scripts/
   cp ~/.dotfiles/vim/scripts/closetag.vim ~/.vim/scripts/closetag.vim
-  printf "done\n"
+  printf "done.\n"
 
   printf "Checking for rtorrent..."
   if [ `which rtorrent 2> /dev/null` ] ; then
     printf "found.\nReloading rtorrent.rc..."
     cp ~/.dotfiles/rtorrent.rc ~/.rtorrent.rc
-    printf "done\n"
+    printf "done.\n"
   else
     printf "not installed. Skipping.\n"
   fi
@@ -205,16 +205,16 @@ function getconfigs()
     cp ~/.dotfiles/scripts/dailymail ~/scripts/dailymail
   fi
   chmod +x ~/scripts/*
-  printf "done\n"
+  printf "done.\n"
 
   printf "Fetching crontab..."
   if [ -f ~/.dotfiles/scripts/crontabs/$host.cron ] ; then
     cp ~/.dotfiles/scripts/crontabs/$host.cron ~/scripts/$host.cron
     crontab -r
     crontab ~/scripts/$host.cron
-    printf "done\n"
+    printf "done.\n"
   else
-    printf "none required\n"
+    printf "none required.\n"
   fi
 
   popd > /dev/null
