@@ -202,7 +202,7 @@ function getconfigs()
   fi
   # dailymail is only required on mars
   if [ "$host" = "mars" ] ; then
-    cp ~/.dotfiles/scripts/dailymail ~/scripts/dailymail
+    cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
   fi
   chmod +x ~/scripts/*
   printf "done.\n"
