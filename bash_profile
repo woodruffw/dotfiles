@@ -192,19 +192,30 @@ function getconfigs()
   cp ~/.dotfiles/scripts/colorscheme ~/scripts/colorscheme
   cp ~/.dotfiles/scripts/colorscheme2 ~/scripts/colorscheme2
   cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
-
   # afs-umd is only required on mercury
   if [ "$host" = "mercury" ] ; then
     cp ~/.dotfiles/scripts/afs-umd ~/scripts/afs-umd
   fi
-
   # wwwbackup is only required on athena
   if [ "$host" = "athena" ] ; then
     cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
   fi
-
+  # dailymail is only required on mars
+  if [ "$host" = "mars" ] ; then
+    cp ~/.dotfiles/scripts/dailymail ~/scripts/dailymail
+  fi
   chmod +x ~/scripts/*
   printf "done\n"
+
+  printf "Fetching crontab..."
+  if [ -f ~/.dotfiles/scripts/crontabs/$host.cron ] ; then
+    cp ~/.dotfiles/scripts/crontabs/$host.cron ~/scripts/$host.cron
+    crontab -r
+    crontab ~/scripts/$host.cron
+    printf "done\n"
+  else
+    printf "none required\n"
+  fi
 
   popd > /dev/null
 
