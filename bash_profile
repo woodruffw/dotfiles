@@ -73,7 +73,7 @@ unset LESSPIPE
 if [ -d ~/.api-keys ] ; then
   for f in `ls ~/.api-keys`
   do
-    source $f
+    source ~/.api-keys/$f
   done
 fi
 # load bash completion if it exists
