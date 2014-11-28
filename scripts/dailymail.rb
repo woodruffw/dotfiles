@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'sendmail-api'
+require 'sendgrid-ruby'
 require 'socket'
 require 'net/http'
 
