@@ -70,7 +70,7 @@ unset LESSPIPE
 # load server aliases if it exists
 [ -f ~/.server-aliases ] && source ~/.server-aliases
 # load API key files if they exist
-[ -f ~/.api-keys/* ] && source ~/.api-keys/*
+[ `find ~/.api-keys/ -maxdepth 0 -empty` ] || source ~/.api-keys/*
 # load bash completion if it exists
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
