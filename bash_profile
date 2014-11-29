@@ -213,7 +213,8 @@ function getconfigs()
   chmod +x ~/scripts/*
   printf "done.\n"
 
-  printf "Fetching crontab..."
+  printf "Fetching cron-shunt and crontab..."
+  cp ~/.dotfiles/scripts/cron-shunt ~/scripts/cron-shunt
   if [ -f ~/.dotfiles/scripts/crontabs/$host.cron ] ; then
     cp ~/.dotfiles/scripts/crontabs/$host.cron ~/scripts/$host.cron
     crontab -r
