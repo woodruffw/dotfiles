@@ -2,8 +2,6 @@
 
 # colormake: primitive make colorizing.
 
-[ `uname` = "Darwin" ] && alias sed='gsed'
-
 # what an ugly command.
 # one of these days i'll make it better.
 make $@ 2>&1 | sed -e 's/\bWARNING/\x1b[33m&\x1b[0m/i'\
@@ -16,5 +14,3 @@ make $@ 2>&1 | sed -e 's/\bWARNING/\x1b[33m&\x1b[0m/i'\
 				-e 's/\bLD/\x1b[32m&\x1b[0m/i' \
 				-e 's/\bINSTALL/\x1b[32m&\x1b[0m/i' \
 				-e 's/\bMAKE/\x1b[34m&\x1b[0m/i'
-
-[ `uname` = "Darwin" ] && unalias sed='gsed'
