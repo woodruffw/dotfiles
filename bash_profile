@@ -201,9 +201,10 @@ function getconfigs()
   if [ "$host" = "mercury" ] ; then
     cp ~/.dotfiles/scripts/afs-umd ~/scripts/afs-umd
   fi
-  # wwwbackup is only required on athena
+  # wwwbackup, twitter-fortune-bot only required on athena
   if [ "$host" = "athena" ] ; then
     cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
+    cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
   fi
   # dailymail is only required on mars
   if [ "$host" = "mars" ] ; then
