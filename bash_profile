@@ -224,6 +224,15 @@ function getconfigs()
 
   popd > /dev/null
 
+  printf "Sync dotfiles-priv? (y/N): " && read ans
+  if [ "$ans" = "y" ] || [ "$ans" = "Y" ] ; then
+    git clone https://github.com/woodruffw/dotfiles-priv
+    dotfiles-priv/install.sh
+    rm -rf dotfiles-priv
+  fi
+
+  echo "All done."
+
   bashreload
 }
 
