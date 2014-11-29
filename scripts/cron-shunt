@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# cron-shunt: loads the environment, then evals the first argument
+
+echo $PATH
+
+[ `uname` = "Linux" ] && source ~/.bashrc
+[ `uname` = "Darwin" ] && source ~/.bash_profile
+
+echo $PATH
+
+eval "$HOME/scripts/$1"
