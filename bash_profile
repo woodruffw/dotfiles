@@ -226,7 +226,7 @@ function getconfigs()
 
   printf "Sync dotfiles-priv? (y/N): " && read ans
   if [ "$ans" = "y" ] || [ "$ans" = "Y" ] ; then
-    git clone https://github.com/woodruffw/dotfiles-priv
+    git clone https://github.com/woodruffw/dotfiles-priv 2> /dev/null
     pushd . > /dev/null
     cd dotfiles-priv
     ./install.sh
