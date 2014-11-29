@@ -228,6 +228,7 @@ function getconfigs()
   if [ "$ans" = "y" ] || [ "$ans" = "Y" ] ; then
     git clone https://github.com/woodruffw/dotfiles-priv
     pushd . > /dev/null
+    cd dotfiles-priv
     ./install.sh
     popd > /dev/null
     rm -rf dotfiles-priv
