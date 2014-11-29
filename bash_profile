@@ -229,7 +229,7 @@ function getconfigs()
     git clone https://github.com/woodruffw/dotfiles-priv
     pushd . > /dev/null
     ./install.sh
-    popd . > /dev/null
+    popd > /dev/null
     rm -rf dotfiles-priv
   fi
 
