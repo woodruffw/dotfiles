@@ -23,5 +23,5 @@ my $token_secret = $ENV{TWITTER_TOKEN_SECRET};
 my $twitter = Net::Twitter->new(traits => [qw/API::RESTv1_1/], consumer_key => $consumer_key, consumer_secret => $consumer_secret, access_token => $token, access_token_secret => $token_secret, ssl => 1);
 
 
-my $fortune = `fortune -s -n 140`;
+my $fortune = `/usr/games/fortune -s -n 140`;
 my $result = $twitter->update($fortune);
