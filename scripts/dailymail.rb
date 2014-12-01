@@ -6,8 +6,8 @@ require 'net/http'
 
 host = Socket.gethostname
 uptime = `uptime`
-internal_ip = Socket.ip_address_list.detect{|ip| ip.ipv4_private?}.nil?.ip_address
-
+begin
+	internal_ip = Socket.ip_address_list.detect{|ip| ip.ipv4_private?}.nil?.ip_address
 rescue NoMethodError
 	internal_ip = "None."
 end
