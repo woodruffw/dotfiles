@@ -6,7 +6,12 @@ require 'net/http'
 
 host = Socket.gethostname
 uptime = `uptime`
-internal_ip = Socket.ip_address_list.detect{|ip| ip.ipv4_private?}.ip_address
+internal_ip = Socket.ip_address_list.detect{|ip| ip.ipv4_private?}.nil?.ip_address
+
+rescue NoMethodError
+	internal_ip = "None."
+end
+
 external_ip = Net::HTTP.get(URI('http://ipecho.net/plain'))
 disks = `df -h`
 
