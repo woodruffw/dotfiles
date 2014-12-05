@@ -12,7 +12,7 @@ rescue NoMethodError
 	internal_ip = "None."
 end
 
-external_ip = Net::HTTP.get(URI('http://ipecho.net/plain'))
+external_ip = Net::HTTP.get(URI('http://woodruffw.us/util/ip.php'))
 disks = `df -h`
 
 client = SendGrid::Client.new do |c|
