@@ -1,3 +1,7 @@
+[core]
+	pager = less -F
+	editor = vim
+	whitespace = blank-at-eol
 [color]
 	diff = auto
 	status = auto
