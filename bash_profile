@@ -298,6 +298,23 @@ function shah()
   shasum $1 | awk '{ print $1 }'
 }
 
+# fw, lw, vw - expand file, less, vim input from which
+# useful for reading from files on the PATH without their paths
+function fw()
+{
+  file `which $1`
+}
+
+function lw()
+{
+  less `which $1`
+}
+
+function vw()
+{
+  vim `which $1`
+}
+
 # jmp (jump) and friends, shamelessly taken from:
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 function jmp()
