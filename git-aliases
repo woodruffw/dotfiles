@@ -40,7 +40,7 @@ function gcm()
 		make clean > /dev/null
 	fi
 
-	git commit -m $1
+	git commit -m "$1"
 }
 
 function gpod()
