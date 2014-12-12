@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# cron-shunt: loads the environment, then evals the first argument
+# cron-shunt: loads the environment, then evals the arguments
 
 [ `uname` = "Linux" ] && source ~/.bashrc
 [ `uname` = "Darwin" ] && source ~/.bash_profile
 
-eval "$HOME/scripts/$1"
+eval "$@"
