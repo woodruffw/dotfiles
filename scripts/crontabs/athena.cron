@@ -1,4 +1,5 @@
 MAILTO='william@tuffbizz.com'
 
+0 0 * * * /home/william/scripts/cron-shunt wwwbackup
 0,30 * * * * /home/william/scripts/cron-shunt twitter-fortune-bot.pl
 0 12 * * * /home/william/scripts/cron-shunt dailymail.rb
