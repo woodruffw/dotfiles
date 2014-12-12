@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
+# $: evaluate everything after $ for copy-pasting
+
 eval "$@"
