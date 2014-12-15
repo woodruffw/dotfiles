@@ -88,6 +88,8 @@ if [ "$system" = "Linux" ] ; then
   if [ "$host" = "athena" ] ; then
     alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
     alias www='cd /usr/share/nginx/html'
+    alias tgbstart='nohup ~/scripts/twitter-github-bot.rb -p 8080 -o 0.0.0.0 1>/dev/null 2>&1 &'
+    alias tgbkill='kill -9 `pgrep -f twitter-github-bot`'
   fi
 
   if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
