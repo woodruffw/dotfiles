@@ -13,6 +13,8 @@ nnoremap <C-s> :w<cr>
 inoremap <C-q> <esc>:q<cr>a
 nnoremap <C-q> :q<cr>
 
+cmap w!! w !sudo tee >/dev/null %
+
 "inoremap { {<CR>}<Esc>ko
 "inoremap ( ()<Esc>i
 "inoremap [ []<Esc>i
