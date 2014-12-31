@@ -198,10 +198,6 @@ function getconfigs()
   cp ~/.dotfiles/scripts/colorscheme2 ~/scripts/colorscheme2
   cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
   cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
-  # afs-umd is only required on mercury
-  if [ "$host" = "mercury" ] ; then
-    cp ~/.dotfiles/scripts/afs-umd ~/scripts/afs-umd
-  fi
   # wwwbackup, twitter-fortune-bot, twitter-github-bot only required on athena
   if [ "$host" = "athena" ] ; then
     cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
