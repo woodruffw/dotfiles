@@ -199,6 +199,7 @@ function getconfigs()
   cp ~/.dotfiles/scripts/colorscheme ~/scripts/colorscheme
   cp ~/.dotfiles/scripts/colorscheme2 ~/scripts/colorscheme2
   cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
+  cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
   # afs-umd is only required on mercury
   if [ "$host" = "mercury" ] ; then
     cp ~/.dotfiles/scripts/afs-umd ~/scripts/afs-umd
