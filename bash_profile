@@ -20,7 +20,7 @@ alias smu='sudo make uninstall'
 alias cm='cmake'
 alias cls='clear'
 alias df='df -kh'
-alias please='sudo !!'
+alias pls='sudo $(tail -1 ~/.bash_history)'
 alias svim='sudo vim'
 alias vi='vim'
 alias vmi='vim'
@@ -57,7 +57,12 @@ fi
 # system-independent environment variables
 export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
 export EDITOR='vim'
+export HISTCONTROL=ignoredups:erasedups
 export MARKPATH=$HOME/.marks
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# shell options
+shopt -s histappend
 
 # unset LESSOPEN and LESSPIPE (never used, and a security hole)
 unset LESSOPEN
