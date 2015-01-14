@@ -89,13 +89,11 @@ if [ "$system" = "Linux" ] ; then
   fi
 
   if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
-    alias update='sudo apt-get update ; sudo apt-get upgrade ; sudo apt-get clean'
     alias sagu='sudo apt-get update'
     alias sagi='sudo apt-get install'
     alias sagr='sudo apt-get remove'
     alias sagar='sudo apt-get autoremove'
   elif [ -f /usr/bin/pacman ] ; then # Arch-based systems
-    alias update='sudo pacman -Syyu'
     alias sps='sudo pacman -S'
     alias spr='sudo pacman -R'
     alias sprs='sudo pacman -Rs'
@@ -196,6 +194,7 @@ function getconfigs()
   cp ~/.dotfiles/scripts/colorscheme2 ~/scripts/colorscheme2
   cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
   cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
+  cp ~/.dotfiles/scripts/update ~/scripts/update
   # wwwbackup, twitter-fortune-bot, twitter-github-bot only required on athena
   if [ "$host" = "athena" ] ; then
     cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
