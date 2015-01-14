@@ -50,7 +50,7 @@ alias rmhk='ssh-keygen -R'
 alias path='echo $PATH'
 
 # if colordiff is installed, alias diff to it
-if [ `which colordiff 2> /dev/null` ] ; then
+if [[ `which colordiff 2> /dev/null` ]] ; then
   alias diff='colordiff'
 fi
 
@@ -73,7 +73,7 @@ unset LESSPIPE
 # load server aliases if it exists
 [ -f ~/.server-aliases ] && source ~/.server-aliases
 # load API key files if they exist
-if [ -d ~/.api-keys ] ; then
+if [[ -d "~/.api-keys" ]] ; then
   for f in `ls ~/.api-keys`
   do
     source ~/.api-keys/$f
@@ -83,22 +83,22 @@ fi
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # system-dependent aliases and variables
-if [ "$system" = "Linux" ] ; then
+if [[ "$system" = "Linux" ]] ; then
   alias bashreload='unalias -a ; source ~/.bashrc'
   alias profile='vim ~/.bashrc'
   alias ls='ls --color=auto'
 
-  if [ "$host" = "athena" ] ; then
+  if [[ "$host" = "athena" ]] ; then
     alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
     alias www='cd /usr/share/nginx/html'
   fi
 
-  if [ -f /usr/bin/apt-get ] ; then # Ubuntu, Debian systems
+  if [[ -f "/usr/bin/apt-get" ]] ; then # Ubuntu, Debian systems
     alias sagu='sudo apt-get update'
     alias sagi='sudo apt-get install'
     alias sagr='sudo apt-get remove'
     alias sagar='sudo apt-get autoremove'
-  elif [ -f /usr/bin/pacman ] ; then # Arch-based systems
+  elif [[ -f "/usr/bin/pacman" ]] ; then # Arch-based systems
     alias sps='sudo pacman -S'
     alias spr='sudo pacman -R'
     alias sprs='sudo pacman -Rs'
@@ -106,21 +106,21 @@ if [ "$system" = "Linux" ] ; then
 
   export PATH="$PATH:/home/$USER/bin:/home/$USER/scripts"
 
-elif [ "$system" = "Darwin" ] ; then
+elif [[ "$system" = "Darwin" ]] ; then
   alias brew='brew -v'
   alias bashreload='unalias -a ; source ~/.bash_profile'
   alias profile='vim ~/.bash_profile'
   alias ls='ls -G'
 
   # if homebrew's nginx is installed
-  if [ -f /usr/local/bin/nginx ] ; then
+  if [[ -f "/usr/local/bin/nginx" ]] ; then
     alias nginxconf='vim /usr/local/etc/nginx/nginx.conf'
     alias nginxreload='sudo nginx -s reload'
     alias www='cd /usr/local/var/www'
   fi
 
   # if homebrew's bash-completion is installed
-  if [ -f /usr/local/etc/bash_completion ] ; then
+  if [[ -f "/usr/local/etc/bash_completion" ]] ; then
     source /usr/local/etc/bash_completion
   fi
 
@@ -143,20 +143,20 @@ function getconfigs()
   pushd . > /dev/null
 
   # make sure the dotfiles repo exists and isn't clobbered
-  if [[ ! -d ~/.dotfiles/.git ]] ; then
-    rm -rf ~/.dotfiles
-    git clone https://github.com/woodruffw/dotfiles ~/.dotfiles > /dev/null
-    cd ~/.dotfiles
-  else
+  if [[ -d "~/.dotfiles/.git" ]] ; then
     cd ~/.dotfiles
     git fetch origin --quiet > /dev/null
     git merge origin/master > /dev/null
+  else
+    rm -rf ~/.dotfiles
+    git clone https://github.com/woodruffw/dotfiles ~/.dotfiles > /dev/null
+    cd ~/.dotfiles
   fi
 
   printf "Reloading profile..."
-  if [ "$system" = "Linux" ] ; then
+  if [[ "$system" = "Linux" ]] ; then
     cp ~/.dotfiles/bash_profile ~/.bashrc
-  elif [ "$system" = "Darwin" ] ; then
+  elif [[ "$system" = "Darwin" ]] ; then
     cp ~/.dotfiles/bash_profile ~/.bash_profile
   fi
   printf "done.\n"
@@ -173,7 +173,7 @@ function getconfigs()
   printf "done.\n"
 
   printf "Checking for rtorrent..."
-  if [ `which rtorrent 2> /dev/null` ] ; then
+  if [[ `which rtorrent 2> /dev/null` ]] ; then
     printf "found.\nReloading rtorrent.rc..."
     cp ~/.dotfiles/rtorrent.rc ~/.rtorrent.rc
     printf "done.\n"
@@ -182,7 +182,7 @@ function getconfigs()
   fi
 
   printf "Checking for tmux..."
-  if [ `which tmux 2> /dev/null` ] ; then
+  if [[ `which tmux 2> /dev/null` ]] ; then
     printf "found.\nReloading tmux.conf..."
     cp ~/.dotfiles/tmux.conf ~/.tmux.conf
     printf "done.\n"
@@ -200,13 +200,13 @@ function getconfigs()
   cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
   cp ~/.dotfiles/scripts/update ~/scripts/update
   # wwwbackup, twitter-fortune-bot, twitter-github-bot only required on athena
-  if [ "$host" = "athena" ] ; then
+  if [[ "$host" = "athena" ]] ; then
     cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
     cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
     cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
   fi
   # dailymail is only required on mars
-  if [ "$host" = "mars" ] ; then
+  if [[ "$host" = "mars" ]] ; then
     cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
   fi
   chmod +x ~/scripts/*
@@ -214,7 +214,7 @@ function getconfigs()
 
   printf "Fetching cron-shunt and crontab..."
   cp ~/.dotfiles/scripts/cron-shunt ~/scripts/cron-shunt
-  if [ -f ~/.dotfiles/scripts/crontabs/$host.cron ] ; then
+  if [[ -f "~/.dotfiles/scripts/crontabs/${host}.cron" ]] ; then
     cp ~/.dotfiles/scripts/crontabs/$host.cron ~/scripts/$host.cron
     crontab -r
     crontab ~/scripts/$host.cron
