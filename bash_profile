@@ -108,7 +108,6 @@ if [ "$system" = "Linux" ] ; then
 
 elif [ "$system" = "Darwin" ] ; then
   alias brew='brew -v'
-  alias update='brew update ; brew upgrade ; brew cleanup -s'
   alias bashreload='unalias -a ; source ~/.bash_profile'
   alias profile='vim ~/.bash_profile'
   alias ls='ls -G'
