@@ -73,7 +73,7 @@ unset LESSPIPE
 # load server aliases if it exists
 [ -f ~/.server-aliases ] && source ~/.server-aliases
 # load API key files if they exist
-if [[ -d "~/.api-keys" ]] ; then
+if [[ -d ~/.api-keys ]] ; then
   for f in `ls ~/.api-keys`
   do
     source ~/.api-keys/$f
@@ -143,7 +143,7 @@ function getconfigs()
   pushd . > /dev/null
 
   # make sure the dotfiles repo exists and isn't clobbered
-  if [[ -d "~/.dotfiles/.git" ]] ; then
+  if [[ -d ~/.dotfiles/.git ]] ; then
     cd ~/.dotfiles
     git fetch origin --quiet > /dev/null
     git merge origin/master > /dev/null
