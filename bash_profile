@@ -69,9 +69,9 @@ unset LESSOPEN
 unset LESSPIPE
 
 # load git aliases if it exists
-[ -f ~/.git-aliases ] && source ~/.git-aliases
+[[ -f ~/.git-aliases ]] && source ~/.git-aliases
 # load server aliases if it exists
-[ -f ~/.server-aliases ] && source ~/.server-aliases
+[[ -f ~/.server-aliases ]] && source ~/.server-aliases
 # load API key files if they exist
 if [[ -d ~/.api-keys ]] ; then
   for f in `ls ~/.api-keys`
@@ -80,7 +80,7 @@ if [[ -d ~/.api-keys ]] ; then
   done
 fi
 # load bash completion if it exists
-[ -f /etc/bash_completion ] && source /etc/bash_completion
+[[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
 # system-dependent aliases and variables
 if [[ "$system" = "Linux" ]] ; then

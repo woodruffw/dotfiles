@@ -2,7 +2,7 @@
 
 # cron-shunt: loads the environment, then evals the arguments
 
-[ `uname` = "Linux" ] && source ~/.bashrc
-[ `uname` = "Darwin" ] && source ~/.bash_profile
+[[ `uname` = "Linux" ]] && source ~/.bashrc
+[[ `uname` = "Darwin" ]] && source ~/.bash_profile
 
 eval "$@"

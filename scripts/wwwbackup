@@ -2,7 +2,7 @@
 
 # wwwbackup: back woodruffw.us files up to git repository
 
-if [ "$(hostname)" != "athena" ] ; then
+if [[ "$(hostname)" != "athena" ]] ; then
 	echo "Wrong host, dummy."
 	exit 1
 fi

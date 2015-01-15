@@ -2,11 +2,11 @@
 
 # afs-umd: connect to the UMD AFS shares
 
-if [ "$(hostname)" != "mercury" ] ; then
+if [[ "$(hostname)" != "mercury" ]] ; then
 	echo "Wrong host, dummy."
 	exit 1
 fi
 
-[ -x /sbin/afsd ] || exit 1
+[[ -x /sbin/afsd ]] || exit 1
 kinit woodrufw
 aklog
