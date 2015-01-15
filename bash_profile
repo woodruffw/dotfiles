@@ -68,6 +68,9 @@ shopt -s histappend
 unset LESSOPEN
 unset LESSPIPE
 
+# disable new mail alerts
+unset MAILCHECK
+
 # load git aliases if it exists
 [[ -f ~/.git-aliases ]] && source ~/.git-aliases
 # load server aliases if it exists
