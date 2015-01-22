@@ -3,6 +3,7 @@
 	editor = vim
 	whitespace = blank-at-eol
 [color]
+	ui = 1
 	diff = auto
 	status = auto
 	branch = auto
@@ -11,3 +12,5 @@
 	name = William Woodruff
 [push]
 	default = current
+[help]
+	autocorrect = 1
