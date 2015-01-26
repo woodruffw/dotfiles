@@ -202,15 +202,16 @@ function getconfigs()
   cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
   cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
   cp ~/.dotfiles/scripts/update ~/scripts/update
-  # wwwbackup, twitter-fortune-bot, twitter-github-bot only required on athena
+
   if [[ "$host" = "athena" ]] ; then
     cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
     cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
     cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
   fi
-  # dailymail is only required on mars
+
   if [[ "$host" = "mars" ]] ; then
     cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
+    cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
   fi
   chmod +x ~/scripts/*
   printf "done.\n"
