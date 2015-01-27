@@ -1,5 +1,5 @@
-directory = /media/data/rtorrent/downloads/
-session = /media/data/rtorrent/session/
+directory = ~/data/rtorrent/downloads/
+session = ~/data/rtorrent/session/
 
 port_range = 6890-6999
 port_random = yes
@@ -7,5 +7,5 @@ dht = auto
 encryption = require
 peer_exchange = yes
 
-schedule = watch_directory,10,10,load_start=/media/data/rtorrent/watch/*.torrent
+schedule = watch_directory,10,10,load_start=~/data/rtorrent/watch/*.torrent
 schedule = tied_directory,10,10,start_tied=
