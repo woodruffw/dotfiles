@@ -1,5 +1,7 @@
 #!/usr/bin/awk -f
 
+# linecheck: report lines exceeding 80 characters in files
+
 BEGIN {
 	max = 80
 }
