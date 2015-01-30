@@ -1,0 +1,16 @@
+#!/usr/bin/awk -f
+
+BEGIN {
+	max = 80
+}
+
+{
+	if (length($0) > max)
+	{
+		printf "%s:%d exceeds %d characters.\n", FILENAME, NR, max
+	}
+}
+
+END {
+	exit 0
+}

@@ -201,6 +201,7 @@ function getconfigs()
   cp ~/.dotfiles/scripts/colorscheme2 ~/scripts/colorscheme2
   cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
   cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
+  cp ~/.dotfiles/scripts/linecheck ~/scripts/linecheck
   cp ~/.dotfiles/scripts/update ~/scripts/update
 
   if [[ "$host" = "athena" ]] ; then
