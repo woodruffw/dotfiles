@@ -9,7 +9,7 @@ BEGIN {
 {
 	if (length($0) > max)
 	{
-		printf "%s:%d exceeds %d characters.\n", FILENAME, NR, max
+		printf "%s:%d exceeds %d characters.\n", FILENAME, FNR, max
 	}
 }
 
