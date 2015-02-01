@@ -204,6 +204,10 @@ function getconfigs()
   cp ~/.dotfiles/scripts/linecheck ~/scripts/linecheck
   cp ~/.dotfiles/scripts/update ~/scripts/update
 
+  if [[ "$host" = "mercury" ]] ; then
+    cp ~/.dotfiles/scripts/poomf.sh ~/scripts/poomf.sh
+  fi
+
   if [[ "$host" = "athena" ]] ; then
     cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
     cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
