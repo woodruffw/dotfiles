@@ -77,9 +77,9 @@ unset MAILCHECK
 [[ -f ~/.server-aliases ]] && source ~/.server-aliases
 # load API key files if they exist
 if [[ -d ~/.api-keys ]] ; then
-  for keyfile in `ls ~/.api-keys`
+  for keyfile in ~/.api-keys/*
   do
-    source ~/.api-keys/${keyfile}
+    source ${keyfile}
   done
 fi
 # load bash completion if it exists
@@ -138,7 +138,7 @@ fi
 # IMPORTANT: overwrites .bash_profile/.bashrc, .vimrc, etc
 function getconfigs()
 {
-  if [ ! `which git 2> /dev/null` ] ; then
+  if [[ ! `which git 2> /dev/null` ]] ; then
     echo "Fatal: git required to fetch configs."
     exit 1
   fi
