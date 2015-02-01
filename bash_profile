@@ -194,13 +194,13 @@ function getconfigs()
   fi
 
   printf "Checking for xbindkeys..."
-  if [[ `which xbindkeys 2> /dev/null` ]]; then
+  if [[ `which xbindkeys 2> /dev/null` ]] ; then
     printf "found.\nReloading xbindkeysrc..."
-    if [[ -f "~/.dotfiles/xbindkeysrc-${host}" ]]; then
-      cp ~/.dotfiles/xbindkeysrc-${host} ~/.xbindkeysrc
+    if [[ -f "~/.dotfiles/xbindkeysrc-${host}" ]] ; then
+      cp "~/.dotfiles/xbindkeysrc-${host}" ~/.xbindkeysrc
       printf "done.\n"
     else
-      printf "none required."
+      printf "none required.\n"
     fi
   else
     printf "not installed. Skipping.\n"
@@ -217,17 +217,17 @@ function getconfigs()
   cp ~/.dotfiles/scripts/linecheck ~/scripts/linecheck
   cp ~/.dotfiles/scripts/update ~/scripts/update
 
-  if [[ "$host" = "mercury" ]] ; then
+  if [[ "${host}" = "mercury" ]] ; then
     cp ~/.dotfiles/scripts/poomf.sh ~/scripts/poomf.sh
   fi
 
-  if [[ "$host" = "athena" ]] ; then
+  if [[ "${host}" = "athena" ]] ; then
     cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
     cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
     cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
   fi
 
-  if [[ "$host" = "mars" ]] ; then
+  if [[ "${host}" = "mars" ]] ; then
     cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
     cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
   fi
@@ -237,9 +237,9 @@ function getconfigs()
   printf "Fetching cron-shunt and crontab..."
   cp ~/.dotfiles/scripts/cron-shunt ~/scripts/cron-shunt
   if [[ -f "~/.dotfiles/scripts/crontabs/${host}.cron" ]] ; then
-    cp ~/.dotfiles/scripts/crontabs/$host.cron ~/scripts/$host.cron
+    cp ~/.dotfiles/scripts/crontabs/${host}.cron ~/scripts/${host}.cron
     crontab -r
-    crontab ~/scripts/$host.cron
+    crontab ~/scripts/${host}.cron
     printf "done.\n"
   else
     printf "none required.\n"
