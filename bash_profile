@@ -77,21 +77,21 @@ unset MAILCHECK
 [[ -f ~/.server-aliases ]] && source ~/.server-aliases
 # load API key files if they exist
 if [[ -d ~/.api-keys ]] ; then
-  for f in `ls ~/.api-keys`
+  for keyfile in `ls ~/.api-keys`
   do
-    source ~/.api-keys/$f
+    source ~/.api-keys/${keyfile}
   done
 fi
 # load bash completion if it exists
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
 # system-dependent aliases and variables
-if [[ "$system" = "Linux" ]] ; then
+if [[ "${system}" = "Linux" ]] ; then
   alias bashreload='unalias -a ; source ~/.bashrc'
   alias profile='vim ~/.bashrc'
   alias ls='ls --color=auto'
 
-  if [[ "$host" = "athena" ]] ; then
+  if [[ "${host}" = "athena" ]] ; then
     alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
     alias www='cd /usr/share/nginx/html'
   fi
@@ -109,7 +109,7 @@ if [[ "$system" = "Linux" ]] ; then
 
   export PATH="$PATH:/home/$USER/bin:/home/$USER/scripts"
 
-elif [[ "$system" = "Darwin" ]] ; then
+elif [[ "${system}" = "Darwin" ]] ; then
   alias brew='brew -v'
   alias bashreload='unalias -a ; source ~/.bash_profile'
   alias profile='vim ~/.bash_profile'
@@ -157,9 +157,9 @@ function getconfigs()
   fi
 
   printf "Reloading profile..."
-  if [[ "$system" = "Linux" ]] ; then
+  if [[ "${system}" = "Linux" ]] ; then
     cp ~/.dotfiles/bash_profile ~/.bashrc
-  elif [[ "$system" = "Darwin" ]] ; then
+  elif [[ "${system}" = "Darwin" ]] ; then
     cp ~/.dotfiles/bash_profile ~/.bash_profile
   fi
   printf "done.\n"
@@ -196,8 +196,8 @@ function getconfigs()
   printf "Checking for xbindkeys..."
   if [[ `which xbindkeys 2> /dev/null` ]] ; then
     printf "found.\nReloading xbindkeysrc..."
-    if [[ -f "~/.dotfiles/xbindkeysrc-${host}" ]] ; then
-      cp "~/.dotfiles/xbindkeysrc-${host}" ~/.xbindkeysrc
+    if [[ -f ~/.dotfiles/xbindkeysrc-${host} ]] ; then
+      cp ~/.dotfiles/xbindkeysrc-${host} ~/.xbindkeysrc
       printf "done.\n"
     else
       printf "none required.\n"
