@@ -193,6 +193,19 @@ function getconfigs()
     printf "not installed. Skipping.\n"
   fi
 
+  printf "Checking for xbindkeys..."
+  if [[ `which xbindkeys 2> /dev/null` ]]; then
+    printf "found.\nReloading xbindkeysrc..."
+    if [[ -f "~/.dotfiles/xbindkeysrc-${host}" ]]; then
+      cp ~/.dotfiles/xbindkeysrc-${host} ~/.xbindkeysrc
+      printf "done.\n"
+    else
+      printf "none required."
+    fi
+  else
+    printf "not installed. Skipping.\n"
+  fi
+
   printf "Fetching scripts..."
   mkdir -p ~/scripts
   cp ~/.dotfiles/scripts/$ ~/scripts/$
