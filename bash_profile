@@ -5,9 +5,9 @@
 system=`uname`
 host=`hostname`
 
-############################
-# Aliases and Enivironment #
-############################
+###########
+# Aliases #
+###########
 
 # system-independent aliases
 alias s='sudo'
@@ -54,6 +54,10 @@ if [[ `which colordiff 2> /dev/null` ]] ; then
   alias diff='colordiff'
 fi
 
+###############
+# ENVIRONMENT #
+###############
+
 # system-independent environment variables
 export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
 export EDITOR='vim'
@@ -61,15 +65,17 @@ export HISTCONTROL=ignoredups:erasedups
 export MARKPATH=$HOME/.marks
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
-# shell options
-shopt -s histappend
-
 # unset LESSOPEN and LESSPIPE (never used, and a security hole)
 unset LESSOPEN
 unset LESSPIPE
 
-# disable new mail alerts
-unset MAILCHECK
+unset MAILCHECK # disable new mail alerts
+
+#################
+# SHELL OPTIONS #
+#################
+shopt -s histappend # don't overwrite the history file
+shopt -s cdspell # fix typos in cd
 
 # load git aliases if it exists
 [[ -f ~/.git-aliases ]] && source ~/.git-aliases
