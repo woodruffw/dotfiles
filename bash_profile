@@ -184,6 +184,15 @@ function getconfigs()
     printf "not installed. Skipping.\n"
   fi
 
+  printf "Checking for curl..."
+  if [[ `which curl 2> /dev/null` ]]; then
+    printf "found.\nReloading curlrc..."
+    cp ~/.dotfiles/curlrc ~/.curlrc
+    printf "done.\n"
+  else
+    printf "not installed. Skipping.\n"
+  fi
+
   printf "Checking for rtorrent..."
   if [[ `which rtorrent 2> /dev/null` ]] ; then
     printf "found.\nReloading rtorrent.rc..."
