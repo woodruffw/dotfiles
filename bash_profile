@@ -175,6 +175,15 @@ function getconfigs()
   cp ~/.dotfiles/vim/scripts/closetag.vim ~/.vim/scripts/closetag.vim
   printf "done.\n"
 
+  printf "Checking for wget..."
+  if [[ `which wget 2> /dev/null` ]]; then
+    printf "found.\nReloading wgetrc..."
+    cp ~/.dotfiles/wgetrc ~/.wgetrc
+    printf "done.\n"
+  else
+    printf "not installed. Skipping.\n"
+  fi
+
   printf "Checking for rtorrent..."
   if [[ `which rtorrent 2> /dev/null` ]] ; then
     printf "found.\nReloading rtorrent.rc..."
