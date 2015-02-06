@@ -49,48 +49,6 @@ alias reboot='sudo reboot'
 alias rmhk='ssh-keygen -R'
 alias path='echo $PATH'
 
-# if colordiff is installed, alias diff to it
-if [[ `which colordiff 2> /dev/null` ]] ; then
-  alias diff='colordiff'
-fi
-
-###############
-# ENVIRONMENT #
-###############
-
-# system-independent environment variables
-export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
-export EDITOR='vim'
-export HISTCONTROL=ignoredups:erasedups
-export MARKPATH=$HOME/.marks
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
-
-# unset LESSOPEN and LESSPIPE (never used, and a security hole)
-unset LESSOPEN
-unset LESSPIPE
-
-unset MAILCHECK # disable new mail alerts
-
-#################
-# SHELL OPTIONS #
-#################
-shopt -s histappend # don't overwrite the history file
-shopt -s cdspell # fix typos in cd
-
-# load git aliases if it exists
-[[ -f ~/.git-aliases ]] && source ~/.git-aliases
-# load server aliases if it exists
-[[ -f ~/.server-aliases ]] && source ~/.server-aliases
-# load API key files if they exist
-if [[ -d ~/.api-keys ]] ; then
-  for keyfile in ~/.api-keys/*
-  do
-    source ${keyfile}
-  done
-fi
-# load bash completion if it exists
-[[ -f /etc/bash_completion ]] && source /etc/bash_completion
-
 # system-dependent aliases and variables
 if [[ "${system}" = "Linux" ]] ; then
   alias bashreload='unalias -a ; source ~/.bashrc'
@@ -135,6 +93,54 @@ elif [[ "${system}" = "Darwin" ]] ; then
 
   export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/$USER/bin:/Users/$USER/scripts
 fi
+
+# if colordiff is installed, alias diff to it
+if [[ `which colordiff 2> /dev/null` ]] ; then
+  alias diff='colordiff'
+fi
+
+###############
+# ENVIRONMENT #
+###############
+
+# system-independent environment variables
+export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
+export EDITOR='vim'
+export HISTCONTROL=ignoredups:erasedups
+export MARKPATH=$HOME/.marks
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+
+# unset LESSOPEN and LESSPIPE (never used, and a security hole)
+unset LESSOPEN
+unset LESSPIPE
+
+unset MAILCHECK # disable new mail alerts
+
+#################
+# SHELL OPTIONS #
+#################
+shopt -s histappend # don't overwrite the history file
+shopt -s cdspell # fix typos in cd
+
+################
+# KEY BINDINGS #
+################
+bind -x '"\e[15~":ttyreset' # reset the terminal with Fun5
+
+# load git aliases if it exists
+[[ -f ~/.git-aliases ]] && source ~/.git-aliases
+# load server aliases if it exists
+[[ -f ~/.server-aliases ]] && source ~/.server-aliases
+# load API key files if they exist
+if [[ -d ~/.api-keys ]] ; then
+  for keyfile in ~/.api-keys/*
+  do
+    source ${keyfile}
+  done
+fi
+# load bash completion if it exists
+[[ -f /etc/bash_completion ]] && source /etc/bash_completion
+
 
 #############
 # Functions #
