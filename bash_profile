@@ -152,7 +152,7 @@ function getconfigs()
 {
   if [[ ! `which git 2> /dev/null` ]] ; then
     echo "Fatal: git required to fetch configs."
-    exit 1
+    return 1
   fi
 
   pushd . > /dev/null
@@ -293,17 +293,18 @@ function getconfigs()
 }
 
 # strlen
-# prints the length of the first argument
+# prints the length of all arguments, spaces included
 function strlen()
 {
-  echo ${#1}
+  str="${*}"
+  echo "${#str}"
 }
 
 # cd - cat grep
 # pipes cat into grep
 function cg()
 {
-  cat $1 | grep $2
+  cat "${1}" | grep "${2}"
 }
 
 # man - colorize man pages
@@ -334,8 +335,7 @@ function parse_git_branch()
 # cds to the project folder or to a specified project
 function prj()
 {
-  if [[ -z "$1" ]]
-  then
+  if [[ -z "${1}" ]] ; then
     cd ~/Dropbox/Programming/
   else
     cd ~/Dropbox/Programming/$1*
