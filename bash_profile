@@ -31,7 +31,7 @@ alias +r='chmod +r'
 alias +w='chmod +w'
 alias +x='chmod +x'
 alias la='ls -a'
-alias ll='ls -l'
+alias ll='ls -lh'
 alias lsg='ls | grep'
 alias lsl='ls | less'
 alias del='rm -i'
@@ -129,8 +129,6 @@ bind -x '"\e[15~":ttyreset' # reset the terminal with Fun5
 
 # load git aliases if it exists
 [[ -f ~/.git-aliases ]] && source ~/.git-aliases
-# load server aliases if it exists
-[[ -f ~/.server-aliases ]] && source ~/.server-aliases
 # load API key files if they exist
 if [[ -d ~/.api-keys ]] ; then
   for keyfile in ~/.api-keys/*
