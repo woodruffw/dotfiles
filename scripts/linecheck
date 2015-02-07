@@ -1,6 +1,10 @@
 #!/usr/bin/awk -f
 
-# linecheck: report lines exceeding 80 characters in files
+# linecheck.awk: report lines exceeding 80 characters in files
+# usage: linecheck.awk file1 file2 ...
+# ----
+# Author: William Woodruff
+# Licensed under the MIT License: http://opensource.org/licenses/MIT
 
 BEGIN {
 	max = 80
