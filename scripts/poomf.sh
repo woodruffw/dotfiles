@@ -92,8 +92,6 @@ if [[ $success ]]; then
 	# copy link to clipboard
 	printf $url | xclip -selection primary
 	printf $url | xclip -selection clipboard
-	# log url to file
-	echo "$(date +"%D %H:%M:%S") | $url" >> ~/.pomfs.txt
 	# notify user of completion
 	notify-send "pomf!" "$url"
 	# output message to term
