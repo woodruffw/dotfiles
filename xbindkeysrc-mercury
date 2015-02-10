@@ -26,6 +26,15 @@
 # m:xxx + c:xxx 
 # Shift+... 
 
+
+
+
+#keystate_numlock = enable
+#keystate_scrolllock = enable
+#keystate_capslock = enable
+
+
+
 "xbindkeys_show"
    control+shift + q
 
@@ -33,6 +42,11 @@
 "~/scripts/poomf.sh -f"
     m:0x5 + c:12
     Control+Shift + 3 
+
+#take a selection screen screenshot and upload to pomf.se
+"~/scripts/poomf.sh -s"
+    m:0x5 + c:13
+    Control+Shift + 4 
 
 #
 # End of xbindkeys configuration
