@@ -4,6 +4,38 @@
 
 ## CONFIGURATION
 
+function fullscreen_screenshot()
+{
+	local cmd=
+
+	if [[ `which gnome-screenshot 2> /dev/null` ]]; then
+		cmd="gnome-screenshot -f $1"
+	elif [[ `which scrot 2> /dev/null` ]]; then
+		cmd="scrot $1"
+	else
+		notify-send "Nothing to take a screenshot with."
+		exit 255
+	fi
+
+	eval "$cmd"
+}
+
+function selection_screenshot()
+{
+	local cmd=
+
+	if [[ `which gnome-screenshot 2> /dev/null` ]]; then
+		cmd="gnome-screenshot -a -f $1"
+	elif [[ `which scrot 2> /dev/null` ]]; then
+		cmd="scrot -s $1"
+	else
+		notify-send "Nothing to take a screenshot with."
+		exit 255
+	fi
+
+	eval "$cmd"
+}
+
 # colors
 
 reset=$(tput sgr0)
@@ -31,7 +63,7 @@ done
 
 # take fullscreen picture
 if [[ $fullscreen ]]; then
-	file=$(filename=/tmp/screenshot.png ; scrot $filename ; printf $filename)
+	file=$(filename=/tmp/screenshot.png ; fullscreen_screenshot $filename ; printf $filename)
 fi
 
 # display help
@@ -45,7 +77,7 @@ fi
 
 # take selection picture
 if [[ $selection ]]; then
-	file=$(filename=/tmp/screenshot.png ; scrot -s $filename ; printf $filename)
+	file=$(filename=/tmp/screenshot.png ; selection_screenshot $filename ; printf $filename)
 fi
 
 # get file
