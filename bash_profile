@@ -39,7 +39,6 @@ alias lsl='ls | less'
 alias del='rm -i'
 alias rr='rm -r'
 alias ttyreset='echo -e \\033c'
-alias ssh='ssh -o VisualHostKey=yes -X'
 alias ret='echo $?'
 alias ..='cd ..'
 alias .2='cd ../..'
@@ -50,6 +49,7 @@ alias cronls='crontab -l'
 alias reboot='sudo reboot'
 alias rmhk='ssh-keygen -R'
 alias path='echo $PATH'
+alias mkdir='mkdir -p'
 
 # system-dependent aliases and variables
 if [[ "${system}" = "Linux" ]] ; then
