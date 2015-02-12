@@ -236,6 +236,16 @@ function getconfigs()
     printf "not installed. Skipping.\n"
   fi
 
+  printf "Checking for thunar..."
+  if [[ `which thunar 2> /dev/null` ]]; then
+    printf "found.\nReloading uca.xml..."
+    mkdir -p ~/.config/Thunar
+    cp ~/.dotfiles/config/Thunar/uca.xml ~/.config/Thunar/uca.xml
+    printf "done.\n"
+  else
+    printf "not installed. Skipping.\n"
+  fi
+
   printf "Fetching scripts..."
   mkdir -p ~/scripts
   cp ~/.dotfiles/scripts/$ ~/scripts/$
