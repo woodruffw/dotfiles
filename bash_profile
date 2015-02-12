@@ -106,6 +106,7 @@ fi
 ###############
 
 # system-independent environment variables
+export LESSHISTFILE="/dev/null" # prevent less from creating ~/.lesshist
 export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
 export EDITOR='vim'
 export HISTCONTROL=ignoredups:erasedups
