@@ -189,7 +189,7 @@ function getconfigs()
 
   printf "Checking for wget..."
   if [[ `which wget 2> /dev/null` ]]; then
-    printf "found.\nReloading wgetrc..."
+    printf "found. Reloading wgetrc..."
     cp ~/.dotfiles/wgetrc ~/.wgetrc
     printf "done.\n"
   else
@@ -198,7 +198,7 @@ function getconfigs()
 
   printf "Checking for curl..."
   if [[ `which curl 2> /dev/null` ]]; then
-    printf "found.\nReloading curlrc..."
+    printf "found. Reloading curlrc..."
     cp ~/.dotfiles/curlrc ~/.curlrc
     printf "done.\n"
   else
@@ -207,7 +207,7 @@ function getconfigs()
 
   printf "Checking for rtorrent..."
   if [[ `which rtorrent 2> /dev/null` ]] ; then
-    printf "found.\nReloading rtorrent.rc..."
+    printf "found. Reloading rtorrent.rc..."
     cp ~/.dotfiles/rtorrent.rc ~/.rtorrent.rc
     printf "done.\n"
   else
@@ -216,7 +216,7 @@ function getconfigs()
 
   printf "Checking for tmux..."
   if [[ `which tmux 2> /dev/null` ]] ; then
-    printf "found.\nReloading tmux.conf..."
+    printf "found. Reloading tmux.conf..."
     cp ~/.dotfiles/tmux.conf ~/.tmux.conf
     printf "done.\n"
   else
@@ -225,7 +225,7 @@ function getconfigs()
 
   printf "Checking for xbindkeys..."
   if [[ `which xbindkeys 2> /dev/null` ]] ; then
-    printf "found.\nReloading xbindkeysrc..."
+    printf "found. Reloading xbindkeysrc..."
     if [[ -f ~/.dotfiles/xbindkeysrc-${host} ]] ; then
       cp ~/.dotfiles/xbindkeysrc-${host} ~/.xbindkeysrc
       printf "done.\n"
@@ -238,7 +238,7 @@ function getconfigs()
 
   printf "Checking for thunar..."
   if [[ `which thunar 2> /dev/null` ]]; then
-    printf "found.\nReloading uca.xml..."
+    printf "found. Reloading uca.xml..."
     mkdir -p ~/.config/Thunar
     cp ~/.dotfiles/config/Thunar/uca.xml ~/.config/Thunar/uca.xml
     printf "done.\n"
