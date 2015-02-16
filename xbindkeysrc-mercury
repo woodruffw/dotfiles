@@ -48,5 +48,10 @@
     m:0x5 + c:13
     Control+Shift + 4 
 
+#open default terminal
+"x-terminal-emulator"
+    m:0x0 + c:156
+    XF86Launch1 
+
 #
 # End of xbindkeys configuration
