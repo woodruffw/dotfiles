@@ -1,3 +1,4 @@
 MAILTO='william@tuffbizz.com'
+PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin
 
 0 12 * * * /Users/william/scripts/cron-shunt /Users/william/scripts/dailymail.rb
