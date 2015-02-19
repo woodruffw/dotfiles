@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # jskel: generate a Java skeleton file and print its name
-# usage: {vim,emacs,nano,ed} `cskel newfile` 
+# usage: {vim,emacs,nano,ed} `jskel newfile` 
 
 if [[ -n "${1}" ]]; then
 	file="${1}.java"
