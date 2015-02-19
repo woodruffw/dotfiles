@@ -257,6 +257,7 @@ function getconfigs()
   cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
   cp ~/.dotfiles/scripts/jskel ~/scripts/jskel
   cp ~/.dotfiles/scripts/linecheck ~/scripts/linecheck
+  cp ~/.dotfiles/scripts/haste ~/scripts/haste
   cp ~/.dotfiles/scripts/update ~/scripts/update
 
   if [[ "${host}" = "mercury" ]] ; then
