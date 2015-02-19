@@ -3,15 +3,15 @@
 # cskel: generate a C skeleton file and print its name
 # usage: {vim,emacs,nano,ed} `cskel newfile` 
 
-if [[ -n "$1" ]]; then
-	file="$1.c"
+if [[ -n "${1}" ]]; then
+	file="${1}.c"
 else
 	file="cskel${RANDOM}.c"
 fi
 
-cat <<EOSKEL > "$file"
+cat <<EOSKEL > "${file}"
 
-/* cskel $file */
+/* cskel ${file} */
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,4 +30,4 @@ int main(int argc, char **argv)
 
 EOSKEL
 
-echo $file
+echo "${file}"
