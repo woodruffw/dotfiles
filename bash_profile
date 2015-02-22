@@ -252,7 +252,7 @@ function getconfigs()
     printf "found. Reloading addons..."
     mkdir -p ~/.config/hexchat/
     rm -rf ~/.config/hexchat/addons
-    mv ~/.dotfiles/config/hexchat/addons/ ~/.config/hexchat/
+    cp -R ~/.dotfiles/config/hexchat/addons/ ~/.config/hexchat/
     printf "done.\n"
   else
     printf "not installed. Skipping.\n"
