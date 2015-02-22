@@ -250,8 +250,8 @@ function getconfigs()
   printf "Checking for hexchat..."
   if [[ `which hexchat 2> /dev/null` ]]; then
     printf "found. Reloading addons..."
-    mkdir -p ~/.config/hexchat/addons
-    cp -Rf ~/.dotfiles/config/hexchat/addons/* ~/.config/hexchat/
+    #mkdir -p ~/.config/hexchat/addons
+    #cp -Rf ~/.dotfiles/config/hexchat/addons/* ~/.config/hexchat/
     printf "done.\n"
   else
     printf "not installed. Skipping.\n"
