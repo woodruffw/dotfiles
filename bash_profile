@@ -247,6 +247,16 @@ function getconfigs()
     printf "not installed. Skipping.\n"
   fi
 
+  printf "Checking for hexchat..."
+  if [[ `which hexchat 2> /dev/null` ]]; then
+    printf "found. Reloading addons..."
+    mkdir -p ~/.config/hexchat/addons
+    cp -R ~/.dotfiles/config/hexchat/addons/ ~/.config/hexchat/addons
+    printf "done.\n"
+  else
+    printf "not installed. Skipping.\n"
+  fi
+
   printf "Fetching scripts..."
   mkdir -p ~/scripts
   cp ~/.dotfiles/scripts/$ ~/scripts/$
