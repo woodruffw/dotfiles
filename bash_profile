@@ -189,7 +189,7 @@ function getconfigs()
   printf "done.\n"
 
   printf "Checking for wget..."
-  if [[ `which wget 2> /dev/null` ]]; then
+  if [[ `which wget 2> /dev/null` ]] ; then
     printf "found. Reloading wgetrc..."
     cp ~/.dotfiles/wgetrc ~/.wgetrc
     printf "done.\n"
@@ -198,7 +198,7 @@ function getconfigs()
   fi
 
   printf "Checking for curl..."
-  if [[ `which curl 2> /dev/null` ]]; then
+  if [[ `which curl 2> /dev/null` ]] ; then
     printf "found. Reloading curlrc..."
     cp ~/.dotfiles/curlrc ~/.curlrc
     printf "done.\n"
@@ -238,7 +238,7 @@ function getconfigs()
   fi
 
   printf "Checking for thunar..."
-  if [[ `which thunar 2> /dev/null` ]]; then
+  if [[ `which thunar 2> /dev/null` ]] ; then
     printf "found. Reloading uca.xml..."
     mkdir -p ~/.config/Thunar
     cp ~/.dotfiles/config/Thunar/uca.xml ~/.config/Thunar/uca.xml
@@ -248,7 +248,7 @@ function getconfigs()
   fi
 
   printf "Checking for hexchat..."
-  if [[ `which hexchat 2> /dev/null` ]]; then
+  if [[ `which hexchat 2> /dev/null` ]] ; then
     printf "found. Reloading addons..."
     mkdir -p ~/.config/hexchat/addons
     cp -f ~/.dotfiles/config/hexchat/addons/* ~/.config/hexchat/addons/
