@@ -269,6 +269,7 @@ function getconfigs()
   cp ~/.dotfiles/scripts/linecheck ~/scripts/linecheck
   cp ~/.dotfiles/scripts/haste ~/scripts/haste
   cp ~/.dotfiles/scripts/update ~/scripts/update
+  cp ~/.dotfiles/scripts/cart ~/scripts/cart
 
   if [[ "${host}" = "mercury" ]] ; then
     cp ~/.dotfiles/scripts/poomf.sh ~/scripts/poomf.sh
