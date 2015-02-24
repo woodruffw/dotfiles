@@ -113,6 +113,22 @@ export HISTCONTROL=ignoredups:erasedups
 export MARKPATH=$HOME/.marks
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
+# convenient colors
+export COLOR_BLK=$(tput setaf 0)
+export COLOR_RED=$(tput setaf 1)
+export COLOR_GRN=$(tput setaf 2)
+export COLOR_YLW=$(tput setaf 3)
+export COLOR_BLU=$(tput setaf 4)
+export COLOR_MAG=$(tput setaf 5)
+export COLOR_CYN=$(tput setaf 6)
+export COLOR_WHT=$(tput setaf 7)
+export COLOR_NRM='\033[0m'
+
+# convenient text modes
+export TEXT_BOLD=$(tput bold)
+export TEXT_UNDL=$(tput smul)
+export TEXT_RMUL=$(tput rmul)
+
 # unset LESSOPEN and LESSPIPE (never used, and a security hole)
 unset LESSOPEN
 unset LESSPIPE
@@ -175,53 +191,53 @@ function getconfigs()
   elif [[ "${system}" = "Darwin" ]] ; then
     cp ~/.dotfiles/bash_profile ~/.bash_profile
   fi
-  printf "done.\n"
+  printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
   printf "Reloading git-aliases and gitconfig..."
   cp ~/.dotfiles/git-aliases ~/.git-aliases
   cp ~/.dotfiles/gitconfig ~/.gitconfig
-  printf "done.\n"
+  printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
   printf "Reloading vimrc and vim scripts..."
   cp ~/.dotfiles/vimrc ~/.vimrc
   mkdir -p ~/.vim/scripts/
   cp ~/.dotfiles/vim/scripts/closetag.vim ~/.vim/scripts/closetag.vim
-  printf "done.\n"
+  printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
   printf "Checking for wget..."
   if [[ `which wget 2> /dev/null` ]] ; then
     printf "found. Reloading wgetrc..."
     cp ~/.dotfiles/wgetrc ~/.wgetrc
-    printf "done.\n"
+    printf "${COLOR_GRN}done${COLOR_NRM}.\n"
   else
-    printf "not installed. Skipping.\n"
+    printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
   fi
 
   printf "Checking for curl..."
   if [[ `which curl 2> /dev/null` ]] ; then
     printf "found. Reloading curlrc..."
     cp ~/.dotfiles/curlrc ~/.curlrc
-    printf "done.\n"
+    printf "${COLOR_GRN}done${COLOR_NRM}.\n"
   else
-    printf "not installed. Skipping.\n"
+    printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
   fi
 
   printf "Checking for rtorrent..."
   if [[ `which rtorrent 2> /dev/null` ]] ; then
     printf "found. Reloading rtorrent.rc..."
     cp ~/.dotfiles/rtorrent.rc ~/.rtorrent.rc
-    printf "done.\n"
+    printf "${COLOR_GRN}done${COLOR_NRM}.\n"
   else
-    printf "not installed. Skipping.\n"
+    printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
   fi
 
   printf "Checking for tmux..."
   if [[ `which tmux 2> /dev/null` ]] ; then
     printf "found. Reloading tmux.conf..."
     cp ~/.dotfiles/tmux.conf ~/.tmux.conf
-    printf "done.\n"
+    printf "${COLOR_GRN}done${COLOR_NRM}.\n"
   else
-    printf "not installed. Skipping.\n"
+    printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
   fi
 
   printf "Checking for xbindkeys..."
@@ -229,12 +245,12 @@ function getconfigs()
     printf "found. Reloading xbindkeysrc..."
     if [[ -f ~/.dotfiles/xbindkeysrc-${host} ]] ; then
       cp ~/.dotfiles/xbindkeysrc-${host} ~/.xbindkeysrc
-      printf "done.\n"
+      printf "${COLOR_GRN}done${COLOR_NRM}.\n"
     else
       printf "none required.\n"
     fi
   else
-    printf "not installed. Skipping.\n"
+    printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
   fi
 
   printf "Checking for thunar..."
@@ -242,9 +258,9 @@ function getconfigs()
     printf "found. Reloading uca.xml..."
     mkdir -p ~/.config/Thunar
     cp ~/.dotfiles/config/Thunar/uca.xml ~/.config/Thunar/uca.xml
-    printf "done.\n"
+    printf "${COLOR_GRN}done${COLOR_NRM}.\n"
   else
-    printf "not installed. Skipping.\n"
+    printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
   fi
 
   printf "Checking for hexchat..."
@@ -252,9 +268,9 @@ function getconfigs()
     printf "found. Reloading addons..."
     mkdir -p ~/.config/hexchat/addons
     cp -f ~/.dotfiles/config/hexchat/addons/* ~/.config/hexchat/addons/
-    printf "done.\n"
+    printf "${COLOR_GRN}done${COLOR_NRM}.\n"
   else
-    printf "not installed. Skipping.\n"
+    printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
   fi
 
   printf "Fetching scripts..."
@@ -286,7 +302,7 @@ function getconfigs()
     cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
   fi
   chmod +x ~/scripts/*
-  printf "done.\n"
+  printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
   printf "Fetching cron-shunt and crontab..."
   cp ~/.dotfiles/scripts/cron-shunt ~/scripts/cron-shunt
@@ -294,7 +310,7 @@ function getconfigs()
     cp ~/.dotfiles/scripts/crontabs/${host}.cron ~/scripts/${host}.cron
     crontab -r
     crontab ~/scripts/${host}.cron
-    printf "done.\n"
+    printf "${COLOR_GRN}done${COLOR_NRM}.\n"
   else
     printf "none required.\n"
   fi
@@ -311,7 +327,7 @@ function getconfigs()
     rm -rf dotfiles-priv
   fi
 
-  echo "All done."
+  printf "${COLOR_GRN}All done${COLOR_NRM}.\n"
 
   bashreload
 }
