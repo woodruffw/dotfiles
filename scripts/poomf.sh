@@ -63,7 +63,7 @@ done
 
 # take fullscreen picture
 if [[ $fullscreen ]]; then
-	file=$(filename=/tmp/screenshot.png ; fullscreen_screenshot $filename ; printf $filename)
+	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; fullscreen_screenshot $filename ; printf $filename)
 fi
 
 # display help
@@ -77,7 +77,7 @@ fi
 
 # take selection picture
 if [[ $selection ]]; then
-	file=$(filename=/tmp/screenshot.png ; selection_screenshot $filename ; printf $filename)
+	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; selection_screenshot $filename ; printf $filename)
 fi
 
 # get file
@@ -111,12 +111,6 @@ while [[ $n -le 3 ]]; do
 done
 
 url=http://a.pomf.se/$pomffile
-
-# remove temporary file
-
-if [[ -z $upload ]]; then
-	rm -f $file
-fi
 
 ## OUTPUT
 
