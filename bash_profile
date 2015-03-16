@@ -224,8 +224,9 @@ function getconfigs()
 
   printf "Checking for rtorrent..."
   if [[ `which rtorrent 2> /dev/null` ]] ; then
-    printf "found. Reloading rtorrent.rc..."
+    printf "found. Reloading rtorrent.rc and magnet-to-torrent.pl..."
     cp ~/.dotfiles/rtorrent.rc ~/.rtorrent.rc
+    cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
     printf "${COLOR_GRN}done${COLOR_NRM}.\n"
   else
     printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
@@ -299,7 +300,6 @@ function getconfigs()
 
   if [[ "${host}" = "mars" ]] ; then
     cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
-    cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
   fi
 
   if [[ "${host}" = "aphrodite" ]]; then
