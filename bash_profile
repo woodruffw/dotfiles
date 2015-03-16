@@ -301,6 +301,10 @@ function getconfigs()
     cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
     cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
   fi
+
+  if [[ "${host}" = "aphrodite" ]]; then
+    cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
+  fi
   chmod +x ~/scripts/*
   printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
