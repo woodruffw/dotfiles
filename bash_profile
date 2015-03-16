@@ -185,6 +185,8 @@ function getconfigs()
     cd ~/.dotfiles
   fi
 
+  mkdir -p ~/scripts
+
   printf "Reloading profile..."
   if [[ "${system}" = "Linux" ]] ; then
     cp ~/.dotfiles/bash_profile ~/.bashrc
@@ -275,7 +277,6 @@ function getconfigs()
   fi
 
   printf "Fetching scripts..."
-  mkdir -p ~/scripts
   cp ~/.dotfiles/scripts/$ ~/scripts/$
   cp ~/.dotfiles/scripts/% ~/scripts/%
   cp ~/.dotfiles/scripts/colorscheme ~/scripts/colorscheme
