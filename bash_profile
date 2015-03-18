@@ -278,9 +278,10 @@ function getconfigs()
 
   printf "Checking for mpv..."
   if [[ `which mpv 2> /dev/null` ]]; then
-    printf "found. Reloading config..."
-    mkdir -p ~/.mpv
+    printf "found. Reloading configs..."
+    mkdir -p ~/.mpv/lua-settings
     cp ~/.dotfiles/mpv/config ~/.mpv/config
+    cp ~/.dotfiles/mpv/lua-settings/osc.conf ~/.mpv/lua-settings/osc.conf
     printf "${COLOR_GRN}done${COLOR_NRM}.\n"
   else
     printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
