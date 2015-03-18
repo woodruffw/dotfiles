@@ -1,0 +1,8 @@
+no-border
+osd-bar
+
+screenshot-format=png
+screenshot-template="~/Dropbox/screenshots/%F - %p"
+
+alang=jpn
+slang=enm,eng

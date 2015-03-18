@@ -276,6 +276,16 @@ function getconfigs()
     printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
   fi
 
+  printf "Checking for mpv..."
+  if [[ `which mpv 2> /dev/null` ]]; then
+    printf "found. Reloading config..."
+    mkdir -p ~/.mpv
+    cp ~/.dotfiles/mpv/config ~/.mpv/config
+    printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+  else
+    printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+  fi
+
   printf "Fetching scripts..."
   cp ~/.dotfiles/scripts/$ ~/scripts/$
   cp ~/.dotfiles/scripts/% ~/scripts/%
