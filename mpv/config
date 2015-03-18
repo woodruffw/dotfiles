@@ -1,6 +1,6 @@
 no-border
 fullscreen
-osd-bar
+osc
 
 screenshot-format=png
 screenshot-template="~/Dropbox/screenshots/%F - %p"
