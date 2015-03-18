@@ -23,4 +23,14 @@
 	<text-files/>
 	<video-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>mpv</name>
+	<unique-id>1426654372629770-2</unique-id>
+	<command>mpv --playlist=&quot;%f&quot;</command>
+	<description>play a playlist with mpv</description>
+	<patterns>*.playlist</patterns>
+	<other-files/>
+	<text-files/>
+</action>
 </actions>
