@@ -2,7 +2,7 @@
 # bash_profile (or bashrc) #
 ############################
 
-[[ -z "$PS1" ]] && return
+[[ -z "${PS1}" ]] && return
 
 system=`uname`
 host=`hostname`
