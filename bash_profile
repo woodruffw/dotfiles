@@ -73,7 +73,7 @@ if [[ "${system}" = "Linux" ]] ; then
     alias sprs='sudo pacman -Rs'
   fi
 
-  export PATH="$PATH:/home/$USER/bin:/home/$USER/scripts"
+  export PATH="${PATH}:/home/$USER/bin:/home/$USER/scripts"
 
 elif [[ "${system}" = "Darwin" ]] ; then
   alias brew='brew -v'
@@ -118,8 +118,8 @@ fi
 # system-independent environment variables
 export LESSHISTFILE="/dev/null" # prevent less from creating ~/.lesshist
 export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
-export HISTCONTROL=ignoredups:erasedups
-export MARKPATH=$HOME/.marks
+export HISTCONTROL="ignoredups:erasedups"
+export MARKPATH="${HOME}/.marks"
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # convenient colors
@@ -153,7 +153,7 @@ shopt -s cdspell # fix typos in cd
 ################
 # KEY BINDINGS #
 ################
-bind -x '"\e[15~":ttyreset' # reset the terminal with Fun5
+bind -x '"\e[15~":ttyreset' # reset the terminal with F5
 
 # load git aliases if it exists
 [[ -f ~/.git-aliases ]] && source ~/.git-aliases
@@ -392,7 +392,7 @@ function man()
 # used in PS1
 function parse_git_branch()
 {
-  ref=$(git symbolic-ref HEAD 2>/dev/null) || return
+  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
   echo "[""${ref#refs/heads/}""] "
 }
 
@@ -434,7 +434,7 @@ function ew()
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 function jmp()
 {
-  cd -P "${MARKPATH}/${1}" 2>/dev/null || echo "No such mark: ${1}"
+  cd -P "${MARKPATH}/${1}" 2> /dev/null || echo "No such mark: ${1}"
 }
 
 function mark()
