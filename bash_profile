@@ -48,7 +48,7 @@ alias cronedit='crontab -e'
 alias cronls='crontab -l'
 alias reboot='sudo reboot'
 alias rmhk='ssh-keygen -R'
-alias path='echo $PATH'
+alias path='echo ${PATH}'
 alias mkdir='mkdir -p'
 
 # system-dependent aliases and variables
@@ -97,7 +97,7 @@ elif [[ "${system}" = "Darwin" ]] ; then
 fi
 
 # if colordiff is installed, alias diff to it
-if [[ `which colordiff 2> /dev/null` ]] ; then
+if [[ $(which colordiff 2> /dev/null) ]] ; then
   alias diff='colordiff'
 fi
 
@@ -176,7 +176,7 @@ fi
 # IMPORTANT: overwrites .bash_profile/.bashrc, .vimrc, etc
 function getconfigs()
 {
-  if [[ ! `which git 2> /dev/null` ]] ; then
+  if [[ ! $(which git 2> /dev/null) ]] ; then
     echo "Fatal: git required to fetch configs."
     return 1
   fi
@@ -216,7 +216,7 @@ function getconfigs()
   printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
   printf "Checking for wget..."
-  if [[ `which wget 2> /dev/null` ]] ; then
+  if [[ $(which wget 2> /dev/null) ]] ; then
     printf "found. Reloading wgetrc..."
     cp ~/.dotfiles/wgetrc ~/.wgetrc
     printf "${COLOR_GRN}done${COLOR_NRM}.\n"
@@ -225,7 +225,7 @@ function getconfigs()
   fi
 
   printf "Checking for curl..."
-  if [[ `which curl 2> /dev/null` ]] ; then
+  if [[ $(which curl 2> /dev/null) ]] ; then
     printf "found. Reloading curlrc..."
     cp ~/.dotfiles/curlrc ~/.curlrc
     printf "${COLOR_GRN}done${COLOR_NRM}.\n"
@@ -234,7 +234,7 @@ function getconfigs()
   fi
 
   printf "Checking for rtorrent..."
-  if [[ `which rtorrent 2> /dev/null` ]] ; then
+  if [[ $(which rtorrent 2> /dev/null) ]] ; then
     printf "found. Reloading rtorrent.rc and magnet-to-torrent.pl..."
     cp ~/.dotfiles/rtorrent.rc ~/.rtorrent.rc
     cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
@@ -244,7 +244,7 @@ function getconfigs()
   fi
 
   printf "Checking for tmux..."
-  if [[ `which tmux 2> /dev/null` ]] ; then
+  if [[ $(which tmux 2> /dev/null) ]] ; then
     printf "found. Reloading tmux.conf..."
     cp ~/.dotfiles/tmux.conf ~/.tmux.conf
     printf "${COLOR_GRN}done${COLOR_NRM}.\n"
@@ -253,7 +253,7 @@ function getconfigs()
   fi
 
   printf "Checking for xbindkeys..."
-  if [[ `which xbindkeys 2> /dev/null` ]] ; then
+  if [[ $(which xbindkeys 2> /dev/null) ]] ; then
     printf "found. Reloading xbindkeysrc..."
     if [[ -f ~/.dotfiles/xbindkeysrc-${host} ]] ; then
       cp ~/.dotfiles/xbindkeysrc-${host} ~/.xbindkeysrc
@@ -266,7 +266,7 @@ function getconfigs()
   fi
 
   printf "Checking for thunar..."
-  if [[ `which thunar 2> /dev/null` ]] ; then
+  if [[ $(which thunar 2> /dev/null) ]] ; then
     printf "found. Reloading uca.xml..."
     mkdir -p ~/.config/Thunar
     cp ~/.dotfiles/config/Thunar/uca.xml ~/.config/Thunar/uca.xml
@@ -276,7 +276,7 @@ function getconfigs()
   fi
 
   printf "Checking for hexchat..."
-  if [[ `which hexchat 2> /dev/null` ]] ; then
+  if [[ $(which hexchat 2> /dev/null) ]] ; then
     printf "found. Reloading addons..."
     mkdir -p ~/.config/hexchat/addons
     cp -f ~/.dotfiles/config/hexchat/addons/* ~/.config/hexchat/addons/
@@ -286,7 +286,7 @@ function getconfigs()
   fi
 
   printf "Checking for mpv..."
-  if [[ `which mpv 2> /dev/null` ]]; then
+  if [[ $(which mpv 2> /dev/null) ]]; then
     printf "found. Reloading configs..."
     mkdir -p ~/.mpv/lua-settings
     cp ~/.dotfiles/mpv/config ~/.mpv/config
@@ -439,7 +439,7 @@ function jmp()
 
 function mark()
 {
-  mkdir -p "${MARKPATH}"; ln -s "$(pwd)" "${MARKPATH}/$1"
+  mkdir -p "${MARKPATH}"; ln -s "${PWD}" "${MARKPATH}/${1}"
 }
 
 function unmark()
