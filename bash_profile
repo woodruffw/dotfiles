@@ -105,10 +105,19 @@ fi
 # ENVIRONMENT #
 ###############
 
+# set the editor depending on what's installed
+
+if [[ $(which subl 2> /dev/null) ]]; then
+  export EDITOR=subl
+elif [[ $(which vim 2> /dev/null) ]]; then
+  export EDITOR=vim
+else
+  export EDITOR=nano
+fi
+
 # system-independent environment variables
 export LESSHISTFILE="/dev/null" # prevent less from creating ~/.lesshist
 export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
-export EDITOR='vim'
 export HISTCONTROL=ignoredups:erasedups
 export MARKPATH=$HOME/.marks
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
@@ -334,7 +343,7 @@ function getconfigs()
   popd > /dev/null
 
   printf "Sync dotfiles-priv? (y/N): " && read ans
-  if [[ "$ans" =~ [Yy] ]] ; then
+  if [[ "${ans}" =~ [Yy] ]] ; then
     git clone https://github.com/woodruffw/dotfiles-priv 2> /dev/null
     pushd . > /dev/null
     cd dotfiles-priv
@@ -375,7 +384,7 @@ function man()
   LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
   LESS_TERMCAP_ue=$(printf "\e[0m") \
   LESS_TERMCAP_us=$(printf "\e[1;32m") \
-  man "$@"
+  man "${@}"
 }
 
 # parse_git_branch
@@ -404,43 +413,43 @@ function shah()
   shasum $1 | awk '{ print $1 }'
 }
 
-# fw, lw, vw - expand file, less, vim input from which
+# fw, lw, ew - expand file, less, editor input from which
 # useful for reading from files on the PATH without their paths
 function fw()
 {
-  file `which $1`
+  file $(which ${1})
 }
 
 function lw()
 {
-  less `which $1`
+  less $(which ${1})
 }
 
-function vw()
+function ew()
 {
-  vim `which $1`
+  $EDITOR $(which ${1})
 }
 
 # jmp (jump) and friends, shamelessly taken from:
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
 function jmp()
 {
-  cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+  cd -P "${MARKPATH}/${1}" 2>/dev/null || echo "No such mark: ${1}"
 }
 
 function mark()
 {
-  mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+  mkdir -p "${MARKPATH}"; ln -s "$(pwd)" "${MARKPATH}/$1"
 }
 
 function unmark()
 {
-  rm -i "$MARKPATH/$1"
+  rm -i "${MARKPATH}/$1"
 }
 
 function marks()
 {
-  ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+  ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
 
 
@@ -451,15 +460,15 @@ function marks()
 function _completemarks()
 {
   local curw=${COMP_WORDS[COMP_CWORD]}
-  local wordlist=$(ls $MARKPATH 2> /dev/null)
-  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  local wordlist=$(ls ${MARKPATH} 2> /dev/null)
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
 function _completeprj()
 {
   local curw=${COMP_WORDS[COMP_CWORD]}
   local wordlist=$(ls ~/Dropbox/Programming 2> /dev/null)
-  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
 ###########################
