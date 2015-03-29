@@ -177,7 +177,7 @@ fi
 function getconfigs()
 {
   if [[ ! $(which git 2> /dev/null) ]] ; then
-    echo "Fatal: git required to fetch configs."
+    >&2 echo "Fatal: git required to fetch configs."
     return 1
   fi
 
