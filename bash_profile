@@ -444,7 +444,7 @@ function mark()
 
 function unmark()
 {
-  rm -i "${MARKPATH}/$1"
+  rm -i "${MARKPATH}/${1}"
 }
 
 function marks()
