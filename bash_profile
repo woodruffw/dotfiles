@@ -4,8 +4,8 @@
 
 [[ -z "${PS1}" ]] && return
 
-system=`uname`
-host=`hostname`
+system=$(uname)
+host=$(hostname)
 
 ###########
 # Aliases #
