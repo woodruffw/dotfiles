@@ -1,0 +1,190 @@
+#!/usr/bin/env bash
+
+# dotfiles: fetch configuration files and scripts
+# usage: dotfiles
+
+function installed() {
+	if [[ $(which ${1} 2> /dev/null) ]]; then
+		return 0
+	else
+		return 1
+	fi
+}
+
+function fetch_files() {
+	local system=$(uname)
+	local host=$(hostname)
+
+	if ! installed git ; then
+		>&2 echo "Fatal: git required to fetch configs."
+		exit 1
+	fi
+
+	pushd . > /dev/null
+
+	# make sure the repo isn't clobbered
+	if [[ -d ~/.dotfiles/.git ]] ; then
+		cd ~/.dotfiles
+		git fetch origin --quiet > /dev/null
+		git merge origin/master > /dev/null
+	else
+		rm -rf ~/.dotfiles
+		git clone https://github.com/woodruffw/dotfiles ~/.dotfiles > /dev/null
+	fi
+
+	popd > /dev/null
+
+	mkdir -p ~/scripts
+
+	printf "Reloading profile..."
+	if [[ "${system}" = "Linux" ]] ; then
+		cp ~/.dotfiles/bash_profile ~/.bashrc
+	elif [[ "${system}" = "Darwin" ]] ; then
+		cp ~/.dotfiles/bash_profile ~/.bash_profile
+	fi
+	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+
+	# we know git is installed
+	printf "Reloading git-aliases and gitconfig..."
+	cp ~/.dotfiles/git-aliases ~/.git-aliases
+	cp ~/.dotfiles/gitconfig ~/.gitconfig
+	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+
+	printf "Checking for vim..."
+	if installed vim ; then
+		printf "found. Reloading vimrc and vim scripts..."
+		cp ~/.dotfiles/vimrc ~/.vimrc
+		mkdir -p ~/.vim/scripts/
+		cp ~/.dotfiles/vim/scripts/closetag.vim ~/.vim/scripts/closetag.vim
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
+	printf "Checking for curl..."
+	if installed curl ; then
+		printf "found. Reloading curlrc..."
+		cp ~/.dotfiles/curlrc ~/.curlrc
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
+	printf "Checking for rtorrent..."
+	if installed rtorrent ; then
+		printf "found. Reloading rtorrent.rc and magnet-to-torrent.pl..."
+		cp ~/.dotfiles/rtorrent.rc ~/.rtorrent.rc
+		cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
+	printf "Checking for tmux..."
+	if installed tmux ; then
+		printf "found. Reloading tmux.conf..."
+		cp ~/.dotfiles/tmux.conf ~/.tmux.conf
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
+	printf "Checking for xbindkeys..."
+	if installed xbindkeys ; then
+		printf "found. Reloading xbindkeysrc..."
+		if [[ -f ~/.dotfiles/xbindkeysrc-${host} ]] ; then
+			cp ~/.dotfiles/xbindkeysrc-${host} ~/.xbindkeysrc
+			printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+		else
+			printf "none required.\n"
+		fi
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
+	printf "Checking for thunar..."
+	if installed thunar ; then
+		printf "found. Reloading uca.xml..."
+		mkdir -p ~/.config/Thunar
+		cp ~/.dotfiles/config/Thunar/uca.xml ~/.config/Thunar/uca.xml
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
+	printf "Checking for hexchat..."
+	if installed hexchat ; then
+		printf "found. Reloading addons..."
+		mkdir -p ~/.config/hexchat/addons
+		cp -f ~/.dotfiles/config/hexchat/addons/* ~/.config/hexchat/addons/
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
+	printf "Checking for mpv..."
+	if installed mpv ; then
+		printf "found. Reloading configs..."
+		mkdir -p ~/.mpv/lua-settings
+		cp ~/.dotfiles/mpv/config ~/.mpv/config
+		cp ~/.dotfiles/mpv/lua-settings/osc.conf ~/.mpv/lua-settings/osc.conf
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
+	printf "Fetching scripts..."
+	cp ~/.dotfiles/scripts/$ ~/scripts/$
+	cp ~/.dotfiles/scripts/% ~/scripts/%
+	cp ~/.dotfiles/scripts/colorscheme ~/scripts/colorscheme
+	cp ~/.dotfiles/scripts/colorscheme2 ~/scripts/colorscheme2
+	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
+	cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
+	cp ~/.dotfiles/scripts/jskel ~/scripts/jskel
+	cp ~/.dotfiles/scripts/linecheck ~/scripts/linecheck
+	cp ~/.dotfiles/scripts/haste ~/scripts/haste
+	cp ~/.dotfiles/scripts/update ~/scripts/update
+	cp ~/.dotfiles/scripts/cart ~/scripts/cart
+
+	if [[ "${host}" = "mercury" ]] ; then
+	  cp ~/.dotfiles/scripts/poomf.sh ~/scripts/poomf.sh
+	fi
+
+	if [[ "${host}" = "athena" ]] ; then
+	  cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
+	  cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
+	  cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
+	fi
+
+	if [[ "${host}" = "mars" ]] ; then
+	  cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
+	fi
+
+	if [[ "${host}" = "aphrodite" ]]; then
+	  cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
+	fi
+	chmod +x ~/scripts/*
+	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+
+	printf "Fetching cron-shunt and crontab..."
+	cp ~/.dotfiles/scripts/cron-shunt ~/scripts/cron-shunt
+	if [[ -f ~/.dotfiles/scripts/crontabs/${host}.cron ]] ; then
+		cp ~/.dotfiles/scripts/crontabs/${host}.cron ~/scripts/${host}.cron
+		crontab -r
+		crontab ~/scripts/${host}.cron
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "none required.\n"
+	fi
+
+	printf "Sync dotfiles-priv? (y/N): " && read ans
+	if [[ "${ans}" =~ [Yy] ]] ; then
+		git clone https://github.com/woodruffw/dotfiles-priv ~/.dotfiles-priv 2> /dev/null
+		bash ~/.dotfiles-priv/install.sh
+		rm -rf dotfiles-priv
+	fi
+
+	printf "${COLOR_GRN}All done${COLOR_NRM}.\n"
+}
+
+fetch_files

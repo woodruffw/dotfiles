@@ -297,6 +297,7 @@ function getconfigs()
   fi
 
   printf "Fetching scripts..."
+  cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles
   cp ~/.dotfiles/scripts/$ ~/scripts/$
   cp ~/.dotfiles/scripts/% ~/scripts/%
   cp ~/.dotfiles/scripts/colorscheme ~/scripts/colorscheme
