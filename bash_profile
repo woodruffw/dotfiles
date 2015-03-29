@@ -410,7 +410,7 @@ function prj()
 # shah - get sha1 and output just the hash
 function shah()
 {
-  shasum $1 | awk '{ print $1 }'
+  shasum "${1}" | awk '{ print $1 }'
 }
 
 # fw, lw, ew - expand file, less, editor input from which
