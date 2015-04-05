@@ -14,7 +14,7 @@
 	<icon></icon>
 	<name>poomf</name>
 	<unique-id>1423754655152471-1</unique-id>
-	<command>~/scripts/poomf.sh -u %f</command>
+	<command>~/scripts/poomf -u %f</command>
 	<description>poomf</description>
 	<patterns>*</patterns>
 	<audio-files/>

@@ -39,12 +39,12 @@
    control+shift + q
 
 #take a full screen screenshot and upload to pomf.se
-"~/scripts/poomf.sh -f"
+"~/scripts/poomf -f"
     m:0x5 + c:12
     Control+Shift + 3 
 
 #take a selection screen screenshot and upload to pomf.se
-"~/scripts/poomf.sh -s"
+"~/scripts/poomf -s"
     m:0x5 + c:13
     Control+Shift + 4 
 
