@@ -146,6 +146,7 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/haste ~/scripts/haste
 	cp ~/.dotfiles/scripts/update ~/scripts/update
 	cp ~/.dotfiles/scripts/cart ~/scripts/cart
+	cp ~/.dotfiles/scripts/speedtest ~/scripts/speedtest
 
 	if [[ "${host}" = "mercury" ]] ; then
 	  cp ~/.dotfiles/scripts/poomf.sh ~/scripts/poomf.sh
