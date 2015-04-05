@@ -49,7 +49,7 @@
     Control+Shift + 4 
 
 #open default terminal
-"x-terminal-emulator"
+"xscreensaver-command -lock"
     m:0x0 + c:156
     XF86Launch1 
 
