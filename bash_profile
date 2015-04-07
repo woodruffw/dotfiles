@@ -52,6 +52,20 @@ alias path='echo ${PATH}'
 alias mkdir='mkdir -p'
 alias getconfigs='dotfiles ; bashreload'
 
+source ~/.git-aliases
+
+# if colordiff is installed, alias diff to it
+if [[ $(which colordiff 2> /dev/null) ]] ; then
+  alias diff='colordiff'
+fi
+
+# if jekyll is installed, add its aliases
+if [[ $(which jekyll 2> /dev/null) ]]; then
+  alias jb='jekyll build'
+  alias jc='jekyll clean'
+  alias js='jekyll serve'
+fi
+
 # system-dependent aliases and variables
 if [[ "${system}" = "Linux" ]] ; then
   alias bashreload='unalias -a ; source ~/.bashrc'
@@ -97,11 +111,6 @@ elif [[ "${system}" = "Darwin" ]] ; then
   export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/$USER/bin:/Users/$USER/scripts
 fi
 
-# if colordiff is installed, alias diff to it
-if [[ $(which colordiff 2> /dev/null) ]] ; then
-  alias diff='colordiff'
-fi
-
 ###############
 # ENVIRONMENT #
 ###############
@@ -139,6 +148,14 @@ export TEXT_BOLD=$(tput bold)
 export TEXT_UNDL=$(tput smul)
 export TEXT_RMUL=$(tput rmul)
 
+# load API key files if they exist
+if [[ -d ~/.api-keys ]] ; then
+  for keyfile in ~/.api-keys/*
+  do
+    source ${keyfile}
+  done
+fi
+
 # unset LESSOPEN and LESSPIPE (never used, and a security hole)
 unset LESSOPEN
 unset LESSPIPE
@@ -155,18 +172,6 @@ shopt -s cdspell # fix typos in cd
 # KEY BINDINGS #
 ################
 bind -x '"\e[15~":ttyreset' # reset the terminal with F5
-
-# load git aliases if it exists
-[[ -f ~/.git-aliases ]] && source ~/.git-aliases
-# load API key files if they exist
-if [[ -d ~/.api-keys ]] ; then
-  for keyfile in ~/.api-keys/*
-  do
-    source ${keyfile}
-  done
-fi
-# load bash completion if it exists
-[[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
 
 #############
@@ -293,4 +298,7 @@ function _completeprj()
 
 complete -F _completemarks jmp unmark
 complete -F _completeprj prj
+
+# load bash completion if it exists
+[[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
