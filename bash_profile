@@ -115,7 +115,6 @@ fi
 ###############
 
 # set the editor depending on what's installed
-
 if [[ $(which subl 2> /dev/null) ]]; then
   export EDITOR=subl
 elif [[ $(which vim 2> /dev/null) ]]; then
@@ -159,7 +158,8 @@ fi
 unset LESSOPEN
 unset LESSPIPE
 
-unset MAILCHECK # disable new mail alerts
+# disable new mail alerts
+unset MAILCHECK
 
 #################
 # SHELL OPTIONS #
@@ -171,7 +171,6 @@ shopt -s cdspell # fix typos in cd
 # KEY BINDINGS #
 ################
 bind -x '"\e[15~":ttyreset' # reset the terminal with F5
-
 
 #############
 # Functions #
