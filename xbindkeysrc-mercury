@@ -53,5 +53,10 @@
     m:0x0 + c:156
     XF86Launch1 
 
+#open dmenu
+"dmenu_run"
+    m:0x5 + c:40
+    Control+Shift + d 
+
 #
 # End of xbindkeys configuration
