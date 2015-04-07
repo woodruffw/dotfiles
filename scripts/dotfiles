@@ -114,9 +114,10 @@ function fetch_files() {
 
 	printf "Checking for hexchat..."
 	if installed hexchat ; then
-		printf "found. Reloading addons..."
+		printf "found. Reloading configs and addons..."
 		mkdir -p ~/.config/hexchat/addons
 		cp -f ~/.dotfiles/config/hexchat/addons/* ~/.config/hexchat/addons/
+		cp ~/.dotfiles/config/hexchat/urlhandlers.conf ~/.config/hexchat/urlhandlers.conf
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
