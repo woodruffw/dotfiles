@@ -55,8 +55,13 @@
 
 #open dmenu
 "dmenu_run"
-    m:0x5 + c:40
-    Control+Shift + d 
+    m:0xc + c:40
+    Control+Alt + d 
+
+#play clipboard url in mpv
+"~/scripts/mpv-xclip"
+    m:0xc + c:25
+    Control+Alt + w 
 
 #
 # End of xbindkeys configuration
