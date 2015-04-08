@@ -8,18 +8,18 @@ if [[ $(which xclip 2> /dev/null) && $(which mpv 2> /dev/null) ]] ; then
 	if xclip -o 2>&1 > /dev/null ; then
 		resource=$(xclip -o)
 		if [[ ! -z "${resource}" ]]; then
-			notify-send -t 1500 "mpv-xclip" "Playing ${resource}"
+			notify-send --urgency=critical "mpv-xclip" "Playing ${resource}"
 			mpv "${resource}"
 		else
-			notify-send -t 1500 "mpv-xclip" "No resource to play."
+			notify-send --urgency=critical "mpv-xclip" "No resource to play."
 			exit 100
 		fi
 	else
-		notify-send -t 1500 "mpv-xclip" "No resource to play."
+		notify-send --urgency=critical "mpv-xclip" "No resource to play."
 		exit 100
 	fi
 else
-	notify-send -t 1500 "mpv-xclip" "xclip and mpv needed."
+	notify-send --urgency=critical "mpv-xclip" "xclip and mpv needed."
 	exit 100
 fi
 
