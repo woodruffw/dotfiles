@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# mpv-xclip: play the resource currently in the X clipboard
+# this resource will usually be a URL, file path, or something like that
+
+# make sure we have both of our dependencies
+if [[ $(which xclip 2> /dev/null) && $(which mpv 2> /dev/null) ]] ; then
+	if xclip -o 2>&1 > /dev/null ; then
+		resource=$(xclip -o)
+		if [[ ! -z "${resource}" ]]; then
+			mpv "${resource}"
+		else
+			exit -1
+		fi
+	else
+		exit -1
+	fi
+else
+	exit -1
+fi
+
+exit 0
