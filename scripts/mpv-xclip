@@ -12,15 +12,12 @@ if [[ $(which xclip 2> /dev/null) && $(which mpv 2> /dev/null) ]] ; then
 			mpv "${resource}"
 		else
 			notify-send --urgency=critical "mpv-xclip" "No resource to play."
-			exit 100
 		fi
 	else
 		notify-send --urgency=critical "mpv-xclip" "No resource to play."
-		exit 100
 	fi
 else
 	notify-send --urgency=critical "mpv-xclip" "xclip and mpv needed."
-	exit 100
 fi
 
 exit 0
