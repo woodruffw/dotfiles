@@ -13,7 +13,7 @@ function fullscreen_screenshot()
 	elif [[ `which scrot 2> /dev/null` ]]; then
 		cmd="scrot $1"
 	else
-		notify-send -t 1500 "Nothing to take a screenshot with."
+		notify-send --urgency=critical "Nothing to take a screenshot with."
 		exit 255
 	fi
 
@@ -29,7 +29,7 @@ function selection_screenshot()
 	elif [[ `which scrot 2> /dev/null` ]]; then
 		cmd="scrot -s $1"
 	else
-		notify-send -t 1500 "Nothing to take a screenshot with."
+		notify-send --urgency=critical "Nothing to take a screenshot with."
 		exit 255
 	fi
 
@@ -119,7 +119,7 @@ if [[ $success ]]; then
 	printf $url | xclip -selection primary
 	printf $url | xclip -selection clipboard
 	# notify user of completion
-	notify-send -t 1500 "pomf!" "$url"
+	notify-send --urgency=critical "pomf!" "$url"
 	# output message to term
 	printf "%s\n" "file has been uploaded: $url"
 else
