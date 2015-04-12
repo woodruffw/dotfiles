@@ -53,7 +53,7 @@ function quickcommit()
 {
 	git add -A .
 	git commit -m "commit @ $(date)"
-	git push origin master
+	git push
 }
 
 function gfg()
