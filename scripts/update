@@ -14,8 +14,9 @@ if [[ "$system" = "Darwin" ]] ; then
 	fi
 elif [[ "$system" = "Linux" ]] ; then
 	if [[ `which apt-get` ]] ; then
-		sudo apt-get update
+		sudo apt-get -qq update
 		sudo apt-get upgrade
+		sudo apt-get autoremove
 		sudo apt-get clean
 	elif [[ `which pacman` ]] ; then
 		sudo pacman -Syyu
