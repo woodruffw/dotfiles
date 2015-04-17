@@ -1,6 +1,1 @@
 MAILTO='william+cron@tuffbizz.com'
-
-@reboot dropbox start -i
-@reboot tilda
-@reboot xbindkeys_autostart
-@reboot xscreensaver -nosplash
