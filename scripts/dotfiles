@@ -172,7 +172,7 @@ function fetch_files() {
 
 	printf "Fetching cron-shunt and crontab..."
 	cp ~/.dotfiles/scripts/cron-shunt ~/scripts/cron-shunt
-	if [[ -f ~/.dotfiles/scripts/crontabs/${host}.cron ]] ; then
+	if [[ -f ~/.dotfiles/crontabs/${host}.cron ]] ; then
 		mkdir -p ~/scripts/cron
 		cp ~/.dotfiles/crontabs/${host}.cron ~/scripts/cron/${host}.cron
 		crontab -r
