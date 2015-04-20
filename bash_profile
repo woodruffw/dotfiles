@@ -65,6 +65,11 @@ if [[ $(which jekyll 2> /dev/null) ]]; then
   alias js='jekyll serve'
 fi
 
+# if feh is installed, alias it
+if [[ $(which feh 2> /dev/null) ]]; then
+  alias feh='feh --scale-down'
+fi
+
 # system-dependent aliases and variables
 if [[ "${system}" = "Linux" ]] ; then
   alias bashreload='unalias -a ; source ~/.bashrc'
