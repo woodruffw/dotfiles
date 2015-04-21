@@ -2,6 +2,7 @@
 
 # 10_resume_wifi
 # should fix wifi resume problems
+# installed on mercury 4/21/15 /etc/pm/sleep.d/10_resume_wifi
 
 case "${1}" in
 	resume|thaw) restart network-manager ;;
