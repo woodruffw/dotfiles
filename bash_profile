@@ -268,7 +268,7 @@ function mrk()
 
 function umrk()
 {
-  rm -i "${MARKPATH}/${1}"
+  rm "${MARKPATH}/${1}"
 }
 
 function mrks()
@@ -299,7 +299,7 @@ function _completeprj()
 # COMPLETION ASSOCIATIONS #
 ###########################
 
-complete -F _completemarks jmp unmark
+complete -F _completemarks jmp umrk
 complete -F _completeprj prj
 
 # load bash completion if it exists
