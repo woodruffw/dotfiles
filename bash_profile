@@ -261,17 +261,17 @@ function jmp()
   cd -P "${MARKPATH}/${1}" 2> /dev/null || echo "No such mark: ${1}"
 }
 
-function mark()
+function mrk()
 {
   mkdir -p "${MARKPATH}"; ln -s "${PWD}" "${MARKPATH}/${1}"
 }
 
-function unmark()
+function umrk()
 {
   rm -i "${MARKPATH}/${1}"
 }
 
-function marks()
+function mrks()
 {
   ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
