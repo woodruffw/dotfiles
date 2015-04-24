@@ -14,3 +14,5 @@ slang=enm,eng
 heartbeat-cmd="xscreensaver-command -deactivate >&- 2>&- &"
 
 autofit-larger=50%x50%
+
+user-agent="Mozilla/5.0"
