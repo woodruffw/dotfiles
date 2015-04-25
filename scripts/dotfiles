@@ -185,8 +185,11 @@ function fetch_files() {
 	printf "Sync dotfiles-priv? (y/N): " && read ans
 	if [[ "${ans}" =~ [Yy] ]] ; then
 		git clone https://github.com/woodruffw/dotfiles-priv ~/.dotfiles-priv 2> /dev/null
-		bash ~/.dotfiles-priv/install.sh
-		rm -rf dotfiles-priv
+		pushd . > /dev/null
+		cd ~/.dotfiles-priv
+		bash ./dotfiles-priv/install.sh
+		popd > /dev/null
+		rm -rf ~/.dotfiles-priv
 	fi
 
 	printf "${COLOR_GRN}All done${COLOR_NRM}.\n"
