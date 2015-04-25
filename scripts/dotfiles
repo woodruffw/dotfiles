@@ -187,7 +187,7 @@ function fetch_files() {
 		git clone https://github.com/woodruffw/dotfiles-priv ~/.dotfiles-priv 2> /dev/null
 		pushd . > /dev/null
 		cd ~/.dotfiles-priv
-		bash ./dotfiles-priv/install.sh
+		bash ./install.sh
 		popd > /dev/null
 		rm -rf ~/.dotfiles-priv
 	fi
