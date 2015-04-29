@@ -1,0 +1,7 @@
+# battery
+# This is called whenever the user disconnects AC power.
+# It calls /etc/acpi/battery.sh for the proper actions.
+# installed on mercury 4/29/15 /etc/acpi/events/battery.sh
+
+event=battery.*
+action=/etc/acpi/battery.sh 
