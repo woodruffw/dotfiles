@@ -8,7 +8,7 @@ __author__ = 'Douglas Brunal (AKA) Frankity'
 
 def slap_cb(word, word_eol, userdata):
   if len(word) > 1:
-    hexchat.command('me slaps {} in da face with a large trout'.format(word[1]))
+    hexchat.command('me slaps {} in the face with a large trout'.format(word[1]))
   else:
     hexchat.command('help slap')
 
