@@ -120,6 +120,7 @@ function fetch_files() {
 		mkdir -p ~/.config/hexchat/addons
 		cp -f ~/.dotfiles/config/hexchat/addons/* ~/.config/hexchat/addons/
 		cp ~/.dotfiles/config/hexchat/urlhandlers.conf ~/.config/hexchat/urlhandlers.conf
+		cp ~/.dotfiles/config/hexchat/colors.conf ~/.config/hexchat/colors.conf
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
