@@ -138,7 +138,7 @@ function fetch_files() {
 	fi
 
 	printf "Fetching scripts..."
-	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles
+	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
 	cp ~/.dotfiles/scripts/% ~/scripts/%
 	cp ~/.dotfiles/scripts/colorscheme ~/scripts/colorscheme
@@ -194,8 +194,10 @@ function fetch_files() {
 		popd > /dev/null
 		rm -rf ~/.dotfiles-priv
 	fi
-
-	printf "${COLOR_GRN}All done${COLOR_NRM}.\n"
 }
 
 fetch_files
+
+mv ~/scripts/dotfiles.new ~/scripts/dotfiles
+
+printf "${COLOR_GRN}All done${COLOR_NRM}.\n"
