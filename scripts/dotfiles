@@ -194,10 +194,10 @@ function fetch_files() {
 		popd > /dev/null
 		rm -rf ~/.dotfiles-priv
 	fi
+
+	printf "${COLOR_GRN}All done${COLOR_NRM}.\n"
 }
 
 fetch_files
 
 mv ~/scripts/dotfiles.new ~/scripts/dotfiles
-
-printf "${COLOR_GRN}All done${COLOR_NRM}.\n"
