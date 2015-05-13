@@ -137,6 +137,15 @@ function fetch_files() {
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
 	fi
 
+    printf "Checking for textadept..."
+    if installed textadept ; then
+        printf "found. Reloading configs and themes..."
+        mkdir -p ~/.textadept/themes
+        cp ~/.dotfiles/textadept/init.lua ~/.textadept/init.lua
+        cp ~/.dotfiles/textadept/properties.lua ~/.textadept/properties.lua
+        cp ~/.dotfiles/textadept/themes/* ~/.textadept/themes
+    else
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
