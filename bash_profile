@@ -127,8 +127,10 @@ elif [[ $(which subl 2> /dev/null) ]] ; then
 	export EDITOR=subl
 elif [[ $(which vim 2> /dev/null) ]] ; then
 	export EDITOR=vim
-else
+elif [[ $(which nano 2> /dev/null) ]] ; then
 	export EDITOR=nano
+else
+	export EDITOR=ed # the universal editor!
 fi
 
 # system-independent environment variables
