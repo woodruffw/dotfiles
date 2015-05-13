@@ -139,12 +139,8 @@ function fetch_files() {
 
 	printf "Checking for textadept..."
 	if installed textadept ; then
-		printf "found. Reloading configs and themes..."
-		mkdir -p ~/.textadept/{themes,modules/markdown}
-		cp ~/.dotfiles/textadept/init.lua ~/.textadept/init.lua
-		cp ~/.dotfiles/textadept/properties.lua ~/.textadept/properties.lua
-		cp ~/.dotfiles/textadept/themes/base16-monokai-dark-modified.lua ~/.textadept/themes/base16-monokai-dark-modified.lua
-		cp ~/.dotfiles/textadept/modules/markdown/init.lua ~/.textadept/modules/markdown/init.lua
+		printf "found. Reloading configs, modules, and themes..."
+		cp -R ~/.dotfiles/textadept ~/.textadept
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
