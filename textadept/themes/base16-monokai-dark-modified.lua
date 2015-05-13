@@ -110,3 +110,8 @@ buffer.edge_colour = property_int['color.base01']
 -- Add red and green for diff lexer.
 property['color.red'] = property['color.base08']
 property['color.green'] = property['color.base0B']
+
+-- Enable multiple cursors
+buffer.multiple_selection = true
+buffer.additional_selection_typing = true
+buffer.additional_carets_visible = true

@@ -6,5 +6,12 @@ textadept.file_types.patterns['^#!/usr/bin/env bash'] = 'bash'
 textadept.file_types.patterns['^#!/usr/bin/env ruby'] = 'ruby'
 textadept.file_types.patterns['^#!/usr/bin/env perl'] = 'perl'
 
+-- Add a vertical ruler at the 80th column
 buffer.edge_column = 80
 buffer.edge_mode = buffer.EDGE_LINE
+
+-- Keybindings for multicursor editing
+local m_multiedit = _m.common.multiedit
+keys.cj = { m_multiedit.add_position }
+keys.cJ = { m_multiedit.add_multiple }
+keys.cr = { m_multiedit.selectAll }
