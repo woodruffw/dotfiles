@@ -140,7 +140,7 @@ function fetch_files() {
 	printf "Checking for textadept..."
 	if installed textadept ; then
 		printf "found. Reloading configs, modules, and themes..."
-		cp -R ~/.dotfiles/textadept ~/.textadept
+		cp -R ~/.dotfiles/textadept/* ~/.textadept
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
