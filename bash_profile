@@ -190,13 +190,6 @@ function strlen()
   echo "${#str}"
 }
 
-# cd - cat grep
-# pipes cat into grep
-function cg()
-{
-  cat "${1}" | grep "${2}"
-}
-
 # man - colorize man pages
 # overloads the existing man command and supplements it with colors
 function man()
