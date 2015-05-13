@@ -4,7 +4,7 @@ Some configuration files from my computer(s).
 
 ### Installation (don't do this unless you know what you're doing):
 
-`curl http://git.io/vUrGf | bash -`
+`curl -L http://git.io/vUrGf | bash -`
 
 Feel free to copy any configurations and/or aliases that you like.
 
