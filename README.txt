@@ -6,4 +6,4 @@ curl https://raw.githubusercontent.com/woodruffw/dotfiles/master/scripts/dotfile
 
 Feel free to copy any configurations and/or aliases that you like.
 
-Edited 7/17/14.
+Edited 7/17/14, 5/12/15.
