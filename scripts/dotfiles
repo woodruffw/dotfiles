@@ -143,7 +143,7 @@ function fetch_files() {
         mkdir -p ~/.textadept/themes
         cp ~/.dotfiles/textadept/init.lua ~/.textadept/init.lua
         cp ~/.dotfiles/textadept/properties.lua ~/.textadept/properties.lua
-        cp ~/.dotfiles/textadept/themes/* ~/.textadept/themes
+        cp ~/.dotfiles/textadept/themes/base16-monokai-dark-modified.lua ~/.textadept/themes/base16-monokai-dark-modified.lua
         printf "${COLOR_GRN}done${COLOR_NRM}.\n"
     else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
