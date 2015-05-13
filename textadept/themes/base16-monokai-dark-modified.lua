@@ -8,10 +8,12 @@
 local buffer = buffer
 local property, property_int = buffer.property, buffer.property_int
 
+--- Note: For some reason, Base16 uses BGR instead of RGB.
+
 property['color.base00'] = 0x222827
 property['color.base01'] = 0x303838
 property['color.base02'] = 0x3e4849
-property['color.base03'] = 0x00FF00 -- modified
+property['color.base03'] = 0x00FF00 -- modified for preferences
 property['color.base04'] = 0x859fa5
 property['color.base05'] = 0xf2f8f8
 property['color.base06'] = 0xf1f4f5
@@ -21,7 +23,7 @@ property['color.base09'] = 0x1f97fd
 property['color.base0A'] = 0x75bff4
 property['color.base0B'] = 0x74DBE6 -- E6DB74 modified to match ST2
 property['color.base0C'] = 0xe4efa1
-property['color.base0D'] = 0xefd966
+property['color.base0D'] = 0x7226F9 -- F92672 modified to match ST2
 property['color.base0E'] = 0xff81ae
 property['color.base0F'] = 0x3366cc
 
