@@ -15,7 +15,7 @@ buffer.multiple_selection = true
 buffer.additional_selection_typing = true
 buffer.additional_carets_visible = true
 
-local m_multiedit = _m.common.multiedit
+local m_multiedit = m.common.multiedit
 keys.cj = { m_multiedit.add_position }
 keys.cJ = { m_multiedit.add_multiple }
 keys.cr = { m_multiedit.selectAll }
