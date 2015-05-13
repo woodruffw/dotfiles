@@ -117,10 +117,8 @@ function fetch_files() {
 	printf "Checking for hexchat..."
 	if installed hexchat ; then
 		printf "found. Reloading configs and addons..."
-		mkdir -p ~/.config/hexchat/addons
-		cp -f ~/.dotfiles/config/hexchat/addons/* ~/.config/hexchat/addons/
-		cp ~/.dotfiles/config/hexchat/urlhandlers.conf ~/.config/hexchat/urlhandlers.conf
-		cp ~/.dotfiles/config/hexchat/colors.conf ~/.config/hexchat/colors.conf
+		mkdir -p ~/.config/hexchat
+		cp -R ~/.dotfiles/confix/hexchat/* ~/.config/hexchat/
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
@@ -140,6 +138,7 @@ function fetch_files() {
 	printf "Checking for textadept..."
 	if installed textadept ; then
 		printf "found. Reloading configs, modules, and themes..."
+		mkdir -p ~/.textadept
 		cp -R ~/.dotfiles/textadept/* ~/.textadept
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
