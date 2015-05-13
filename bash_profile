@@ -60,14 +60,14 @@ if [[ $(which colordiff 2> /dev/null) ]] ; then
 fi
 
 # if jekyll is installed, add its aliases
-if [[ $(which jekyll 2> /dev/null) ]]; then
+if [[ $(which jekyll 2> /dev/null) ]] ; then
 	alias jb='jekyll build'
 	alias jc='jekyll clean'
 	alias js='jekyll serve'
 fi
 
 # if feh is installed, alias it
-if [[ $(which feh 2> /dev/null) ]]; then
+if [[ $(which feh 2> /dev/null) ]] ; then
 	alias feh='feh --scale-down'
 fi
 
@@ -121,11 +121,11 @@ fi
 ###############
 
 # set the editor depending on what's installed
-if [[ $(which textadept 2> /dev/null) ]]; then
+if [[ $(which textadept 2> /dev/null) ]] ; then
 	export EDITOR=textadept
-elif [[ $(which subl 2> /dev/null) ]]; then
+elif [[ $(which subl 2> /dev/null) ]] ; then
 	export EDITOR=subl
-elif [[ $(which vim 2> /dev/null) ]]; then
+elif [[ $(which vim 2> /dev/null) ]] ; then
 	export EDITOR=vim
 else
 	export EDITOR=nano
@@ -258,7 +258,7 @@ function jmp()
 
 function mrk()
 {
-	mkdir -p "${MARKPATH}"; ln -s "${PWD}" "${MARKPATH}/${1}"
+	mkdir -p "${MARKPATH}" ; ln -s "${PWD}" "${MARKPATH}/${1}"
 }
 
 function umrk()
