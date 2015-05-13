@@ -33,7 +33,7 @@
 local keys = _G.keys
 
 -- Change this if you don't put this file in a folder called "common"
-module('_m.common.multiedit', package.seeall)
+module('_M.common.multiedit', package.seeall)
 require 'findall'
 
 local positions = {}
