@@ -8,12 +8,13 @@
 local buffer = buffer
 local property, property_int = buffer.property, buffer.property_int
 
---- Note: For some reason, Base16 uses BGR instead of RGB.
+-- Note: For some reason, Base16 uses BGR instead of RGB.
+-- I've indicated the "real" RGB value next to modifications
 
 property['color.base00'] = 0x222827
 property['color.base01'] = 0x303838
 property['color.base02'] = 0x3e4849
-property['color.base03'] = 0x00FF00 -- modified for preferences
+property['color.base03'] = 0x00FF00 -- 00FF00 modified for preferences
 property['color.base04'] = 0x859fa5
 property['color.base05'] = 0xf2f8f8
 property['color.base06'] = 0xf1f4f5
