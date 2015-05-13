@@ -144,7 +144,10 @@ function fetch_files() {
         cp ~/.dotfiles/textadept/init.lua ~/.textadept/init.lua
         cp ~/.dotfiles/textadept/properties.lua ~/.textadept/properties.lua
         cp ~/.dotfiles/textadept/themes/* ~/.textadept/themes
+        printf "${COLOR_GRN}done${COLOR_NRM}.\n"
     else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
 
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
