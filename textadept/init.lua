@@ -10,12 +10,9 @@ textadept.file_types.patterns['^#!/usr/bin/env perl'] = 'perl'
 buffer.edge_column = 80
 buffer.edge_mode = buffer.EDGE_LINE
 
--- Multicursor editing
+-- Enable ulticursor editing
+require('common.multiedit')
 buffer.multiple_selection = true
 buffer.additional_selection_typing = true
 buffer.additional_carets_visible = true
 
-local m_multiedit = m.common.multiedit
-keys.cj = { m_multiedit.add_position }
-keys.cJ = { m_multiedit.add_multiple }
-keys.cr = { m_multiedit.selectAll }
