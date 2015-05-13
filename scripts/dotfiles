@@ -137,15 +137,16 @@ function fetch_files() {
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
 	fi
 
-    printf "Checking for textadept..."
-    if installed textadept ; then
-        printf "found. Reloading configs and themes..."
-        mkdir -p ~/.textadept/themes
-        cp ~/.dotfiles/textadept/init.lua ~/.textadept/init.lua
-        cp ~/.dotfiles/textadept/properties.lua ~/.textadept/properties.lua
-        cp ~/.dotfiles/textadept/themes/base16-monokai-dark-modified.lua ~/.textadept/themes/base16-monokai-dark-modified.lua
-        printf "${COLOR_GRN}done${COLOR_NRM}.\n"
-    else
+	printf "Checking for textadept..."
+	if installed textadept ; then
+		printf "found. Reloading configs and themes..."
+		mkdir -p ~/.textadept/{themes,modules}
+		cp ~/.dotfiles/textadept/init.lua ~/.textadept/init.lua
+		cp ~/.dotfiles/textadept/properties.lua ~/.textadept/properties.lua
+		cp ~/.dotfiles/textadept/themes/base16-monokai-dark-modified.lua ~/.textadept/themes/base16-monokai-dark-modified.lua
+		cp ~/.dotfiles/textadept/modules/markdown/init.lua ~/.textadept/modules/markdown/init.lua
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
 	fi
 
@@ -165,22 +166,22 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/speedtest ~/scripts/speedtest
 
 	if [[ "${host}" = "mercury" ]] ; then
-	  cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
-	  cp ~/.dotfiles/scripts/mpv-xclip ~/scripts/mpv-xclip
+		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
+		cp ~/.dotfiles/scripts/mpv-xclip ~/scripts/mpv-xclip
 	fi
 
 	if [[ "${host}" = "athena" ]] ; then
-	  cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
-	  cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
-	  cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
+		cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
+		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
+		cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
 	fi
 
 	if [[ "${host}" = "mars" ]] ; then
-	  cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
+		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
 	fi
 
 	if [[ "${host}" = "aphrodite" ]]; then
-	  cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
+		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
 	fi
 	chmod +x ~/scripts/*
 	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
