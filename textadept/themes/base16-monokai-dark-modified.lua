@@ -1,5 +1,6 @@
 -- Monokai theme for Textadept
 -- Theme author: Wimer Hazenberg (http://www.monokai.nl)
+-- Modified by: William Woodruff (william@tuffbizz.com)
 -- Base16 (https://github.com/chriskempson/base16)
 -- Build with Base16 Builder (https://github.com/chriskempson/base16-builder)
 -- Repository: https://github.com/rgieseke/ta-themes
