@@ -12,7 +12,9 @@ buffer.edge_mode = buffer.EDGE_LINE
 
 -- Enable ulticursor editing
 require('common.multiedit')
-buffer.multiple_selection = true
-buffer.additional_selection_typing = true
-buffer.additional_carets_visible = true
+-- Keybindings for multicursor editing
+local m_multiedit = _m.common.multiedit
+keys.cj = { m_multiedit.add_position }
+keys.cJ = { m_multiedit.add_multiple }
+keys.cr = { m_multiedit.selectAll }
 
