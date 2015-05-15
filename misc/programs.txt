@@ -15,3 +15,4 @@ thunar
 thunderbird
 firefox
 gpick
+texmaker
