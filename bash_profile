@@ -63,7 +63,7 @@ fi
 if [[ $(which jekyll 2> /dev/null) ]] ; then
 	alias jb='jekyll build'
 	alias jc='jekyll clean'
-	alias js='jekyll serve'
+	alias js='jekyll serve --force_polling'
 fi
 
 # if feh is installed, alias it
