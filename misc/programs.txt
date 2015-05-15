@@ -1,0 +1,17 @@
+A list of programs normally installed on my systems:
+hexchat
+mpv
+feh
+xclip
+xscreensaver
+xbindkeys
+textadept
+vim
+tilda
+rtorrent
+gawk
+tmux
+thunar
+thunderbird
+firefox
+gpick
