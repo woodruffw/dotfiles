@@ -5,6 +5,8 @@ set smartindent
 :set backspace=indent,eol,start
 set number
 :set hlsearch
+:set nowrap
+:set colorcolumn=80
 :imap jk <Esc>
 
 inoremap <C-s> <esc>:w<cr>a
