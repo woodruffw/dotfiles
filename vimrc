@@ -4,7 +4,7 @@ syntax on
 set autoindent
 set noexpandtab
 set shiftwidth=4
-set tabspot=4
+set tabstop=4
 set nocompatible
 filetype off
 
