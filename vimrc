@@ -32,6 +32,13 @@ nnoremap <C-s> :w<cr>
 inoremap <C-q> <esc>:q<cr>a
 nnoremap <C-q> :q<cr>
 
+vmap <C-c> y<Esc>i
+vmap <C-x> d<Esc>i
+imap <C-v> <Esc>pi
+imap <C-y> <Esc>ddi
+map <C-z> <Esc>
+imap <C-z> <Esc>ui
+
 cmap w!! w !sudo tee >/dev/null %
 
 silent !stty -ixon > /dev/null 2> /dev/null
