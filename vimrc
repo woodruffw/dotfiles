@@ -1,3 +1,4 @@
+colorscheme monokai
 :set mouse=a
 syntax on
 set autoindent
