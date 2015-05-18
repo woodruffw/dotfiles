@@ -8,6 +8,7 @@ set rtp+=~/.vim/bundle/Vundle-bootstrap.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'bling/vim-airline'
 call vundle#end()
 
 filetype plugin indent on
