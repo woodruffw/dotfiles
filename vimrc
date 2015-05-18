@@ -1,6 +1,17 @@
 :set mouse=a
 syntax on
 set autoindent
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'terryma/vim-multiple-cursors'
+call vundle#end()
+
+filetype plugin indent on
+
 set smartindent
 :set backspace=indent,eol,start
 set number
