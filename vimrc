@@ -4,7 +4,7 @@ set autoindent
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle-bootstrap.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'terryma/vim-multiple-cursors'
