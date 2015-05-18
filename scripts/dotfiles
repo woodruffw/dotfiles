@@ -52,10 +52,10 @@ function fetch_files() {
 
 	printf "Checking for vim..."
 	if installed vim ; then
-		printf "found. Reloading vimrc and vim scripts..."
+		printf "found. Reloading vimrc, scripts, and plugins... "
 		cp ~/.dotfiles/vimrc ~/.vimrc
-		mkdir -p ~/.vim/scripts/
-		cp ~/.dotfiles/vim/scripts/closetag.vim ~/.vim/scripts/closetag.vim
+		mkdir -p ~/.vim/
+		cp -R ~/.dotfiles/vim/* ~/.vim
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
