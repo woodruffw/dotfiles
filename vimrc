@@ -34,10 +34,6 @@ nnoremap <C-q> :q<cr>
 
 cmap w!! w !sudo tee >/dev/null %
 
-"inoremap { {<CR>}<Esc>ko
-"inoremap ( ()<Esc>i
-"inoremap [ []<Esc>i
-
 silent !stty -ixon > /dev/null 2> /dev/null
 
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
