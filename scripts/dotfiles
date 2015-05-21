@@ -85,7 +85,7 @@ function fetch_files() {
 		printf "found. Reloading tmux.conf and session files..."
 		cp ~/.dotfiles/tmux.conf ~/.tmux.conf
 		mkdir -p ~/.tmux
-		cp ~/.dotfiles/tmux/quad ~/.tmux/quad
+		cp ~/.dotfiles/tmux/* ~/.tmux/
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
