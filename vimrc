@@ -32,6 +32,8 @@ nnoremap <C-s> :w<cr>
 inoremap <C-q> <esc>:q<cr>a
 nnoremap <C-q> :q<cr>
 
+map <C-o> <esc>:browse confirm e
+
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
 imap <C-v> <Esc>pi
