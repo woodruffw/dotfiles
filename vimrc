@@ -32,8 +32,10 @@ nnoremap <C-s> :w<cr>
 inoremap <C-q> <esc>:q<cr>a
 nnoremap <C-q> :q<cr>
 
-map <C-o> <esc>:browse confirm e
+" Browse with Ctrl-O
+map <C-o> <esc>:browse confirm e<cr>
 
+" Cut, copy, paste, yank, undo with Ctrl-{x,c,v,y,z}
 vmap <C-c> y<Esc>i
 vmap <C-x> d<Esc>i
 imap <C-v> <Esc>pi
@@ -41,6 +43,15 @@ imap <C-y> <Esc>ddi
 map <C-z> <Esc>
 imap <C-z> <Esc>ui
 
+" Firefox-like tab navigation
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
+
+" Write file as superuser with w!!
 cmap w!! w !sudo tee >/dev/null %
 
 silent !stty -ixon > /dev/null 2> /dev/null
@@ -50,3 +61,4 @@ silent !stty -ixon > /dev/null 2> /dev/null
 if system('uname') =~ 'Darwin'
   au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 endif
+
