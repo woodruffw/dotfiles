@@ -52,7 +52,7 @@ function gpod()
 function quickcommit()
 {
 	git add -A .
-	git commit -m "commit @ $(date)"
+	git commit -m "commit @ $(date) (${1:-no commit msg})"
 	git push
 }
 
