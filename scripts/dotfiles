@@ -160,7 +160,7 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/cart ~/scripts/cart
 	cp ~/.dotfiles/scripts/speedtest ~/scripts/speedtest
 
-	if [[ "${host}" = "mercury" ]] ; then
+	if [[ "${host}" = "mercury" || "${host}" = "ianus" ]] ; then
 		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
 		cp ~/.dotfiles/scripts/mpv-xclip ~/scripts/mpv-xclip
 	fi
