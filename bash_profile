@@ -222,9 +222,9 @@ function parse_git_branch()
 function prj()
 {
 	if [[ -z "${1}" ]] ; then
-		cd ~/Dropbox/Programming/
+		cd ~/Dropbox/dev/
 	else
-		cd ~/Dropbox/Programming/$1*
+		cd ~/Dropbox/dev/$1*
 	fi
 }
 
