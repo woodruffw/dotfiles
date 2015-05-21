@@ -58,5 +58,10 @@
     m:0xc + c:25
     Control+Alt + w 
 
+#screensaver
+"xscreensaver-command -lock"
+    m:0x0 + c:127
+    Pause 
+
 #
 # End of xbindkeys configuration
