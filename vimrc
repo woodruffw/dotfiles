@@ -47,9 +47,15 @@ imap <C-z> <Esc>ui
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
+nnoremap <C-S-w> <Esc>:tabclose<CR>
+inoremap <C-S-w> <Esc>:tabclose<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
+
+" Open files in new tabs
+autocmd VimEnter * tab all
+autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
 
 " Write file as superuser with w!!
 cmap w!! w !sudo tee >/dev/null %
