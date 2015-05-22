@@ -1,5 +1,5 @@
 colorscheme molokai
-:set mouse=a
+set mouse=a
 syntax on
 set autoindent
 set noexpandtab
@@ -23,12 +23,12 @@ call vundle#end()
 filetype plugin indent on
 
 set smartindent
-:set backspace=indent,eol,start
+set backspace=indent,eol,start
 set number
-:set hlsearch
-:set nowrap
-:set colorcolumn=80
-:imap jk <Esc>
+set hlsearch
+set nowrap
+set colorcolumn=80
+imap jk <Esc>
 
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<cr>
@@ -63,7 +63,7 @@ cmap w!! w !sudo tee >/dev/null %
 
 silent !stty -ixon > /dev/null 2> /dev/null
 
-:au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
 let g:UltiSnipsExpandTrigger = "<C-e>"
 let g:UltiSnipsJumpForwardTrigger = "<C-n>"
