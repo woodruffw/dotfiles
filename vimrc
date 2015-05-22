@@ -16,6 +16,8 @@ Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 call vundle#end()
 
 filetype plugin indent on
@@ -56,10 +58,6 @@ inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
 
-" Open files in new tabs
-autocmd VimEnter * tab all
-autocmd BufAdd * exe 'tablast | tabe "' . expand( "<afile") .'"'
-
 " Write file as superuser with w!!
 cmap w!! w !sudo tee >/dev/null %
 
@@ -75,6 +73,10 @@ let g:multi_cursor_use_default_mapping = 0
 let g:multi_cursor_next_key = "<C-d>"
 let g:multi_cursor_skip_key = "<C-D>"
 let g:multi_cursor_quit_key = "<Esc>"
+
+let g:session_autoload = "yes"
+let g:session_autosave = "yes"
+let g:session_autosave_periodic = 1
 
 if system('uname') =~ 'Darwin'
   au BufEnter /private/tmp/crontab.* setl backupcopy=yes
