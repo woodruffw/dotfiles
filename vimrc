@@ -33,7 +33,8 @@ inoremap <C-q> <esc>:q<cr>a
 nnoremap <C-q> :q<cr>
 
 " Browse with Ctrl-O
-map <C-o> <esc>:browse confirm e<cr>
+nnoremap <C-o> <esc>:browse confirm e<cr>
+inoremap <C-o> <esc>:browse confirm e<cr>
 
 " Cut, copy, paste, yank, undo with Ctrl-{x,c,v,y,z}
 vmap <C-c> y<Esc>i
