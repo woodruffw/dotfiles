@@ -67,9 +67,14 @@ silent !stty -ixon > /dev/null 2> /dev/null
 
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
-let g:UltiSnipsExpandTrigger = "<C-\>"
-let g:UltiSnipsJumpForwardTrigger = "<A-b>"
-let g:UltiSnipsJumpBackwardTrigger = "<A-b>"
+let g:UltiSnipsExpandTrigger = "<C-e>"
+let g:UltiSnipsJumpForwardTrigger = "<C-n>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-b>"
+
+let g:multi_cursor_use_default_mapping = 0
+let g:multi_cursor_next_key = "<C-d>"
+let g:multi_cursor_skip_key = "<C-D>"
+let g:multi_cursor_quit_key = "<Esc>"
 
 if system('uname') =~ 'Darwin'
   au BufEnter /private/tmp/crontab.* setl backupcopy=yes
