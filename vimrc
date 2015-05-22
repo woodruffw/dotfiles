@@ -14,9 +14,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SilVer/ultisnips'
 Plugin 'honza/vim-snippets'
 call vundle#end()
 
@@ -68,6 +66,10 @@ cmap w!! w !sudo tee >/dev/null %
 silent !stty -ixon > /dev/null 2> /dev/null
 
 :au Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+
+let g:UltiSnipsExpandTrigger = "<C-\>"
+let g:UltiSnipsJumpForwardTrigger = "<A-b>"
+let g:UltiSnipsJumpBackwardTrigger = "<A-b>"
 
 if system('uname') =~ 'Darwin'
   au BufEnter /private/tmp/crontab.* setl backupcopy=yes
