@@ -2,6 +2,7 @@
 	pager = less -F
 	editor = vim
 	whitespace = blank-at-eol
+	excludesfile = ~/.gitignore
 [color]
 	ui = 1
 	diff = auto

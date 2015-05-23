@@ -45,8 +45,9 @@ function fetch_files() {
 	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
 	# we know git is installed
-	printf "Reloading git-aliases and gitconfig..."
+	printf "Reloading git-aliases, gitignore, and gitconfig..."
 	cp ~/.dotfiles/git-aliases ~/.git-aliases
+	cp ~/.dotfiles/gitignore ~/.gitignore
 	cp ~/.dotfiles/gitconfig ~/.gitconfig
 	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
