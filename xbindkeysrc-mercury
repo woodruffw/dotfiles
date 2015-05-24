@@ -48,7 +48,7 @@
     m:0x5 + c:13
     Control+Shift + 4 
 
-#open default terminal
+#start xscreensaver
 "xscreensaver-command -lock"
     m:0x0 + c:156
     XF86Launch1 
