@@ -150,6 +150,7 @@ function fetch_files() {
 	if installed subl ; then
 		printf "found. Reloading preferences and themes..."
 		cp -R ~/.dotfiles/config/sublime-text-3/* ~/.config/sublime-text-3
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
 	fi
