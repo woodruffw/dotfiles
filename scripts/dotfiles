@@ -146,6 +146,14 @@ function fetch_files() {
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
 	fi
 
+	printf "Checking for Sublime Text..."
+	if installed subl ; then
+		printf "found. Reloading preferences and themes..."
+		cp -R ~/.dotfiles/config/sublime-text-3/* ~/.config/sublime-text-3
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$

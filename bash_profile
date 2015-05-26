@@ -123,14 +123,14 @@ fi
 ###############
 
 # set the editor depending on what's installed
-if [[ $(which gvim 2> /dev/null) ]] ; then
-	export EDITOR=gvim
-elif [[ $(which textadept 2> /dev/null) ]] ; then
-	export EDITOR=textadept
-elif [[ $(which subl 2> /dev/null) ]] ; then
+if [[ $(which subl 2> /dev/null) ]] ; then
 	export EDITOR=subl
+elif [[ $(which gvim 2> /dev/null) ]] ; then
+	export EDITOR=gvim
 elif [[ $(which vim 2> /dev/null) ]] ; then
 	export EDITOR=vim
+elif [[ $(which textadept 2> /dev/null) ]] ; then
+	export EDITOR=textadept
 elif [[ $(which nano 2> /dev/null) ]] ; then
 	export EDITOR=nano
 else
