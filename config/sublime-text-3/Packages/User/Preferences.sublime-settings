@@ -1,7 +1,8 @@
 {
 	"tab_size": 4,
-	"translate_tabs_to_spaces": true,
+	"translate_tabs_to_spaces": false,
 	"color_scheme": "Packages/CustomThemes/MonokaiCustom.tmTheme",
 	"update_check": false,
-	"show_minimap": false
+	"show_minimap": false,
+	"rulers": [80]
 }
