@@ -4,5 +4,6 @@
 	"color_scheme": "Packages/CustomThemes/MonokaiCustom.tmTheme",
 	"update_check": false,
 	"show_minimap": false,
-	"rulers": [80]
+	"rulers": [80],
+	"word_wrap": false,
 }
