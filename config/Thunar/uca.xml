@@ -33,4 +33,13 @@
 	<other-files/>
 	<text-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>feh</name>
+	<unique-id>1433272018832173-2</unique-id>
+	<command>feh --scale-down .</command>
+	<description>feh</description>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
 </actions>
