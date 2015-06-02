@@ -1,5 +1,5 @@
-directory = ~/rtorrent/downloads/
-session = ~/rtorrent/session/
+directory = /media/william/MEDIA/rtorrent/downloads/
+session = /media/william/MEDIA/rtorrent/session/
 
 port_range = 6890-6999
 port_random = yes
@@ -8,5 +8,5 @@ encryption = require
 peer_exchange = yes
 pieces.sync.always_safe = yes
 
-schedule = watch_directory,10,10,load_start=~/rtorrent/watch/*.torrent
+schedule = watch_directory,10,10,load_start=/media/william/MEDIA/rtorrent/watch/*.torrent
 schedule = tied_directory,10,10,start_tied=
