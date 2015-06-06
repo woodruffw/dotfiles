@@ -73,9 +73,10 @@ function fetch_files() {
 
 	printf "Checking for rtorrent..."
 	if installed rtorrent ; then
-		printf "found. Reloading rtorrent.rc and magnet-to-torrent.pl..."
+		printf "found. Reloading rtorrent.rc and magnet scripts..."
 		cp ~/.dotfiles/rtorrent.rc ~/.rtorrent.rc
 		cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
+		cp ~/.dotfiles/scripts/magnet.sh ~/scripts/magnet.sh
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
