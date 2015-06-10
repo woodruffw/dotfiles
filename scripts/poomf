@@ -88,29 +88,15 @@ fi
 ## UPLOADING
 
 # upload it and grab the url
-output=$(curl --silent -sf -F files[]="@$file" "http://pomf.se/upload.php")
+output=$(curl --silent -sf -F file="@${file}" "https://api.teknik.io/upload/post")
 
 printf "%s\n" "uploading ${file}..."
 
-n=0
-while [[ $n -le 3 ]]; do
-	printf "$white try #${n}...$reset"
-	if [[ "${output}" =~ '"success":true,' ]]; then
-		if [[ ! -z $upload ]]; then
-			pomffile=$(printf $output | grep -Eo '"url":"[A-Za-z0-9]+.*",' | sed 's/"url":"//;s/",//')
-		else
-			pomffile=$(printf $output | grep -Eo '"url":"[A-Za-z0-9]+.png",' | sed 's/"url":"//;s/",//')
-		fi
-		printf "$green done.$reset\n"
-		success=1
-		break
-	else
-		printf "$red failed.$reset\n"
-		((n = n +1))
-	fi
-done
-
-url=http://a.pomf.se/$pomffile
+if [[ -n $output ]]; then
+	url=$(echo ${output} | jq -M -r ".[0].results.file.url")
+	printf "$green done.$reset\n"
+	success=1
+fi
 
 ## OUTPUT
 
