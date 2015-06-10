@@ -1,8 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# poomf.sh - puush-like functionality for pomf.se
+# poomf.sh - puush-like functionality for teknik.io
 
-## CONFIGURATION
+function info() {
+	notify-send --urgency=critical $@
+}
 
 function fullscreen_screenshot()
 {
@@ -13,7 +15,7 @@ function fullscreen_screenshot()
 	elif [[ `which scrot 2> /dev/null` ]]; then
 		cmd="scrot $1"
 	else
-		notify-send --urgency=critical "Nothing to take a screenshot with."
+		info "Nothing to take a screenshot with."
 		exit 255
 	fi
 
@@ -29,35 +31,26 @@ function selection_screenshot()
 	elif [[ `which scrot 2> /dev/null` ]]; then
 		cmd="scrot -s $1"
 	else
-		notify-send --urgency=critical "Nothing to take a screenshot with."
+		info "Nothing to take a screenshot with."
 		exit 255
 	fi
 
 	eval "$cmd"
 }
 
-# colors
-
-reset=$(tput sgr0)
-black=$(tput setaf 0)
-red=$(tput setaf 1)
-green=$(tput setaf 2)
-yellow=$(tput setaf 3)
-blue=$(tput setaf 4)
-magenta=$(tput setaf 5)
-cyan=$(tput setaf 6)
-white=$(tput setaf 7)
-
-## OPTIONS
-
 # get options
-while getopts fhsu: option; do
+while getopts fhsu: option ; do
 	case $option in
-		f)fullscreen=1;;
-		h)help=1;;
-		s)selection=1;;
-		u)upload=1;;
-		*)exit;;
+		f)	fullscreen=1
+			;;
+		h)	help=1
+			;;
+		s)	selection=1
+			;;
+		u)	upload=1
+			;;
+		*)	exit
+			;;
 	esac
 done
 
@@ -85,29 +78,21 @@ if [[ $upload ]]; then
 	file=$(printf $2)
 fi
 
-## UPLOADING
+if [[ -n $file ]]; then
+	output=$(curl --silent -sf -F file="@${file}" "https://api.teknik.io/upload/post")
 
-# upload it and grab the url
-output=$(curl --silent -sf -F file="@${file}" "https://api.teknik.io/upload/post")
-
-printf "%s\n" "uploading ${file}..."
-
-if [[ -n $output ]]; then
-	url=$(echo ${output} | jq -M -r ".[0].results.file.url")
-	printf "$green done.$reset\n"
-	success=1
+	if [[ -n $output ]]; then
+		url=$(echo ${output} | jq -M -r ".[0].results.file.url")
+		success=1
+	fi
 fi
-
-## OUTPUT
 
 if [[ $success ]]; then
 	# copy link to clipboard
 	printf $url | xclip -selection primary
 	printf $url | xclip -selection clipboard
 	# notify user of completion
-	notify-send --urgency=critical "pomf!" "$url"
-	# output message to term
-	printf "%s\n" "file has been uploaded: $url"
+	info "pomf!" "$url"
 else
-	printf "%s\n" "file was not uploaded, did you specify a valid filename?"
+	info "%s\n" "file was not uploaded, did you specify a valid filename?"
 fi
