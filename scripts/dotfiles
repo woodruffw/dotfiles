@@ -137,6 +137,16 @@ function fetch_files() {
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
 	fi
 
+	printf "Checking for feh..."
+	if installed feh ; then
+		printf "found. Reloading themes..."
+		mkdir -p ~/.config/feh
+		cp ~/.dotfiles/config/feh/themes ~/.config/feh/themes
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
 	printf "Checking for textadept..."
 	if installed textadept ; then
 		printf "found. Reloading configs, modules, and themes..."

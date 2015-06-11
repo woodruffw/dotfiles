@@ -1,0 +1,4 @@
+# feh themes
+
+# default theme - scale the image down
+feh --scale-down
