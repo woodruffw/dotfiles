@@ -37,7 +37,7 @@
 	<icon></icon>
 	<name>feh</name>
 	<unique-id>1433272018832173-2</unique-id>
-	<command>feh --scale-down .</command>
+	<command>feh .</command>
 	<description>feh</description>
 	<patterns>*</patterns>
 	<image-files/>
