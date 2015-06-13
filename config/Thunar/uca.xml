@@ -42,4 +42,18 @@
 	<patterns>*</patterns>
 	<image-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>zip</name>
+	<unique-id>1434131875515085-2</unique-id>
+	<command>zip -r %n.zip %N</command>
+	<description>zip</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
 </actions>
