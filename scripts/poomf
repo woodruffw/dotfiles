@@ -3,7 +3,18 @@
 # poomf.sh - puush-like functionality for teknik.io
 
 function info() {
-	notify-send --urgency=critical $@
+	notify-send --urgency=critical ${@}
+}
+
+function check_dependencies() {
+	local deps=(notify-send xclip curl jq)
+
+	for dep in "${deps[@]}"; do
+		if [[ ! $(which ${dep} 2>/dev/null) ]]; then
+			printf "Missing dependency '${dep}', please install it.\n"
+			exit 1
+		fi
+	done
 }
 
 function fullscreen_screenshot()
@@ -11,9 +22,9 @@ function fullscreen_screenshot()
 	local cmd=
 
 	if [[ `which gnome-screenshot 2> /dev/null` ]]; then
-		cmd="gnome-screenshot -f $1"
+		cmd="gnome-screenshot -f ${1}"
 	elif [[ `which scrot 2> /dev/null` ]]; then
-		cmd="scrot $1"
+		cmd="scrot ${1}"
 	else
 		info "Nothing to take a screenshot with."
 		exit 255
@@ -27,9 +38,9 @@ function selection_screenshot()
 	local cmd=
 
 	if [[ `which gnome-screenshot 2> /dev/null` ]]; then
-		cmd="gnome-screenshot -a -f $1"
+		cmd="gnome-screenshot -a -f ${1}"
 	elif [[ `which scrot 2> /dev/null` ]]; then
-		cmd="scrot -s $1"
+		cmd="scrot -s ${1}"
 	else
 		info "Nothing to take a screenshot with."
 		exit 255
@@ -37,6 +48,8 @@ function selection_screenshot()
 
 	eval "$cmd"
 }
+
+check_dependencies
 
 # get options
 while getopts fhsu: option ; do
@@ -55,12 +68,12 @@ while getopts fhsu: option ; do
 done
 
 # take fullscreen picture
-if [[ $fullscreen ]]; then
+if [[ ${fullscreen} ]]; then
 	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; fullscreen_screenshot $filename ; printf $filename)
 fi
 
 # display help
-if [[ $help ]]; then
+if [[ ${help} ]]; then
 	printf "%s\t\t%s\n" "-f" "fullscreen"
 	printf "%s\t\t%s\n" "-h" "show this message"
 	printf "%s\t\t%s\n" "-s" "selection"
@@ -69,28 +82,37 @@ if [[ $help ]]; then
 fi
 
 # take selection picture
-if [[ $selection ]]; then
+if [[ ${selection} ]]; then
 	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; selection_screenshot $filename ; printf $filename)
 fi
 
 # get file
-if [[ $upload ]]; then
+if [[ ${upload} ]]; then
 	file=$(printf $2)
 fi
 
-if [[ -n $file ]]; then
-	output=$(curl --silent -sf -F file="@${file}" "https://api.teknik.io/upload/post")
+if [[ -n ${file} ]]; then
+	if [[ -n ${SRHT_API_KEY} ]]; then
+		output=$(curl -sf -F key=${SRHT_API_KEY} -F file="@${file}" "https://sr.ht/api/upload")
 
-	if [[ -n $output ]]; then
-		url=$(echo ${output} | jq -M -r ".[0].results.file.url")
-		success=1
+		if [[ -n ${output} ]]; then
+			url=$(echo ${output} | jq -M -r ".url")
+			success=1
+		fi
+	else
+		output=$(curl -sf -F file="@${file}" "https://api.teknik.io/upload/post")
+
+		if [[ -n ${output} ]]; then
+			url=$(echo ${output} | jq -M -r ".[0].results.file.url")
+			success=1
+		fi
 	fi
 fi
 
-if [[ $success ]]; then
+if [[ ${success} ]]; then
 	# copy link to clipboard
-	printf $url | xclip -selection primary
-	printf $url | xclip -selection clipboard
+	printf ${url} | xclip -selection primary
+	printf ${url} | xclip -selection clipboard
 	# notify user of completion
 	info "pomf!" "$url"
 else
