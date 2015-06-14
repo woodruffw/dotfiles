@@ -49,6 +49,8 @@ function selection_screenshot()
 	eval "$cmd"
 }
 
+[[ -f ~/.api-keys/srht-api ]] && source ~/.api-keys/srht-api
+
 check_dependencies
 
 # get options
