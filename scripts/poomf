@@ -54,18 +54,14 @@ function selection_screenshot()
 check_dependencies
 
 # get options
-while getopts fhsu: option ; do
-	case $option in
-		f)	fullscreen=1
-			;;
-		h)	help=1
-			;;
-		s)	selection=1
-			;;
+while getopts fhsu: option; do
+	case "${option}" in
+		f)	fullscreen=1 ;;
+		h)	usage=1 ;;
+		s)	selection=1 ;;
 		u)	upload=1
-			;;
-		*)	exit
-			;;
+			file="${OPTARG}" ;;
+		*)	exit ;;
 	esac
 done
 
@@ -75,7 +71,7 @@ if [[ ${fullscreen} ]]; then
 fi
 
 # display help
-if [[ ${help} ]]; then
+if [[ ${usage} ]]; then
 	printf "%s\t\t%s\n" "-f" "fullscreen"
 	printf "%s\t\t%s\n" "-h" "show this message"
 	printf "%s\t\t%s\n" "-s" "selection"
@@ -86,11 +82,6 @@ fi
 # take selection picture
 if [[ ${selection} ]]; then
 	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; selection_screenshot $filename ; printf $filename)
-fi
-
-# get file
-if [[ ${upload} ]]; then
-	file=$(printf $2)
 fi
 
 if [[ -n ${file} ]]; then
