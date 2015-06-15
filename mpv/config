@@ -1,5 +1,5 @@
 no-border
-ontop
+#ontop
 osc=yes
 
 screenshot-format=png
@@ -11,7 +11,7 @@ alang=jpn
 slang=enm,eng
 
 # don't let xscreensaver activate during playback
-# heartbeat-cmd="xscreensaver-command -deactivate >&- 2>&- &"
+heartbeat-cmd="xscreensaver-command -deactivate >&- 2>&- &"
 
 autofit-larger=50%x50%
 
