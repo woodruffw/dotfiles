@@ -72,7 +72,7 @@ fi
 
 # take fullscreen picture
 if [[ ${fullscreen} ]]; then
-	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; fullscreen_screenshot $filename ; printf $filename)
+	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; fullscreen_screenshot ${filename} ; printf ${filename})
 fi
 
 # display help
@@ -86,7 +86,7 @@ fi
 
 # take selection picture
 if [[ ${selection} ]]; then
-	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; selection_screenshot $filename ; printf $filename)
+	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; selection_screenshot ${filename} ; printf ${filename})
 fi
 
 if [[ -n ${file} ]]; then
