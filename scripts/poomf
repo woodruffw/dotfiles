@@ -21,9 +21,9 @@ function fullscreen_screenshot()
 {
 	local cmd=
 
-	if [[ `which gnome-screenshot 2> /dev/null` ]]; then
+	if [[ $(which gnome-screenshot 2> /dev/null) ]]; then
 		cmd="gnome-screenshot -f ${1}"
-	elif [[ `which scrot 2> /dev/null` ]]; then
+	elif [[ $(which scrot 2> /dev/null) ]]; then
 		cmd="scrot ${1}"
 	else
 		info "Nothing to take a screenshot with."
@@ -37,9 +37,9 @@ function selection_screenshot()
 {
 	local cmd=
 
-	if [[ `which gnome-screenshot 2> /dev/null` ]]; then
+	if [[ $(which gnome-screenshot 2> /dev/null) ]]; then
 		cmd="gnome-screenshot -a -f ${1}"
-	elif [[ `which scrot 2> /dev/null` ]]; then
+	elif [[ $(which scrot 2> /dev/null) ]]; then
 		cmd="scrot -s ${1}"
 	else
 		info "Nothing to take a screenshot with."
