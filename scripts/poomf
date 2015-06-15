@@ -7,7 +7,7 @@ function info() {
 }
 
 function check_dependencies() {
-	local deps=(notify-send xclip curl jq)
+	local deps=(notify-send zenity xclip curl jq)
 
 	for dep in "${deps[@]}"; do
 		if [[ ! $(which ${dep} 2>/dev/null) ]]; then
@@ -54,8 +54,9 @@ function selection_screenshot()
 check_dependencies
 
 # get options
-while getopts fhsu: option; do
+while getopts ifhsu: option; do
 	case "${option}" in
+		i)	interactive=1 ;;
 		f)	fullscreen=1 ;;
 		h)	usage=1 ;;
 		s)	selection=1 ;;
@@ -64,6 +65,10 @@ while getopts fhsu: option; do
 		*)	exit ;;
 	esac
 done
+
+if [[ ${interactive} ]]; then
+	file=$(zenity --file-selection)
+fi
 
 # take fullscreen picture
 if [[ ${fullscreen} ]]; then

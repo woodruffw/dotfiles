@@ -63,5 +63,10 @@
     m:0x0 + c:127
     Pause 
 
+#upload file interactively
+"~/scripts/poomf -i"
+    m:0x15 + c:14
+    Control+Shift+Mod2 + 5 
+
 #
 # End of xbindkeys configuration
