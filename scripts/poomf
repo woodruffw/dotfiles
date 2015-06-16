@@ -2,6 +2,17 @@
 
 # poomf.sh - puush-like functionality for teknik.io
 
+function usage() {
+	printf "%s <option>\n" $(basename ${0})
+	printf "%s\n" "Options:"
+	printf "%s\t\t\t%s\n" "-i" "interactive (zenity)"
+	printf "%s\t\t\t%s\n" "-f" "fullscreen screenshot"
+	printf "%s\t\t\t%s\n" "-h" "show this message"
+	printf "%s\t\t\t%s\n" "-s" "selection screenshot"
+	printf "%s\t\t%s\n" "-u <file>" "file upload"
+	exit
+}
+
 function info() {
 	notify-send --urgency=critical ${@}
 }
@@ -58,7 +69,7 @@ while getopts ifhsu: option; do
 	case "${option}" in
 		i)	interactive=1 ;;
 		f)	fullscreen=1 ;;
-		h)	usage=1 ;;
+		h)	usage ;;
 		s)	selection=1 ;;
 		u)	upload=1
 			file="${OPTARG}" ;;
@@ -73,15 +84,6 @@ fi
 # take fullscreen picture
 if [[ ${fullscreen} ]]; then
 	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; fullscreen_screenshot ${filename} ; printf ${filename})
-fi
-
-# display help
-if [[ ${usage} ]]; then
-	printf "%s\t\t%s\n" "-f" "fullscreen"
-	printf "%s\t\t%s\n" "-h" "show this message"
-	printf "%s\t\t%s\n" "-s" "selection"
-	printf "%s\t\t%s\n" "-u file" "file upload"
-	exit
 fi
 
 # take selection picture
