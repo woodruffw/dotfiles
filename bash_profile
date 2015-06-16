@@ -73,6 +73,7 @@ if [[ "${system}" = "Linux" ]] ; then
 	alias bashreload='unalias -a ; source ~/.bashrc'
 	alias profile='vim ~/.bashrc'
 	alias ls='ls --color=auto'
+	alias perm='stat -c "%a"'
 
 	if [[ "${host}" = "athena" ]] ; then
 		alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
@@ -97,6 +98,7 @@ elif [[ "${system}" = "Darwin" ]] ; then
 	alias bashreload='unalias -a ; source ~/.bash_profile'
 	alias profile='vim ~/.bash_profile'
 	alias ls='ls -G'
+	alias perm='stat -f "%Lp"'
 
 	# if homebrew's nginx is installed
 	if [[ -f "/usr/local/bin/nginx" ]] ; then
