@@ -136,7 +136,8 @@ fi
 
 # system-independent environment variables
 export LESSHISTFILE="/dev/null" # prevent less from creating ~/.lesshist
-export PS1="\u@\h [\t] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ " 
+export PS1="\u@\h [\D{%M:%S}] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ "
+export PS2="+ "
 export HISTCONTROL="ignoredups:erasedups"
 export MARKPATH="${HOME}/.marks"
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
