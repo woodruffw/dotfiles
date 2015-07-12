@@ -200,6 +200,11 @@ function fetch_files() {
 	if [[ "${host}" = "aphrodite" ]]; then
 		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
 	fi
+
+	if [[ "${host}" = "pan" ]]; then
+		cp ~/.dotfiles/scripts/music-tree ~/scripts/music-tree
+	fi
+
 	chmod +x ~/scripts/*
 	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
