@@ -1,3 +1,4 @@
 MAILTO='william+cron@tuffbizz.com'
 
 0 0 * * * /home/william/scripts/cron-shunt /home/william/scripts/music-tree
+0 12 * * * /home/william/scripts/cron-shunt /home/william/scripts/dailymail.rb
