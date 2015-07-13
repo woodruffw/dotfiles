@@ -57,12 +57,12 @@ alias getconfigs='dotfiles ; bashreload'
 source ~/.git-aliases
 
 # if colordiff is installed, alias diff to it
-if [[ $(which colordiff 2> /dev/null) ]] ; then
+if which colordiff > /dev/null ; then
 	alias diff='colordiff'
 fi
 
 # if jekyll is installed, add its aliases
-if [[ $(which jekyll 2> /dev/null) ]] ; then
+if which jekyll > /dev/null ; then
 	alias jb='jekyll build'
 	alias jc='jekyll clean'
 	alias js='jekyll serve --force_polling'
@@ -120,15 +120,15 @@ fi
 ###############
 
 # set the editor depending on what's installed
-if [[ $(which subl 2> /dev/null) ]] ; then
+if which subl > /dev/null ; then
 	export EDITOR=subl
-elif [[ $(which gvim 2> /dev/null) ]] ; then
+elif which gvim > /dev/null ; then
 	export EDITOR=gvim
-elif [[ $(which vim 2> /dev/null) ]] ; then
+elif which vim > /dev/null ; then
 	export EDITOR=vim
-elif [[ $(which textadept 2> /dev/null) ]] ; then
+elif which textadept > /dev/null ; then
 	export EDITOR=textadept
-elif [[ $(which nano 2> /dev/null) ]] ; then
+elif which nano > /dev/null ; then
 	export EDITOR=nano
 else
 	export EDITOR=ed # the universal editor!
