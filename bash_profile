@@ -121,17 +121,17 @@ fi
 
 # set the editor depending on what's installed
 if which subl > /dev/null ; then
-	export EDITOR=subl
+	export EDITOR='subl -w'
 elif which gvim > /dev/null ; then
-	export EDITOR=gvim
+	export EDITOR='gvim'
 elif which vim > /dev/null ; then
-	export EDITOR=vim
+	export EDITOR='vim'
 elif which textadept > /dev/null ; then
 	export EDITOR=textadept
 elif which nano > /dev/null ; then
-	export EDITOR=nano
+	export EDITOR='nano'
 else
-	export EDITOR=ed # the universal editor!
+	export EDITOR='ed' # the universal editor!
 fi
 
 # system-independent environment variables
