@@ -135,6 +135,7 @@ else
 fi
 
 # system-independent environment variables
+export VISUAL=${EDITOR}
 export LESSHISTFILE="/dev/null" # prevent less from creating ~/.lesshist
 export PS1="\u@\h [\D{%M:%S}] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ "
 export PS2="+ "
