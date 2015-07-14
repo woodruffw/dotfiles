@@ -205,7 +205,7 @@ function allreload()
 function bashreload()
 {
 	unalias -a
-	source "${BASH_CONFIG_FILE}"
+	source ${BASH_CONFIG_FILE}
 }
 
 # strlen
@@ -323,4 +323,8 @@ complete -F _completeprj prj
 
 # load bash completion if it exists
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
+
+############
+# COMMANDS #
+############
 
