@@ -36,12 +36,9 @@ function fetch_files() {
 
 	mkdir -p ~/scripts
 
-	printf "Reloading profile..."
-	if [[ "${system}" = "Linux" ]] ; then
-		cp ~/.dotfiles/bash_profile ~/.bashrc
-	elif [[ "${system}" = "Darwin" ]] ; then
-		cp ~/.dotfiles/bash_profile ~/.bash_profile
-	fi
+	printf "Reloading bashrc and profile..."
+	cp ~/.dotfiles/bashrc ~/.bashrc
+	cp ~/.dotfiles/bash_profile ~/.bash_profile
 	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
 	# we know git is installed
