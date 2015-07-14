@@ -52,7 +52,7 @@ alias reboot='sudo reboot'
 alias rmhk='ssh-keygen -R'
 alias path='echo ${PATH}'
 alias mkdir='mkdir -p'
-alias getconfigs='dotfiles ; bashreload'
+alias getconfigs='dotfiles ; allreload'
 
 # source ~/.git-aliases
 
@@ -70,7 +70,9 @@ fi
 
 # system-dependent aliases and variables
 if [[ "${system}" = "Linux" ]] ; then
-	alias bashreload='unalias -a ; source ~/.bashrc'
+	export PATH="${PATH}:/home/$USER/bin:/home/$USER/scripts"
+	export BASH_CONFIG_FILE='~/.bashrc'
+
 	alias profile='vim ~/.bashrc'
 	alias ls='ls --color=auto'
 	alias perm='stat -c "%a"'
@@ -90,12 +92,11 @@ if [[ "${system}" = "Linux" ]] ; then
 		alias spr='sudo pacman -R'
 		alias sprs='sudo pacman -Rs'
 	fi
-
-	export PATH="${PATH}:/home/$USER/bin:/home/$USER/scripts"
-
 elif [[ "${system}" = "Darwin" ]] ; then
+	export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/$USER/bin:/Users/$USER/scripts
+	export BASH_CONFIG_FILE='~/.bash_profile'
+
 	alias brew='brew -v'
-	alias bashreload='unalias -a ; source ~/.bash_profile'
 	alias profile='vim ~/.bash_profile'
 	alias ls='ls -G'
 	alias perm='stat -f "%Lp"'
@@ -111,8 +112,6 @@ elif [[ "${system}" = "Darwin" ]] ; then
 	if [[ -f "/usr/local/etc/bash_completion" ]] ; then
 		source /usr/local/etc/bash_completion
 	fi
-
-	export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/$USER/bin:/Users/$USER/scripts
 fi
 
 ###############
@@ -184,9 +183,30 @@ shopt -s cdspell # fix typos in cd
 ################
 bind -x '"\e[15~":ttyreset' # reset the terminal with F5
 
+#########
+# TRAPS #
+#########
+
+trap bashreload USR1 # reload configs when USR1 is received
+
 #############
-# Functions #
+# FUNCTIONS #
 #############
+
+# allreload - send USR1 to every bash process, which is trapped to bashreload
+function allreload()
+{
+	pids=$(pidof bash)
+
+	[[ -n "${pids}" ]] && kill -USR1 "${pids}"
+}
+
+# bashreload
+function bashreload()
+{
+	unalias -a
+	source "${BASH_CONFIG_FILE}"
+}
 
 # strlen
 # prints the length of all arguments, spaces included
@@ -275,7 +295,6 @@ function mrks()
 {
 	ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
-
 
 ########################
 # COMPLETION FUNCTIONS #
