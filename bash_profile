@@ -198,7 +198,7 @@ function allreload()
 {
 	pids=$(pidof bash)
 
-	[[ -n "${pids}" ]] && kill -USR1 "${pids}"
+	[[ -n "${pids}" ]] && kill -USR1 ${pids}
 }
 
 # bashreload
