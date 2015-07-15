@@ -202,6 +202,7 @@ function allreload()
 # bashreload
 function bashreload()
 {
+	echo "test"
 	unalias -a
 	source ~/.bashrc
 }
