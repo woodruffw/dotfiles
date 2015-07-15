@@ -54,7 +54,7 @@ alias path='echo ${PATH}'
 alias mkdir='mkdir -p'
 alias getconfigs='dotfiles ; allreload'
 
-# source ~/.git-aliases
+source ~/.git-aliases
 
 # if colordiff is installed, alias diff to it
 if which colordiff > /dev/null ; then
