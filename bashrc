@@ -202,7 +202,10 @@ function allreload()
 # bashreload
 function bashreload()
 {
-	echo "$0"
+	echo "x"
+	[[ -f ~/.bashrc ]] && echo "y"
+	[[ ! -f ~/.bashrc ]] && echo "z"
+	echo "a"
 }
 
 # strlen
