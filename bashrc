@@ -202,8 +202,8 @@ function allreload()
 # bashreload
 function bashreload()
 {
-	unalias -a
-	. ~/.bashrc
+	#unalias -a
+	[[ -f ~/.bashrc ]] && echo "ok"
 }
 
 # strlen
