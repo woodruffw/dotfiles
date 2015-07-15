@@ -185,18 +185,18 @@ bind -x '"\e[15~":ttyreset' # reset the terminal with F5
 # TRAPS #
 #########
 
-trap bashreload USR1 # reload configs when USR1 is received
+trap bashreload SIGURG # reload configs when SIGURG is received
 
 #############
 # FUNCTIONS #
 #############
 
-# allreload - send USR1 to every bash process, which is trapped to bashreload
+# allreload - send SIGURG to every bash process, which is trapped to bashreload
 function allreload()
 {
 	pids=$(pidof bash)
 
-	[[ -n "${pids}" ]] && kill -USR1 ${pids}
+	[[ -n "${pids}" ]] && kill -SIGURG ${pids}
 }
 
 # bashreload
