@@ -191,19 +191,19 @@ trap bashreload SIGURG # reload configs when SIGURG is received
 # FUNCTIONS #
 #############
 
+# bashreload - wipe aliases and re-source from ~/.bashrc
+function bashreload()
+{
+	unalias -a
+	source ~/.bashrc
+}
+
 # allreload - send SIGURG to every bash process, which is trapped to bashreload
 function allreload()
 {
 	pids=$(pidof bash)
 
 	[[ -n "${pids}" ]] && kill -SIGURG ${pids}
-}
-
-# bashreload
-function bashreload()
-{
-	unalias -a
-	source ~/.bashrc
 }
 
 # strlen
