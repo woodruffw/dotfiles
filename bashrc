@@ -202,7 +202,7 @@ function allreload()
 # bashreload
 function bashreload()
 {
-	echo "hello"
+	echo "$0"
 }
 
 # strlen
