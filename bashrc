@@ -203,7 +203,7 @@ function allreload()
 function bashreload()
 {
 	unalias -a
-	source ~/.bashrc
+	. ~/.bashrc
 }
 
 # strlen
