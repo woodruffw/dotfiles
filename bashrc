@@ -203,7 +203,7 @@ function allreload()
 function bashreload()
 {
 	#unalias -a
-	[[ -f ~/.bashrc ]] && echo "ok"
+	[[ ! -f ~/.bashrc ]] && echo "this is running inside bashrc, but bashrc does not exist"
 }
 
 # strlen
