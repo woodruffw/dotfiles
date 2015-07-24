@@ -301,7 +301,7 @@ function mrks()
 function http_code()
 {
 	if [[ -n "${1}" ]] ; then
-		curl -o /dev/null --silent --head --write-out '%{http_code}' "${1}"
+		curl -o /dev/null --silent --head --write-out '%{http_code}\n' '${1}'
 	else
 		echo "Usage: http_code <url>"
 	fi
