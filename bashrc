@@ -252,7 +252,11 @@ function prj()
 # shah - get sha1 and output just the hash
 function shah()
 {
-	shasum "${1}" | awk '{ print $1 }'
+	if [[ -n "${1}" ]] ; then
+		shasum "${1}" | awk '{ print $1 }'
+	else
+		echo "Usage: shah <file>"
+	fi
 }
 
 # fw, lw, ew - expand file, less, editor input from which
@@ -292,6 +296,15 @@ function umrk()
 function mrks()
 {
 	ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+}
+
+function http_code()
+{
+	if [[ -n "${1}" ]] ; then
+		curl -o /dev/null --silent --head --write-out '%{http_code}' "${1}"
+	else
+		echo "Usage: http_code <url>"
+	fi
 }
 
 ########################
