@@ -163,6 +163,15 @@ function fetch_files() {
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
 	fi
 
+	printf "Checking for irb..."
+	if installed irb ; then
+		printf "found. Reloading irbrc..."
+		cp ~/.dotfiles/irbrc ~/.irbrc
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
