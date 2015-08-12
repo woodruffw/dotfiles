@@ -11,7 +11,7 @@ shopt -s nullglob
 
 cap="7" # don't go over 7 stored backups
 www_root="/usr/share/nginx/html"
-backup_slug="~/www_backups/$(date +%Y-%m-%d)"
+backup_slug="~/www_backups/$(date +%Y-%m-%d).tar.gz"
 
 mkdir -p ~/www_backups
 
