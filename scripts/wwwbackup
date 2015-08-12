@@ -1,18 +1,24 @@
 #!/usr/bin/env bash
 
-# wwwbackup: back woodruffw.us files up to git repository
+# wwwbackup: back woodruffw.us files up to tarball, rotate weekly
 
 if [[ "$(hostname)" != "athena" ]] ; then
 	echo "Wrong host, dummy."
 	exit 1
 fi
 
-rm -rf ~/website/www/*
-cp -r /usr/share/nginx/html/* ~/website/www/
-pushd . > /dev/null
-cd ~/website 
-git add --all . > /dev/null
-git commit -m "scripted commit at $(date)" > /dev/null
-popd > /dev/null
+shopt -s nullglob
 
-exit 0
+cap="7" # don't go over 7 stored backups
+www_root="/usr/share/nginx/html"
+backup_slug="~/www_backups/$(date +%Y-%m-%d)"
+
+mkdir -p ~/www_backups
+
+tar czf "${backup_slug}" "${www_root}"
+
+old_backups=$(ls *.tar.gz | sort -r | sed -e "1,${cap}d")
+
+if [[ -n "${old_backups}" ]]; then
+	echo "${old_backups}" | xargs rm
+fi
