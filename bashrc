@@ -69,8 +69,9 @@ if which jekyll > /dev/null ; then
 fi
 
 # if gnu smalltalk is installed, alias it to st (gst is a git alias)
+# this is clearly becoming a problem
 if which gst > /dev/null ; then
-	alias st='gst'
+	alias st='\gst'
 fi
 
 # system-dependent aliases and variables
