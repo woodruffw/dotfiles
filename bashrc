@@ -68,11 +68,15 @@ if which jekyll > /dev/null ; then
 	alias js='jekyll serve --force_polling'
 fi
 
+# if gnu smalltalk is installed, alias it to st (gst is a git alias)
+if which gst > /dev/null ; then
+	alias st='gst'
+fi
+
 # system-dependent aliases and variables
 if [[ "${system}" = "Linux" ]] ; then
 	export PATH="${PATH}:/home/$USER/bin:/home/$USER/scripts"
 
-	alias profile='vim ~/.bashrc'
 	alias ls='ls --color=auto'
 	alias perm='stat -c "%a"'
 
@@ -95,7 +99,6 @@ elif [[ "${system}" = "Darwin" ]] ; then
 	export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/$USER/bin:/Users/$USER/scripts
 
 	alias brew='brew -v'
-	alias profile='vim ~/.bash_profile'
 	alias ls='ls -G'
 	alias perm='stat -f "%Lp"'
 
