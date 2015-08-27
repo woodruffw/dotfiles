@@ -11,12 +11,13 @@ shopt -s nullglob
 
 cap="7" # don't go over 7 stored backups
 www_root="/usr/share/nginx/html"
-backup_slug="${HOME}/www_backups/$(date +%Y-%m-%d).tar.gz"
+backup_dir="${HOME}/www_backups"
+backup_slug="${backup_dir}/$(date +%Y-%m-%d).tar.gz"
 
-mkdir -p ~/www_backups
+mkdir -p "${backup_dir}"
 
 tar czf "${backup_slug}" "${www_root}"
 
-old_backups=$(ls *.tar.gz | sort -r | sed -e "1,${cap}d")
+old_backups=$(ls ${backup_dir}/*.tar.gz | sort -r | sed -e "1,${cap}d")
 
 [[ -n "${old_backups}" ]] && rm "${old_backups}"
