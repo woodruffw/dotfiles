@@ -20,4 +20,4 @@ tar czf "${backup_slug}" "${www_root}"
 
 old_backups=$(ls ${backup_dir}/*.tar.gz | sort -r | sed -e "1,${cap}d")
 
-[[ -n "${old_backups}" ]] && rm "${old_backups}"
+[[ -n "${old_backups}" ]] && echo "${old_backups}" | xargs rm
