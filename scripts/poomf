@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-# poomf.sh - puush-like functionality for teknik.io
+#	poomf.sh
+#	Author: Joe Schillinger, William Woodruff
+#	------------------------
+#	Upload to sr.ht and teknik.io.
+#	Heavily modified from Joe Schillinger's poomf.sh (now uguu.sh).
+#	------------------------
+#	This code is licensed by Joe Schillinger under the MIT License.
+#	http://opensource.org/licenses/MIT
 
 function usage() {
 	printf "%s <option>\n" $(basename ${0})
