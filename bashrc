@@ -179,6 +179,8 @@ unset MAILCHECK
 #################
 shopt -s histappend # don't overwrite the history file
 shopt -s cdspell # fix typos in cd
+shopt -s nullglob # empty globs should be...empty
+shopt -s globstar # double globs match arbitary subdirs
 
 ################
 # KEY BINDINGS #
