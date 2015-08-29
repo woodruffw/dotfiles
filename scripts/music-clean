@@ -11,6 +11,5 @@ music_dir="${HOME}/music"
 cruft=("${music_dir}"/**/*.{cue,txt,txt,log,m3u})
 
 for junk in "${cruft[@]}"; do
-	echo "${junk}"
 	rm -f "${junk}"
 done
