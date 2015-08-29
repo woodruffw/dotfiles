@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# music-clean: remove common cruft files accumulated in a music directory
+
+[[ "${BASH_VERSINFO[0]}" -lt 4 ]] && exit 1 # we need bash >= 4.0
+
+shopt -s globstar
+
+music_dir="${HOME}/music"
+
+cruft=("${music}"/**/*.{cue,txt,txt,log,m3u})
+
+for junk in "${cruft[@]}"; do
+	echo "${junk}"
+	rm -f "${junk}"
+done

@@ -9,4 +9,5 @@ if which tree > /dev/null; then
 	tree -d --charset ascii --noreport -o ${music_txt} ${music_dir}
 else
 	echo 'Fatal: no `tree` utility.' > ${music_txt}
+	exit 1
 fi
