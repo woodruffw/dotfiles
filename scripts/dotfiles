@@ -209,6 +209,7 @@ function fetch_files() {
 
 	if [[ "${host}" = "pan" ]]; then
 		cp ~/.dotfiles/scripts/music-tree ~/scripts/music-tree
+		cp ~/.dotfiles/scripts/music-clean ~/scripts/music-clean
 		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
 	fi
 
