@@ -1,4 +1,4 @@
 # feh themes
 
-# default theme - scale the image down
-feh --scale-down
+# default theme - scale the image down and use imagemagick
+feh --scale-down --magick-timeout 1
