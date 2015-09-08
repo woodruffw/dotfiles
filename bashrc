@@ -344,3 +344,4 @@ complete -F _completeprj prj
 # COMMANDS #
 ############
 
+uptime

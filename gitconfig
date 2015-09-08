@@ -14,3 +14,5 @@
 	default = current
 [help]
 	autocorrect = 1
+[github]
+	user = woodruffw
