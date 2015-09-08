@@ -339,9 +339,3 @@ complete -F _completeprj prj
 
 # load bash completion if it exists
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
-
-############
-# COMMANDS #
-############
-
-uptime
