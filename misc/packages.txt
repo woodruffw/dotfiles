@@ -1,10 +1,12 @@
-A list of programs normally installed on my systems:
 hexchat
 mpv
 feh
 xclip
 xscreensaver
 xbindkeys
+xbindkeys-config
+xfonts-terminus
+rxvt-unicode
 textadept
 vim
 tilda
@@ -16,3 +18,4 @@ thunderbird
 firefox
 gpick
 texmaker
+ttf-mscorefonts-installer
