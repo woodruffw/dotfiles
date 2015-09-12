@@ -24,7 +24,7 @@ info "Looks like we're on Ubuntu ${ubuntu_version}. Continuing."
 info "Updating and upgrading first."
 
 sudo apt-get update
-sudo apt-get upgrade
+yes | sudo apt-get upgrade
 
 info "Finished updating and upgrading."
 
@@ -63,26 +63,26 @@ core_pkgs=(
 	git
 )
 
-sudo apt-get install "${core_pkgs[@]}"
+yes | sudo apt-get install "${core_pkgs[@]}"
 
 info "Core packages installed. Moving on to PPAs."
 
 info "Installing vertex-theme."
 sudo sh -c "echo 'deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_${ubuntu_version}/ /' >> /etc/apt/sources.list.d/vertex-theme.list"
 sudo apt-get update
-sudo apt-get install vertex-theme
+yes | sudo apt-get install vertex-theme
 info "Finished with vertex-theme."
 
 info "Installing mpv from mpv-tests."
-sudo add-apt-repository ppa:mc3man/mpv-tests
+yes | sudo add-apt-repository ppa:mc3man/mpv-tests
 sudo apt-get update
-sudo apt-get install mpv
+yes | sudo apt-get install mpv
 info "Finished with mpv."
 
 info "Installing Sublime Text 3."
-sudo add-apt-repository ppa:webupd8team/sublime-text-3
+yes | sudo add-apt-repository ppa:webupd8team/sublime-text-3
 sudo apt-get update
-sudo apt-get install sublime-text-installer
+yes | sudo apt-get install sublime-text-installer
 info "Finished with Sublime Text 3."
 
 info "Removing some cruft."
@@ -96,7 +96,7 @@ cruft=(unity-lens-friends unity-scope-audacious unity-scope-chromiumbookmarks
 	unity-scope-virtualbox unity-scope-yelp unity-scope-zotero
 	unity-lens-friends unity-lens-music unity-lens-photos unity-lens-video)
 
-sudo apt-get purge "${@}"
+yes | sudo apt-get purge "${@}"
 info "Finished removing cruft."
 
 info "Removing bad defaults."
@@ -114,7 +114,7 @@ info "Finished removing bad defaults."
 
 info "Setting new defaults."
 
-# gsettings set org.gnome.desktop.wm.preferences theme 'Vertex-Dark'
+gsettings set org.gnome.desktop.wm.preferences theme 'Vertex-Dark'
 gsettings set org.gnome.desktop.background picture-uri ''
 gsettings set org.gnome.desktop.background picture-opacity '100'
 gsettings set org.gnome.desktop.background picture-options 'none'
