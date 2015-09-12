@@ -1,4 +1,5 @@
-URxvt.font: xft:Terminus:size=12:antialias=false
+URxvt.font: -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-15,xft:Terminus:size=12:antialias=false
+URxvt.boldFont: -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-iso8859-15,xft:Terminus:bold:size=12:antialias=false
 URxvt.background: rgb:25/26/27
 URxvt.foreground: White
 
@@ -19,7 +20,10 @@ URxvt.color13: magenta
 URxvt.color14: cyan
 URxvt.color15: white
 
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: true
 URxvt.scrollBar: false
+URxvt.borderLess: false
 
 URxvt.perl-ext-common: default,matcher,tabbed,vtwheel
 
