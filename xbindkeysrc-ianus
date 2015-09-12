@@ -68,5 +68,10 @@
     m:0x15 + c:14
     Control+Shift+Mod2 + 5 
 
+#new terminal
+"urxvt"
+    m:0xc + c:28
+    Control+Alt + t 
+
 #
 # End of xbindkeys configuration
