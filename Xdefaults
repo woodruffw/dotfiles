@@ -1,5 +1,4 @@
 URxvt.font: -xos4-terminus-medium-*-*-*-12-*-*-*-*-*-iso8859-15,xft:Terminus:size=12:antialias=false
-URxvt.boldFont: -xos4-terminus-bold-*-*-*-12-*-*-*-*-*-iso8859-15,xft:Terminus:bold:size=12:antialias=false
 URxvt.background: rgb:25/26/27
 URxvt.foreground: White
 
