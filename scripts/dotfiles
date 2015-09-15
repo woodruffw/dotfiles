@@ -198,7 +198,7 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
 	cp ~/.dotfiles/scripts/jskel ~/scripts/jskel
 	cp ~/.dotfiles/scripts/linecheck ~/scripts/linecheck
-	cp ~/.dotfiles/scripts/haste ~/scripts/haste
+	cp ~/.dotfiles/scripts/pbin ~/scripts/pbin
 	cp ~/.dotfiles/scripts/update ~/scripts/update
 	cp ~/.dotfiles/scripts/cart ~/scripts/cart
 	cp ~/.dotfiles/scripts/speedtest ~/scripts/speedtest
@@ -243,6 +243,10 @@ function fetch_files() {
 	else
 		printf "none required.\n"
 	fi
+
+	printf "Doing some cleanup..."
+	[[ -f ~/scripts/haste ]] && rm ~/scripts/haste
+	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
 	if [[ -n $ans && "${ans}" =~ [Yy] ]] ; then
