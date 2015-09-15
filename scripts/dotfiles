@@ -141,9 +141,11 @@ function fetch_files() {
 
 	printf "Checking for feh..."
 	if installed feh ; then
-		printf "found. Reloading themes..."
+		printf "found. Reloading themes, fehbg, and wallpaper..."
 		mkdir -p ~/.config/feh
 		cp ~/.dotfiles/config/feh/themes ~/.config/feh/themes
+		cp ~/.dotfiles/config/fehbg ~/.fehbg
+		cp ~/.dotfiles/config/feh/wallpaper ~/.config/feh/wallpaper
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
