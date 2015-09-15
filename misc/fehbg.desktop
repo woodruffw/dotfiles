@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=sh ~/.fehbg
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=fehbg
+Name=fehbg
+Comment[en_US]=Display the wallpaper with feh
+Comment=Display the wallpaper with feh
