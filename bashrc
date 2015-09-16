@@ -312,6 +312,15 @@ function http_code()
 	fi
 }
 
+function http_headers()
+{
+	if [[ -n "${1}" ]]; then
+		curl -I "${1}"
+	else
+		echo "Usage: http_headers <url>"
+	fi
+}
+
 ########################
 # COMPLETION FUNCTIONS #
 ########################
