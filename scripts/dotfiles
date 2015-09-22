@@ -3,12 +3,11 @@
 # dotfiles: fetch configuration files and scripts
 # usage: dotfiles
 
-function installed() {
-	if which ${1} > /dev/null ; then
-		return 0
-	else
-		return 1
-	fi
+function installed {
+	local cmd=$(command -v "${1}")
+
+	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
 }
 
 function fetch_files() {
