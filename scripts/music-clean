@@ -8,7 +8,7 @@ shopt -s globstar
 
 music_dir="${HOME}/music"
 
-cruft=("${music_dir}"/**/*.{cue,txt,txt,log,m3u})
+cruft=("${music_dir}"/**/*.{cue,txt,txt,log,m3u,nfo})
 
 for junk in "${cruft[@]}"; do
 	rm -f "${junk}"
