@@ -146,14 +146,14 @@ export MARKPATH="${HOME}/.marks"
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 # convenient colors
-export COLOR_BLK=$(tput setaf 0)
-export COLOR_RED=$(tput setaf 1)
-export COLOR_GRN=$(tput setaf 2)
-export COLOR_YLW=$(tput setaf 3)
-export COLOR_BLU=$(tput setaf 4)
-export COLOR_MAG=$(tput setaf 5)
-export COLOR_CYN=$(tput setaf 6)
-export COLOR_WHT=$(tput setaf 7)
+export COLOR_BLK='\e[0;30m'
+export COLOR_RED='\e[0;31m'
+export COLOR_GRN='\e[0;32m'
+export COLOR_YLW='\e[0;33m'
+export COLOR_BLU='\e[0;34m'
+export COLOR_MAG='\e[0;35m'
+export COLOR_CYN='\e[0;36m'
+export COLOR_WHT='\e[0;37m'
 export COLOR_NRM='\033[0m'
 
 # convenient text modes
@@ -320,6 +320,11 @@ function http_headers()
 	else
 		echo "Usage: http_headers <url>"
 	fi
+}
+
+function mkcd()
+{
+	mkdir -p "$1" && cd "$1"
 }
 
 ########################
