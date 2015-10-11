@@ -1,5 +1,5 @@
 no-border
-#ontop
+force-window
 osc=yes
 
 screenshot-format=png
