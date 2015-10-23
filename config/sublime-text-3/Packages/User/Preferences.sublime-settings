@@ -1,9 +1,18 @@
 {
+	"color_scheme": "Packages/CustomThemes/MonokaiCustom.tmTheme",
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		80
+	],
+	"show_minimap": false,
 	"tab_size": 4,
 	"translate_tabs_to_spaces": false,
-	"color_scheme": "Packages/CustomThemes/MonokaiCustom.tmTheme",
 	"update_check": false,
-	"show_minimap": false,
-	"rulers": [80],
 	"word_wrap": false,
+	"font_face": "Latin Modern Mono",
+	"font_size": 11
 }
