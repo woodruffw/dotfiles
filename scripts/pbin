@@ -16,4 +16,4 @@ else
 fi
 
 response=$(curl -X POST -s -d "${data}" http://hastebin.com/documents)
-echo "${response}" | awk -F '"' '{print "http://hastebin.com/"$4}'
+echo "${response}" | awk -F '"' '{print "http://hastebin.com/raw/"$4}'
