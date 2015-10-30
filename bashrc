@@ -304,6 +304,7 @@ function mrks()
 	ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
 
+# dump the HTTP response code for a URL to stdout
 function http_code()
 {
 	if [[ -n "${1}" ]] ; then
@@ -313,6 +314,7 @@ function http_code()
 	fi
 }
 
+# dump the HTTP response headers for a URL to stdout
 function http_headers()
 {
 	if [[ -n "${1}" ]]; then
@@ -322,9 +324,16 @@ function http_headers()
 	fi
 }
 
+# make a directory and cd into it
 function mkcd()
 {
 	mkdir -p "$1" && cd "$1"
+}
+
+# dump a manpage to stdout, with nroff formatting cruft removed
+function mand()
+{
+	man "$1" | col -bx
 }
 
 ########################
