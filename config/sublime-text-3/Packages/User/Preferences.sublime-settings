@@ -11,11 +11,16 @@
 	"show_minimap": false,
 	"tab_size": 4,
 	"translate_tabs_to_spaces": false,
-	"update_check": false,
+	"update_check": true,
 	"word_wrap": false,
 	"font_face": "Latin Modern Mono",
 	"font_size": 11,
 	"remember_open_files": false,
 	"hot_exit": false,
-	"highlight_modified_tabs": true
+	"highlight_modified_tabs": true,
+	"ensure_newline_at_eof_on_save": true,
+	"trim_trailing_white_space_on_save": true,
+	"mouse_wheel_switches_tabs": true,
+	"spell_check": true,
+	
 }
