@@ -16,5 +16,6 @@
 	"font_face": "Latin Modern Mono",
 	"font_size": 11,
 	"remember_open_files": false,
-	"hot_exit": false
+	"hot_exit": false,
+	"highlight_modified_tabs": true
 }
