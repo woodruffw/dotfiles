@@ -15,5 +15,6 @@
 	"word_wrap": false,
 	"font_face": "Latin Modern Mono",
 	"font_size": 11,
-	"remember_open_files": false
+	"remember_open_files": false,
+	"hot_exit": false
 }
