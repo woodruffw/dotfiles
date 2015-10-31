@@ -14,5 +14,6 @@
 	"update_check": false,
 	"word_wrap": false,
 	"font_face": "Latin Modern Mono",
-	"font_size": 11
+	"font_size": 11,
+	"remember_open_files": false
 }
