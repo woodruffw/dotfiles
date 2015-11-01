@@ -16,7 +16,7 @@ if installed "xclip" ; then
 		resource=$(xclip -o)
 		if [[ ! -z "${resource}" ]]; then
 			notify-send --urgency=critical "play-xclip" "Playing ${resource}"
-			play "${resource}"
+			~/scripts/play "${resource}"
 		else
 			notify-send --urgency=critical "play-xclip" "No resource to play."
 		fi
