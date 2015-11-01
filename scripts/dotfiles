@@ -204,7 +204,8 @@ function fetch_files() {
 
 	if [[ "${host}" = "mercury" || "${host}" = "ianus" ]] ; then
 		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
-		cp ~/.dotfiles/scripts/mpv-xclip ~/scripts/mpv-xclip
+		cp ~/.dotfiles/scripts/play ~/scripts/play
+		cp ~/.dotfiles/scripts/play-xclip ~/scripts/play-xclip
 		cp ~/.dotfiles/scripts/xdcc ~/scripts/xdcc
 	fi
 
@@ -246,6 +247,7 @@ function fetch_files() {
 
 	printf "Doing some cleanup..."
 	[[ -f ~/scripts/haste ]] && rm ~/scripts/haste
+	[[ -f ~/scripts/mpv-xclip ]] && rm ~/scripts/mpv-xclip
 	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
