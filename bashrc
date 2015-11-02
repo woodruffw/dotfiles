@@ -64,9 +64,9 @@ fi
 
 # if jekyll is installed, add its aliases
 if which jekyll > /dev/null ; then
-	alias jb='jekyll build'
+	alias jb='jekyll build --incremental'
 	alias jc='jekyll clean'
-	alias js='jekyll serve --force_polling'
+	alias js='jekyll serve --incremental --force_polling'
 fi
 
 # if gnu smalltalk is installed, alias it to st (gst is a git alias)
