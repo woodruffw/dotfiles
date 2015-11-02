@@ -6,6 +6,139 @@
 
 [[ -z "${PS1}" ]] && return
 
+#############
+# FUNCTIONS #
+#############
+
+# installed - check if a program is both available and a file (no aliases/functions)
+function installed() {
+	local cmd=$(command -v "${1}")
+
+	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+# bashreload - wipe aliases and re-source from ~/.bashrc
+function bashreload() {
+	unalias -a
+	source ~/.bashrc
+}
+
+# allreload - send SIGURG to every bash process, which is trapped to bashreload
+function allreload() {
+	pids=$(pidof bash)
+
+	[[ -n "${pids}" ]] && kill -SIGURG ${pids}
+}
+
+# strlen
+# prints the length of all arguments, spaces included
+function strlen() {
+	str="${*}"
+	echo "${#str}"
+}
+
+# man - colorize man pages
+# overloads the existing man command and supplements it with colors
+function man() {
+	env \
+	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+	LESS_TERMCAP_md=$(printf "\e[1;31m") \
+	LESS_TERMCAP_me=$(printf "\e[0m") \
+	LESS_TERMCAP_se=$(printf "\e[0m") \
+	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+	LESS_TERMCAP_ue=$(printf "\e[0m") \
+	LESS_TERMCAP_us=$(printf "\e[1;32m") \
+	man "${@}"
+}
+
+# parse_git_branch
+# prints the current branch in the current repo, or returns
+# used in PS1
+function parse_git_branch() {
+	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+	echo "[""${ref#refs/heads/}""] "
+}
+
+# prj - cd to projects
+# cds to the project folder or to a specified project
+function prj() {
+	if [[ -z "${1}" ]] ; then
+		cd ~/Dropbox/dev/
+	else
+		cd ~/Dropbox/dev/$1*
+	fi
+}
+
+# shah - get sha1 and output just the hash
+function shah() {
+	if [[ -n "${1}" ]] ; then
+		shasum "${1}" | awk '{ print $1 }'
+	else
+		echo "Usage: shah <file>"
+	fi
+}
+
+# fw, lw, ew - expand file, less, editor input from which
+# useful for reading from files on the PATH without their paths
+function fw() {
+	file $(which ${1})
+}
+
+function lw() {
+	less $(which ${1})
+}
+
+function ew() {
+	$EDITOR $(which ${1})
+}
+
+# jmp (jump) and friends, shamelessly taken from:
+# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
+function jmp() {
+	cd -P "${MARKPATH}/${1}" 2> /dev/null || echo "No such mark: ${1}"
+}
+
+function mrk() {
+	mkdir -p "${MARKPATH}" ; ln -s "${PWD}" "${MARKPATH}/${1}"
+}
+
+function umrk() {
+	rm "${MARKPATH}/${1}"
+}
+
+function mrks() {
+	ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+}
+
+# dump the HTTP response code for a URL to stdout
+function http_code() {
+	if [[ -n "${1}" ]] ; then
+		curl -o /dev/null --silent --head --write-out '%{http_code}\n' "${1}"
+	else
+		echo "Usage: http_code <url>"
+	fi
+}
+
+# dump the HTTP response headers for a URL to stdout
+function http_headers() {
+	if [[ -n "${1}" ]]; then
+		curl -I "${1}"
+	else
+		echo "Usage: http_headers <url>"
+	fi
+}
+
+# make a directory and cd into it
+function mkcd() {
+	mkdir -p "$1" && cd "$1"
+}
+
+# dump a manpage to stdout, with nroff formatting cruft removed
+function mand() {
+	man "$1" | col -bx
+}
+
 system=$(uname)
 host=$(hostname)
 
@@ -58,12 +191,12 @@ alias getconfigs='dotfiles ; allreload'
 source ~/.git-aliases
 
 # if colordiff is installed, alias diff to it
-if which colordiff > /dev/null ; then
+if installed colordiff ; then
 	alias diff='colordiff'
 fi
 
 # if jekyll is installed, add its aliases
-if which jekyll > /dev/null ; then
+if installed jekyll ; then
 	alias jb='jekyll build'
 	alias jc='jekyll clean'
 	alias js='jekyll serve --force_polling'
@@ -71,7 +204,7 @@ fi
 
 # if gnu smalltalk is installed, alias it to st (gst is a git alias)
 # this is clearly becoming a problem
-if which gst > /dev/null ; then
+if installed gst ; then
 	alias st='\gst'
 fi
 
@@ -122,15 +255,15 @@ fi
 ###############
 
 # set the editor depending on what's installed
-if which subl > /dev/null ; then
+if installed ; then
 	export EDITOR='subl -w'
-elif which gvim > /dev/null ; then
+elif installed ; then
 	export EDITOR='gvim'
-elif which vim > /dev/null ; then
+elif installed ; then
 	export EDITOR='vim'
-elif which textadept > /dev/null ; then
+elif installed ; then
 	export EDITOR=textadept
-elif which nano > /dev/null ; then
+elif installed ; then
 	export EDITOR='nano'
 else
 	export EDITOR='ed' # the universal editor!
@@ -193,162 +326,17 @@ bind -x '"\e[15~":ttyreset' # reset the terminal with F5
 
 trap bashreload SIGURG # reload configs when SIGURG is received
 
-#############
-# FUNCTIONS #
-#############
-
-# bashreload - wipe aliases and re-source from ~/.bashrc
-function bashreload()
-{
-	unalias -a
-	source ~/.bashrc
-}
-
-# allreload - send SIGURG to every bash process, which is trapped to bashreload
-function allreload()
-{
-	pids=$(pidof bash)
-
-	[[ -n "${pids}" ]] && kill -SIGURG ${pids}
-}
-
-# strlen
-# prints the length of all arguments, spaces included
-function strlen()
-{
-	str="${*}"
-	echo "${#str}"
-}
-
-# man - colorize man pages
-# overloads the existing man command and supplements it with colors
-function man()
-{
-	env \
-	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-	LESS_TERMCAP_md=$(printf "\e[1;31m") \
-	LESS_TERMCAP_me=$(printf "\e[0m") \
-	LESS_TERMCAP_se=$(printf "\e[0m") \
-	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-	LESS_TERMCAP_ue=$(printf "\e[0m") \
-	LESS_TERMCAP_us=$(printf "\e[1;32m") \
-	man "${@}"
-}
-
-# parse_git_branch
-# prints the current branch in the current repo, or returns
-# used in PS1
-function parse_git_branch()
-{
-	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-	echo "[""${ref#refs/heads/}""] "
-}
-
-# prj - cd to projects
-# cds to the project folder or to a specified project
-function prj()
-{
-	if [[ -z "${1}" ]] ; then
-		cd ~/Dropbox/dev/
-	else
-		cd ~/Dropbox/dev/$1*
-	fi
-}
-
-# shah - get sha1 and output just the hash
-function shah()
-{
-	if [[ -n "${1}" ]] ; then
-		shasum "${1}" | awk '{ print $1 }'
-	else
-		echo "Usage: shah <file>"
-	fi
-}
-
-# fw, lw, ew - expand file, less, editor input from which
-# useful for reading from files on the PATH without their paths
-function fw()
-{
-	file $(which ${1})
-}
-
-function lw()
-{
-	less $(which ${1})
-}
-
-function ew()
-{
-	$EDITOR $(which ${1})
-}
-
-# jmp (jump) and friends, shamelessly taken from:
-# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
-function jmp()
-{
-	cd -P "${MARKPATH}/${1}" 2> /dev/null || echo "No such mark: ${1}"
-}
-
-function mrk()
-{
-	mkdir -p "${MARKPATH}" ; ln -s "${PWD}" "${MARKPATH}/${1}"
-}
-
-function umrk()
-{
-	rm "${MARKPATH}/${1}"
-}
-
-function mrks()
-{
-	ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
-}
-
-# dump the HTTP response code for a URL to stdout
-function http_code()
-{
-	if [[ -n "${1}" ]] ; then
-		curl -o /dev/null --silent --head --write-out '%{http_code}\n' "${1}"
-	else
-		echo "Usage: http_code <url>"
-	fi
-}
-
-# dump the HTTP response headers for a URL to stdout
-function http_headers()
-{
-	if [[ -n "${1}" ]]; then
-		curl -I "${1}"
-	else
-		echo "Usage: http_headers <url>"
-	fi
-}
-
-# make a directory and cd into it
-function mkcd()
-{
-	mkdir -p "$1" && cd "$1"
-}
-
-# dump a manpage to stdout, with nroff formatting cruft removed
-function mand()
-{
-	man "$1" | col -bx
-}
-
 ########################
 # COMPLETION FUNCTIONS #
 ########################
 
-function _completemarks()
-{
+function _completemarks() {
 	local curw=${COMP_WORDS[COMP_CWORD]}
 	local wordlist=$(ls ${MARKPATH} 2> /dev/null)
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
-function _completeprj()
-{
+function _completeprj() {
 	local curw=${COMP_WORDS[COMP_CWORD]}
 	local wordlist=$(ls ~/Dropbox/dev 2> /dev/null)
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
