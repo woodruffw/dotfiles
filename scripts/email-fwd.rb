@@ -44,9 +44,8 @@ hash['emails'].each do |email, data|
 			envelope = m.attr['ENVELOPE']
 			text = m.attr['BODY[]']
 
-			smtp = Net::SMTP.new(data['smtp'], 25)
+			smtp = Net::SMTP.start(data['smtp'], 25, 'localhost', email, data['pass'], data['auth'].to_sym || :plain)
 			smtp.enable_starttls_auto
-			smtp.start("fwd", email, data['pass'], data['auth'].to_sym || :plain)
 
 			msg = <<-EOF.unindent
 				From: #{email}
