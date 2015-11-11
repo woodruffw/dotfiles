@@ -28,7 +28,7 @@ hash = YAML::load_file(fwd)
 forward = hash['forward_to']
 
 hash['emails'].each do |email, data|
-	imap = Net::IMAP.new(data['imap'], { ssl: true })
+	imap = Net::IMAP.new(data['imap'], { ssl: { verify_mode: 0 }})
 
 	imap.login(email, data['pass'])
 	imap.select('INBOX')
