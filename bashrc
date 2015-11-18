@@ -254,13 +254,6 @@ fi
 # ENVIRONMENT #
 ###############
 
-# set the terminal depending on what's installed
-# if installed urxvt; then
-# 	export TERM=rxvt-unicode-256color
-# else
-# 	export TERM=xterm-256color
-# fi
-
 # set the editor depending on what's installed
 if installed subl; then
 	export EDITOR='subl -w'
