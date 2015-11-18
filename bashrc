@@ -254,16 +254,23 @@ fi
 # ENVIRONMENT #
 ###############
 
+# set the terminal depending on what's installed
+if installed urxvt; then
+	export TERM=rxvt-unicode-256color
+else
+	export TERM=xterm-256color
+fi
+
 # set the editor depending on what's installed
-if installed ; then
+if installed subl; then
 	export EDITOR='subl -w'
-elif installed ; then
+elif installed gvim; then
 	export EDITOR='gvim'
-elif installed ; then
+elif installed vim; then
 	export EDITOR='vim'
-elif installed ; then
+elif installed textadept; then
 	export EDITOR=textadept
-elif installed ; then
+elif installed nano; then
 	export EDITOR='nano'
 else
 	export EDITOR='ed' # the universal editor!
