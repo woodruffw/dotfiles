@@ -28,7 +28,7 @@ function bashreload() {
 function allreload() {
 	pids=$(ps -u ${USER} | grep bash | awk '{ print $1 }' | xargs)
 
-	[[ -n "${pids}" ]] && kill -SIGURG ${pids}
+	[[ -n "${pids}" ]] && kill -SIGURG ${pids} 2> /dev/null
 }
 
 # strlen
