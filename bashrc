@@ -26,7 +26,7 @@ function bashreload() {
 
 # allreload - send SIGURG to every bash process, which is trapped to bashreload
 function allreload() {
-	pids=$(pidof bash)
+	pids=$(ps -A | grep bash | awk '{ print $1 }' | xargs)
 
 	[[ -n "${pids}" ]] && kill -SIGURG ${pids}
 }
