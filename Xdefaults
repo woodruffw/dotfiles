@@ -1,3 +1,5 @@
+URxvt.termName: rxvt-unicode-256color
+
 URxvt.font: xft:Latin Modern Mono:size=10:antialias=false,-xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:Courier New:size=10:antialias=false
 URxvt.background: rgb:25/26/27
 URxvt.foreground: White
