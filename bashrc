@@ -231,6 +231,7 @@ if [[ "${system}" = "Linux" ]] ; then
 		alias sprs='sudo pacman -Rs'
 	fi
 elif [[ "${system}" = "Darwin" ]] ; then
+	export LSCOLORS='gxfxcxdxbxegedabagacad'
 	export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/$USER/bin:/Users/$USER/scripts
 
 	alias brew='brew -v'
