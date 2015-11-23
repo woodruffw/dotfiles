@@ -12,7 +12,7 @@ function installed() {
 system=$(uname)
 
 if [[ "$system" = "Darwin" ]] ; then
-	if [[ installed brew ]] ; then
+	if installed brew ; then
 		brew -v update
 		brew -v upgrade
 		brew cleanup -s
@@ -20,33 +20,33 @@ if [[ "$system" = "Darwin" ]] ; then
 		echo "Homebrew not installed."
 	fi
 elif [[ "$system" = "Linux" ]] ; then
-	if [[ installed apt-get ]] ; then
+	if installed apt-get ; then
 		sudo apt-get -qq update
 		sudo apt-get upgrade
 		sudo apt-get autoremove
 		sudo apt-get clean
-	elif [[ `which pacman` ]] ; then
+	elif installed pacman ; then
 		sudo pacman -Syyu
 	else
 		echo "Package manager unsupported."
 	fi
 fi
 
-if [[ installed gem ]] ; then
+if installed gem ; then
 	printf "Update Ruby gems? (y/N): " && read ans
 	if [[ "$ans" =~ [Yy] ]] ; then
 		sudo gem update
 	fi
 fi
 
-if [[ installed cpan ]] ; then
+if installed cpan ; then
 	printf "Update CPAN modules? (y/N): " && read ans
 	if [[ "$ans" =~ [Yy] ]] ; then
 		sudo cpan -u
 	fi
 fi
 
-if [[ installed npm ]] ; then
+if installed npm ; then
 	printf "Update NPM packages? (y/N): " && read ans
 	if [[ "$ans" =~ [Yy] ]] ; then
 		npm update
