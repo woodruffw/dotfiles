@@ -1,4 +1,5 @@
 begin
+	require 'irb/completion'
 	require 'open-uri'
 	require 'awesome_print'
 	AwesomePrint.irb!
