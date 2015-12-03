@@ -192,7 +192,7 @@ function fetch_files() {
 		printf "found. Reloading texmf and updating the database..."
 		mkdir -p ~/texmf
 		cp -R ~/.dotfiles/texmf/* ~/texmf
-		texhash
+		texhash 2> /dev/null
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
