@@ -187,6 +187,17 @@ function fetch_files() {
 		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
 	fi
 
+	printf "Checking for LaTeX..."
+	if installed latex ; then
+		printf "found. Reloading texmf and updating the database..."
+		mkdir -p ~/texmf
+		cp -R ~/.dotfiles/texmf/* ~/texmf
+		texhash
+		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
+	else
+		printf "${COLOR_YLW}not installed. Skipping.${COLOR_NRM}\n"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
