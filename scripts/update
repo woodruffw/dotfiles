@@ -52,3 +52,11 @@ if installed npm ; then
 		npm update
 	fi
 fi
+
+if installed pip ; then
+	printf "Update Python packages? (y/N): " && read ans
+	if [[ "$ans" =~ [Yy] ]] ; then
+		# http://stackoverflow.com/questions/2720014/upgrading-all-packages-with-pip
+		pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | sudo xargs -n1 pip install -U
+	fi
+fi
