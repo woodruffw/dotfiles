@@ -10,6 +10,34 @@
 # FUNCTIONS #
 #############
 
+# __generate_prompt - generate the PS1 dynamically
+function __generate_prompt() {
+	local exitcode="${?}"
+	local jobcount=$(jobs | wc -l)
+	local branch=$(git symbolic-ref HEAD 2> /dev/null)
+
+	if [[ "${exitcode}" == 0 ]]; then
+		exitcode="\[${COLOR_GRN}\]${exitcode}\[${COLOR_NRM}\]"
+	else
+		exitcode="\[${COLOR_RED}\]${exitcode}\[${COLOR_NRM}\]"
+	fi
+
+	if [[ "${jobcount}" == 0 ]]; then
+		jobcount="\[${COLOR_GRN}\]${jobcount}\[${COLOR_NRM}\]"
+	else
+		jobcount="\[${COLOR_YLW}\]${jobcount}\[${COLOR_NRM}\]"
+	fi
+
+	local jobsexit="[${jobcount}:${exitcode}]"
+
+	if [[ -n "${branch}" ]]; then
+		branch="\[${COLOR_RED}\]${branch#refs/heads/}\[${COLOR_NRM}\]"
+		PS1="\u@\h \W ${jobsexit} ${branch} \$ "
+	else
+		PS1="\u@\h \W ${jobsexit} \$ "
+	fi
+}
+
 # installed - check if a program is both available and a file (no aliases/functions)
 function installed() {
 	local cmd=$(command -v "${1}")
@@ -48,14 +76,6 @@ function man() {
 	LESS_TERMCAP_ue=$(printf "\e[0m") \
 	LESS_TERMCAP_us=$(printf "\e[1;32m") \
 	man "${@}"
-}
-
-# parse_git_branch
-# prints the current branch in the current repo, or returns
-# used in PS1
-function parse_git_branch() {
-	ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-	echo "[""${ref#refs/heads/}""] "
 }
 
 # prj - cd to projects
@@ -271,15 +291,14 @@ fi
 # system-independent environment variables
 export VISUAL="${EDITOR}"
 export LESSHISTFILE="/dev/null" # prevent less from creating ~/.lesshist
-export PS1="\u@\h [\D{%M:%S}] \W \[\e[1;31m\]\$(parse_git_branch)\[\e[0m\]$ "
 export PS2="+ "
 export HISTCONTROL="ignoredups:erasedups"
 export MARKPATH="${HOME}/.marks"
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
+export PROMPT_COMMAND="__generate_prompt"
 
 # convenient colors
 export COLOR_BLK='\e[0;30m'
-export COLOR_RED='\e[0;31m'
+export COLOR_RED='\e[1;31m'
 export COLOR_GRN='\e[0;32m'
 export COLOR_YLW='\e[0;33m'
 export COLOR_BLU='\e[0;34m'
