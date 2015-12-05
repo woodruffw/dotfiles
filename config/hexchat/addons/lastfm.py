@@ -14,7 +14,7 @@ import hexchat
 
 __module_name__ = 'lastfm'
 __module_author__ = 'TingPing'
-__module_version__ = '1'
+__module_version__ = '1.1'
 __module_description__ = 'Tell others what you are playing on last.fm'
 
 lfm_help = """Lastfm Usage:
@@ -59,15 +59,14 @@ def get_track():
 
 	try:
 		track = data['recenttracks']['track'][0]
-		if track['@attr']['nowplaying']:
-			return track
+		return track
 	except (IndexError, KeyError):
 		return
 
 def lfm_cb(word, word_eol, userdata):
 	global USERNAME
 	echo = False
-	
+
 	if len(word) == 2:
 		if word[1] == '-e':
 			echo = True
@@ -80,13 +79,13 @@ def lfm_cb(word, word_eol, userdata):
 	if not USERNAME:
 		print('Lastfm: No username set, use /lfm <username> to set it')
 		return hexchat.EAT_ALL
-		
+
 	track = get_track()
 	if not track:
 		print('Lastfm: No song currently playing')
 	else:
 		print_nowplaying(track, echo)
-		
+
 	return hexchat.EAT_ALL
 
 hexchat.hook_command('lfm', lfm_cb, help=lfm_help)
