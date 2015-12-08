@@ -130,8 +130,9 @@ function fetch_files() {
 	printf "Checking for mpv..."
 	if installed mpv ; then
 		printf "found. Reloading configs..."
-		mkdir -p ~/.mpv/lua-settings
+		mkdir -p ~/.mpv/{scripts,lua-settings}
 		cp ~/.dotfiles/mpv/config ~/.mpv/config
+		cp ~/.dotfiles/mpv/scripts/* ~/.mpv/config/scripts/
 		cp ~/.dotfiles/mpv/lua-settings/osc.conf ~/.mpv/lua-settings/osc.conf
 		printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 	else
