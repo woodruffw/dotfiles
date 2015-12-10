@@ -16,7 +16,7 @@ shopt -s globstar
 
 music_dir="${HOME}/music"
 
-cruft=("${music_dir}"/**/*.{cue,txt,txt,log,m3u,nfo})
+cruft=("${music_dir}"/**/*.{cue,txt,txt,log,m3u,nfo,bak})
 mp3s=("${music_dir}"/**/*.mp3)
 
 for junk in "${cruft[@]}"; do
