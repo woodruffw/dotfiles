@@ -23,8 +23,8 @@ for junk in "${cruft[@]}"; do
 	rm -f "${junk}"
 done
 
-if installed mp3val; then
-	for mp3 in "${mp3s[@]}"; do
-		mp3val -f "${mp3}"
-	done
-fi
+# if installed mp3val; then
+# 	for mp3 in "${mp3s[@]}"; do
+# 		mp3val -f "${mp3}"
+# 	done
+# fi
