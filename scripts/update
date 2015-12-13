@@ -21,7 +21,7 @@ if [[ "$system" = "Darwin" ]] ; then
 	fi
 elif [[ "$system" = "Linux" ]] ; then
 	if installed apt-get ; then
-		sudo apt-get -qq update
+		sudo apt-get update
 		sudo apt-get upgrade
 		sudo apt-get autoremove
 		sudo apt-get clean
