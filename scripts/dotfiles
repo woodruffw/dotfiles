@@ -35,8 +35,9 @@ function fetch_files() {
 
 	mkdir -p ~/scripts
 
-	printf "Reloading bashrc and profile..."
+	printf "Reloading bashrc, inputrc, and profile..."
 	cp ~/.dotfiles/bashrc ~/.bashrc
+	cp ~/.dotfiles/inputrc ~/.inputrc
 	cp ~/.dotfiles/bash_profile ~/.bash_profile
 	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
