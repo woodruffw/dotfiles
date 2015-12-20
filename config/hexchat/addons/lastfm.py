@@ -14,17 +14,16 @@ import hexchat
 
 __module_name__ = 'lastfm'
 __module_author__ = 'TingPing'
-__module_version__ = '1.1'
+__module_version__ = '1.2'
 __module_description__ = 'Tell others what you are playing on last.fm'
 
 lfm_help = """Lastfm Usage:
-    LFM <username>
-    LFM -e"""
+    LFM <username>"""
 
 USERNAME = hexchat.get_pluginpref('lfm_username')
 KEY = '4847f738e6b34c0dc20b13fe42ea008e'
 
-def print_nowplaying(track, echo=False):
+def print_nowplaying(track):
 	try:
 		title = track['name']
 		artist = track['artist']['#text']
@@ -37,12 +36,7 @@ def print_nowplaying(track, echo=False):
 		print('Lastfm: Song info not found')
 		return
 
-	if echo:
-		cmd = 'echo Lastfm: {} by {} on {}.'.format(title, artist, album)
-	elif hexchat.get_pluginpref('lfm_say'):
-		cmd = 'say Now playing {} by {} on {}.'.format(title, artist, album)
-	else:
-		cmd = 'me is now playing {} by {} on {}.'.format(title, artist, album)
+	cmd = 'me is now playing "{}" by {} on {}.'.format(title, artist, album)
 
 	hexchat.command(cmd)
 
@@ -65,16 +59,12 @@ def get_track():
 
 def lfm_cb(word, word_eol, userdata):
 	global USERNAME
-	echo = False
 
 	if len(word) == 2:
-		if word[1] == '-e':
-			echo = True
-		else:
-			USERNAME = word[1]
-			hexchat.set_pluginpref('lfm_username', USERNAME)
-			print('Lastfm: Username set to {}'.format(USERNAME))
-			return hexchat.EAT_ALL
+		USERNAME = word[1]
+		hexchat.set_pluginpref('lfm_username', USERNAME)
+		print('Lastfm: Username set to {}'.format(USERNAME))
+		return hexchat.EAT_ALL
 
 	if not USERNAME:
 		print('Lastfm: No username set, use /lfm <username> to set it')
@@ -84,7 +74,7 @@ def lfm_cb(word, word_eol, userdata):
 	if not track:
 		print('Lastfm: No song currently playing')
 	else:
-		print_nowplaying(track, echo)
+		print_nowplaying(track)
 
 	return hexchat.EAT_ALL
 
