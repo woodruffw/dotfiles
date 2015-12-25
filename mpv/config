@@ -18,3 +18,12 @@ autofit-larger=50%x50%
 user-agent="Mozilla/5.0"
 
 force-seekable
+
+[extension.webm]
+loop-file=inf
+
+[extension.gif]
+loop-file=inf
+
+[extension.gifv]
+loop-file=inf
