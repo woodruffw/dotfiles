@@ -15,7 +15,7 @@ heartbeat-cmd="xscreensaver-command -deactivate >&- 2>&- &"
 
 autofit-larger=50%x50%
 
-user-agent="Mozilla/5.0"
+user-agent="Mozilla/5.0 (X11; Linux; Linux; rv:0.0) Gecko/0 Firefox/0"
 
 force-seekable
 
