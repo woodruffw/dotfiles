@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# pipefox: pipe stdin to firefox
+# https://unix.stackexchange.com/questions/24931/how-to-make-firefox-read-stdin
+
+function installed {
+	local cmd=$(command -v "${1}")
+
+	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+installed firefox || (echo "Fatal: Missing Firefox." ; exit 1)
+installed base64 || (echo "Fatal: Missing base64." ; exit 1)
+
+firefox "data:text/html;base64,$(base64 -w 0 <&0)"
