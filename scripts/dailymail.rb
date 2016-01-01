@@ -15,6 +15,12 @@ end
 external_ip = Net::HTTP.get(URI('http://woodruffw.us/lab/ip.php'))
 disks = `df -h`
 
+if File.readable?('/var/log/syslog')
+	croninfo = File.readlines('/var/log/syslog').select { |l| l =~ /cron/i }.join
+else
+	croninfo = 'None (could not read syslog).'
+end
+
 client = SendGrid::Client.new do |c|
 	c.api_user = ENV['SENDGRID_API_USER']
 	c.api_key = ENV['SENDGRID_API_PASS']
@@ -29,7 +35,10 @@ Uptime: #{uptime}
 Internal IP: #{internal_ip}
 External IP: #{external_ip}
 Disk status:
-#{disks}}
+#{disks}
+
+Cron info:
+#{croninfo}}
 end
 
 client.send(mail)
