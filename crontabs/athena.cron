@@ -3,4 +3,4 @@ MAILTO='william+cron@tuffbizz.com'
 0 0 * * * /home/william/scripts/cron-shunt /home/william/scripts/wwwbackup
 0,30 * * * * /home/william/scripts/cron-shunt /home/william/scripts/twitter-fortune-bot.pl
 0 12 * * * /home/william/scripts/cron-shunt /home/william/scripts/dailymail.rb
-*/5 * * * * /home/william/scripts/cron-shunt /home/william/scripts/email-fwd.rb
+*/5 * * * * /home/william/scripts/cron-shunt /home/william/scripts/email-fwd.rb > /dev/null
