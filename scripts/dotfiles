@@ -223,6 +223,7 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/update ~/scripts/update
 	cp ~/.dotfiles/scripts/cart ~/scripts/cart
 	cp ~/.dotfiles/scripts/speedtest ~/scripts/speedtest
+	cp ~/.dotfiles/scripts/rip ~/scripts/rip
 
 	if [[ "${host}" = "mercury" || "${host}" = "ianus" ]] ; then
 		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf

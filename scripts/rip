@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# rip: quick rip an audio CD into a specified format using abcde
+
+function installed() {
+	local cmd=$(command -v "${1}")
+
+	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+function fatal {
+	>&2 printf "Fatal: ${*}\n"
+	exit 2
+}
+
+installed abcde || fatal "Missing abcde for ripping."
+
+format=$(echo ${1} | tr [:upper:] [:lower:])
+
+case "${format}" in
+	"mp3" ) installed lame || fatal "Missing lame for MP3 encoding." ;;
+	"flac" ) installed flac || fatal "Missing flac for FLAC encoding." ;;
+	* ) fatal "Unsupported format: ${format}. Maybe use abcde directly?"
+esac
+
+abcde -Vx -q high -a "cddb,read,encode,tag,move,playlist,clean" -o "${format}"
