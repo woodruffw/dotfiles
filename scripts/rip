@@ -14,6 +14,7 @@ function fatal {
 	exit 2
 }
 
+[[ -n "${1}" ]] || fatal "Usage: $(basename ${0}) <format>"
 installed abcde || fatal "Missing abcde for ripping."
 
 format=$(echo ${1} | tr [:upper:] [:lower:])
