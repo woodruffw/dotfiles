@@ -236,7 +236,6 @@ function fetch_files() {
 		cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
 		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
 		cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
-		cp ~/.dotfiles/scripts/email-fwd.rb ~/scripts/email-fwd.rb
 	fi
 
 	if [[ "${host}" = "mars" ]] ; then
@@ -272,6 +271,7 @@ function fetch_files() {
 	printf "Doing some cleanup..."
 	[[ -f ~/scripts/haste ]] && rm ~/scripts/haste
 	[[ -f ~/scripts/mpv-xclip ]] && rm ~/scripts/mpv-xclip
+	[[ -f ~/scripts/email-fwd.rb ]] && rm ~/scripts/email-fwd.rb
 	printf "${COLOR_GRN}done${COLOR_NRM}.\n"
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
