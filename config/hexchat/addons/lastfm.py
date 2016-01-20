@@ -36,7 +36,10 @@ def print_nowplaying(track):
 		print('Lastfm: Song info not found')
 		return
 
-	cmd = 'me is now playing "{}" by {} on {}.'.format(title, artist, album)
+	cmd = 'me is now playing "{}" by {}'.format(title, artist)
+
+	if album:
+		cmd = '{} on {}'.format(cmd, album)
 
 	hexchat.command(cmd)
 
