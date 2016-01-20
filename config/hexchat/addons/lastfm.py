@@ -14,7 +14,7 @@ import hexchat
 
 __module_name__ = 'lastfm'
 __module_author__ = 'TingPing'
-__module_version__ = '1.2'
+__module_version__ = '1.3'
 __module_description__ = 'Tell others what you are playing on last.fm'
 
 lfm_help = """Lastfm Usage:
