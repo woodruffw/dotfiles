@@ -27,3 +27,12 @@ loop-file=inf
 
 [extension.gifv]
 loop-file=inf
+
+[extension.jpeg]
+loop-file=inf
+
+[extension.jpg]
+loop-file=inf
+
+[extension.png]
+loop-file=inf
