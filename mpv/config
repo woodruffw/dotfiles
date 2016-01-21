@@ -29,10 +29,10 @@ loop-file=inf
 loop-file=inf
 
 [extension.jpeg]
-loop-file=inf
+keep-open
 
 [extension.jpg]
-loop-file=inf
+keep-open
 
 [extension.png]
-loop-file=inf
+keep-open
