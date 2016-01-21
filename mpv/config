@@ -36,3 +36,6 @@ keep-open
 
 [extension.png]
 keep-open
+
+[extension.webp]
+keep-open
