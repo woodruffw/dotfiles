@@ -1,0 +1,14 @@
+{
+	"selector": "source.makefile",
+	"cmd": ["make"],
+	"variants": [
+		{
+			"name": "Clean",
+			"cmd": ["make", "clean"]
+		},
+		{
+			"name": "Run",
+			"cmd": ["make", "run"]
+		}
+	]
+}
