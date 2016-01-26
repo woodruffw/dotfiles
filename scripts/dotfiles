@@ -226,6 +226,7 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/rip ~/scripts/rip
 	cp ~/.dotfiles/scripts/sms ~/scripts/sms
 	cp ~/.dotfiles/scripts/flac2mp3 ~/scripts/flac2mp3
+	cp ~/.dotfiles/scripts/mp3art ~/scripts/mp3art
 
 	if [[ "${host}" = "mercury" || "${host}" = "ianus" ]] ; then
 		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
