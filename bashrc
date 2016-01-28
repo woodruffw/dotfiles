@@ -157,6 +157,12 @@ function mand() {
 	man "$1" | col -bx
 }
 
+# sum stdin, one number per line
+# http://stackoverflow.com/a/450821
+function sum() {
+	awk '{ sum += $1 } END { print sum }' "${1:--}"
+}
+
 system=$(uname)
 host=$(hostname)
 
