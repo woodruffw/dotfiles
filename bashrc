@@ -54,7 +54,7 @@ function bashreload() {
 
 # allreload - send SIGURG to every bash process, which is trapped to bashreload
 function allreload() {
-	killall -SIGURG bash
+	killall -u "${USER}" -SIGURG bash
 }
 
 # strlen
