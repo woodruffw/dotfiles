@@ -298,6 +298,11 @@ else
 	export EDITOR='ed' # the universal editor!
 fi
 
+# add the rubygems bin path if installed
+if installed ruby && installed gem; then
+	export PATH="${PATH}:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
+fi
+
 # system-independent environment variables
 export VISUAL="${EDITOR}"
 export LESSHISTFILE="/dev/null" # prevent less from creating ~/.lesshist
