@@ -1,5 +1,8 @@
-set -g mouse on
-set -g mouse-utf8 on
+set -g mode-mouse on
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+set -g mouse-utf8
 setw -g monitor-activity on
 set -g visual-activity on
 set -g status-justify centre
@@ -7,9 +10,6 @@ set -g history-limit 10000
 set -g utf8 on
 set -g status-utf8 on
 set -g bell-action any
-
-bind -n WheelUpPane   select-pane -t= \; copy-mode -e \; send-keys -M
-bind -n WheelDownPane select-pane -t= \;                 send-keys -M
 
 bind C-p previous-window
 bind C-n next-window
