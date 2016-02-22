@@ -163,6 +163,15 @@ function sum() {
 	awk '{ sum += $1 } END { print sum }' "${1:--}"
 }
 
+# pdf wordcount
+function pdfwc() {
+	installed pdftotext || { printf "Error: pdftotext required.\n" ; return 1 ; }
+	installed wc || { printf "Error: wc required.\n" ; return 1 ; }
+	[[ -f "${1}" ]] || { printf "Error: '${1}' is not a file.\n" ; return 2 ; }
+
+	pdftotext "${1}" - | wc -w
+}
+
 system=$(uname)
 host=$(hostname)
 
