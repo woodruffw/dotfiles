@@ -60,7 +60,7 @@ function allreload() {
 # strlen
 # prints the length of all arguments, spaces included
 function strlen() {
-	str="${*}"
+	local str="${*}"
 	echo "${#str}"
 }
 
