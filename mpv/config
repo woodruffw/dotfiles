@@ -21,6 +21,8 @@ ytdl-format=bestvideo+bestaudio
 
 force-seekable
 
+input-cursor=yes
+
 [extension.webm]
 loop-file=inf
 
