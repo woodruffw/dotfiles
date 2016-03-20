@@ -97,12 +97,12 @@ fi
 
 # take fullscreen picture
 if [[ ${fullscreen} ]]; then
-	file=$(filename=~/Sync/screenshots/$(date +%s).png ; fullscreen_screenshot ${filename} ; printf ${filename})
+	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; fullscreen_screenshot ${filename} ; printf ${filename})
 fi
 
 # take selection picture
 if [[ ${selection} ]]; then
-	file=$(filename=~/Sync/screenshots/$(date +%s).png ; selection_screenshot ${filename} ; printf ${filename})
+	file=$(filename=~/Dropbox/screenshots/$(date +%s).png ; selection_screenshot ${filename} ; printf ${filename})
 fi
 
 if [[ -n ${file} ]]; then

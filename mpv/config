@@ -3,7 +3,7 @@ force-window
 osc=yes
 
 screenshot-format=png
-screenshot-template="~/Sync/screenshots/%F - %p"
+screenshot-template="~/Dropbox/screenshots/%F - %p"
 
 cache-default=50000
 
