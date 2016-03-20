@@ -82,9 +82,9 @@ function man() {
 # cds to the project folder or to a specified project
 function prj() {
 	if [[ -z "${1}" ]] ; then
-		cd ~/Dropbox/dev/
+		cd ~/Sync/dev/
 	else
-		cd ~/Dropbox/dev/$1*
+		cd ~/Sync/dev/$1*
 	fi
 }
 
@@ -380,7 +380,7 @@ function _completemarks() {
 
 function _completeprj() {
 	local curw=${COMP_WORDS[COMP_CWORD]}
-	local wordlist=$(ls ~/Dropbox/dev 2> /dev/null)
+	local wordlist=$(ls ~/Sync/dev 2> /dev/null)
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
