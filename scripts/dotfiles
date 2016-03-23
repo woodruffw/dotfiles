@@ -226,6 +226,9 @@ function fetch_files() {
 		printf "found. Reloading feed list..."
 		mkdir -p ~/.config/liferea
 		cp ~/.dotfiles/config/liferea/feedlist.opml ~/.config/liferea/feedlist.opml
+		green "done"
+	else
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Fetching scripts..."
