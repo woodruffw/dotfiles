@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<opml version="1.0">
+  <head>
+    <title>Liferea Feed List Export</title>
+  </head>
+  <body>
+    <outline title="Blogs" text="Blogs" description="Blogs" type="folder" id="podqpkx" sortColumn="time" expanded="true">
+      <outline title="Daemonic Dispatches" text="Daemonic Dispatches" description="Daemonic Dispatches" type="rss" id="xrdmfdc" sortColumn="time" xmlUrl="http://www.daemonology.net/blog/index.rss" htmlUrl="http://www.daemonology.net/blog/" updateInterval="-1" collapsed="true"/>
+      <outline title="The Buckblog" text="The Buckblog" description="The Buckblog" type="rss" id="ayvjdhq" sortColumn="time" xmlUrl="http://feeds.feedburner.com/buckblog" htmlUrl="http://weblog.jamisbuck.org" updateInterval="-1" collapsed="true"/>
+      <outline title="E_NO_SUCH_BLOG" text="E_NO_SUCH_BLOG" description="E_NO_SUCH_BLOG" type="rss" id="imivdxn" sortColumn="time" xmlUrl="http://blog.woodruffw.us/feed.xml" htmlUrl="http://blog.woodruffw.us" updateInterval="-1" collapsed="true"/>
+      <outline title="News from the Lab" text="News from the Lab" description="News from the Lab" type="rss" id="qjcwisc" sortColumn="time" xmlUrl="https://labsblog.f-secure.com/feed/" htmlUrl="https://labsblog.f-secure.com" updateInterval="-1" collapsed="true"/>
+      <outline title="AppSec Street Fighter - SANS Institute" text="AppSec Street Fighter - SANS Institute" description="AppSec Street Fighter - SANS Institute" type="rss" id="nuximom" sortColumn="time" xmlUrl="https://software-security.sans.org/blog/feed/" htmlUrl="http://software-security.sans.org/blog" updateInterval="-1" collapsed="true"/>
+      <outline title="internaught.io" text="internaught.io" description="internaught.io" type="atom" id="xvtnqft" sortColumn="time" xmlUrl="http://internaught.github.io/atom.xml" htmlUrl="http://internaught.io/" updateInterval="-1" collapsed="true"/>
+      <outline title="Drew DeVault's Blog" text="Drew DeVault's Blog" description="Drew DeVault's Blog" type="rss" id="jmiiswu" sortColumn="time" xmlUrl="https://drewdevault.com/feed.xml" htmlUrl="https://drewdevault.com" updateInterval="-1" collapsed="true"/>
+      <outline title="Shtetl-Optimized" text="Shtetl-Optimized" description="Shtetl-Optimized" type="rss" id="llefcqv" sortColumn="time" xmlUrl="http://www.scottaaronson.com/blog/?feed=rss2" htmlUrl="http://www.scottaaronson.com/blog" updateInterval="-1" collapsed="true"/>
+      <outline title="fuzzy notepad" text="fuzzy notepad" description="fuzzy notepad" type="atom" id="aiusbnx" sortColumn="time" xmlUrl="http://eev.ee/feeds/atom.xml" htmlUrl="https://eev.ee/" updateInterval="-1" collapsed="true"/>
+    </outline>
+    <outline title="Comics" text="Comics" description="Comics" type="folder" id="nrvkgxn" sortColumn="time" expanded="true">
+      <outline title="xkcd" text="xkcd" description="xkcd" type="atom" id="agdrbey" sortColumn="time" xmlUrl="http://xkcd.com/atom.xml" htmlUrl="http://xkcd.com/" updateInterval="-1" collapsed="true"/>
+      <outline title="Nedroid Picture Diary 2" text="Nedroid Picture Diary 2" description="Nedroid Picture Diary 2" type="rss" id="wtnwqss" sortColumn="time" xmlUrl="http://nedroid.com/feed/" htmlUrl="http://nedroid.com" updateInterval="-1" collapsed="true"/>
+      <outline title="Hark, A Vagrant!" text="Hark, A Vagrant!" description="Hark, A Vagrant!" type="rss" id="axqapwk" sortColumn="time" xmlUrl="http://www.harkavagrant.com/rssfeed.php" htmlUrl="http://www.harkavagrant.com" updateInterval="-1" collapsed="true"/>
+      <outline title="Hyperbole and a Half" text="Hyperbole and a Half" description="Hyperbole and a Half" type="atom" id="ibdqsgm" sortColumn="time" xmlUrl="http://feeds.feedburner.com/Hyperbole-and-a-half" htmlUrl="http://hyperboleandahalf.blogspot.com/" updateInterval="-1" collapsed="true"/>
+      <outline title="Achewood" text="Achewood" description="Achewood" type="rss" id="bijkoef" sortColumn="time" xmlUrl="http://www.achewood.com/rss.php" htmlUrl="http://www.achewood.com/" updateInterval="-1" collapsed="true"/>
+      <outline title="Dinosaur Comics!" text="Dinosaur Comics!" description="Dinosaur Comics!" type="rss" id="hgvdgpj" sortColumn="time" xmlUrl="http://qwantz.com/rssfeed.php" htmlUrl="http://www.qwantz.com" updateInterval="-1" collapsed="true"/>
+      <outline title="The Perry Bible Fellowship" text="The Perry Bible Fellowship" description="The Perry Bible Fellowship" type="atom" id="qslumxh" sortColumn="time" xmlUrl="http://pbfcomics.com/feed/feed.xml" htmlUrl="" updateInterval="-1" collapsed="true"/>
+      <outline title="Saturday Morning Breakfast Cereal" text="Saturday Morning Breakfast Cereal" description="Saturday Morning Breakfast Cereal" type="rss" id="rvkxciw" sortColumn="time" xmlUrl="http://www.smbc-comics.com/rss.php" htmlUrl="http://www.smbc-comics.com/" updateInterval="-1" collapsed="true"/>
+      <outline title="The Perry Bible Fellowship" text="The Perry Bible Fellowship" description="The Perry Bible Fellowship" type="atom" id="rcebclv" sortColumn="time" xmlUrl="http://pbfcomics.com/feed/feed.xml" htmlUrl="" updateInterval="-1" collapsed="true"/>
+      <outline title="Kickstand Comics featuring Yehuda Moon" text="Kickstand Comics featuring Yehuda Moon" description="Kickstand Comics featuring Yehuda Moon" type="rss" id="tflnuyc" sortColumn="time" xmlUrl="http://yehudamoon.com/feed/" htmlUrl="http://yehudamoon.com" updateInterval="-1" collapsed="true"/>
+    </outline>
+    <outline title="Misc" text="Misc" description="Misc" type="folder" id="momhkgl" sortColumn="time" expanded="true"/>
+    <outline title="Unread" text="Unread" description="Unread" type="vfolder" id="aghrinj" sortColumn="time" matchType="any" collapsed="true">
+      <outline type="rule" text="Read status" rule="unread" value="" additive="true"/>
+    </outline>
+  </body>
+</opml>
