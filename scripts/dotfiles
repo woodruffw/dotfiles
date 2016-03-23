@@ -10,11 +10,11 @@ function installed {
 	return ${?}
 }
 
-function printgreen {
+function green {
 	printf "${COLOR_GRN}${@}${COLOR_NRM}.\n"
 }
 
-function printyellow {
+function yellow {
 	printf "${COLOR_YLW}${@}${COLOR_NRM}.\n"
 }
 
@@ -47,14 +47,14 @@ function fetch_files() {
 	cp ~/.dotfiles/bashrc ~/.bashrc
 	cp ~/.dotfiles/inputrc ~/.inputrc
 	cp ~/.dotfiles/bash_profile ~/.bash_profile
-	printgreen "done"
+	green "done"
 
 	# we know git is installed
 	printf "Reloading git-aliases, gitignore, and gitconfig..."
 	cp ~/.dotfiles/git-aliases ~/.git-aliases
 	cp ~/.dotfiles/gitignore ~/.gitignore
 	cp ~/.dotfiles/gitconfig ~/.gitconfig
-	printgreen "done"
+	green "done"
 
 	printf "Checking for vim..."
 	if installed vim ; then
@@ -62,18 +62,18 @@ function fetch_files() {
 		cp ~/.dotfiles/vimrc ~/.vimrc
 		mkdir -p ~/.vim/
 		cp -R ~/.dotfiles/vim/* ~/.vim
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for curl..."
 	if installed curl ; then
 		printf "found. Reloading curlrc..."
 		cp ~/.dotfiles/curlrc ~/.curlrc
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for rtorrent..."
@@ -87,9 +87,9 @@ function fetch_files() {
 
 		cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
 		cp ~/.dotfiles/scripts/magnet.sh ~/scripts/magnet.sh
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for tmux..."
@@ -102,9 +102,9 @@ function fetch_files() {
 		fi
 		mkdir -p ~/.tmux
 		cp ~/.dotfiles/tmux/* ~/.tmux/
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for xbindkeys..."
@@ -112,12 +112,12 @@ function fetch_files() {
 		printf "found. Reloading xbindkeysrc..."
 		if [[ -f ~/.dotfiles/xbindkeysrc-${host} ]] ; then
 			cp ~/.dotfiles/xbindkeysrc-${host} ~/.xbindkeysrc
-			printgreen "done"
+			green "done"
 		else
 			printf "none required.\n"
 		fi
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for thunar..."
@@ -125,9 +125,9 @@ function fetch_files() {
 		printf "found. Reloading uca.xml..."
 		mkdir -p ~/.config/Thunar
 		cp ~/.dotfiles/config/Thunar/uca.xml ~/.config/Thunar/uca.xml
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for hexchat..."
@@ -135,9 +135,9 @@ function fetch_files() {
 		printf "found. Reloading configs and addons..."
 		mkdir -p ~/.config/hexchat
 		cp -R ~/.dotfiles/config/hexchat/* ~/.config/hexchat/
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for mpv..."
@@ -147,9 +147,9 @@ function fetch_files() {
 		cp ~/.dotfiles/mpv/config ~/.mpv/config
 		cp ~/.dotfiles/mpv/scripts/* ~/.mpv/scripts/
 		cp ~/.dotfiles/mpv/lua-settings/osc.conf ~/.mpv/lua-settings/osc.conf
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for feh..."
@@ -159,9 +159,9 @@ function fetch_files() {
 		cp ~/.dotfiles/config/feh/themes ~/.config/feh/themes
 		cp ~/.dotfiles/fehbg ~/.fehbg
 		cp ~/.dotfiles/config/feh/wallpaper ~/.config/feh/wallpaper
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for textadept..."
@@ -169,36 +169,36 @@ function fetch_files() {
 		printf "found. Reloading configs, modules, and themes..."
 		mkdir -p ~/.textadept
 		cp -R ~/.dotfiles/textadept/* ~/.textadept
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for Sublime Text..."
 	if installed subl ; then
 		printf "found. Reloading preferences and themes..."
 		cp -R ~/.dotfiles/config/sublime-text-3/* ~/.config/sublime-text-3
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for irb..."
 	if installed irb ; then
 		printf "found. Reloading irbrc..."
 		cp ~/.dotfiles/irbrc ~/.irbrc
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for urxvt..."
 	if installed urxvt ; then
 		printf "found. Reloading Xdefaults..."
 		cp ~/.dotfiles/Xdefaults ~/.Xdefaults
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for LaTeX..."
@@ -207,18 +207,18 @@ function fetch_files() {
 		mkdir -p ~/texmf
 		cp -R ~/.dotfiles/texmf/* ~/texmf
 		texhash 2> /dev/null
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Checking for Firefox..."
 	if installed firefox ; then
 		printf "found. Reloading pipefox..."
 		cp ~/.dotfiles/scripts/pipefox ~/scripts/pipefox
-		printgreen "done"
+		green "done"
 	else
-		printyellow "not installed. Skipping"
+		yellow "not installed. Skipping"
 	fi
 
 	printf "Fetching scripts..."
@@ -273,7 +273,7 @@ function fetch_files() {
 	fi
 
 	chmod +x ~/scripts/*
-	printgreen "done"
+	green "done"
 
 	printf "Fetching cron-shunt and crontab..."
 	cp ~/.dotfiles/scripts/cron-shunt ~/scripts/cron-shunt
@@ -282,7 +282,7 @@ function fetch_files() {
 		cp ~/.dotfiles/crontabs/${host}.cron ~/scripts/cron/${host}.cron
 		crontab -r
 		crontab ~/scripts/cron/${host}.cron
-		printgreen "done"
+		green "done"
 	else
 		printf "none required.\n"
 	fi
@@ -291,7 +291,7 @@ function fetch_files() {
 	[[ -f ~/scripts/haste ]] && rm ~/scripts/haste
 	[[ -f ~/scripts/mpv-xclip ]] && rm ~/scripts/mpv-xclip
 	[[ -f ~/scripts/email-fwd.rb ]] && rm ~/scripts/email-fwd.rb
-	printgreen "done"
+	green "done"
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
 	if [[ -n $ans && "${ans}" =~ [Yy] ]] ; then
@@ -303,7 +303,7 @@ function fetch_files() {
 		rm -rf ~/.dotfiles-priv
 	fi
 
-	printgreen "All done"
+	green "All done"
 }
 
 fetch_files
