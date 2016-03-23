@@ -380,7 +380,7 @@ function _completemarks() {
 
 function _completeprj() {
 	local curw=${COMP_WORDS[COMP_CWORD]}
-	local wordlist=$(ls ~/Sync/dev 2> /dev/null)
+	local wordlist=$(ls ~/Dropbox/dev 2> /dev/null)
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
