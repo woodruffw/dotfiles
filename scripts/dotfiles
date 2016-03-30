@@ -301,6 +301,9 @@ function fetch_files() {
 	[[ -f ~/scripts/haste ]] && rm ~/scripts/haste
 	[[ -f ~/scripts/mpv-xclip ]] && rm ~/scripts/mpv-xclip
 	[[ -f ~/scripts/email-fwd.rb ]] && rm ~/scripts/email-fwd.rb
+	[[ -f ~/.xsession-errors ]] && rm ~/.xsession-errors
+	[[ -f ~/.xsession-errors.old ]] && rm ~/.xsession-errors.old
+	[[ -f ~/.profile ]] && rm ~/.profile
 	green "done"
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
