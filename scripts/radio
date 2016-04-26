@@ -10,6 +10,7 @@
 #   http://opensource.org/licenses/MIT
 
 player="mpv"
+playeropts="--force-window=no"
 cmd="${1:-usage}"
 
 function error() {
@@ -58,6 +59,6 @@ else
 		list_stations
 		exit 1
 	else
-		eval "${player} ${station}"
+		eval "${player} ${playeropts} ${station}"
 	fi
 fi
