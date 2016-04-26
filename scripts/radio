@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+# radio: stream various college radio stations
+
+player="mpv"
+cmd="${1:-list}"
+
+function error() {
+	>&2 printf "Fatal: ${@}. Exiting.\n"
+	exit 2
+}
+
+function installed() {
+	local cmd=$(command -v "${1}")
+
+	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+function list_stations() {
+	printf "Available stations:\n"
+	for station in "${!stations[@]}"; do
+		printf "\t${station}\n"
+	done
+}
+
+[[ "${BASH_VERSINFO[0]}" -lt 4 ]] && error "GNU bash 4.0 or later is required"
+installed "${player}" || error "Missing dependency: '${player}'"
+
+declare -A stations
+stations=( ["wmuc"]="http://wmuc.umd.edu/wmuc-high.m3u"
+		["wsum"]="http://stream.studio.wsum.wisc.edu/wsum128"
+		["wknc"]="http://wknc.sma.ncsu.edu:8000/wknchq.ogg.m3u"
+	)
+
+if [[ "${cmd}" = "list" ]]; then
+	list_stations
+else
+	station="${stations["${cmd}"]}"
+
+	if [[ -z "${station}" ]]; then
+		printf "No such station: '${cmd}'.\n"
+		list_stations
+		exit 1
+	else
+		eval "${player} ${station}"
+	fi
+fi
