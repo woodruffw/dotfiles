@@ -260,6 +260,7 @@ function fetch_files() {
 		cp ~/.dotfiles/scripts/surf-xclip ~/scripts/surf-xclip
 		cp ~/.dotfiles/scripts/xdcc ~/scripts/xdcc
 		cp ~/.dotfiles/scripts/twitch-${host} ~/scripts/twitch
+		cp ~/.dotfiles/scripts/radio ~/scripts/radio
 	fi
 
 	if [[ "${host}" = "athena" ]] ; then
