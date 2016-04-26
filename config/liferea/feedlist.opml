@@ -13,6 +13,7 @@
       <outline title="internaught.io" text="internaught.io" description="internaught.io" type="atom" id="xvtnqft" sortColumn="time" xmlUrl="http://internaught.github.io/atom.xml" htmlUrl="http://internaught.io/" updateInterval="-1" collapsed="true"/>
       <outline title="Drew DeVault's Blog" text="Drew DeVault's Blog" description="Drew DeVault's Blog" type="rss" id="jmiiswu" sortColumn="time" xmlUrl="https://drewdevault.com/feed.xml" htmlUrl="https://drewdevault.com" updateInterval="-1" collapsed="true"/>
       <outline title="jwz" text="jwz" description="jwz" type="rss" id="jxfsxjd" sortColumn="time" xmlUrl="https://www.jwz.org/blog/feed/" htmlUrl="https://www.jwz.org/blog/" updateInterval="-1" collapsed="true"/>
+      <outline title="computer &quot;scientist&quot;" text="computer &quot;scientist&quot;" description="computer &quot;scientist&quot;" type="rss" id="ewnrlbd" sortColumn="time" xmlUrl="http://blog.nullspace.io/feed.xml" htmlUrl="http://blog.nullspace.io" updateInterval="-1" collapsed="true"/>
       <outline title="Shtetl-Optimized" text="Shtetl-Optimized" description="Shtetl-Optimized" type="rss" id="llefcqv" sortColumn="time" xmlUrl="http://www.scottaaronson.com/blog/?feed=rss2" htmlUrl="http://www.scottaaronson.com/blog" updateInterval="-1" collapsed="true"/>
       <outline title="fuzzy notepad" text="fuzzy notepad" description="fuzzy notepad" type="atom" id="aiusbnx" sortColumn="time" xmlUrl="http://eev.ee/feeds/atom.xml" htmlUrl="https://eev.ee/" updateInterval="-1" collapsed="true"/>
     </outline>
