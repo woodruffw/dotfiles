@@ -258,6 +258,7 @@ if [[ "${system}" = "Linux" ]] ; then
 
 	if [[ -f "/usr/bin/apt-get" ]] ; then # Ubuntu, Debian systems
 		alias sagu='sudo apt-get update'
+		alias saguu='sudo apt-get update ; sudo apt-get upgrade'
 		alias sagi='sudo apt-get install'
 		alias sagr='sudo apt-get remove'
 		alias sagar='sudo apt-get autoremove'
