@@ -16,13 +16,13 @@ function __generate_prompt() {
 	local jobcount=$(jobs | wc -l)
 	local branch=$(git symbolic-ref HEAD 2> /dev/null)
 
-	if [[ "${exitcode}" == 0 ]]; then
+	if [[ "${exitcode}" -eq 0 ]]; then
 		exitcode="\[${COLOR_GRN}\]${exitcode}\[${COLOR_NRM}\]"
 	else
 		exitcode="\[${COLOR_RED}\]${exitcode}\[${COLOR_NRM}\]"
 	fi
 
-	if [[ "${jobcount}" == 0 ]]; then
+	if [[ "${jobcount}" -eq 0 ]]; then
 		jobcount="\[${COLOR_GRN}\]${jobcount}\[${COLOR_NRM}\]"
 	else
 		jobcount="\[${COLOR_YLW}\]${jobcount}\[${COLOR_NRM}\]"
