@@ -253,6 +253,10 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/mdmath ~/scripts/mdmath
 	cp ~/.dotfiles/scripts/tepm ~/scripts/tepm
 
+	if [[ "${system}" = "Darwin" ]]; then
+		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
+	fi
+
 	if [[ "${host}" = "mercury" || "${host}" = "ianus" ]] ; then
 		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
 		cp ~/.dotfiles/scripts/play ~/scripts/play
