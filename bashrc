@@ -13,7 +13,7 @@
 # __generate_prompt - generate the PS1 dynamically
 function __generate_prompt() {
 	local exitcode="${?}"
-	local jobcount=$(jobs | wc -l)
+	local jobcount=$(jobs | wc -l | sed -e 's/^[ \t]*//')
 	local branch=$(git symbolic-ref HEAD 2> /dev/null)
 
 	if [[ "${exitcode}" -eq 0 ]]; then
