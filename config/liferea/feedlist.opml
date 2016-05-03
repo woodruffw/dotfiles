@@ -29,7 +29,9 @@
       <outline title="The Perry Bible Fellowship" text="The Perry Bible Fellowship" description="The Perry Bible Fellowship" type="atom" id="rcebclv" sortColumn="time" xmlUrl="http://pbfcomics.com/feed/feed.xml" htmlUrl="" updateInterval="-1" collapsed="true"/>
       <outline title="Kickstand Comics featuring Yehuda Moon" text="Kickstand Comics featuring Yehuda Moon" description="Kickstand Comics featuring Yehuda Moon" type="rss" id="tflnuyc" sortColumn="time" xmlUrl="http://yehudamoon.com/feed/" htmlUrl="http://yehudamoon.com" updateInterval="-1" collapsed="true"/>
     </outline>
-    <outline title="Misc" text="Misc" description="Misc" type="folder" id="momhkgl" sortColumn="time" expanded="true"/>
+    <outline title="Misc" text="Misc" description="Misc" type="folder" id="momhkgl" sortColumn="time" expanded="true">
+      <outline title="The Hard Times" text="The Hard Times" description="The Hard Times" type="rss" id="hpywuuk" sortColumn="time" xmlUrl="http://thehardtimes.net/feed/" htmlUrl="http://thehardtimes.net" updateInterval="-1" collapsed="true"/>
+    </outline>
     <outline title="Unread" text="Unread" description="Unread" type="vfolder" id="aghrinj" sortColumn="time" matchType="any" collapsed="true">
       <outline type="rule" text="Read status" rule="unread" value="" additive="true"/>
     </outline>
