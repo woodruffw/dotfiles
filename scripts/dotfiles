@@ -252,6 +252,7 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/flacart ~/scripts/flacart
 	cp ~/.dotfiles/scripts/mdmath ~/scripts/mdmath
 	cp ~/.dotfiles/scripts/tepm ~/scripts/tepm
+	cp ~/.dotfiles/scripts/worldtimes ~/scripts/worldtimes
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
