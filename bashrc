@@ -244,6 +244,10 @@ if installed google-chrome ; then
 	alias netflix='google-chrome --app="https://netflix.com"'
 fi
 
+if installed matlab ; then
+	alias matlab='matlab -nojvm'
+fi
+
 # system-dependent aliases and variables
 if [[ "${system}" = "Linux" ]] ; then
 	export PATH="${PATH}:/home/${USER}/bin:/home/${USER}/scripts"
