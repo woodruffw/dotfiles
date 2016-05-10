@@ -275,7 +275,6 @@ elif [[ "${system}" = "Darwin" ]] ; then
 	export LSCOLORS='gxfxcxdxbxegedabagacad'
 	export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/${USER}/bin:/Users/${USER}/scripts
 
-	alias brew='brew -v'
 	alias ls='ls -G'
 	alias perm='stat -f "%Lp"'
 
