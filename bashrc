@@ -254,6 +254,8 @@ if [[ "${system}" = "Linux" ]] ; then
 
 	alias ls='ls --color=auto'
 	alias perm='stat -c "%a"'
+	alias ethdn='sudo ifconfig eth0 down'
+	alias ethup='sudo ifconfig eth0 up'
 
 	if [[ "${host}" = "athena" ]] ; then
 		alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
@@ -277,6 +279,8 @@ elif [[ "${system}" = "Darwin" ]] ; then
 
 	alias ls='ls -G'
 	alias perm='stat -f "%Lp"'
+	alias ethdn='sudo ifconfig en0 down'
+	alias ethup='sudo ifconfig en0 up'
 
 	# if homebrew's nginx is installed
 	if [[ -f "/usr/local/bin/nginx" ]] ; then
