@@ -31,9 +31,8 @@ audio_rate="44100"
 stream_key="$TWITCH_API_KEY"
 server="live-iad" # see http://bashtech.net/twitch/ingest.php for list
 
-ffmpeg -f x11grab -s "${inres}" -r "${fps}" -i :0.0 -f alsa -i pulse -f alsa \
-	-i pulse -f flv -filter_complex amix=inputs=2 -ac 2 -ar $audio_rate \
-	-vcodec libx264 -g "${gop}" -keyint_min \
+ffmpeg -f x11grab -s "${inres}" -r "${fps}" -i :0.0 -f alsa -i pulse -f \
+    flv -ac 2 -ar $audio_rate -vcodec libx264 -g "${gop}" -keyint_min \
     "${gopmin}" -b:v "${cbr}" -minrate "${cbr}" -maxrate "${cbr}" -pix_fmt \
     yuv420p -s "${outres}" -preset "${quality}" -tune film -acodec libmp3lame \
     -threads $threads -strict normal -bufsize "${cbr}" \
