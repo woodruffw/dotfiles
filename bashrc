@@ -248,6 +248,11 @@ if installed matlab ; then
 	alias matlab='matlab -nojvm'
 fi
 
+if installed exiftool ; then
+	alias exifnuke='exiftool -all= -overwrite_original'
+	alias exifmine='exiftool -all= -copyright="William Woodruff" -overwrite_original'
+fi
+
 # system-dependent aliases and variables
 if [[ "${system}" = "Linux" ]] ; then
 	export PATH="${PATH}:/home/${USER}/bin:/home/${USER}/scripts"
