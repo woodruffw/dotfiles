@@ -266,6 +266,7 @@ function fetch_files() {
 		cp ~/.dotfiles/scripts/xdcc ~/scripts/xdcc
 		cp ~/.dotfiles/scripts/twitch-${host} ~/scripts/twitch
 		cp ~/.dotfiles/scripts/radio ~/scripts/radio
+		cp ~/.dotfiles/scripts/xontop ~/scripts/xontop
 	fi
 
 	if [[ "${host}" = "athena" ]] ; then
