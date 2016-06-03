@@ -221,6 +221,15 @@ function fetch_files() {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for Google Chrome..."
+	if installed google-chrome ; then
+		printf "found. Reloading netflix..."
+		cp ~/.dotfiles/scripts/netflix ~/scripts/netflix
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Checking for Liferea..."
 	if installed liferea ; then
 		printf "found. Reloading feed list..."

@@ -240,10 +240,6 @@ if installed gst ; then
 	alias st='\gst'
 fi
 
-if installed google-chrome ; then
-	alias netflix='google-chrome --app="https://netflix.com"'
-fi
-
 if installed matlab ; then
 	alias matlab='matlab -nojvm'
 fi
