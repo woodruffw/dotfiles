@@ -78,5 +78,15 @@
     m:0x1c + c:26
     Control+Alt+Mod2 + e 
 
+#xontop
+"~/scripts/xontop"
+    m:0x1c + c:32
+    Control+Alt+Mod2 + o 
+
+#xontop below
+"~/scripts/xontop -b"
+    m:0x1d + c:32
+    Control+Shift+Alt+Mod2 + o 
+
 #
 # End of xbindkeys configuration

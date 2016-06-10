@@ -8,23 +8,23 @@
 # The pound(#) symbol may be used anywhere for comments.
 #
 # A list of keys is in /usr/include/X11/keysym.h and in
-# /usr/include/X11/keysymdef.h 
-# The XK_ is not needed. 
+# /usr/include/X11/keysymdef.h
+# The XK_ is not needed.
 #
-# List of modifier (on my keyboard): 
-#   Control, Shift, Mod1 (Alt), Mod2 (NumLock), 
-#   Mod3 (CapsLock), Mod4, Mod5 (Scroll). 
+# List of modifier (on my keyboard):
+#   Control, Shift, Mod1 (Alt), Mod2 (NumLock),
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
 #
-# Another way to specifie a key is to use 'xev' and set the 
-# keycode with c:nnn or the modifier with m:nnn where nnn is 
-# the keycode or the state returned by xev 
+# Another way to specifie a key is to use 'xev' and set the
+# keycode with c:nnn or the modifier with m:nnn where nnn is
+# the keycode or the state returned by xev
 #
-# This file is created by xbindkey_config 
-# The structure is : 
-# # Remark 
-# "command" 
-# m:xxx + c:xxx 
-# Shift+... 
+# This file is created by xbindkey_config
+# The structure is :
+# # Remark
+# "command"
+# m:xxx + c:xxx
+# Shift+...
 
 
 
@@ -41,47 +41,47 @@
 #take a full screen screenshot and upload to pomf.se
 "~/scripts/poomf -f"
     m:0x5 + c:12
-    Control+Shift + 3 
+    Control+Shift + 3
 
 #take a selection screen screenshot and upload to pomf.se
 "~/scripts/poomf -s"
     m:0x5 + c:13
-    Control+Shift + 4 
+    Control+Shift + 4
 
 #start xscreensaver
 "xscreensaver-command -lock"
     m:0x0 + c:156
-    XF86Launch1 
+    XF86Launch1
 
 #open dmenu
 "dmenu_run"
     m:0xc + c:40
-    Control+Alt + d 
+    Control+Alt + d
 
 #play clipboard url
 "~/scripts/play-xclip"
     m:0xc + c:25
-    Control+Alt + w 
+    Control+Alt + w
 
 #new terminal
 "urxvt"
     m:0xc + c:28
-    Control+Alt + t 
+    Control+Alt + t
 
 #surf clipboard
 "~/scripts/surf-xclip"
     m:0xc + c:26
-    Control+Alt + e 
+    Control+Alt + e
 
 #xontop
 "~/scripts/xontop"
     m:0x1c + c:32
-    Control+Alt+Mod2 + o 
+    Control+Alt+Mod2 + o
 
-#xontop -b
-"~/scripts/xontop"
+#xontop below
+"~/scripts/xontop -b"
     m:0x1d + c:32
-    Control+Shift+Alt+Mod2 + o 
+    Control+Shift+Alt+Mod2 + o
 
 #
 # End of xbindkeys configuration
