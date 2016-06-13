@@ -3,18 +3,18 @@
 # dotfiles: fetch configuration files and scripts
 # usage: dotfiles
 
-function installed {
+function installed() {
 	local cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
 }
 
-function green {
+function green() {
 	printf "${COLOR_GRN}${@}${COLOR_NRM}.\n"
 }
 
-function yellow {
+function yellow() {
 	printf "${COLOR_YLW}${@}${COLOR_NRM}.\n"
 }
 
