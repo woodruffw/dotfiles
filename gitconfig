@@ -1,5 +1,5 @@
 [core]
-	pager = less -F
+	pager = less
 	whitespace = blank-at-eol
 	excludesfile = ~/.gitignore
 [color]
@@ -16,3 +16,11 @@
 	autocorrect = 1
 [github]
 	user = woodruffw
+[pager]
+	log = diff-highlight | less
+	show = diff-highlight | less
+	diff = diff-highlight | less
+[interactive]
+	diffFilter = diff-highlight
+[diff]
+	compactionHeuristic = true
