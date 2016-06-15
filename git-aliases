@@ -23,6 +23,7 @@ if [[ -f /usr/share/bash-completion/completions/git ]]; then
 	__git_complete gst _git_status
 	__git_complete gs _git_show
 	__git_complete gc _git_commit
+	__git_complete glg _git_log
 fi
 
 alias g='git'
@@ -54,6 +55,7 @@ alias grm='git rm'
 alias gst='git status'
 alias gs='git show'
 alias gc='git commit'
+alias glg='git log --graph --date-order --oneline --all'
 
 function gcm()
 {
