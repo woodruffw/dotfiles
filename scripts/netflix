@@ -26,4 +26,4 @@ function notify() {
 
 installed google-chrome || { notify "$(basename ${0}) needs 'google-chrome'." ; exit 1 ; }
 
-google-chrome --app="https://netflix.com"
+google-chrome --app="https://netflix.com" >/dev/null 2>&1
