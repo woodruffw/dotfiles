@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# speaker: toggle ALSA's Auto-Mute mode.
+
+function installed() {
+	local cmd=$(command -v "${1}")
+
+	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+function error() {
+	>&2 printf "Fatal: ${@}. Exiting.\n"
+	exit 2
+}
+
+installed amixer || error "'amixer' (ALSA) is required"
+
+cmd="${1:-on}"
+
+if [[ "${cmd}" = "on" ]]; then
+	amixer -c 0 sset "Auto-Mute Mode" "Disabled" > /dev/null
+elif [[ "${cmd}" = "off" ]]; then
+	amixer -c 0 sset "Auto-Mute Mode" "Enabled" > /dev/null
+else
+	printf "Usage: $(basename ${0}) [on|off]\n"
+	exit 1
+fi

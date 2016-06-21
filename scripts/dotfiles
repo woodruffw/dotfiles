@@ -280,6 +280,10 @@ function fetch_files() {
 		cp ~/.dotfiles/scripts/tal ~/scripts/tal
 	fi
 
+	if [[ "${host}" = "ianus" ]]; then
+		cp ~/.dotfiles/scripts/speaker ~/scripts/speaker
+	fi
+
 	if [[ "${host}" = "athena" ]] ; then
 		cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
 		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
