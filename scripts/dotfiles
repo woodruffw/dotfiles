@@ -298,6 +298,10 @@ function fetch_files() {
 		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
 	fi
 
+	if [[ "${host}" = "hippolyta" ]]; then
+		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
+	fi
+
 	if [[ "${host}" = "pan" ]]; then
 		cp ~/.dotfiles/scripts/music-tree ~/scripts/music-tree
 		cp ~/.dotfiles/scripts/music-clean ~/scripts/music-clean
