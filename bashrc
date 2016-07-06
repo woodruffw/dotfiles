@@ -394,12 +394,14 @@ function _completemarks() {
 function _completeprj() {
 	local curw=${COMP_WORDS[COMP_CWORD]}
 	local wordlist=$(ls ~/Dropbox/dev 2> /dev/null)
+	compopt -o filenames
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
 function _completegvcd() {
 	local curw=${COMP_WORDS[COMP_CWORD]}
 	local wordlist=$(ls /run/user/$(id -u)/gvfs 2> /dev/null)
+	compopt -o filenames
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
