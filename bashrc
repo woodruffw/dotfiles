@@ -171,6 +171,11 @@ function pdfwc() {
 	pdftotext "${1}" - | wc -w
 }
 
+# cd to gvfs-mounted directory
+function gvcd() {
+	cd "/run/user/$(id -u)/gvfs/${1}"
+}
+
 system=$(uname)
 host=$(hostname)
 
@@ -392,12 +397,19 @@ function _completeprj() {
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
+function _completegvcd() {
+	local curw=${COMP_WORDS[COMP_CWORD]}
+	local wordlist=$(ls /run/user/$(id -u)/gvfs 2> /dev/null)
+	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
+}
+
 ###########################
 # COMPLETION ASSOCIATIONS #
 ###########################
 
 complete -F _completemarks jmp umrk
 complete -F _completeprj prj
+complete -F _completegvcd gvcd
 
 # load bash completion if it exists
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
