@@ -88,5 +88,10 @@
     m:0x1d + c:32
     Control+Shift+Alt+Mod2 + o 
 
+#file manager
+"thunar"
+    m:0x1c + c:41
+    Control+Alt+Mod2 + f 
+
 #
 # End of xbindkeys configuration
