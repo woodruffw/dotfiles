@@ -230,16 +230,6 @@ function fetch_files() {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for Liferea..."
-	if installed liferea ; then
-		printf "found. Reloading feed list..."
-		mkdir -p ~/.config/liferea
-		cp ~/.dotfiles/config/liferea/feedlist.opml ~/.config/liferea/feedlist.opml
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
