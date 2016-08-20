@@ -36,6 +36,11 @@ function __generate_prompt() {
 	else
 		PS1="\u@\h \W ${jobsexit} \$ "
 	fi
+
+	# update the history and reload it
+	history -a
+	history -c
+	history -r
 }
 
 # installed - check if a program is both available and a file (no aliases/functions)
