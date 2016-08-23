@@ -47,6 +47,7 @@ function fetch_files() {
 	cp ~/.dotfiles/bashrc ~/.bashrc
 	cp ~/.dotfiles/inputrc ~/.inputrc
 	cp ~/.dotfiles/bash_profile ~/.bash_profile
+	cp ~/.dotfiles/profile ~/.profile
 	green "done"
 
 	# we know git is installed
