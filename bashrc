@@ -185,6 +185,29 @@ function gvcd() {
 system=$(uname)
 host=$(hostname)
 
+###############
+# ENVIRONMENT #
+###############
+
+# most of the environment gets loaded from .profile, but these are
+# terminal specific and need to stay here.
+
+# convenient colors
+export COLOR_BLK='\e[0;30m'
+export COLOR_RED='\e[1;31m'
+export COLOR_GRN='\e[0;32m'
+export COLOR_YLW='\e[0;33m'
+export COLOR_BLU='\e[0;34m'
+export COLOR_MAG='\e[0;35m'
+export COLOR_CYN='\e[0;36m'
+export COLOR_WHT='\e[0;37m'
+export COLOR_NRM='\033[0m'
+
+# convenient text modes
+export TEXT_BOLD=$(tput bold)
+export TEXT_UNDL=$(tput smul)
+export TEXT_RMUL=$(tput rmul)
+
 ###########
 # Aliases #
 ###########

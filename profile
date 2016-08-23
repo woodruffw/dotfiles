@@ -35,22 +35,6 @@ export HISTCONTROL="ignoredups:erasedups"
 export MARKPATH="${HOME}/.marks"
 export PROMPT_COMMAND="__generate_prompt"
 
-# convenient colors
-export COLOR_BLK='\e[0;30m'
-export COLOR_RED='\e[1;31m'
-export COLOR_GRN='\e[0;32m'
-export COLOR_YLW='\e[0;33m'
-export COLOR_BLU='\e[0;34m'
-export COLOR_MAG='\e[0;35m'
-export COLOR_CYN='\e[0;36m'
-export COLOR_WHT='\e[0;37m'
-export COLOR_NRM='\033[0m'
-
-# convenient text modes
-export TEXT_BOLD=$(tput bold)
-export TEXT_UNDL=$(tput smul)
-export TEXT_RMUL=$(tput rmul)
-
 # load API key files if they exist
 if [[ -d ~/.api-keys ]] ; then
 	for keyfile in ~/.api-keys/* ; do
