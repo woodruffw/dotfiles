@@ -46,7 +46,6 @@ function fetch_files() {
 	printf "Reloading bashrc, inputrc, and profile..."
 	cp ~/.dotfiles/bashrc ~/.bashrc
 	cp ~/.dotfiles/inputrc ~/.inputrc
-	cp ~/.dotfiles/bash_profile ~/.bash_profile
 	cp ~/.dotfiles/profile ~/.profile
 	green "done"
 
