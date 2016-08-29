@@ -1,0 +1,3 @@
+[
+	{ "button": "button1", "modifiers": ["ctrl", "alt"], "press_command": "open_url_under_cursor" }
+]
