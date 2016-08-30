@@ -206,7 +206,7 @@ function fetch_files() {
 		printf "found. Reloading texmf and updating the database..."
 		mkdir -p ~/texmf
 		cp -R ~/.dotfiles/texmf/* ~/texmf
-		texhash 2> /dev/null
+		installed texhash && texhash > /dev/null 2>&1
 		green "done"
 	else
 		yellow "not installed. Skipping"
