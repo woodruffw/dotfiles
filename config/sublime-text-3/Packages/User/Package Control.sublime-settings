@@ -1,0 +1,31 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoWrap",
+		"Awk",
+		"Clickable URLs",
+		"Color Highlighter",
+		"EditorConfig",
+		"FileBrowser",
+		"FuzzyFilePath",
+		"Gist",
+		"Gnuplot",
+		"LaTeX-cwl",
+		"Markdown Preview",
+		"Matlab Completions",
+		"NASM x86 Assembly",
+		"Package Control",
+		"Pretty JSON",
+		"ShellCommand",
+		"SimpleSession",
+		"SublimeLinter",
+		"SublimeLinter-rubocop",
+		"Terminal",
+		"Text Pastry",
+		"Zeal"
+	]
+}
