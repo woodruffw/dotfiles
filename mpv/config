@@ -19,7 +19,7 @@ autofit-larger=50%x50%
 
 user-agent="Mozilla/5.0 (X11; Linux; Linux; rv:0.0) Gecko/0 Firefox/0"
 
-ytdl-format=bestvideo+bestaudio/best
+ytdl-format=bestvideo+bestaudio[protocol!=http_dash_segments]/best
 
 force-seekable
 
