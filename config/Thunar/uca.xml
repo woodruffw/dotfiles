@@ -46,7 +46,7 @@
 	<icon></icon>
 	<name>pdflatex</name>
 	<unique-id>1433272018831111-2</unique-id>
-	<command>pdflatex &quot;%f&quot;</command>
+	<command>pdflatex -interaction nonstopmode &quot;%f&quot;</command>
 	<description>compile with pdflatex</description>
 	<patterns>*.tex</patterns>
 	<audio-files/>
