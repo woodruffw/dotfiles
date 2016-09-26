@@ -44,6 +44,19 @@
 </action>
 <action>
 	<icon></icon>
+	<name>pdflatex</name>
+	<unique-id>1433272018831111-2</unique-id>
+	<command>pdflatex &quot;%f&quot;</command>
+	<description>compile with pdflatex</description>
+	<patterns>*.tex</patterns>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
 	<name>zip</name>
 	<unique-id>1434131875515085-2</unique-id>
 	<command>zip -r %n.zip %N</command>
