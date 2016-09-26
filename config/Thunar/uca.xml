@@ -2,8 +2,8 @@
 <actions>
 <action>
 	<icon>utilities-terminal</icon>
-	<name>Open Terminal Here</name>
-	<unique-id>1417812091526836-1</unique-id>
+	<name>terminal</name>
+	<unique-id>1474907817922924-3</unique-id>
 	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
 	<description>Example for a custom action</description>
 	<patterns>*</patterns>
@@ -41,19 +41,6 @@
 	<description>feh</description>
 	<patterns>*</patterns>
 	<image-files/>
-</action>
-<action>
-	<icon></icon>
-	<name>pdflatex</name>
-	<unique-id>1433272018831111-2</unique-id>
-	<command>pdflatex -interaction nonstopmode &quot;%f&quot;</command>
-	<description>compile with pdflatex</description>
-	<patterns>*.tex</patterns>
-	<audio-files/>
-	<image-files/>
-	<other-files/>
-	<text-files/>
-	<video-files/>
 </action>
 <action>
 	<icon></icon>
