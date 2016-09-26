@@ -1,26 +1,25 @@
 {
-	"color_scheme": "Packages/CustomThemes/MonokaiCustom.tmTheme",
+	"color_scheme": "Packages/User/SublimeLinter/MonokaiCustom (SL).tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"font_face": "Latin Modern Mono",
+	"font_size": 11,
+	"highlight_modified_tabs": true,
+	"hot_exit": false,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
+	"mouse_wheel_switches_tabs": true,
+	"remember_open_files": false,
 	"rulers":
 	[
 		80
 	],
 	"show_minimap": false,
+	"spell_check": true,
 	"tab_size": 4,
 	"translate_tabs_to_spaces": false,
-	"update_check": true,
-	"word_wrap": false,
-	"font_face": "Latin Modern Mono",
-	"font_size": 11,
-	"remember_open_files": false,
-	"hot_exit": false,
-	"highlight_modified_tabs": true,
-	"ensure_newline_at_eof_on_save": true,
 	"trim_trailing_white_space_on_save": true,
-	"mouse_wheel_switches_tabs": true,
-	"spell_check": true,
-	
+	"update_check": true,
+	"word_wrap": false
 }
