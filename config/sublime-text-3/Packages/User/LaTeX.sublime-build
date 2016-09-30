@@ -1,6 +1,7 @@
 {
 	"selector": "text.tex.latex",
-	"cmd": ["pdflatex", "$file_name"],
+	"shell": true,
+	"cmd": ["pdflatex \"$file_name\" && killall -HUP mupdf-x11"],
 
 	"variants": [
 		{
