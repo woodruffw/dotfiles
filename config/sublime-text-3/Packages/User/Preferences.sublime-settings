@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/User/SublimeLinter/MonokaiCustom (SL).tmTheme",
+	"color_scheme": "Packages/CustomThemes/MonokaiCustom.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Latin Modern Mono",
 	"font_size": 11,
@@ -7,6 +7,10 @@
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"FileBrowser",
+		"LaTeX Snippets",
+		"Man Page Support",
+		"Pretty JSON",
 		"Vintage"
 	],
 	"mouse_wheel_switches_tabs": true,
