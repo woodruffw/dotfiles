@@ -88,9 +88,9 @@ function man() {
 # cds to the project folder or to a specified project
 function prj() {
 	if [[ -z "${1}" ]] ; then
-		cd ~/Dropbox/dev/
+		cd "${HOME}/Dropbox/dev/"
 	else
-		cd ~/Dropbox/dev/$1*
+		cd "${HOME}/Dropbox/dev/${1}"*
 	fi
 }
 
