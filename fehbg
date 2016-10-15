@@ -1,1 +1,3 @@
+#!/usr/bin/env bash
+
 feh --bg-scale '.config/feh/wallpaper'
