@@ -265,6 +265,7 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/diff-highlight ~/scripts/diff-highlight
 	cp ~/.dotfiles/scripts/uspatent ~/scripts/uspatent
 	cp ~/.dotfiles/scripts/pid2xid ~/scripts/pid2xid
+	cp ~/.dotfiles/scripts/albumart ~/scripts/albumart
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
