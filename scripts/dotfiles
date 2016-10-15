@@ -230,6 +230,15 @@ function fetch_files() {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for i3..."
+	if installed i3 ; then
+		printf "found. Reloading config..."
+		cp ~/.dotfiles/config/i3/config ~/.config/i3/config
+		cp ~/.dotfiles/i3status.conf ~/.i3status.conf
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
