@@ -223,8 +223,9 @@ function fetch_files() {
 
 	printf "Checking for Google Chrome..."
 	if installed google-chrome ; then
-		printf "found. Reloading netflix..."
+		printf "found. Reloading app scripts..."
 		cp ~/.dotfiles/scripts/netflix ~/scripts/netflix
+		cp ~/.dotfiles/scripts/subsonic ~/scripts/subsonic
 		green "done"
 	else
 		yellow "not installed. Skipping"
