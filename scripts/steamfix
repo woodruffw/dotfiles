@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# steamfix: move steam's broken shared libraries.
+# https://askubuntu.com/q/617358
+
+so="libstdc++.so.6"
+
+lib1="${HOME}/.steam/ubuntu12_32/steam-runtime/i386/usr/lib/i386-linux-gnu/${so}"
+lib2="${HOME}/.steam/ubuntu12_32/steam-runtime/amd64/usr/lib/x86_64-linux-gnu/${so}"
+
+if [[ ! -f "${lib1}" || ! -f "${lib2}" ]]; then
+	>&2 echo "You've probably already run this script. Exiting."
+	exit
+fi
+
+mv "${lib1}" "${lib1}.bak"
+mv "${lib2}" "${lib2}.bak"
