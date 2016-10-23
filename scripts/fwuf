@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+#  -*- coding: utf-8 -*-
+# fwuf: Fix weird Unicode representations in filenames
+# Replaces "#U\d{4}" representations with their UTF-8 codepoints.
+
+filename = ARGV.shift
+
+abort("Missing filename.") if filename.nil?
+abort("No such file.") unless File.exist?(filename)
+
+fixed = filename.gsub(/#U(\h{4})/) { [$1.to_i(16)].pack("U") }
+
+File.rename(filename, fixed)
