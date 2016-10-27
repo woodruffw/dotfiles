@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# aaa: auto albumart
+
+function installed() {
+	local cmd=$(command -v "${1}")
+
+	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+installed albumart || { printf "Missing albumart.\n" ; exit ; }
+
+artist=$(basename "${PWD}")
+albums=($(find . -maxdepth 1 -mindepth 1 -type d -printf '%f\n'))
+
+[[ -z "${albums[*]}" ]] && { printf "No albums found.\n" ; exit ; }
+
+printf "Artist: ${artist}\n"
+printf "Albums: ${albums[*]}\n"
+
+read -e -p "Continue? (y/N) " prompt
+
+[[ "${prompt}" =~ (y|Y) ]] || exit
+
+pushd . > /dev/null
+
+for album in "${albums[@]}"; do
+	cd "${album}"
+	albumart "${artist} - ${album}" 2> /dev/null
+	cd ..
+done
+
+popd > /dev/null
