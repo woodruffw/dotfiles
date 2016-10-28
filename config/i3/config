@@ -187,6 +187,10 @@ bindsym $mod+r mode "resize"
 
 bindsym Control+Up exec amixer -D pulse sset Master 10%+
 bindsym Control+Down exec amixer -D pulse sset Master 10%-
+bindsym Control+End exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.pithos /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+bindsym Control+Left exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.pithos /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym Control+Right exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.pithos /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
