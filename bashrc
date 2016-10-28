@@ -292,7 +292,7 @@ if [[ "${system}" = "Linux" ]] ; then
 
 	if [[ "${host}" = "athena" ]] ; then
 		alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
-		alias www='cd /usr/share/nginx/html'
+		alias www='cd /var/www/html'
 	fi
 
 	if [[ -f "/usr/bin/apt-get" ]] ; then # Ubuntu, Debian systems
