@@ -38,30 +38,6 @@
 "xbindkeys_show"
    control+shift + q
 
-#take a full screen screenshot and upload to pomf.se
-"~/scripts/poomf -f"
-    m:0x5 + c:12
-    Control+Shift + 3
-
-#take a selection screen screenshot and upload to pomf.se
-"~/scripts/poomf -s"
-    m:0x5 + c:13
-    Control+Shift + 4
-
-#start xscreensaver
-"xscreensaver-command -lock"
-    m:0x0 + c:156
-    XF86Launch1
-
-#play clipboard url
-"~/scripts/play-xclip"
-    m:0xc + c:25
-    Control+Alt + w
-
-#surf clipboard
-"~/scripts/surf-xclip"
-    m:0xc + c:26
-    Control+Alt + e
 
 #
 # End of xbindkeys configuration

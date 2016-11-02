@@ -33,45 +33,8 @@
 #keystate_scrolllock = enable
 #keystate_capslock = enable
 
-
-
 "xbindkeys_show"
    control+shift + q
-
-#take a full screen screenshot and upload to pomf.se
-"~/scripts/poomf -f"
-    m:0x5 + c:12
-    Control+Shift + 3
-
-#take a selection screen screenshot and upload to pomf.se
-"~/scripts/poomf -s"
-    m:0x5 + c:13
-    Control+Shift + 4
-
-#open dmenu
-"dmenu_run"
-    m:0xc + c:40
-    Control+Alt + d
-
-#play clipboard url
-"~/scripts/play-xclip"
-    m:0xc + c:25
-    Control+Alt + w
-
-#screensaver
-"xscreensaver-command -lock"
-    m:0x0 + c:127
-    Pause
-
-#upload file interactively
-"~/scripts/poomf -i"
-    m:0x15 + c:14
-    Control+Shift+Mod2 + 5
-
-#browse clipboard
-"~/scripts/surf-xclip"
-    m:0x1c + c:26
-    Control+Alt+Mod2 + e
 
 #
 # End of xbindkeys configuration
