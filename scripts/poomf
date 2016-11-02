@@ -21,7 +21,7 @@ function usage() {
 }
 
 function info() {
-	notify-send --urgency=critical ${@}
+	notify-send ${@}
 }
 
 function installed() {
