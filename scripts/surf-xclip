@@ -16,7 +16,7 @@ function fatal {
 
 function notify {
 	installed notify-send || fatal "No notify-send"
-	notify-send --urgency=critical "$(basename ${0})" "${*}"
+	notify-send "$(basename ${0})" "${*}"
 }
 
 function notify-fatal {
