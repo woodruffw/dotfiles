@@ -177,7 +177,6 @@ for_window [title="Netflix"] floating enable
 for_window [title="^TightVNC: .*$"] floating enable
 
 exec compton -cCGb --vsync opengl
-exec xrandr --output DVI-0 --left-of HDMI-0
 exec bash ~/.fehbg
 exec xscreensaver -nosplash
 exec dropbox start -i

@@ -53,40 +53,15 @@
     m:0x0 + c:156
     XF86Launch1
 
-#open dmenu
-"dmenu_run"
-    m:0xc + c:40
-    Control+Alt + d
-
 #play clipboard url
 "~/scripts/play-xclip"
     m:0xc + c:25
     Control+Alt + w
 
-#new terminal
-"urxvt"
-    m:0xc + c:28
-    Control+Alt + t
-
 #surf clipboard
 "~/scripts/surf-xclip"
     m:0xc + c:26
     Control+Alt + e
-
-#xontop
-"~/scripts/xontop"
-    m:0x1c + c:32
-    Control+Alt+Mod2 + o
-
-#xontop below
-"~/scripts/xontop -b"
-    m:0x1d + c:32
-    Control+Shift+Alt+Mod2 + o
-
-#file manager
-"thunar"
-    m:0x1c + c:41
-    Control+Alt+Mod2 + f
 
 #
 # End of xbindkeys configuration
