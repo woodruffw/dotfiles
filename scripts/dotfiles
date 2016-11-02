@@ -237,6 +237,7 @@ function fetch_files() {
 		cp ~/.dotfiles/config/i3/config-${host} ~/.config/i3/config
 		cp ~/.dotfiles/i3status-${host}.conf ~/.i3status.conf
 		cp ~/.dotfiles/Xmodmap ~/.Xmodmap
+		green "done"
 	else
 		yellow "not installed. Skipping"
 	fi
