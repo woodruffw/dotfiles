@@ -234,7 +234,9 @@ function fetch_files() {
 	printf "Checking for i3..."
 	if installed i3 ; then
 		printf "found. Reloading config..."
-		cp ~/.dotfiles/config/i3/config ~/.config/i3/config
+		if [[ -f ~/.dotfiles/config/i3/config-${host} ]]; then
+			cp ~/.dotfiles/config/i3/config-${host} ~/.config/i3/config
+		fi
 		cp ~/.dotfiles/i3status.conf ~/.i3status.conf
 	else
 		yellow "not installed. Skipping"
