@@ -265,7 +265,7 @@ fi
 if installed jekyll ; then
 	alias jb='jekyll build'
 	alias jc='jekyll clean'
-	alias js='jekyll serve --force_polling'
+	alias js='jekyll serve --config _config.yml,_config_local.yml --force_polling'
 fi
 
 # if gnu smalltalk is installed, alias it to st (gst is a git alias)
