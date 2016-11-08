@@ -221,6 +221,7 @@ for_window [class="Surf"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Audacity"] floating enable
+for_window [class="File-roller"] floating enable
 for_window [title="floaterm"] floating enable
 for_window [title="Netflix"] floating enable
 for_window [title="^TightVNC: .*$"] floating enable
