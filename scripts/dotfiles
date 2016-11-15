@@ -273,6 +273,7 @@ function fetch_files() {
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
+		cp -R ~/.dotfiles/gnupg/* ~/.gnupg
 	fi
 
 	if [[ "${host}" = "mercury" || "${host}" = "ianus" ]] ; then
