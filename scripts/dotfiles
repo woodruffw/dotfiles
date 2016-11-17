@@ -164,6 +164,16 @@ function fetch_files() {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for newsbeuter..."
+	if installed newsbeuter ; then
+		printf "found. Reloading config..."
+		mkdir -p ~/.newsbeuter
+		cp ~/.dotfiles/newsbeuter/config ~/.newsbeuter/config
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Checking for textadept..."
 	if installed textadept ; then
 		printf "found. Reloading configs, modules, and themes..."

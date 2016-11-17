@@ -1,0 +1,11 @@
+# reload all feeds when started
+auto-reload yes
+
+# reload every 30 mins while running
+reload-time 30
+
+# use surf to browse
+browser "surf %u"
+
+# use mpv to open with ,-y
+macro y set browser "mpv %u"; open-in-browser-and-mark-read ; set browser "surf %u"
