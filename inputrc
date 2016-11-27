@@ -3,14 +3,14 @@ set skip-completed-text on
 set visible-stats on
 
 # these shortcuts are stupid
-"\e-"
-"\e0"
-"\e1"
-"\e2"
-"\e3"
-"\e4"
-"\e5"
-"\e6"
-"\e7"
-"\e8"
-"\e9"
+"\e-": self-insert
+"\e0": self-insert
+"\e1": self-insert
+"\e2": self-insert
+"\e3": self-insert
+"\e4": self-insert
+"\e5": self-insert
+"\e6": self-insert
+"\e7": self-insert
+"\e8": self-insert
+"\e9": self-insert
