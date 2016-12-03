@@ -192,6 +192,7 @@ for_window [class="feh"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Pithos"] floating enable
 for_window [class="Surf"] floating enable
+for_window [class="Uzbl-core"] floating enable
 for_window [class="Thunar"] floating enable
 for_window [class="Pcmanfm"] floating enable
 for_window [class="Audacity"] floating enable
