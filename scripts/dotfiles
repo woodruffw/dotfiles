@@ -291,7 +291,7 @@ function fetch_files() {
 		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
 		cp ~/.dotfiles/scripts/play ~/scripts/play
 		cp ~/.dotfiles/scripts/play-xclip ~/scripts/play-xclip
-		cp ~/.dotfiles/scripts/surf-xclip ~/scripts/surf-xclip
+		cp ~/.dotfiles/scripts/uzbl-xclip ~/scripts/uzbl-xclip
 		cp ~/.dotfiles/scripts/xdcc ~/scripts/xdcc
 		cp ~/.dotfiles/scripts/twitch-${host} ~/scripts/twitch
 		cp ~/.dotfiles/scripts/radio ~/scripts/radio
@@ -346,6 +346,7 @@ function fetch_files() {
 	printf "Doing some cleanup..."
 	[[ -f ~/scripts/haste ]] && rm ~/scripts/haste
 	[[ -f ~/scripts/mpv-xclip ]] && rm ~/scripts/mpv-xclip
+	[[ -f ~/scripts/surf-xclip ]] && rm ~/scripts/surf-xclip
 	[[ -f ~/scripts/email-fwd.rb ]] && rm ~/scripts/email-fwd.rb
 	[[ -f ~/.xsession-errors ]] && rm ~/.xsession-errors
 	[[ -f ~/.xsession-errors.old ]] && rm ~/.xsession-errors.old

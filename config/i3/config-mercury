@@ -176,7 +176,7 @@ bindsym Control+Shift+5 exec ~/scripts/poomf -i
 
 # play/browse contents of clipboard
 bindsym Control+Mod1+w exec ~/scripts/play-xclip
-bindsym Control+Mod1+e exec ~/scripts/surf-xclip
+bindsym Control+Mod1+e exec ~/scripts/uzbl-xclip
 
 # activate screensaver
 bindsym XF86Launch1 exec xscreensaver-command -lock

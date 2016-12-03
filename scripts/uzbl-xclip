@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# uzbl-xclip: open the URI in the clipboard in uzbl-browser
+
+function installed {
+	local cmd=$(command -v "${1}")
+
+	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+function fatal {
+	>&2 printf "Fatal: ${*}. Exiting.\n"
+	exit 2
+}
+
+function notify {
+	installed notify-send || fatal "No notify-send"
+	notify-send "$(basename ${0})" "${*}"
+}
+
+function notify-fatal {
+	notify "${@}"
+	exit 2
+}
+
+function uzbl_url {
+	local regex='(https?|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+	[[ "${1}" =~ ${regex} ]]
+	return ${?}
+}
+
+installed xclip || notify-fatal "xclip is needed"
+installed uzbl-browser || notify-fatal "uzbl-browser is needed"
+
+if xclip -o 2>&1 > /dev/null ; then
+	resource=$(xclip -o)
+
+	if [[ -n "${resource}" ]] && uzbl_url "${resource}"; then
+		notify "uzbl: ${resource}"
+		uzbl-browser --uri="${resource}"
+	fi
+fi
