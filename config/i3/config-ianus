@@ -258,5 +258,3 @@ exec env KEYBASE_START_UI=hideWindow run_keybase
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-settings-daemon
 
-exec --no-startup-id i3-msg 'workspace 1L; exec firefox ; exec hexchat'
-exec --no-startup-id i3-msg 'workspace 1R; exec subl ; exec urxvt'
