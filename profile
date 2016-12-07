@@ -50,7 +50,7 @@ unset LESSPIPE
 unset MAILCHECK
 
 if [[ "${system}" = "Linux" ]]; then
-	export PATH="${PATH}:/home/${USER}/bin:/home/${USER}/scripts"
+	export PATH="${PATH}:/home/${USER}/scripts"
 
 	if [[ -d ~/.linuxbrew ]]; then # if linuxbrew is installed, add it to paths
 		export PATH="/home/${USER}/.linuxbrew/bin:${PATH}"
