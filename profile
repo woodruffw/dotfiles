@@ -51,8 +51,13 @@ unset MAILCHECK
 
 if [[ "${system}" = "Linux" ]]; then
 	export PATH="${PATH}:/home/${USER}/bin:/home/${USER}/scripts"
+
+	if [[ -d ~/.linuxbrew ]] # if linuxbrew is installed, add it to paths
+		export PATH="/home/${USER}/.linuxbrew/bin:${PATH}"
+		export MANPATH="/home/${USER}/.linuxbrew/share/man:${MANPATH}"
+	fi
 elif [[ "${system}" = "Darwin" ]]; then
-	export TERMINFO_DIRS="~/.terminfo:/usr/local/share/terminfo:$TERMINFO:"
+	export TERMINFO_DIRS="~/.terminfo:/usr/local/share/terminfo:${TERMINFO}:"
 	export LSCOLORS='gxfxcxdxbxegedabagacad'
 	export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/${USER}/bin:/Users/${USER}/scripts
 
