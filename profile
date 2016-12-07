@@ -52,7 +52,7 @@ unset MAILCHECK
 if [[ "${system}" = "Linux" ]]; then
 	export PATH="${PATH}:/home/${USER}/bin:/home/${USER}/scripts"
 
-	if [[ -d ~/.linuxbrew ]] # if linuxbrew is installed, add it to paths
+	if [[ -d ~/.linuxbrew ]]; then # if linuxbrew is installed, add it to paths
 		export PATH="/home/${USER}/.linuxbrew/bin:${PATH}"
 		export MANPATH="/home/${USER}/.linuxbrew/share/man:${MANPATH}"
 	fi
