@@ -28,16 +28,10 @@ URxvt.cursorUnderline: true
 URxvt.scrollBar: false
 URxvt.borderLess: false
 
-URxvt.perl-ext-common: default,matcher,tabbed,vtwheel
+URxvt.perl-ext-common: default,matcher
 
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
-
-URxvt.tabbed.tabbar-fg: 0
-URxvt.tabbed.tabbar-bg: 12
-
-URxvt.tabbed.tab-fg: 0
-URxvt.tabbed.tab-bg: 15
 
 ! prevents urxvt from stealing Ctrl+Shift
 URxvt.iso14755: false
