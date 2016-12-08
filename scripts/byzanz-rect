@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# byzanz-rect: use xrectsel to record an area with byzanz-record
+
+function installed {
+	local cmd=$(command -v "${1}")
+
+	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+function fatal {
+	>&2 printf "Fatal: ${*}. Exiting.\n"
+	exit 2
+}
+
+filename="${1:-recording.gif}"
+duration="${2:-10}"
+
+installed xrectsel || fatal "xrectsel is needed"
+installed byzanz-record || fatal "byzanz-record is needed"
+
+dims=($(xrectsel "%w %h %x %y"))
+
+byzanz-record -d "${duration}" -w "${dims[0]}" -h "${dims[1]}" -x "${dims[2]}" -y "${dims[3]}" "${filename}"
