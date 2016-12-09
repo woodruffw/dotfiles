@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# xyz radio client script
+# version 2.6 lol
+
+# usage:
+#   0 =   raise volume
+#   9 -   lower volume
+#   p     pause
+#   C-c   quit
+
+# auto resizing in some terminals may not work or worse, be broken
+# if broken, comment out the following lines farther down
+#	size=$(wc -L <<< "$current")
+#	printf "\e[8;1;$size;t"
+
+
+tput civis
+fifo=/tmp/radiofifo
+mkfifo $fifo
+prev="pls"
+trap "rm -f $fifo & tput cnorm & exit" EXIT
+
+mpv --cache-initial 25 \
+    --no-resume-playback \
+    --no-force-window \
+    --input-file=$fifo \
+    https://rectilinear.xyz/radio/stream \
+    &>/dev/null & mpv_pid=$!
+
+clear
+while :
+do
+    current=$(curl -s https://rectilinear.xyz/radio/current)
+    if [[ "$current" != "$prev" ]]; then
+	size=$(wc -L <<< "$current")
+	printf "\e[8;1;$size;t"
+	printf "\033]0;$current\007"
+	clear
+	printf "$current"
+	sleep 1s
+	clear
+	printf "$current"
+	prev=$current
+    fi
+    sleep 5s # please do not lower this, there's no need
+done &
+
+while :
+do
+    read -s -n1 option
+    case "$option" in
+	0|=) command="volume +5" ;;
+	9|-) command="volume -5" ;;
+	p) command="pause" ;;
+	q) command="quit" ;;
+	*) command="" ;;
+    esac
+    echo "$command" > $fifo
+done

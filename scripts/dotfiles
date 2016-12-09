@@ -295,6 +295,7 @@ function fetch_files() {
 		cp ~/.dotfiles/scripts/xdcc ~/scripts/xdcc
 		cp ~/.dotfiles/scripts/twitch-${host} ~/scripts/twitch
 		cp ~/.dotfiles/scripts/radio ~/scripts/radio
+		cp ~/.dotfiles/scripts/xyzradio ~/scripts/xyzradio
 		cp ~/.dotfiles/scripts/xontop ~/scripts/xontop
 		cp ~/.dotfiles/scripts/tal ~/scripts/tal
 		cp ~/.dotfiles/scripts/byzanz-rect ~/scripts/byzanz-rect
