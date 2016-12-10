@@ -165,6 +165,7 @@ bindsym XF86AudioMicMute exec --no-startup-id amixer -D pulse sset Capture toggl
 bindsym Control+End exec muzak-cmd toggle
 bindsym Control+Left exec muzak-cmd previous
 bindsym Control+Right exec muzak-cmd next
+bindsym Control+Delete exec muzak-dmenu
 
 # open the file manager
 bindsym Control+Mod1+f exec thunar
