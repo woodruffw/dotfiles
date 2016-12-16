@@ -251,7 +251,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 # keep steam in its own workspace
 assign [class="Steam"] steam
 
-exec compton -CGb -D 8 -m 0.8 --vsync opengl
+exec compton -fCGb -D 8 -m 0.8 --vsync opengl
 exec xrandr --output DVI-0 --left-of HDMI-0
 exec bash ~/.fehbg
 exec xscreensaver -nosplash
