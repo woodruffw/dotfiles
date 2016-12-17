@@ -257,6 +257,7 @@ exec bash ~/.fehbg
 exec xscreensaver -nosplash
 exec dropbox start -i
 exec env KEYBASE_START_UI=hideWindow run_keybase
+exec ibus-daemon -drx
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-settings-daemon
 
