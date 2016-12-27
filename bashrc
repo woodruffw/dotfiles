@@ -10,6 +10,39 @@
 # FUNCTIONS #
 #############
 
+# __generate_prompt - generate the PS1 dynamically
+function __generate_prompt() {
+	local exitcode="${?}"
+	local jobcount=$(jobs | wc -l | sed -e 's/^[ \t]*//')
+	local branch=$(git symbolic-ref HEAD 2> /dev/null)
+
+	if [[ "${exitcode}" -eq 0 ]]; then
+		exitcode="\[${COLOR_GRN}\]${exitcode}\[${COLOR_NRM}\]"
+	else
+		exitcode="\[${COLOR_RED}\]${exitcode}\[${COLOR_NRM}\]"
+	fi
+
+	if [[ "${jobcount}" -eq 0 ]]; then
+		jobcount="\[${COLOR_GRN}\]${jobcount}\[${COLOR_NRM}\]"
+	else
+		jobcount="\[${COLOR_YLW}\]${jobcount}\[${COLOR_NRM}\]"
+	fi
+
+	local jobsexit="[${jobcount}:${exitcode}]"
+
+	if [[ -n "${branch}" ]]; then
+		branch="\[${COLOR_RED}\]${branch#refs/heads/}\[${COLOR_NRM}\]"
+		PS1="\u@\h \W ${jobsexit} ${branch} \$ "
+	else
+		PS1="\u@\h \W ${jobsexit} \$ "
+	fi
+
+	# update the history and reload it
+	history -a
+	history -c
+	history -r
+}
+
 # installed - check if a program is both available and a file (no aliases/functions)
 function installed() {
 	local cmd=$(command -v "${1}")
