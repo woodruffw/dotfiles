@@ -3,6 +3,7 @@
 i3status | while :
 do
 	read line
-	np=$(muzak-now-playing)
-	echo "np: ${np} | ${line}" || exit 1
+	# np=$(muzak-now-playing)
+	# echo "np: ${np} | ${line}" || exit 1
+	echo "${line}" || exit 1
 done
