@@ -244,10 +244,21 @@ function fetch_files() {
 
 	printf "Checking for i3..."
 	if installed i3 ; then
-		printf "found. Reloading config..."
+		printf "found. Reloading config and scripts..."
 		cp ~/.dotfiles/config/i3/config-${host} ~/.config/i3/config
 		cp ~/.dotfiles/i3status-${host}.conf ~/.i3status.conf
 		cp ~/.dotfiles/Xmodmap ~/.Xmodmap
+		cp ~/.dotfiles/scripts/statusbar ~/scripts/statusbar
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
+	printf "Checking for muzak..."
+	if installed muzak ; then
+		printf "found. Reloading utilities..."
+		cp ~/.dotfiles/scripts/muzak-now-playing ~/scripts/muzak-now-playing
+		cp ~/.dotfiles/scripts/muzak-rebase-index ~/scripts/muzak-rebase-index
 		green "done"
 	else
 		yellow "not installed. Skipping"

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+i3status | while :
+do
+	read line
+	np=$(muzak-now-playing)
+	echo "np: ${np} | ${line}" || exit 1
+done

@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require "muzak"
+require "json"
+
+def now_playing
+  json = JSON.parse(`muzak-cmd now-playing`)
+
+  unless json["response"]["error"]
+    json["response"]["data"]["playing"]
+  end
+end
+
+puts now_playing
