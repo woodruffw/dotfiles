@@ -194,10 +194,11 @@ function fetch_files() {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for irb..."
-	if installed irb ; then
-		printf "found. Reloading irbrc..."
+	printf "Checking for ruby..."
+	if installed ruby ; then
+		printf "found. Reloading irbrc and gemrc..."
 		cp ~/.dotfiles/irbrc ~/.irbrc
+		cp ~/.dotfiles/gemrc ~/.gemrc
 		green "done"
 	else
 		yellow "not installed. Skipping"
