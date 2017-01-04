@@ -36,3 +36,13 @@ URxvt.matcher.button: 1
 ! prevents urxvt from stealing Ctrl+Shift
 URxvt.iso14755: false
 URxvt.iso14755_52: false
+
+! One day.
+! rofi.terminal: urxvt
+! rofi.hide-scrollbar: true
+! rofi.matching: fuzzy
+! rofi.color-normal: argb:00272822, #f8f8f2, argb:00272822, #141411, #f8f8f2
+! rofi.color-urgent: argb:00272822, #f92672, argb:00272822, #f92672, #f8f8f2
+! rofi.color-active: argb:00272822, #a6e22a, argb:00272822, #141411, #a6e22a
+! rofi.color-window: argb:ee272822, #002b36, #e6db74
+! rofi.separator-style: solid
