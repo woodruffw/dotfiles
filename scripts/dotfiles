@@ -311,6 +311,7 @@ function fetch_files() {
 		cp ~/.dotfiles/scripts/xontop ~/scripts/xontop
 		cp ~/.dotfiles/scripts/tal ~/scripts/tal
 		cp ~/.dotfiles/scripts/byzanz-rect ~/scripts/byzanz-rect
+		cp ~/.dotfiles/scripts/screenfetch ~/scripts/screenfetch
 	fi
 
 	if [[ "${host}" = "ianus" ]]; then
