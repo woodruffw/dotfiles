@@ -25,4 +25,4 @@ case "${format}" in
 	* ) fatal "Unsupported format: ${format}. Maybe use abcde directly?"
 esac
 
-abcde -Vx -q high -a "cddb,read,encode,tag,move,playlist,clean" -o "${format}"
+abcde -Vx -a "cddb,read,encode,tag,move,playlist,clean" -o "${format}"
