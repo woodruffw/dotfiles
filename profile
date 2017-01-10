@@ -53,8 +53,12 @@ if [[ "${system}" = "Linux" ]]; then
 	export PATH="${PATH}:/home/${USER}/scripts"
 
 	if [[ -d ~/.linuxbrew ]]; then # if linuxbrew is installed, add it to paths
-		export PATH="/home/${USER}/.linuxbrew/bin:${PATH}"
-		export MANPATH="/home/${USER}/.linuxbrew/share/man:${MANPATH}"
+		export PATH="${HOME}/.linuxbrew/bin:${PATH}"
+		export MANPATH="${HOME}/.linuxbrew/share/man:${MANPATH}"
+	fi
+
+	if [[ -d ~/.cargo ]]; then # if rust is installed via rustup, add it to paths
+		export PATH="${HOME}/.cargo/bin:${PATH}"
 	fi
 elif [[ "${system}" = "Darwin" ]]; then
 	export TERMINFO_DIRS="~/.terminfo:/usr/local/share/terminfo:${TERMINFO}:"
