@@ -7,13 +7,12 @@
 # Licensed under the MIT License: http://opensource.org/licenses/MIT
 
 if [[ -z "${1}" || "${1}" = "-" ]] ; then
-	data=$(cat)
+	file="-"
 elif [[ -f "${1}" ]] ; then
-	data=$(cat ${1})
+	file="${1}"
 else
 	echo "Usage: $0 <file>"
 	exit 1
 fi
 
-response=$(curl -X POST -s -d "${data}" http://hastebin.com/documents)
-echo "${response}" | awk -F '"' '{print "http://hastebin.com/raw/"$4}'
+curl -F "sprunge=<${file}" http://sprunge.us
