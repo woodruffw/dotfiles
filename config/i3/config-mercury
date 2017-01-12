@@ -168,7 +168,7 @@ bindsym XF86AudioNext exec muzak-cmd next
 bindsym XF86AudioStop exec muzak-dmenu
 
 # open the file manager
-bindsym Control+Mod1+f exec thunar
+bindsym Control+Mod1+f exec pcmanfm
 
 # screenshot bindings
 bindsym Control+Shift+3 exec ~/scripts/poomf -f
