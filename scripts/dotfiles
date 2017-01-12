@@ -312,6 +312,9 @@ function fetch_files() {
 		cp ~/.dotfiles/scripts/tal ~/scripts/tal
 		cp ~/.dotfiles/scripts/byzanz-rect ~/scripts/byzanz-rect
 		cp ~/.dotfiles/scripts/screenfetch ~/scripts/screenfetch
+
+		mkdir -p ~/.local/share/file-manager/actions/
+		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
 	fi
 
 	if [[ "${host}" = "ianus" ]]; then

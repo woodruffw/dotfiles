@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Action
+Name[en_US]=poomf
+Name[en]=poomf
+Name[C]=poomf
+ToolbarLabel[en_US]=poomf
+ToolbarLabel[en]=poomf
+ToolbarLabel[C]=poomf
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+Name[en_US]=poomf
+Name[en]=poomf
+Name[C]=poomf
+Exec=/home/william/scripts/poomf -u %f

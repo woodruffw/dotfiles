@@ -1,0 +1,16 @@
+[Desktop Entry]
+Type=Action
+Name[en_US]=mpv
+Name[en]=mpv
+Name[C]=mpv
+ToolbarLabel[en_US]=mpv
+ToolbarLabel[en]=mpv
+ToolbarLabel[C]=mpv
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+Name[en_US]=mpv
+Name[en]=mpv
+Name[C]=mpv
+Exec=/usr/bin/mpv --playlist=%f
+Basenames=*.playlist;

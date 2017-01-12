@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Action
+Name[en_US]=feh
+Name[en]=feh
+Name[C]=feh
+ToolbarLabel[en_US]=feh
+ToolbarLabel[en]=feh
+ToolbarLabel[C]=feh
+Profiles=profile-zero;
+
+TargetLocation=true
+
+[X-Action-Profile profile-zero]
+Name[en_US]=feh
+Name[en]=feh
+Name[C]=feh
+Exec=/usr/bin/feh .
