@@ -205,6 +205,7 @@ for_window [title="Netflix"] floating enable
 for_window [title="^TightVNC: .*$"] floating enable
 
 exec compton -fCGb -D 8 -m 0.8 --backend glx --vsync opengl
+exec sh ~/scripts/monitors
 exec bash ~/.fehbg
 exec xscreensaver -nosplash
 exec dropbox start -i
