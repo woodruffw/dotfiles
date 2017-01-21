@@ -250,6 +250,7 @@ function fetch_files() {
 		cp ~/.dotfiles/i3status-${host}.conf ~/.i3status.conf
 		cp ~/.dotfiles/Xmodmap ~/.Xmodmap
 		cp ~/.dotfiles/scripts/statusbar ~/scripts/statusbar
+		cp ~/.dotfiles/scripts/monitors-${host} ~/scripts/monitors
 		green "done"
 	else
 		yellow "not installed. Skipping"
