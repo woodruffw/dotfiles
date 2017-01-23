@@ -12,7 +12,7 @@ rescue NoMethodError
 	internal_ip = "None."
 end
 
-external_ip = Net::HTTP.get(URI('https://woodruffw.us/lab/ip.php'))
+external_ip = Net::HTTP.get(URI('https://icanhazip.com'))
 disks = `df -h`
 
 if File.readable?('/var/log/syslog')
