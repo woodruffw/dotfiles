@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# wwwbackup: back woodruffw.us files up to tarball, rotate weekly
+# wwwbackup: back yossarian.net files up to tarball, rotate weekly
 
 if [[ "$(hostname)" != "athena" ]] ; then
 	echo "Wrong host, dummy."
