@@ -204,6 +204,10 @@ for_window [title="cava"] floating enable
 for_window [title="Netflix"] floating enable
 for_window [title="^TightVNC: .*$"] floating enable
 
+# these two never need to be initially focused
+no_focus [class="feh"]
+no_focus [class="mpv"]
+
 exec --no-startup-id compton -fCGb -D 8 -m 0.8 --backend glx --vsync opengl
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id bash ~/.fehbg
