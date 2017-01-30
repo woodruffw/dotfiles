@@ -15,4 +15,4 @@ else
 	exit 1
 fi
 
-curl -F "sprunge=<${file}" http://sprunge.us
+curl -F "paste=<${file}" https://sicp.me
