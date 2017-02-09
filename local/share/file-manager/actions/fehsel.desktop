@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Action
+Name[en_US]=fehsel
+Name[en]=fehsel
+Name[C]=fehsel
+ToolbarLabel[en_US]=fehsel
+ToolbarLabel[en]=fehsel
+ToolbarLabel[C]=fehsel
+Profiles=profile-zero;
+
+TargetLocation=true
+
+[X-Action-Profile profile-zero]
+Name[en_US]=fehsel
+Name[en]=fehsel
+Name[C]=fehsel
+Exec=/usr/bin/feh %F
