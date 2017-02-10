@@ -74,4 +74,8 @@ elif [[ "${system}" = "Darwin" ]]; then
 	fi
 fi
 
+if [[ -d ~/.opam ]]; then # if opam is installed, load the initialization script
+	source ~/.opam/opam-init/init.sh
+fi
+
 source ~/.bashrc
