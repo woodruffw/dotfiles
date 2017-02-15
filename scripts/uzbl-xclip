@@ -38,6 +38,6 @@ if xclip -o 2>&1 > /dev/null ; then
 
 	if [[ -n "${resource}" ]] && uzbl_url "${resource}"; then
 		notify "uzbl: ${resource}"
-		uzbl-tabbed --uri="${resource}"
+		uzbl-tabbed "${resource}"
 	fi
 fi
