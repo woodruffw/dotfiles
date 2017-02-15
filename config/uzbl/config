@@ -422,7 +422,8 @@ menu_add Quit uzbl = exit
 menu_separator separator_2
 
 # Link context menu
-menu_link_add Play URL = sh "~/scripts/play \@SELECTED_URI"
+menu_link_add Play URL = sh '~/scripts/play \@SELECTED_URI'
+menu_link_add Download URL = sh 'youtube-dl \@SELECTED_URI -o "~/Downloads/%(title)s.%(ext)s"'
 
 # === Mode configuration =====================================================
 
