@@ -266,6 +266,15 @@ function fetch_files() {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for uzbl..."
+	if installed uzbl ; then
+		printf "found. Reloading config..."
+		cp ~/.dotfiles/config/uzbl/config ~/.config/uzbl/config
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
