@@ -257,7 +257,7 @@ function fetch_files() {
 	fi
 
 	printf "Checking for muzak..."
-	if installed muzak ; then
+	if installed muzakd ; then
 		printf "found. Reloading utilities..."
 		cp ~/.dotfiles/scripts/muzak-now-playing ~/scripts/muzak-now-playing
 		cp ~/.dotfiles/scripts/muzak-rebase-index ~/scripts/muzak-rebase-index
