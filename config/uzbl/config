@@ -282,10 +282,10 @@ set ebind     = @mode_bind global,-insert
 @cbind  <Ctrl>p = hardcopy
 
 # Web searching binds
-@cbind  gg<Google:>_         = uri http://www.google.com/search?q=\@<encodeURIComponent(%r)>\@
-@cbind  ddg<DuckDuckGo:>_    = uri http://duckduckgo.com/?q=%s
-@cbind  \\awiki<Archwiki:>_  = uri http://wiki.archlinux.org/index.php/Special:Search?search=\@<encodeURIComponent(%r)>\@&go=Go
-@cbind  \\wiki<Wikipedia:>_  = uri http://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
+@cbind  gg<Google:>_         = uri https://encrypted.google.com/search?q=\@<encodeURIComponent(%r)>\@
+@cbind  ddg<DuckDuckGo:>_    = uri https://duckduckgo.com/?q=%s
+@cbind  \\awiki<Archwiki:>_  = uri https://wiki.archlinux.org/index.php/Special:Search?search=\@<encodeURIComponent(%r)>\@&go=Go
+@cbind  \\wiki<Wikipedia:>_  = uri https://en.wikipedia.org/w/index.php?title=Special:Search&search=\@<encodeURIComponent(%r)>\@&go=Go
 
 # Handy binds
 # Set function shortcut
@@ -312,7 +312,7 @@ set ebind     = @mode_bind global,-insert
 @bind   <Ctrl>i  = @set_mode insert
 
 # Hard-bound bookmarks
-@cbind  gh  = uri http://www.uzbl.org
+@cbind  gh  = uri https://encrypted.google.com
 
 # New window binds
 @cbind  gw  = event REQ_NEW_WINDOW
@@ -416,7 +416,7 @@ set preset = event PRESET_TABS
 # === Context menu items =====================================================
 
 # Default context menu
-menu_add Google = set uri = http://google.com
+menu_add Google = set uri = https://encrypted.google.com
 menu_separator separator_1
 menu_add Quit uzbl = exit
 menu_separator separator_2
@@ -462,6 +462,6 @@ sync_spawn_exec @scripts_dir/load_cookies.sh
 sync_spawn_exec @scripts_dir/load_cookies.sh @data_home/uzbl/session-cookies.txt
 
 # Set the "home" page.
-set uri = https://yossarian.net
+set uri = https://encrypted.google.com
 
 # vim: set fdm=syntax:
