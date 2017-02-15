@@ -253,6 +253,7 @@ alias rmhk='ssh-keygen -R'
 alias path='echo ${PATH}'
 alias mkdir='mkdir -p'
 alias getconfigs='dotfiles ; allreload'
+alias ocaml='rlwrap ocaml'
 
 source ~/.git-aliases
 
