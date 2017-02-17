@@ -9,55 +9,52 @@ function installed() {
 	return ${?}
 }
 
-system=$(uname)
+function prompt {
+	printf "${1} (y/N): " && read ans
+	[[ "$ans" =~ [Yy] ]]
+	return ${?}
+}
 
-if [[ "$system" = "Darwin" ]] ; then
-	if installed brew ; then
-		brew -v update
-		brew -v upgrade
-		brew cleanup -s
-	else
-		echo "Homebrew not installed."
-	fi
-elif [[ "$system" = "Linux" ]] ; then
-	if installed apt-get ; then
-		sudo apt-get update
-		sudo apt-get upgrade
-		sudo apt-get dist-upgrade
-		sudo apt-get autoremove
-		sudo apt-get clean
-	elif installed pacman ; then
-		sudo pacman -Syyu
-	else
-		echo "Package manager unsupported."
-	fi
-fi
+function do_apt {
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	sudo apt-get autoremove
+	sudo apt-get clean
+}
 
-if installed gem ; then
-	printf "Update Ruby gems? (y/N): " && read ans
-	if [[ "$ans" =~ [Yy] ]] ; then
-		sudo gem update
-	fi
-fi
+function do_pacman {
+	sudo pacman -Syyu
+}
 
-if installed cpan ; then
-	printf "Update CPAN modules? (y/N): " && read ans
-	if [[ "$ans" =~ [Yy] ]] ; then
-		sudo cpan -u
-	fi
-fi
+function do_brew {
+	brew -v update
+	brew -v upgrade
+	brew cleanup -s
+}
 
-if installed npm ; then
-	printf "Update NPM packages? (y/N): " && read ans
-	if [[ "$ans" =~ [Yy] ]] ; then
-		npm update
-	fi
-fi
+function do_cpan {
+	cpan -u
+}
 
-if installed pip ; then
-	printf "Update Python packages? (y/N): " && read ans
-	if [[ "$ans" =~ [Yy] ]] ; then
-		# http://stackoverflow.com/questions/2720014/upgrading-all-packages-with-pip
-		pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | sudo xargs -n1 pip install -U
-	fi
-fi
+function do_pip {
+	# http://stackoverflow.com/questions/2720014/upgrading-all-packages-with-pip
+	pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | sudo xargs -n1 pip install -U
+}
+
+function do_gem {
+	gem update
+}
+
+function do_npm {
+	npm update
+}
+
+installed apt-get && do_apt
+installed pacman && do_pacman
+installed brew && do_brew
+
+installed gem && prompt "Update gems?" && do_gem
+installed pip && prompt "Update Python packages?" && do_pip
+installed cpan && prompt "Update CPAN modules?" && do_cpan
+installed npm && prompt "Update NPM modules?" && do_npm
