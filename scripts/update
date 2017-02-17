@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# update: catch-all update script for OS X and some Linux distros
+# update: catch-all update script
 
 function installed() {
 	local cmd=$(command -v "${1}")
