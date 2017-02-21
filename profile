@@ -27,6 +27,11 @@ if installed ruby && installed gem; then
 	export PATH="${PATH}:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 fi
 
+# why does this exist?
+if [[ -d ~/.local/bin ]]; then
+	export PATH="${PATH}:${HOME}/.local/bin"
+fi
+
 # system-independent environment variables
 export VISUAL="${EDITOR}"
 export LESSHISTFILE="/dev/null" # prevent less from creating ~/.lesshist
