@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+# brewnav: quick dmenu integration for my frequent homebrew links
+
+require "open3"
+
+BROWSER = ENV["BROWSER"] || "firefox"
+DMENU_EXEC = "dmenu -i -p brewnav"
+URL_MAP = {
+  "Homebrew/brew" => "https://github.com/Homebrew/brew/",
+  "woodruffw/brew" => "https://github.com/woodruffw/brew/",
+  "Homebrew/core" => "https://github.com/Homebrew/homebrew-core/",
+  "woodruffw/core" => "https://github.com/woodruffw/homebrew-core/",
+  "core-pulls" => "https://github.com/Homebrew/homebrew-core/pulls/",
+  "brew-pulls" => "https://github.com/Homebrew/brew/pulls/",
+}
+
+def browse(url)
+  system BROWSER, url
+end
+
+def dmenu(options)
+  opts = options.join("\n")
+  Open3.popen2(DMENU_EXEC) do |stdin, stdout|
+    stdin.puts opts
+    stdin.close
+    stdout.gets.chomp
+  end
+end
+
+browse URL_MAP[dmenu(URL_MAP.keys)]
