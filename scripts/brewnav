@@ -24,8 +24,10 @@ def dmenu(options)
   Open3.popen2(DMENU_EXEC) do |stdin, stdout|
     stdin.puts opts
     stdin.close
-    stdout.gets.chomp
+    stdout.gets&.chomp
   end
 end
 
-browse URL_MAP[dmenu(URL_MAP.keys)]
+url = URL_MAP[dmenu(URL_MAP.keys)]
+
+browse url if url
