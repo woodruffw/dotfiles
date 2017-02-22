@@ -259,7 +259,7 @@ no_focus [class="mpv"]
 
 exec --no-startup-id compton -fCGb -D 8 -m 0.8 --vsync opengl --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors
-exec --no-startup-id bash ~/.fehbg
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id xscreensaver -nosplash
 exec --no-startup-id dropbox start -i
 exec --no-startup-id env KEYBASE_START_UI=hideWindow run_keybase
@@ -267,4 +267,3 @@ exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-settings-daemon
-
