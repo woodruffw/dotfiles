@@ -5,7 +5,7 @@ auto-reload yes
 reload-time 30
 
 # use uzbl-browser to browse
-browser "uzbl-browser --uri=%u"
+browser "uzbl-tabbed %u"
 
 # use mpv to open with ,-y
 macro y set browser "mpv %u"; open-in-browser-and-mark-read ; set browser "uzbl-browser --url=%u"
