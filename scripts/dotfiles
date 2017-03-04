@@ -304,6 +304,7 @@ function fetch_files() {
 	cp ~/.dotfiles/scripts/fwuf ~/scripts/fwuf
 	cp ~/.dotfiles/scripts/aaa ~/scripts/aaa
 	cp ~/.dotfiles/scripts/selecta ~/scripts/selecta
+	cp ~/.dotfiles/scripts/ffmpeg-mosaic ~/scripts/ffmpeg-mosaic
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
