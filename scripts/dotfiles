@@ -3,27 +3,37 @@
 # dotfiles: fetch configuration files and scripts
 # usage: dotfiles
 
-function installed() {
+installed() {
 	local cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
 }
 
-function green() {
+green() {
 	printf "${COLOR_GRN}${@}${COLOR_NRM}.\n"
 }
 
-function yellow() {
+yellow() {
 	printf "${COLOR_YLW}${@}${COLOR_NRM}.\n"
 }
 
-function fetch_files() {
+die() {
+	echo "Error: $*" >&2
+	exit 1
+}
+
+ensure() {
+	"$@" \
+		|| die "Failed to run '$*'. Aborting."
+}
+
+fetch_files() {
 	local system=$(uname)
 	local host=$(hostname)
 
 	if ! installed git ; then
-		>&2 echo "Fatal: git required to fetch configs."
+		die "git required to fetch configs."
 		exit 1
 	fi
 
@@ -32,11 +42,11 @@ function fetch_files() {
 	# make sure the repo isn't clobbered
 	if [[ -d ~/.dotfiles/.git ]] ; then
 		cd ~/.dotfiles
-		git fetch origin --quiet > /dev/null
-		git merge origin/master > /dev/null
+		ensure git fetch origin --quiet > /dev/null
+		ensure git merge origin/master > /dev/null
 	else
-		rm -rf ~/.dotfiles
-		git clone https://github.com/woodruffw/dotfiles ~/.dotfiles > /dev/null
+		ensure rm -rf ~/.dotfiles
+		ensure git clone https://github.com/woodruffw/dotfiles ~/.dotfiles > /dev/null
 	fi
 
 	popd > /dev/null
@@ -389,12 +399,12 @@ function fetch_files() {
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
 	if [[ -n $ans && "${ans}" =~ [Yy] ]] ; then
-		git clone git@gitlab.com:yossarian/dotfiles-priv.git ~/.dotfiles-priv 2> /dev/null
+		ensure git clone git@gitlab.com:yossarian/dotfiles-priv.git ~/.dotfiles-priv 2> /dev/null
 		pushd . > /dev/null
 		cd ~/.dotfiles-priv
-		bash ./install.sh
+		ensure bash ./install.sh
 		popd > /dev/null
-		rm -rf ~/.dotfiles-priv
+		ensure rm -rf ~/.dotfiles-priv
 	fi
 
 	green "All done"
