@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# last-photo: grab the last N photos taken on my phone
+
+die() {
+  echo "Error: $*" >&2
+  exit 1
+}
+
+ensure() {
+  "$@" \
+    || die "Failed to run '$*'. Aborting."
+}
+
+nphotos="${1:-1}"
+dest="${2:-${HOME}}"
+dev=$(ensure gvfs-mount --list \
+	| ensure grep "Android Phone ->" \
+	| ensure awk '{ print $5 }')
+ppath="${dev}Internal%20storage/storage/emulated/0/DCIM/100MEDIA"
+
+photos=$(ensure gvfs-ls "${ppath}" \
+		| ensure tail -n "${nphotos}")
+
+for photo in ${photos}; do
+	ensure gvfs-copy "${ppath}/${photo}" "${dest}"
+done
