@@ -339,6 +339,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/byzanz-rect ~/scripts/byzanz-rect
 		cp ~/.dotfiles/scripts/screenfetch ~/scripts/screenfetch
 		cp ~/.dotfiles/scripts/brewnav ~/scripts/brewnav
+		cp ~/.dotfiles/scripts/subreddit-watch ~/scripts/subreddit-watch
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
