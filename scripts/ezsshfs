@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# ezsshfs: wrap sshfs to make it a little nicer to use
+
+die() {
+  echo "Error: $*" >&2
+  exit 1
+}
+
+ensure() {
+  "$@" \
+    || die "Failed to run '$*'. Aborting."
+}
+
+installed() {
+  local cmd=$(command -v "${1}")
+
+  [[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+  return ${?}
+}
+
+mnt="${HOME}/mnt"
+# bash doesn't support nested arrays!
+declare -A mntmap=(
+	["athena"]="athena /home/william ${mnt}/athena"
+	["athena-www"]="athena /var/www/html ${mnt}/athena-www"
+	["apollo"]="apollo /home/william ${mnt}/apollo"
+	["hippolyta"]="hippolyta /home/william ${mnt}/hippolyta"
+	["hippolyta-www"]="hippolyta /var/www/html ${mnt}/hippolyta-www"
+)
+
+ensure installed "selecta"
+ensure installed "sshfs"
+ensure installed "fusermount"
+
+key=$(printf "%s\n" "${!mntmap[@]}" | selecta)
+
+[[ -n "${key}" && -n "${mntmap[${key}]}" ]] || die "Missing or no such key."
+
+paths=(${mntmap[${key}]})
+host="${paths[0]}"
+spath="${paths[1]}"
+mpath="${paths[2]}"
+mkdir -p "${mpath}"
+
+if [[ "${1}" = "-u" ]]; then
+  fusermount -u "${mpath}" 2> /dev/null
+else
+  sshfs "${host}:${spath}" "${mpath}"
+fi
