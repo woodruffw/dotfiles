@@ -22,11 +22,12 @@ installed() {
 mnt="${HOME}/mnt"
 # bash doesn't support nested arrays!
 declare -A mntmap=(
-	["athena"]="athena /home/william ${mnt}/athena"
-	["athena-www"]="athena /var/www/html ${mnt}/athena-www"
-	["apollo"]="apollo /home/william ${mnt}/apollo"
-	["hippolyta"]="hippolyta /home/william ${mnt}/hippolyta"
-	["hippolyta-www"]="hippolyta /var/www/html ${mnt}/hippolyta-www"
+  # mnemonic => hostname | remote root | local mount point
+  ["athena"]="athena /home/william ${mnt}/athena"
+  ["athena-www"]="athena /var/www/html ${mnt}/athena-www"
+  ["apollo"]="apollo /home/william ${mnt}/apollo"
+  ["hippolyta"]="hippolyta /home/william ${mnt}/hippolyta"
+  ["hippolyta-www"]="hippolyta /var/www/html ${mnt}/hippolyta-www"
 )
 
 ensure installed "selecta"
