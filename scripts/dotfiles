@@ -341,6 +341,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/brewnav ~/scripts/brewnav
 		cp ~/.dotfiles/scripts/subreddit-watch ~/scripts/subreddit-watch
 		cp ~/.dotfiles/scripts/ezsshfs ~/scripts/ezsshfs
+		cp ~/.dotfiles/scripts/nautilus-xenial-gopro-install ~/scripts/nautilus-xenial-gopro-install
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
