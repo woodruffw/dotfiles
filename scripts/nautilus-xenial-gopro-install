@@ -10,8 +10,22 @@
 #   Loop to load arguments
 # -------------------------------------------------------
 
+if [ ! -f /etc/os-release ]
+then
+  echo "Missing /etc/os-release, couldn't detect distro/version."
+  exit
+else
+  source /etc/os-release
+  if [ "${VERSION_ID}" != "16.04" ]
+  then
+    echo "You're not running Ubuntu 16.04."
+    echo "This script might work, but probably not."
+    exit
+  fi
+fi
+
 # if no argument, display help
-if [ $# -eq 0 ] 
+if [ $# -eq 0 ]
 then
   echo "Tool to install libgphoto2 2.5.10 libraries to correct latest GoPro DCIM bug under Xenial."
   echo "Parameters are :"
@@ -37,7 +51,7 @@ done
 #  Cleaning
 # ---------------------------------------------------
 
-# remove targeted files and directories 
+# remove targeted files and directories
 sudo rm -f /usr/lib/x86_64-linux-gnu/libgphoto2_port.so.12
 sudo rm -R /usr/lib/x86_64-linux-gnu/libgphoto2_port/0.12.0
 sudo rm -f /usr/lib/x86_64-linux-gnu/libgphoto2.so.6
