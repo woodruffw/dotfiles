@@ -1,18 +1,17 @@
 #!/bin/bash
 
 # xyz radio client script
-# version 2.6 lol
+# version 2.7 lol
 
 # usage:
 #   0 =   raise volume
 #   9 -   lower volume
-#   p     pause
-#   C-c   quit
+#   p     pause         # pausing only pauses your local playback.
+#   C-c   quit          # to catch up to the stream quit and restart script.
 
 # auto resizing in some terminals may not work or worse, be broken
-# if broken, comment out the following lines farther down
-#	size=$(wc -L <<< "$current")
-#	printf "\e[8;1;$size;t"
+# if broken, change this to something other than "yes"
+resize="yes"
 
 
 tput civis
@@ -20,28 +19,46 @@ fifo=/tmp/radiofifo
 mkfifo $fifo
 prev="pls"
 trap "rm -f $fifo & tput cnorm & exit" EXIT
-
 mpv --cache-initial 25 \
     --no-resume-playback \
     --no-force-window \
     --input-file=$fifo \
     https://rectilinear.xyz/radio/stream \
     &>/dev/null & mpv_pid=$!
-
 clear
+
 while :
 do
     current=$(curl -s https://rectilinear.xyz/radio/current)
-    if [[ "$current" != "$prev" ]]; then
-	size=$(wc -L <<< "$current")
-	printf "\e[8;1;$size;t"
-	printf "\033]0;$current\007"
-	clear
-	printf "$current"
-	sleep 1s
-	clear
-	printf "$current"
-	prev=$current
+    if [ "$current" != "$prev" ]; then
+        if [ "$resize" == "yes" ]; then
+            size=$(wc -L <<< "$current")
+            if [ "$size" == "0" ]; then
+                sleep 1s
+                current=$(curl -s https://rectilinear.xyz/radio/current)
+                size=$(wc -L <<< "$current")
+                if [ "$size" == "0" ]; then
+                    error="could not reach network, please C-c and try again"
+                    esize=$(wc -L <<< "$error")
+                    printf "\e[8;2;$esize;t"
+		    printf '\033c'
+		    tput civis
+                    clear
+		    printf "$error"
+		    tput civis
+                    sleep 600000s # a hack for exit not working
+                else
+                    printf "\e[8;1;$size;t"
+                fi
+            else
+                printf "\e[8;1;$size;t"
+            fi
+        fi
+	printf '\033c'
+	tput civis
+        clear
+        printf "$current"
+        prev=$current
     fi
     sleep 5s # please do not lower this, there's no need
 done &
@@ -50,11 +67,10 @@ while :
 do
     read -s -n1 option
     case "$option" in
-	0|=) command="volume +5" ;;
-	9|-) command="volume -5" ;;
-	p) command="pause" ;;
-	q) command="quit" ;;
-	*) command="" ;;
+        0|=) command="volume +5" ;;
+        9|-) command="volume -5" ;;
+        p) command="pause" ;;
+        *) command="" ;;
     esac
     echo "$command" > $fifo
 done
