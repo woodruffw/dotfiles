@@ -319,6 +319,7 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/giphy-fetch ~/scripts/giphy-fetch
 	cp ~/.dotfiles/scripts/normalize-gifs ~/scripts/normalize-gifs
 	cp ~/.dotfiles/scripts/last-photo ~/scripts/last-photo
+	cp ~/.dotfiles/scripts/forecast ~/scripts/forecast
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
