@@ -37,6 +37,7 @@ export VISUAL="${EDITOR}"
 export LESSHISTFILE="/dev/null" # prevent less from creating ~/.lesshist
 export PS2="+ "
 export HISTCONTROL="ignoredups:erasedups"
+export HISTIGNORE="[ \t]*" # ignore commands started with whitespace
 export MARKPATH="${HOME}/.marks"
 export PROMPT_COMMAND="__generate_prompt"
 
