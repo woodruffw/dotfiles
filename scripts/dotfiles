@@ -276,6 +276,16 @@ fetch_files() {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for kbsecret..."
+	if installed kbsecret ; then
+		printf "found. Reloading scripts..."
+		cp ~/.dotfiles/scripts/kbsecret-zen-login ~/scripts/kbsecret-zen-login
+		cp ~/.dotfiles/scripts/kbsecret-dmenu-pass ~/scripts/kbsecret-dmenu-pass
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Checking for uzbl..."
 	if installed uzbl ; then
 		printf "found. Reloading config..."
