@@ -206,6 +206,7 @@ for_window [title="floaterm"] floating enable, border none
 for_window [title="cava"] floating enable
 for_window [title="Netflix"] floating enable
 for_window [title="^TightVNC: .*$"] floating enable
+for_window [class="^Zenity$"] floating enable
 
 # these two never need to be initially focused
 no_focus [class="feh"]
