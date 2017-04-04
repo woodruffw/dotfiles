@@ -204,6 +204,9 @@ bindsym Control+Delete exec muzak-dmenu
 # open the file manager
 bindsym Control+Mod1+f exec pcmanfm
 
+# convenient for opening PDFs
+bindsym Control+Mod1+p exec ~/scripts/open-pdf
+
 # screenshot bindings
 bindsym Control+Shift+3 exec ~/scripts/poomf -f
 bindsym Control+Shift+4 exec ~/scripts/poomf -s
