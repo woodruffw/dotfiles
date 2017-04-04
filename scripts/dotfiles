@@ -343,6 +343,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/subreddit-watch ~/scripts/subreddit-watch
 		cp ~/.dotfiles/scripts/ezsshfs ~/scripts/ezsshfs
 		cp ~/.dotfiles/scripts/nautilus-xenial-gopro-install ~/scripts/nautilus-xenial-gopro-install
+		cp ~/.dotfiles/scripts/open-pdf ~/scripts/open-pdf
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
