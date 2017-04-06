@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# update-hosts: fetch a list of known adware/malware/etc domains
+# and block them via /etc/hosts
+
+installed() {
+  local cmd=$(command -v "${1}")
+
+  [[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+  return ${?}
+}
+
+die() {
+  echo "Error: $*"
+  exit 1
+}
+
+ensure() {
+  "$@" \
+    || die "$(basename ${0}): Failed to run '$*'."
+}
+
+hosts_url="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+tmp_hosts="/tmp/hosts"
+
+ensure installed wget
+ensure installed sed
+ensure installed sudo
+
+ensure wget -O "${tmp_hosts}" "${hosts_url}"
+
+# add our hostname to one of the 127.0.0.1 lines to stop sudo from complaining
+ensure sed -i "/^127\.0\.0\.1 localhost$/ s/$/ $(hostname)/" "${tmp_hosts}"
+
+ensure sudo cp "${tmp_hosts}" /etc/hosts

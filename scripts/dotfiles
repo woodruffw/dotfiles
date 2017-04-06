@@ -331,6 +331,7 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/last-photo ~/scripts/last-photo
 	cp ~/.dotfiles/scripts/forecast ~/scripts/forecast
 	cp ~/.dotfiles/scripts/rubyvm-dump ~/scripts/rubyvm-dump
+	cp ~/.dotfiles/scripts/update-hosts ~/scripts/update-hosts
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
