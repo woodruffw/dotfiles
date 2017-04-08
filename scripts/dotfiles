@@ -281,6 +281,7 @@ fetch_files() {
 		printf "found. Reloading scripts..."
 		cp ~/.dotfiles/scripts/kbsecret-zen-login ~/scripts/kbsecret-zen-login
 		cp ~/.dotfiles/scripts/kbsecret-dmenu-pass ~/scripts/kbsecret-dmenu-pass
+		cp ~/.dotfiles/scripts/kbsecret-snip ~/scripts/kbsecret-snip
 		green "done"
 	else
 		yellow "not installed. Skipping"
