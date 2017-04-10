@@ -44,11 +44,11 @@ pickpdfs() {
 ensure installed zenity
 ensure installed mupdf
 
-pdfs=($(pickpdfs))
+pdfs=$(pickpdfs)
 
 [[ -z "${pdfs}" ]] && exit
 
-for pdf in "${pdfs[@]}"; do
+while read pdf; do
   mupdf "${pdf}" &
-done
+done <<< "${pdfs}"
 
