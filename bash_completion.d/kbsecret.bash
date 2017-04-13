@@ -31,7 +31,7 @@ complete -F _kbsecret_complete kbsecret
 # these are commands that obey the --introspect-flags contract
 _kbsecret_completable_subcommand() {
     cmd="${1}"
-    cmds=" env list login new new-session pass raw-edit rm sessions" # gen
+    cmds=" env list login new new-session pass raw-edit rm sessions todo" # gen
     [[ " $cmds " =~ " $cmd " ]]
     return "${?}"
 }
@@ -40,6 +40,14 @@ _kbsecret_complete_subcommand() {
     cmd="${1}"
 
     opts=$(kbsecret ${cmd} --introspect-flags)
+
+    case "${cmd}" in
+        new) opts=$(printf "%s\n%s" "${opts}" "$(kbsecret types)") ;;
+        login|pass) opts=$(printf "%s\n%s" "${opts}" "$(kbsecret list -t login)") ;;
+        env) opts=$(printf "%s\n%s" "${opts}" "$(kbsecret list -t env)") ;;
+        todo) opts=$(printf "%s\n%s" "${opts}" "$(kbsecret list -t todo)") ;;
+        *) opts=$(printf "%s\n%s" "${opts}" "$(kbsecret list)") ;;
+    esac
 
     echo "${opts}"
 }
