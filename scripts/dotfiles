@@ -2,6 +2,7 @@
 
 # dotfiles: fetch configuration files and scripts
 # usage: dotfiles
+# this file is disgusting, and will never be fixed.
 
 installed() {
 	local cmd=$(command -v "${1}")
@@ -64,7 +65,6 @@ fetch_files() {
 
 	# we know git is installed
 	printf "Reloading git-aliases, gitignore, and gitconfig..."
-	cp ~/.dotfiles/git-aliases ~/.git-aliases
 	cp ~/.dotfiles/gitignore ~/.gitignore
 	cp ~/.dotfiles/gitconfig ~/.gitconfig
 	green "done"
@@ -410,12 +410,13 @@ fetch_files() {
 	fi
 
 	printf "Doing some cleanup..."
-	[[ -f ~/scripts/haste ]] && rm ~/scripts/haste
-	[[ -f ~/scripts/mpv-xclip ]] && rm ~/scripts/mpv-xclip
-	[[ -f ~/scripts/surf-xclip ]] && rm ~/scripts/surf-xclip
-	[[ -f ~/scripts/email-fwd.rb ]] && rm ~/scripts/email-fwd.rb
-	[[ -f ~/.xsession-errors ]] && rm ~/.xsession-errors
-	[[ -f ~/.xsession-errors.old ]] && rm ~/.xsession-errors.old
+	rm -f ~/scripts/haste
+	rm -f ~/scripts/mpv-xclip
+	rm -f ~/scripts/surf-xclip
+	rm -f ~/scripts/email-fwd.rb
+	rm -f ~/.xsession-errors
+	rm -f ~/.xsession-errors.old
+	rm -f ~/.git-aliases
 	green "done"
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
