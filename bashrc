@@ -255,8 +255,6 @@ alias mkdir='mkdir -p'
 alias getconfigs='dotfiles ; allreload'
 alias ocaml='rlwrap ocaml'
 
-source ~/.git-aliases
-
 # if colordiff is installed, alias diff to it
 if installed colordiff ; then
 	alias diff='colordiff'
