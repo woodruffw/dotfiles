@@ -58,7 +58,8 @@ fetch_files() {
 	cp ~/.dotfiles/inputrc ~/.inputrc
 	cp ~/.dotfiles/profile ~/.profile
 	cp ~/.dotfiles/bash_completion ~/.bash_completion
-	cp -R ~/.dotfiles/bash_completion.d ~
+	mkdir -p ~/.bash_completion.d
+	cp -R ~/.dotfiles/bash_completion.d/* ~/.bash_completion.d
 	green "done"
 
 	# we know git is installed
