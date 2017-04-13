@@ -1,0 +1,4 @@
+# load the user's completion scripts
+for f in ~/.bash_completion.d/*; do
+	source "${f}"
+done

@@ -53,10 +53,12 @@ fetch_files() {
 
 	mkdir -p ~/scripts
 
-	printf "Reloading bashrc, inputrc, and profile..."
+	printf "Reloading bashrc, inputrc, profile, and completions..."
 	cp ~/.dotfiles/bashrc ~/.bashrc
 	cp ~/.dotfiles/inputrc ~/.inputrc
 	cp ~/.dotfiles/profile ~/.profile
+	cp ~/.dotfiles/bash_completion ~/.bash_completion
+	cp -R ~/.dotfiles/bash_completion.d ~/.bash_completion.d
 	green "done"
 
 	# we know git is installed
