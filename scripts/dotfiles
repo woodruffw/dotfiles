@@ -98,7 +98,6 @@ fetch_files() {
 			printf "skipping rtorrent.rc.\n"
 		fi
 
-		cp ~/.dotfiles/scripts/magnet-to-torrent.pl ~/scripts/magnet-to-torrent.pl
 		cp ~/.dotfiles/scripts/magnet.sh ~/scripts/magnet.sh
 		green "done"
 	else
@@ -414,6 +413,7 @@ fetch_files() {
 	rm -f ~/scripts/mpv-xclip
 	rm -f ~/scripts/surf-xclip
 	rm -f ~/scripts/email-fwd.rb
+	rm -f ~/scripts/magnet-to-torrent.pl
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
