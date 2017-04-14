@@ -27,6 +27,7 @@ declare -A mntmap=(
   ["athena-www"]="athena /var/www/html ${mnt}/athena-www"
   ["apollo"]="apollo /home/william ${mnt}/apollo"
   ["zeenbox"]="zeenbox /home/william ${mnt}/zeenbox"
+  ["zeenbox-www"]="zeenbox /var/www/html ${mnt}/zeenbox-www"
 )
 
 ensure installed "selecta"
