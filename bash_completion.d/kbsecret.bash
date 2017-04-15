@@ -31,7 +31,7 @@ complete -F _kbsecret_complete kbsecret
 # these are commands that obey the --introspect-flags contract
 _kbsecret_completable_subcommand() {
     cmd="${1}"
-    cmds=" dump-fields env list login new new-session pass raw-edit rm sessions todo" # gen
+    cmds="snip todo-list  dump-fields env list login new new-session pass raw-edit rm sessions todo" # gen
     [[ " $cmds " =~ " $cmd " ]]
     return "${?}"
 }
