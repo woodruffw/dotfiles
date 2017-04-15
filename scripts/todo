@@ -1,0 +1,135 @@
+#!/usr/bin/env bash
+
+# todo: a wrapper over kbsecret + todo records
+
+SESSION="${SESSION:-todos}"
+
+green() {
+	echo -e "\e[32m${*}\e[0m"
+}
+
+yellow() {
+	echo -e "\e[33m${*}\e[0m"
+}
+
+red() {
+	echo -e "\e[31m${*}\e[0m"
+}
+
+die() {
+	echo "Error: $*" >&2
+	exit 1
+}
+
+installed() {
+	local cmd=$(command -v "${1}")
+
+	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+ensure() {
+	"$@" \
+		|| die "Failed to run '$*'. Aborting."
+}
+
+sanity-checks() {
+	ensure installed kbsecret
+
+	ensure kbsecret sessions \
+		| ensure grep -q "${SESSION}"
+}
+
+session-call() {
+	cmd="${1}"; shift
+	ensure kbsecret "${cmd}" -s "${SESSION}" "${@}"
+}
+
+usage() {
+	cat <<-EOS
+		Usage: todo <subcommand>
+
+		Subcommands:
+		  help
+		  list [--plain]
+		  prune [--interactive]
+		  new <label> <message>
+		  rm <label>
+		  show <label>
+		  start <label>
+		  suspend <label>
+		  complete <label>
+	EOS
+}
+
+list-todos() {
+	if [[ "${1}" = "--plain" ]]; then
+		session-call list -t todo
+	else
+		for todo in $(session-call list -t todo); do
+			fields=$(session-call dump-fields "${todo}")
+
+			status=$(awk ' /^status:/ { print $2 } ' <<< "${fields}")
+
+			case "${status}" in
+				complete ) out="red" ;;
+				suspended ) out="yellow" ;;
+				started ) out="green" ;;
+				* ) out="echo" ;; # ????
+			esac
+
+			"${out}" "${todo}"
+		done
+	fi
+}
+
+prune-todos() {
+	[[ "${1}" = "--interactive" ]] && rmflag="-i" ; shift
+
+	for todo in $(session-call list -t todo); do
+		# we only want to prune complete todos
+		session-call dump-fields "${todo}" \
+			| grep -q "status: complete" || continue
+
+		session-call rm "${rmflag}" "${todo}"
+	done
+}
+
+new-todo() {
+	label="${1}" ; shift
+	message="${*}"
+	session-call new todo "${label}" "${message}"
+}
+
+remove-todo() {
+	session-call rm "${1}"
+}
+
+dump-todo() {
+	session-call dump-fields "${1}"
+}
+
+mark-todo() {
+	mark="${1}"
+	label="${2}"
+	session-call todo "${mark}" "${label}"
+}
+
+not-found() {
+	echo "$(basename ${0}): no such command: '${1}'"
+}
+
+sanity-checks
+
+cmd="${1:-help}" ; shift
+
+case "${cmd}" in
+	--help|-h|help ) usage ; exit ;;
+	ls|list ) list-todos "${@}" ;;
+	pr|prune ) prune-todos "${@}" ;;
+	n|new ) new-todo "${@}" ;;
+	rm ) remove-todo "${@}" ;;
+	dump|show ) dump-todo "${@}" ;;
+	start|suspend|complete ) mark-todo "${cmd}" "${@}" ;;
+	* ) not-found "${cmd}" ; usage ; exit 1 ;;
+esac
