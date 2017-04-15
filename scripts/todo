@@ -66,20 +66,9 @@ list-todos() {
 	if [[ "${1}" = "--plain" ]]; then
 		session-call list -t todo
 	else
-		for todo in $(session-call list -t todo); do
-			fields=$(session-call dump-fields "${todo}")
-
-			status=$(awk ' /^status:/ { print $2 } ' <<< "${fields}")
-
-			case "${status}" in
-				complete ) out="red" ;;
-				suspended ) out="yellow" ;;
-				started ) out="green" ;;
-				* ) out="echo" ;; # ????
-			esac
-
-			"${out}" "${todo}"
-		done
+		session-call todo-list --detail completed
+		session-call todo-list --detail suspended
+		session-call todo-list --detail started
 	fi
 }
 
