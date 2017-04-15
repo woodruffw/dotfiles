@@ -66,9 +66,9 @@ list-todos() {
 	if [[ "${1}" = "--plain" ]]; then
 		session-call list -t todo
 	else
-		session-call todo-list --detail completed
-		session-call todo-list --detail suspended
-		session-call todo-list --detail started
+		green "$(session-call todo-list --detail completed)"
+		yellow "$(session-call todo-list --detail suspended)"
+		red "$(session-call todo-list --detail started)"
 	fi
 }
 
