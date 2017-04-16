@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+require "json"
+require "open3"
+
+URL = "https://api.groupme.com/v3/groups/%{group_id}/messages"
+
+group_id = `kbsecret env --value-only groupme-roommate-id`.chomp
+token = `kbsecret env --value-only groupme-api`.chomp
+url = URL % { group_id: group_id }
+header_flag = "--header 'X-Access-Token: #{token}'"
+
+uuid = `uuidgen`.chomp
+text = ARGF.read.chomp
+
+request = {
+  message: {
+    source_guid: uuid,
+    text: text,
+  }
+}
+
+Open3.popen2("curl -X POST #{header_flag} -d @- #{url}") do |stdin, stdout, _|
+  stdin.write request.to_json
+  stdin.close
+  stdout.read
+  stdout.close
+end
