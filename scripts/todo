@@ -75,11 +75,7 @@ list-todos() {
 prune-todos() {
 	[[ "${1}" = "--interactive" ]] && rmflag="-i" ; shift
 
-	for todo in $(session-call list -t todo); do
-		# we only want to prune complete todos
-		session-call dump-fields "${todo}" \
-			| grep -q "status: complete" || continue
-
+	for todo in $(session-call todo-list completed); do
 		session-call rm "${rmflag}" "${todo}"
 	done
 }
