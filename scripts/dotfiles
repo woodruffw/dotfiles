@@ -361,38 +361,16 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/ezsshfs ~/scripts/ezsshfs
 		cp ~/.dotfiles/scripts/nautilus-xenial-gopro-install ~/scripts/nautilus-xenial-gopro-install
 		cp ~/.dotfiles/scripts/open-pdf ~/scripts/open-pdf
+		cp ~/.dotfiles/scripts/bug-roommates ~/scripts/bug-roommates
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
-	fi
-
-	if [[ "${host}" = "ianus" ]]; then
-		cp ~/.dotfiles/scripts/speaker ~/scripts/speaker
 	fi
 
 	if [[ "${host}" = "athena" ]] ; then
 		cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
 		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
 		cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
-	fi
-
-	if [[ "${host}" = "mars" ]] ; then
-		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
-	fi
-
-	if [[ "${host}" = "aphrodite" ]]; then
-		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
-	fi
-
-	if [[ "${host}" = "hippolyta" ]]; then
-		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
-	fi
-
-	if [[ "${host}" = "pan" ]]; then
-		cp ~/.dotfiles/scripts/music-tree ~/scripts/music-tree
-		cp ~/.dotfiles/scripts/music-clean ~/scripts/music-clean
-		cp ~/.dotfiles/scripts/music-backup ~/scripts/music-backup
-		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
 	fi
 
 	chmod +x ~/scripts/*
@@ -416,6 +394,7 @@ fetch_files() {
 	rm -f ~/scripts/surf-xclip
 	rm -f ~/scripts/email-fwd.rb
 	rm -f ~/scripts/magnet-to-torrent.pl
+	rm -f ~/scripts/speaker
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
