@@ -320,7 +320,6 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/mp3art ~/scripts/mp3art
 	cp ~/.dotfiles/scripts/flacart ~/scripts/flacart
 	cp ~/.dotfiles/scripts/mdmath ~/scripts/mdmath
-	cp ~/.dotfiles/scripts/tepm ~/scripts/tepm
 	cp ~/.dotfiles/scripts/worldtimes ~/scripts/worldtimes
 	cp ~/.dotfiles/scripts/diff-highlight ~/scripts/diff-highlight
 	cp ~/.dotfiles/scripts/uspatent ~/scripts/uspatent
@@ -395,9 +394,11 @@ fetch_files() {
 	rm -f ~/scripts/email-fwd.rb
 	rm -f ~/scripts/magnet-to-torrent.pl
 	rm -f ~/scripts/speaker
+	rm -f ~/scripts/tepm
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
+	rm -f ~/.tepmrc
 	green "done"
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
