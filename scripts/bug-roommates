@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# bug-roommates: send my roommates something via groupme
+
 require "json"
 require "open3"
 
