@@ -1,4 +1,4 @@
-function installed() {
+installed() {
 	local cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]

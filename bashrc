@@ -11,7 +11,7 @@
 #############
 
 # __generate_prompt - generate the PS1 dynamically
-function __generate_prompt() {
+__generate_prompt() {
 	local exitcode="${?}"
 	local jobcount=$(jobs | wc -l | sed -e 's/^[ \t]*//')
 	local branch=$(git symbolic-ref HEAD 2> /dev/null)
@@ -43,8 +43,13 @@ function __generate_prompt() {
 	history -r
 }
 
+# title - update the terminal's title
+title() {
+	echo -ne "\033]0;${@}\007"
+}
+
 # installed - check if a program is both available and a file (no aliases/functions)
-function installed() {
+installed() {
 	local cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
@@ -52,27 +57,27 @@ function installed() {
 }
 
 # bashreload - wipe aliases and re-source from ~/.profile and ~/.bashrc
-function bashreload() {
+bashreload() {
 	unalias -a
 	source ~/.profile
 	source ~/.bashrc
 }
 
 # allreload - send SIGURG to every bash process, which is trapped to bashreload
-function allreload() {
+allreload() {
 	killall -u "${USER}" -SIGURG bash
 }
 
 # strlen
 # prints the length of all arguments, spaces included
-function strlen() {
+strlen() {
 	local str="${*}"
 	echo "${#str}"
 }
 
 # man - colorize man pages
 # overloads the existing man command and supplements it with colors
-function man() {
+man() {
 	env \
 	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
 	LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -86,7 +91,7 @@ function man() {
 
 # prj - cd to projects
 # cds to the project folder or to a specified project
-function prj() {
+prj() {
 	if [[ -z "${1}" ]] ; then
 		cd "${HOME}/Dropbox/dev/"
 	else
@@ -95,7 +100,7 @@ function prj() {
 }
 
 # shah - get sha1 and output just the hash
-function shah() {
+shah() {
 	if [[ -n "${1}" ]] ; then
 		shasum "${1}" | awk '{ print $1 }'
 	else
@@ -105,38 +110,38 @@ function shah() {
 
 # fw, lw, ew - expand file, less, editor input from which
 # useful for reading from files on the PATH without their paths
-function fw() {
+fw() {
 	file $(which ${1})
 }
 
-function lw() {
+lw() {
 	less $(which ${1})
 }
 
-function ew() {
+ew() {
 	$EDITOR $(which ${1})
 }
 
 # jmp (jump) and friends, shamelessly taken from:
 # http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
-function jmp() {
+jmp() {
 	cd -P "${MARKPATH}/${1}" 2> /dev/null || echo "No such mark: ${1}"
 }
 
-function mrk() {
+mrk() {
 	mkdir -p "${MARKPATH}" ; ln -s "${PWD}" "${MARKPATH}/${1}"
 }
 
-function umrk() {
+umrk() {
 	rm "${MARKPATH}/${1}"
 }
 
-function mrks() {
+mrks() {
 	ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
 
 # dump the HTTP response code for a URL to stdout
-function http_code() {
+http_code() {
 	if [[ -n "${1}" ]] ; then
 		curl -o /dev/null --silent --head --write-out '%{http_code}\n' "${1}"
 	else
@@ -145,7 +150,7 @@ function http_code() {
 }
 
 # dump the HTTP response headers for a URL to stdout
-function http_headers() {
+http_headers() {
 	if [[ -n "${1}" ]]; then
 		curl -I "${1}"
 	else
@@ -154,23 +159,23 @@ function http_headers() {
 }
 
 # make a directory and cd into it
-function mkcd() {
+mkcd() {
 	mkdir -p "$1" && cd "$1"
 }
 
 # dump a manpage to stdout, with nroff formatting cruft removed
-function mand() {
+mand() {
 	man "$1" | col -bx
 }
 
 # sum $1 or stdin, one number per line
 # http://stackoverflow.com/a/450821
-function sum() {
+sum() {
 	awk '{ sum += $1 } END { print sum }' "${1:--}"
 }
 
 # pdf wordcount
-function pdfwc() {
+pdfwc() {
 	installed pdftotext || { printf "Error: pdftotext required.\n" ; return 1 ; }
 	[[ -f "${1}" ]] || { printf "Error: '${1}' is not a file.\n" ; return 2 ; }
 
@@ -178,7 +183,7 @@ function pdfwc() {
 }
 
 # cd to gvfs-mounted directory
-function gvcd() {
+gvcd() {
 	cd "/run/user/$(id -u)/gvfs/${1}"
 }
 
@@ -349,20 +354,20 @@ trap bashreload SIGURG # reload configs when SIGURG is received
 # COMPLETION FUNCTIONS #
 ########################
 
-function _completemarks() {
+_completemarks() {
 	local curw=${COMP_WORDS[COMP_CWORD]}
 	local wordlist=$(ls ${MARKPATH} 2> /dev/null)
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
-function _completeprj() {
+_completeprj() {
 	local curw=${COMP_WORDS[COMP_CWORD]}
 	local wordlist=$(ls ~/Dropbox/dev 2> /dev/null)
 	compopt -o filenames
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
-function _completegvcd() {
+_completegvcd() {
 	local curw=${COMP_WORDS[COMP_CWORD]}
 	local wordlist=$(ls /run/user/$(id -u)/gvfs 2> /dev/null)
 	compopt -o filenames
