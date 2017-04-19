@@ -361,6 +361,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/nautilus-xenial-gopro-install ~/scripts/nautilus-xenial-gopro-install
 		cp ~/.dotfiles/scripts/open-pdf ~/scripts/open-pdf
 		cp ~/.dotfiles/scripts/bug-roommates ~/scripts/bug-roommates
+		cp ~/.dotfiles/scripts/music ~/scripts/music
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# music: play music via mpv and manage it via ncmpcpp, all from a remote mpd
+# modified from lyk's `music`
+
+# XXX: do some install guarding/other checks
+
+server="zeenbox"
+stream="https://thing-in-itself.net/radio/"
+mpvopts=(--no-force-window --cache-initial 50 --no-resume-playback)
+
+ssh -N -L6600:127.0.0.1:6600 "${server}" &
+mpv "${mpvopts[@]}" "${stream}" &>/dev/null &
+ncmpcpp -h 127.0.0.1
+kill %1 %2
+sleep 0.1
+clear
