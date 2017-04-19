@@ -7,8 +7,8 @@ require "open3"
 
 URL = "https://api.groupme.com/v3/groups/%{group_id}/messages"
 
-group_id = `kbsecret env --value-only groupme-roommate-id`.chomp
-token = `kbsecret env --value-only groupme-api`.chomp
+group_id = `kbsecret env -s keys -v groupme-roommate-id`.chomp
+token = `kbsecret env -s -v groupme-api`.chomp
 url = URL % { group_id: group_id }
 header_flag = "--header 'X-Access-Token: #{token}'"
 
