@@ -218,8 +218,10 @@ fetch_files() {
 
 	printf "Checking for urxvt..."
 	if installed urxvt ; then
-		printf "found. Reloading Xdefaults..."
+		printf "found. Reloading Xdefaults and extensions..."
 		cp ~/.dotfiles/Xdefaults ~/.Xdefaults
+		mkdir -p ~/.urxvt/ext
+		cp -R ~/.dotfiles/urxvt/ext/* ~/.urxvt/ext
 		green "done"
 	else
 		yellow "not installed. Skipping"
