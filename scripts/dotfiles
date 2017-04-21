@@ -288,6 +288,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/kbsecret-snip ~/scripts/kbsecret-snip
 		cp ~/.dotfiles/scripts/kbsecret-todo-list ~/scripts/kbsecret-todo-list
 		cp ~/.dotfiles/scripts/todo ~/scripts/todo
+		cp ~/.dotfiles/scripts/snip ~/scripts/snip
 		green "done"
 	else
 		yellow "not installed. Skipping"
