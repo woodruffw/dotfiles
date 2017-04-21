@@ -35,9 +35,6 @@ ensure() {
 
 sanity-checks() {
 	ensure installed kbsecret
-
-	ensure kbsecret sessions \
-		| ensure grep -q "${SESSION}"
 }
 
 session-call() {
