@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+# snip: a wrapper over kbsecret + snippet records
+
+SESSION="${SESSION:-snippets}"
+
+green() {
+	echo -e "\e[32m${*}\e[0m"
+}
+
+yellow() {
+	echo -e "\e[33m${*}\e[0m"
+}
+
+red() {
+	echo -e "\e[31m${*}\e[0m"
+}
+
+die() {
+	echo "Error: $*" >&2
+	exit 1
+}
+
+installed() {
+	local cmd=$(command -v "${1}")
+
+	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+ensure() {
+	"$@" \
+		|| die "Failed to run '$*'. Aborting."
+}
+
+sanity-checks() {
+	ensure installed selecta
+	ensure installed kbsecret
+}
+
+session-call() {
+	cmd="${1}" ; shift
+	ensure kbsecret "${cmd}" -s "${SESSION}" "${@}"
+}
+
+usage() {
+	cat <<-EOS
+		Usage: snip [subcommand]
+
+		Subcommands:
+		  help
+		  list
+		  new <label> <code>
+		  rm <label>
+	EOS
+}
+
+list-snippets() {
+	session-call list -t snippet
+}
+
+new-snippet() {
+	label="${1}" ; shift
+	code="${*}"
+	desc="placeholder" # kbsecret snip doesn't show the desc, so we don't care
+
+	session-call new -f snippet "${label}" "${code}" "${desc}"
+}
+
+remove-snippet() {
+	label="${1}"
+	session-call rm "${label}"
+}
+
+not-found() {
+	echo "$(basename ${0}): no such command: '${1}'"
+}
+
+sanity-checks
+
+cmd="${1}" ; shift
+
+if [[ -z "${cmd}" ]] ; then
+	session-call snip -e
+else
+	case "${cmd}" in
+		--help|-h|help ) usage ; exit ;;
+		ls|list ) list-snippets "${@}" ;;
+		n|new ) new-snippet "${@}" ;;
+		rm ) remove-snippet "${@}" ;;
+		* ) not-found "${cmd}" ; usage ; exit 1 ;;
+	esac
+fi
+
