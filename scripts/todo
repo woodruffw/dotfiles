@@ -38,7 +38,7 @@ sanity-checks() {
 }
 
 session-call() {
-	cmd="${1}"; shift
+	cmd="${1}" ; shift
 	ensure kbsecret "${cmd}" -s "${SESSION}" "${@}"
 }
 
@@ -60,7 +60,7 @@ usage() {
 }
 
 list-todos() {
-	if [[ "${1}" = "--plain" ]]; then
+	if [[ "${1}" = "--plain" ]] ; then
 		session-call list -t todo
 	else
 		completed="$(session-call todo-list --detail completed)"
@@ -75,7 +75,7 @@ list-todos() {
 prune-todos() {
 	[[ "${1}" = "--interactive" ]] && rmflag="-i" ; shift
 
-	for todo in $(session-call todo-list completed); do
+	for todo in $(session-call todo-list completed) ; do
 		session-call rm "${rmflag}" "${todo}"
 	done
 }
