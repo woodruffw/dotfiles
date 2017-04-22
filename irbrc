@@ -23,6 +23,11 @@ begin
 rescue LoadError
 end
 
+begin
+	require "irbtools"
+rescue LoadError
+end
+
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:AUTO_INDENT] = true
 
