@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # xyz radio client script
-# version 2.7 lol
+# version 2.7-1 lol
 
 # usage:
 #   0 =   raise volume
@@ -18,59 +18,59 @@ tput civis
 fifo=/tmp/radiofifo
 mkfifo $fifo
 prev="pls"
-trap "rm -f $fifo & tput cnorm & exit" EXIT
+trap 'rm -f $fifo & tput cnorm & exit' EXIT
 mpv --cache-initial 25 \
-    --no-resume-playback \
-    --no-force-window \
-    --input-file=$fifo \
-    https://rectilinear.xyz/radio/stream \
-    &>/dev/null & mpv_pid=$!
+	--no-resume-playback \
+	--no-force-window \
+	--input-file=$fifo \
+	https://rectilinear.xyz/radio/stream \
+	&>/dev/null &
 clear
 
 while :
 do
-    current=$(curl -s https://rectilinear.xyz/radio/current)
-    if [ "$current" != "$prev" ]; then
-        if [ "$resize" == "yes" ]; then
-            size=$(wc -L <<< "$current")
-            if [ "$size" == "0" ]; then
-                sleep 1s
-                current=$(curl -s https://rectilinear.xyz/radio/current)
-                size=$(wc -L <<< "$current")
-                if [ "$size" == "0" ]; then
-                    error="could not reach network, please C-c and try again"
-                    esize=$(wc -L <<< "$error")
-                    printf "\e[8;2;$esize;t"
-		    printf '\033c'
-		    tput civis
-                    clear
-		    printf "$error"
-		    tput civis
-                    sleep 600000s # a hack for exit not working
-                else
-                    printf "\e[8;1;$size;t"
-                fi
-            else
-                printf "\e[8;1;$size;t"
-            fi
-        fi
+	current=$(curl -s https://rectilinear.xyz/radio/current)
+	if [ "$current" != "$prev" ]; then
+		if [ "$resize" == "yes" ]; then
+			size=$(wc -L <<< "$current")
+			if [ "$size" == "0" ]; then
+				sleep 1s
+				current=$(curl -s https://rectilinear.xyz/radio/current)
+				size=$(wc -L <<< "$current")
+				if [ "$size" == "0" ]; then
+					error="could not reach network, please C-c and try again"
+					esize=$(wc -L <<< "$error")
+					printf "\e[8;2;%s;t" "$esize"
+					printf '\033c'
+					tput civis
+					clear
+					printf "%s" "$error"
+					tput civis
+					sleep 600000s # a hack for exit not working
+				else
+					printf "\e[8;1;%s;t" "$size"
+				fi
+			else
+				printf "\e[8;1;%s;t" "$size"
+			fi
+		fi
 	printf '\033c'
 	tput civis
-        clear
-        printf "$current"
-        prev=$current
-    fi
-    sleep 5s # please do not lower this, there's no need
+		clear
+		printf "%s" "$current"
+		prev=$current
+	fi
+	sleep 5s # please do not lower this, there's no need
 done &
 
 while :
 do
-    read -s -n1 option
-    case "$option" in
-        0|=) command="volume +5" ;;
-        9|-) command="volume -5" ;;
-        p) command="pause" ;;
-        *) command="" ;;
-    esac
-    echo "$command" > $fifo
+	read -s -n1 option
+	case "$option" in
+		0|=) command="volume +5" ;;
+		9|-) command="volume -5" ;;
+		p) command="pause" ;;
+		*) command="" ;;
+	esac
+	echo "$command" > $fifo
 done

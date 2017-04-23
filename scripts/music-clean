@@ -6,7 +6,7 @@
 [[ "${BASH_VERSINFO[0]}" -lt 4 ]] && exit 1 # we need bash >= 4.0
 
 function installed() {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}

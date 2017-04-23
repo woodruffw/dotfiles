@@ -5,9 +5,9 @@
 
 datetime="date +%H:%M"
 
-printf "NYC:\t%s\n" $(TZ="America/New_York" ${datetime})
-printf "SF:\t%s\n" $(TZ="America/Los_Angeles" ${datetime})
-printf "London:\t%s\n" $(TZ="Europe/London" ${datetime})
-printf "Paris:\t%s\n" $(TZ="Europe/Paris" ${datetime})
-printf "Berlin:\t%s\n" $(TZ="Europe/Berlin" ${datetime})
-printf "Tokyo:\t%s\n" $(TZ="Asia/Tokyo" ${datetime})
+printf "NYC:\t%s\n" "$(TZ="America/New_York" ${datetime})"
+printf "SF:\t%s\n" "$(TZ="America/Los_Angeles" ${datetime})"
+printf "London:\t%s\n" "$(TZ="Europe/London" ${datetime})"
+printf "Paris:\t%s\n" "$(TZ="Europe/Paris" ${datetime})"
+printf "Berlin:\t%s\n" "$(TZ="Europe/Berlin" ${datetime})"
+printf "Tokyo:\t%s\n" "$(TZ="Asia/Tokyo" ${datetime})"

@@ -13,7 +13,7 @@ ensure() {
 }
 
 installed() {
-  local cmd=$(command -v "${1}")
+  cmd=$(command -v "${1}")
 
   [[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
   return ${?}

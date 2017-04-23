@@ -3,7 +3,7 @@
 # music-backup: use rsync to back ~/music up to /media/backup/music
 
 function installed {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}

@@ -22,7 +22,7 @@ die() {
 }
 
 installed() {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
@@ -101,7 +101,7 @@ mark-todo() {
 }
 
 not-found() {
-	echo "$(basename ${0}): no such command: '${1}'"
+	echo "todo: no such command: '${1}'"
 }
 
 sanity-checks

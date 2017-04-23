@@ -3,7 +3,7 @@
 # music-tree: store a backup representation of the music directory using `tree`
 
 function installed {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
@@ -13,8 +13,8 @@ music_dir="${HOME}/music"
 music_txt="${HOME}/music.txt"
 
 if installed tree ; then
-	tree -d --charset ascii --noreport -o ${music_txt} ${music_dir}
+	tree -d --charset ascii --noreport -o "${music_txt}" "${music_dir}"
 else
-	echo 'Fatal: no `tree` utility.' > ${music_txt}
+	echo 'Fatal: no tree utility.' > "${music_txt}"
 	exit 1
 fi
