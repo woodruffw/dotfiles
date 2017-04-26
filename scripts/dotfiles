@@ -208,7 +208,9 @@ fetch_files() {
 
 	printf "Checking for ruby..."
 	if installed ruby ; then
-		printf "found. Reloading irbrc and gemrc..."
+		printf "found. Reloading bundle config, irbrc and gemrc..."
+		mkdir -p ~/.bundle
+		cp ~/.dotfiles/bundle/config ~/.bundle/config
 		cp ~/.dotfiles/irbrc ~/.irbrc
 		cp ~/.dotfiles/gemrc ~/.gemrc
 		green "done"
