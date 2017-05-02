@@ -12,9 +12,9 @@
 
 # __generate_prompt - generate the PS1 dynamically
 __generate_prompt() {
-	local exitcode="${?}"
-	local jobcount=$(jobs | wc -l | sed -e 's/^[ \t]*//')
-	local branch=$(git symbolic-ref HEAD 2> /dev/null)
+	exitcode="${?}"
+	jobcount=$(jobs | wc -l | sed -e 's/^[ \t]*//')
+	branch=$(git symbolic-ref HEAD 2> /dev/null)
 
 	if [[ "${exitcode}" -eq 0 ]]; then
 		exitcode="\[${COLOR_GRN}\]${exitcode}\[${COLOR_NRM}\]"
@@ -28,7 +28,7 @@ __generate_prompt() {
 		jobcount="\[${COLOR_YLW}\]${jobcount}\[${COLOR_NRM}\]"
 	fi
 
-	local jobsexit="[${jobcount}:${exitcode}]"
+	jobsexit="[${jobcount}:${exitcode}]"
 
 	if [[ -n "${branch}" ]]; then
 		branch="\[${COLOR_RED}\]${branch#refs/heads/}\[${COLOR_NRM}\]"
@@ -45,12 +45,12 @@ __generate_prompt() {
 
 # title - update the terminal's title
 title() {
-	echo -ne "\033]0;${@}\007"
+	echo -ne "\033]0;${*}\007"
 }
 
 # installed - check if a program is both available and a file (no aliases/functions)
 installed() {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
@@ -79,13 +79,13 @@ strlen() {
 # overloads the existing man command and supplements it with colors
 man() {
 	env \
-	LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-	LESS_TERMCAP_md=$(printf "\e[1;31m") \
-	LESS_TERMCAP_me=$(printf "\e[0m") \
-	LESS_TERMCAP_se=$(printf "\e[0m") \
-	LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-	LESS_TERMCAP_ue=$(printf "\e[0m") \
-	LESS_TERMCAP_us=$(printf "\e[1;32m") \
+	LESS_TERMCAP_mb="$(printf "\e[1;31m")" \
+	LESS_TERMCAP_md="$(printf "\e[1;31m")" \
+	LESS_TERMCAP_me="$(printf "\e[0m")" \
+	LESS_TERMCAP_se="$(printf "\e[0m")" \
+	LESS_TERMCAP_so="$(printf "\e[1;44;33m")" \
+	LESS_TERMCAP_ue="$(printf "\e[0m")" \
+	LESS_TERMCAP_us="$(printf "\e[1;32m")" \
 	man "${@}"
 }
 
@@ -111,15 +111,15 @@ shah() {
 # fw, lw, ew - expand file, less, editor input from which
 # useful for reading from files on the PATH without their paths
 fw() {
-	file $(which ${1})
+	file "$(which "${1}")"
 }
 
 lw() {
-	less $(which ${1})
+	less "$(which "${1}")"
 }
 
 ew() {
-	$EDITOR $(which ${1})
+	$EDITOR "$(which "${1}")"
 }
 
 # jmp (jump) and friends, shamelessly taken from:
@@ -137,6 +137,7 @@ umrk() {
 }
 
 mrks() {
+	# shellcheck disable=SC2012
 	ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
 }
 
@@ -176,15 +177,10 @@ sum() {
 
 # pdf wordcount
 pdfwc() {
-	installed pdftotext || { printf "Error: pdftotext required.\n" ; return 1 ; }
-	[[ -f "${1}" ]] || { printf "Error: '${1}' is not a file.\n" ; return 2 ; }
+	installed pdftotext || { echo "Error: pdftotext required." ; return 1 ; }
+	[[ -f "${1}" ]] || { echo "Error: '${1}' is not a file." ; return 2 ; }
 
 	pdftotext "${1}" - | wc -w
-}
-
-# cd to gvfs-mounted directory
-gvcd() {
-	cd "/run/user/$(id -u)/gvfs/${1}"
 }
 
 system=$(uname)
@@ -207,11 +203,6 @@ export COLOR_MAG='\e[0;35m'
 export COLOR_CYN='\e[0;36m'
 export COLOR_WHT='\e[0;37m'
 export COLOR_NRM='\033[0m'
-
-# convenient text modes
-export TEXT_BOLD=$(tput bold)
-export TEXT_UNDL=$(tput smul)
-export TEXT_RMUL=$(tput rmul)
 
 ###########
 # Aliases #
@@ -355,22 +346,18 @@ trap bashreload SIGURG # reload configs when SIGURG is received
 ########################
 
 _completemarks() {
-	local curw=${COMP_WORDS[COMP_CWORD]}
-	local wordlist=$(ls ${MARKPATH} 2> /dev/null)
+	curw=${COMP_WORDS[COMP_CWORD]}
+	wordlist="$(ls "${MARKPATH}" 2> /dev/null)"
+	# shellcheck disable=SC2016
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 
 _completeprj() {
-	local curw=${COMP_WORDS[COMP_CWORD]}
-	local wordlist=$(ls ~/Dropbox/dev 2> /dev/null)
+	curw=${COMP_WORDS[COMP_CWORD]}
+	# shellcheck disable=SC2034
+	wordlist="$(ls ~/Dropbox/dev 2> /dev/null)"
 	compopt -o filenames
-	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
-}
-
-_completegvcd() {
-	local curw=${COMP_WORDS[COMP_CWORD]}
-	local wordlist=$(ls /run/user/$(id -u)/gvfs 2> /dev/null)
-	compopt -o filenames
+	# shellcheck disable=SC2016
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
 }
 

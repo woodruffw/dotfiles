@@ -5,18 +5,18 @@
 # this file is disgusting, and will never be fixed.
 
 installed() {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
 }
 
 green() {
-	printf "${COLOR_GRN}${@}${COLOR_NRM}.\n"
+	printf "%s%s%s.\n" "${COLOR_GRN}" "${*}" "${COLOR_NRM}"
 }
 
 yellow() {
-	printf "${COLOR_YLW}${@}${COLOR_NRM}.\n"
+	printf "%s%s%s.\n" "${COLOR_YLW}" "${*}" "${COLOR_NRM}"
 }
 
 die() {
@@ -30,8 +30,8 @@ ensure() {
 }
 
 fetch_files() {
-	local system=$(uname)
-	local host=$(hostname)
+	system=$(uname)
+	host=$(hostname)
 
 	if ! installed git ; then
 		die "git required to fetch configs."
@@ -92,7 +92,7 @@ fetch_files() {
 	printf "Checking for rtorrent..."
 	if installed rtorrent ; then
 		printf "found. Reloading rtorrent.rc and magnet scripts..."
-		if [[ ~/.dotfiles/rtorrent-${host}.rc ]]; then
+		if [[ -f ~/.dotfiles/rtorrent-${host}.rc ]]; then
 			cp ~/.dotfiles/rtorrent-${host}.rc ~/.rtorrent.rc
 		else
 			printf "skipping rtorrent.rc.\n"

@@ -3,17 +3,17 @@
 # open-pdf: open PDF(s) in mupdf using zenity
 
 installed() {
-  local cmd=$(command -v "${1}")
+  cmd=$(command -v "${1}")
 
   [[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
   return ${?}
 }
 
 notify() {
-  local notify_cmd="xmessage -center -timeout 3 '${@}'"
+  notify_cmd="xmessage -center -timeout 3 '${*}'"
 
   if installed zenity; then
-    notify_cmd="zenity --info --timeout=3 --text='${@}'"
+    notify_cmd="zenity --info --timeout=3 --text='${*}'"
   fi
 
   if installed notify-send; then
@@ -30,7 +30,7 @@ die-notify() {
 
 ensure() {
   "$@" \
-    || die-notify "$(basename ${0}): Failed to run '$*'."
+    || die-notify "open-pdf: Failed to run '$*'."
 }
 
 quiet() {
