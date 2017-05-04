@@ -13,3 +13,10 @@ desktop.ini
 *#
 *.swp
 
+# Compilation byproducts
+*.so
+*.dylib
+*.exe
+*.o
+*.a
+a.out
