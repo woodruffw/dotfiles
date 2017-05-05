@@ -12,11 +12,11 @@ installed() {
 }
 
 green() {
-	printf "%s%s%s.\n" "${COLOR_GRN}" "${*}" "${COLOR_NRM}"
+	echo -e "${COLOR_GRN}${*}${COLOR_NRM}"
 }
 
 yellow() {
-	printf "%s%s%s.\n" "${COLOR_YLW}" "${*}" "${COLOR_NRM}"
+	echo -e "${COLOR_YLW}${*}${COLOR_NRM}"
 }
 
 die() {
