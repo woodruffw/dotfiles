@@ -277,7 +277,7 @@ fetch_files() {
 		printf "found. Reloading utilities..."
 		cp ~/.dotfiles/scripts/muzak-now-playing ~/scripts/muzak-now-playing
 		cp ~/.dotfiles/scripts/muzak-rebase-index ~/scripts/muzak-rebase-index
-		cp ~/.dotfiles/scripts/muzak-9menurebase-index ~/scripts/muzak-9menu
+		cp ~/.dotfiles/scripts/muzak-9menu ~/scripts/muzak-9menu
 		green "done"
 	else
 		yellow "not installed. Skipping"
