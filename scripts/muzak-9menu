@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# muzak-9menu: interact with muzak via 9menu
+
+die() {
+	echo "Error: $*" >&2
+	exit 1
+}
+
+installed() {
+	cmd=$(command -v "${1}")
+
+	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+	return ${?}
+}
+
+ensure() {
+	"$@" \
+		|| die "Failed to run '$*'. Aborting."
+}
+
+ensure installed muzakd
+ensure installed 9menu
+
+buttons=(
+	'play/pause:muzak-cmd toggle'
+	'next:muzak-cmd next'
+	'previous:muzak-cmd previous'
+	'dmenu:muzak-dmenu'
+	'kill:muzak-cmd quit'
+	'exit'
+)
+
+9menu -label muzak "${buttons[@]}"
