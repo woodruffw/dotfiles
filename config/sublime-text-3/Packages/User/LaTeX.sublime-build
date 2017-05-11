@@ -1,13 +1,13 @@
 {
 	"selector": "text.tex.latex",
 	"shell": true,
-	"cmd": ["pdflatex \"$file_name\" && killall -HUP mupdf-x11"],
+	"cmd": ["pdflatex -halt-on-error \"$file_name\" && killall -HUP mupdf-x11"],
 
 	"variants": [
 		{
 			"name": "Run",
 			"shell": true,
-			"cmd": ["pdflatex \"$file_name\" && xdg-open \"$file_base_name.pdf\""]
+			"cmd": ["pdflatex -halt-on-error \"$file_name\" && xdg-open \"$file_base_name.pdf\""]
 		}
 	]
 }
