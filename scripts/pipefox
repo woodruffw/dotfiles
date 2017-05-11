@@ -4,7 +4,7 @@
 # https://unix.stackexchange.com/questions/24931/how-to-make-firefox-read-stdin
 
 function installed {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
