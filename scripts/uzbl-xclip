@@ -3,20 +3,20 @@
 # uzbl-xclip: open the URI in the clipboard in uzbl-tabbed
 
 function installed {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
 }
 
 function fatal {
-	>&2 printf "Fatal: ${*}. Exiting.\n"
+	>&2 echo "Fatal: ${*}. Exiting."
 	exit 2
 }
 
 function notify {
 	installed notify-send || fatal "No notify-send"
-	notify-send "$(basename ${0})" "${*}"
+	notify-send "$(basename "${0}")" "${*}"
 }
 
 function notify-fatal {
@@ -33,7 +33,7 @@ function uzbl_url {
 installed xclip || notify-fatal "xclip is needed"
 installed uzbl-tabbed || notify-fatal "uzbl-tabbed is needed"
 
-if xclip -o 2>&1 > /dev/null ; then
+if xclip -o > 2>&1 /dev/null ; then
 	resource=$(xclip -o)
 
 	if [[ -n "${resource}" ]] && uzbl_url "${resource}"; then

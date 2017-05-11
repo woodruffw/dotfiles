@@ -4,7 +4,7 @@
 # and block them via /etc/hosts
 
 installed() {
-  local cmd=$(command -v "${1}")
+  cmd=$(command -v "${1}")
 
   [[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
   return ${?}
@@ -17,7 +17,7 @@ die() {
 
 ensure() {
   "$@" \
-    || die "$(basename ${0}): Failed to run '$*'."
+    || die "$(basename "${0}"): Failed to run '$*'."
 }
 
 hosts_url="https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
