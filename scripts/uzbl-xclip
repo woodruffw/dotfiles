@@ -33,7 +33,7 @@ function uzbl_url {
 installed xclip || notify-fatal "xclip is needed"
 installed uzbl-tabbed || notify-fatal "uzbl-tabbed is needed"
 
-if xclip -o > 2>&1 /dev/null ; then
+if xclip -o 2>&1 /dev/null ; then
 	resource=$(xclip -o)
 
 	if [[ -n "${resource}" ]] && uzbl_url "${resource}"; then
