@@ -7,7 +7,12 @@
 
 server="zeenbox"
 stream="https://thing-in-itself.net/radio/"
-mpvopts=(--no-force-window --cache-initial 50 --no-resume-playback)
+mpvopts=(
+	--no-force-window
+	--cache=no
+	--no-force-seekable
+	--no-resume-playback
+)
 
 ssh -f -N -L6600:127.0.0.1:6600 "${server}"
 mpv "${mpvopts[@]}" "${stream}" &>/dev/null &
