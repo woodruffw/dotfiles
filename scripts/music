@@ -1,10 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# music: play music via mpv and manage it via ncmpcpp, all from a remote mpd
+# music: create a tmux layout to play and manage music from a remote mpd
 # modified from lyk's `music`
 
-# XXX: do some install guarding/other checks
+installed() {
+	for cmd in "${@}"; do
+		exp=$(command -v "${cmd}")
 
+		[[ -n "${exp}" ]] && [[ -f "${exp}" ]]
+		return ${?}
+	done
+}
+
+ensure() {
+	"$@" \
+		|| die "Failed to run '$*'. Aborting."
+}
+
+tmux_session=music
+tmux_split="${1:--v}"
 server="zeenbox"
 stream="https://thing-in-itself.net/radio/"
 mpvopts=(
@@ -14,9 +28,23 @@ mpvopts=(
 	--no-resume-playback
 )
 
-ssh -f -N -L6600:127.0.0.1:6600 "${server}"
-mpv "${mpvopts[@]}" "${stream}" &>/dev/null &
-ncmpcpp -h 127.0.0.1
-kill %1
-sleep 0.1
-clear
+ensure installed ssh tmux ncmpcpp mpv
+ensure ssh -f -N -L6600:127.0.0.1:6600 "${server}"
+
+tmux new-session -d -s "${tmux_session}"
+
+# Expected layout:
+#  _____________
+# |      |      |
+# | ncmp |  mpv |
+# | cpp  |      |
+# |      |      |
+# |      |      |
+#  -------------
+tmux split-window "${tmux_split}"
+tmux select-pane -t 0
+tmux send-keys "ncmpcpp -h 127.0.0.1" C-m
+tmux select-pane -t 1
+tmux send-keys "mpv ${mpvopts[*]} ${stream}" C-m
+
+tmux attach-session -t "${tmux_session}"
