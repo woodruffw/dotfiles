@@ -46,5 +46,6 @@ tmux select-pane -t 0
 tmux send-keys "ncmpcpp -h 127.0.0.1" C-m
 tmux select-pane -t 1
 tmux send-keys "mpv ${mpvopts[*]} ${stream}" C-m
+tmux select-pane -t 0
 
 tmux attach-session -t "${tmux_session}"
