@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+# streamable-upload: upload a file to streamable
+
+die() {
+	echo "Error: $*" >&2
+	exit 1
+}
+
+installed() {
+	for cmd in "${@}"; do
+		exp=$(command -v "${cmd}")
+
+		[[ -n "${exp}" ]] && [[ -f "${exp}" ]]
+		return ${?}
+	done
+}
+
+ensure() {
+	"$@" \
+		|| die "Failed to run '$*'. Aborting."
+}
+
+ensure installed curl kbsecret
+
+upload="${1}"
+title="${2:-$(basename "${upload}")}"
+
+[[ -f "${upload}" ]] || die "I need a file to upload."
+
+fields=($(kbsecret login -t -i " " streamable))
+
+curl https://api.streamable.com/upload \
+	-u "${fields[1]}":"${fields[2]}" \
+	-F file=@"${upload}" \
+	-F title="${title}"

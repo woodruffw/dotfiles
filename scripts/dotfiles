@@ -369,6 +369,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/open-pdf ~/scripts/open-pdf
 		cp ~/.dotfiles/scripts/bug-roommates ~/scripts/bug-roommates
 		cp ~/.dotfiles/scripts/music ~/scripts/music
+		cp ~/.dotfiles/scripts/streamable-upload ~/scripts/streamable-upload
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
