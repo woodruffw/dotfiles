@@ -1,0 +1,9 @@
+{
+	"align_indent": true,
+	"mid_line_tabs": false,
+	"alignment_chars": ["=", ":"],
+	"alignment_space_chars": ["=", ":"],
+	"alignment_prefix_chars": [
+	  "+", "-", "&", "|", "<", ">", "!", "~", "%", "/", "*", ".", ":"
+	],
+}

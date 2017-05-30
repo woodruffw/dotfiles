@@ -1,4 +1,5 @@
 [
 	{ "keys": ["alt+up"], "command": "select_lines", "args": {"forward": false} },
-	{ "keys": ["alt+down"], "command": "select_lines", "args": {"forward": true} }
+	{ "keys": ["alt+down"], "command": "select_lines", "args": {"forward": true} },
+	{ "keys": ["alt+a"], "command": "alignment" },
 ]
