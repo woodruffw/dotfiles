@@ -28,7 +28,7 @@ title="${2:-$(basename "${upload}")}"
 
 [[ -f "${upload}" ]] || die "I need a file to upload."
 
-fields=($(kbsecret login -t -i " " streamable))
+fields=($(kbsecret login --terse -i " " streamable))
 
 curl https://api.streamable.com/upload \
 	-u "${fields[1]}":"${fields[2]}" \
