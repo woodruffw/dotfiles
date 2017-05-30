@@ -1,0 +1,19 @@
+# Global style enforcement.
+
+AllCops:
+  TargetRubyVersion: 2.3
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/FormatString:
+  EnforcedStyle: percent
+
+Metrics/LineLength:
+  Max: 90
