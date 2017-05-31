@@ -371,6 +371,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/bug-roommates ~/scripts/bug-roommates
 		cp ~/.dotfiles/scripts/music ~/scripts/music
 		cp ~/.dotfiles/scripts/streamable-upload ~/scripts/streamable-upload
+		cp ~/.dotfiles/scripts/nft ~/scripts/nft
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# nft: nice floating terminal
+
+urxvt -title floaterm -depth 32 -bg "[75]#252627"
