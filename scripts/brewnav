@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 # brewnav: quick dmenu integration for my frequent homebrew links
 
@@ -13,7 +14,7 @@ URL_MAP = {
   "woodruffw/core" => "https://github.com/woodruffw/homebrew-core/",
   "core-pulls" => "https://github.com/Homebrew/homebrew-core/pulls/",
   "brew-pulls" => "https://github.com/Homebrew/brew/pulls/",
-}
+}.freeze
 
 def browse(url)
   system BROWSER, url
