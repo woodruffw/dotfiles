@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 # forecast.rb
 # Author: William Woodruff
@@ -15,9 +16,11 @@ rescue LoadError
   abort "I need the 'wunderground' gem."
 end
 
-KEY = ENV["WUNDERGROUND_API_KEY"]
-
-abort("I need a $WUNDERGROUND_API_KEY in your environment.") unless KEY
+begin
+  KEY = `kbsecret env -vs keys wunderground-api`.chomp.freeze
+rescue => e
+  abort("Couldn't get API key from kbsecret: #{e}.")
+end
 
 wunder = Wunderground.new(KEY)
 query = ARGV.join(" ")
@@ -30,7 +33,7 @@ begin
   # even period numbers are day forecasts, odds are night forecasts
   days = forecast["txt_forecast"]["forecastday"].select { |w| w["period"].even? }
 rescue => e
-  puts "Something blew up: #{e.to_s}."
+  puts "Something blew up: #{e}."
 end
 
 days.each do |day|
