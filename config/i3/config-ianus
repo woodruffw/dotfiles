@@ -241,6 +241,7 @@ for_window [title="cava"] floating enable
 for_window [title="Netflix"] floating enable
 for_window [title="^TightVNC: .*$"] floating enable
 for_window [class="^Zenity$"] floating enable
+for_window [class="^Yad$"] floating enable
 
 # floating steam dialogs
 for_window [class="^Steam$" title="^Friends$"] floating enable
