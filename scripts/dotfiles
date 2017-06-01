@@ -288,7 +288,7 @@ fetch_files() {
 	printf "Checking for kbsecret..."
 	if installed kbsecret ; then
 		printf "found. Reloading scripts..."
-		cp ~/.dotfiles/scripts/kbsecret-zen-login ~/scripts/kbsecret-zen-login
+		cp ~/.dotfiles/scripts/kbsecret-yad-login ~/scripts/kbsecret-yad-login
 		cp ~/.dotfiles/scripts/kbsecret-dmenu-pass ~/scripts/kbsecret-dmenu-pass
 		cp ~/.dotfiles/scripts/kbsecret-snip ~/scripts/kbsecret-snip
 		cp ~/.dotfiles/scripts/kbsecret-todo-list ~/scripts/kbsecret-todo-list
@@ -406,6 +406,7 @@ fetch_files() {
 	rm -f ~/scripts/magnet-to-torrent.pl
 	rm -f ~/scripts/speaker
 	rm -f ~/scripts/tepm
+	rm -f ~/scripts/kbsecret-zen-login
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
