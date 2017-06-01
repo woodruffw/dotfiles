@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+active_todos = `kbsecret todo-list -s todos started`.split.map do |todo|
+  "#{todo}:sh -c 'todo complete #{todo}; #{$PROGRAM_NAME}'"
+end
+
+return if active_todos.empty?
+
+args = %w[9menu -popup -label 9todo] + active_todos
+
+exec(*args)
