@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# bak: create backup copies of files
+# modified from rtomayko/dotfiles
+
+if [ $# = 0 ] ; then
+  echo "usage: bak FILE ..."
+  echo "copy FILE(s) to FILE.bak"
+else
+  for f in "${@}" ; do
+    cp -p "${f}" "${f}.bak"
+  done
+fi
