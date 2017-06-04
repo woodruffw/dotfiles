@@ -347,6 +347,7 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/update-hosts ~/scripts/update-hosts
 	cp ~/.dotfiles/scripts/license ~/scripts/license
 	cp ~/.dotfiles/scripts/bak ~/scripts/bak
+	cp ~/.dotfiles/scripts/git-gem-release-tag ~/scripts/git-gem-release-tag
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
