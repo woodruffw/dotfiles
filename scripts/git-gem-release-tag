@@ -27,3 +27,5 @@ system "git tag #{version}"
 system "git push origin #{version}"
 system "gem build #{specname}"
 system "gem push #{specname}-#{version}.gem"
+
+File.delete("#{specname}-#{version}.gem")
