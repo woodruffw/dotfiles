@@ -25,7 +25,7 @@ abort("Couldn't find #{specname}.gemspec") unless File.file?(gemspec)
 # you'd better hope each of these steps works!
 system "git tag #{version}"
 system "git push origin #{version}"
-system "gem build #{specname}"
+system "gem build #{specname}.gemspec"
 system "gem push #{specname}-#{version}.gem"
 
 File.delete("#{specname}-#{version}.gem")
