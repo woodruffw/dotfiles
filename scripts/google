@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# google: use dmenu to send a google query
+
+query=$(dmenu -p google < /dev/null)
+url="https://google.com/search?q=${query}"
+
+firefox "${url}"
