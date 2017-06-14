@@ -348,6 +348,7 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/license ~/scripts/license
 	cp ~/.dotfiles/scripts/bak ~/scripts/bak
 	cp ~/.dotfiles/scripts/git-gem-release-tag ~/scripts/git-gem-release-tag
+	cp ~/.dotfiles/scripts/git-fetch-pr ~/scripts/git-fetch-pr
 	cp ~/.dotfiles/scripts/ronnpp ~/scripts/ronnpp
 
 	if [[ "${system}" = "Darwin" ]]; then
