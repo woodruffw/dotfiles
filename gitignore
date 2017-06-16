@@ -20,3 +20,5 @@ desktop.ini
 *.o
 *.a
 a.out
+_build/
+*.native
