@@ -1,5 +1,7 @@
+#!/usr/bin/env bash
+
 installed() {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
@@ -24,12 +26,12 @@ fi
 
 # add the rubygems bin path if installed
 if installed ruby && installed gem; then
-	export PATH="${PATH}:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
+	PATH="${PATH}:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 fi
 
 # why does this exist?
 if [[ -d ~/.local/bin ]]; then
-	export PATH="${PATH}:${HOME}/.local/bin"
+	PATH="${PATH}:${HOME}/.local/bin"
 fi
 
 # system-independent environment variables
@@ -44,7 +46,7 @@ export PROMPT_COMMAND="__generate_prompt"
 # load API key files if they exist
 if [[ -d ~/.api-keys ]] ; then
 	for keyfile in ~/.api-keys/* ; do
-		source ${keyfile}
+		source "${keyfile}"
 	done
 fi
 
@@ -55,11 +57,12 @@ unset LESSPIPE
 # disable new mail alerts
 unset MAILCHECK
 
-if [[ "${system}" = "Linux" ]]; then
-	export PATH="${PATH}:/home/${USER}/scripts"
+[[ -d ~/bin ]] && PATH="${HOME}/bin:${PATH}"
+[[ -d ~/scripts ]] && PATH="${HOME}/scripts:${PATH}"
 
+if [[ "${system}" = "Linux" ]]; then
 	if [[ -d ~/.linuxbrew ]]; then # if linuxbrew is installed, add it to paths
-		export PATH="${HOME}/.linuxbrew/bin:${PATH}"
+		PATH="${HOME}/.linuxbrew/bin:${PATH}"
 		export MANPATH="${HOME}/.linuxbrew/share/man:${MANPATH}"
 	fi
 
@@ -67,18 +70,20 @@ if [[ "${system}" = "Linux" ]]; then
 		export PATH="${HOME}/.cargo/bin:${PATH}"
 	fi
 elif [[ "${system}" = "Darwin" ]]; then
-	export TERMINFO_DIRS="~/.terminfo:/usr/local/share/terminfo:${TERMINFO}:"
+	export TERMINFO_DIRS="${HOME}/.terminfo:/usr/local/share/terminfo:${TERMINFO}:"
 	export LSCOLORS='gxfxcxdxbxegedabagacad'
-	export PATH=/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin:/Users/${USER}/bin:/Users/${USER}/scripts
+	PATH="${PATH}:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin"
 
 	# https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b
 	if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
 		source ~/.gnupg/.gpg-agent-info
 		export GPG_AGENT_INFO
 	else
-		eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
+		eval "$(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)"
 	fi
 fi
+
+export PATH
 
 if [[ -d ~/.opam ]]; then # if opam is installed, load the initialization script
 	source ~/.opam/opam-init/init.sh
