@@ -69,17 +69,6 @@ fetch_files() {
 	cp ~/.dotfiles/gitconfig ~/.gitconfig
 	green "done"
 
-	printf "Checking for vim..."
-	if installed vim ; then
-		printf "found. Reloading vimrc, scripts, and plugins... "
-		cp ~/.dotfiles/vimrc ~/.vimrc
-		mkdir -p ~/.vim/
-		cp -R ~/.dotfiles/vim/* ~/.vim
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
 	printf "Checking for curl..."
 	if installed curl ; then
 		printf "found. Reloading curlrc..."
@@ -114,29 +103,6 @@ fetch_files() {
 		fi
 		mkdir -p ~/.tmux
 		cp ~/.dotfiles/tmux/* ~/.tmux/
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
-	printf "Checking for xbindkeys..."
-	if installed xbindkeys ; then
-		printf "found. Reloading xbindkeysrc..."
-		if [[ -f ~/.dotfiles/xbindkeysrc-${host} ]] ; then
-			cp ~/.dotfiles/xbindkeysrc-${host} ~/.xbindkeysrc
-			green "done"
-		else
-			printf "none required.\n"
-		fi
-	else
-		yellow "not installed. Skipping"
-	fi
-
-	printf "Checking for thunar..."
-	if installed thunar ; then
-		printf "found. Reloading uca.xml..."
-		mkdir -p ~/.config/Thunar
-		cp ~/.dotfiles/config/Thunar/uca.xml ~/.config/Thunar/uca.xml
 		green "done"
 	else
 		yellow "not installed. Skipping"
@@ -183,16 +149,6 @@ fetch_files() {
 		mkdir -p ~/.newsbeuter
 		cp ~/.dotfiles/newsbeuter/config ~/.newsbeuter/config
 		cp ~/.dotfiles/scripts/newsbeuter-yt-feed ~/scripts/newsbeuter-yt-feed
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
-	printf "Checking for textadept..."
-	if installed textadept ; then
-		printf "found. Reloading configs, modules, and themes..."
-		mkdir -p ~/.textadept
-		cp -R ~/.dotfiles/textadept/* ~/.textadept
 		green "done"
 	else
 		yellow "not installed. Skipping"
