@@ -335,6 +335,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/streamable-upload ~/scripts/streamable-upload
 		cp ~/.dotfiles/scripts/nft ~/scripts/nft
 		cp ~/.dotfiles/scripts/google ~/scripts/google
+		cp ~/.dotfiles/scripts/ytsearch ~/scripts/ytsearch
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# ytsearch: take a search query from dmenu, feed it into youtube-dl, and
+# play the resulting url in mpv
+
+query=$(dmenu -p youtube < /dev/null 2> /dev/null)
+
+[[ -z "${query}" ]] && exit 1
+
+url=$(youtube-dl -j "ytsearch1:${query}" | jq -r ".webpage_url")
+
+mpv "${url}"
