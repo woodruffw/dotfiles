@@ -1,28 +1,27 @@
 #!/usr/bin/env bash
 
-# speaker: toggle ALSA's Auto-Mute mode.
+# speaker: connect to my bluetooth speaker
 
-function installed() {
-	local cmd=$(command -v "${1}")
+installed() {
+	cmd=$(command -v "${1}")
 
-	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
 }
 
-function error() {
-	>&2 printf "Fatal: ${@}. Exiting.\n"
-	exit 2
+die() {
+	echo "Error: $*" >&2
+	exit 1
 }
 
-installed amixer || error "'amixer' (ALSA) is required"
+ensure() {
+	"$@" \
+		|| die "Failed to run '$*'. Aborting."
+}
 
-cmd="${1:-on}"
+ensure installed kbsecret
+ensure installed a2dp
 
-if [[ "${cmd}" = "on" ]]; then
-	amixer -c 0 sset "Auto-Mute Mode" "Disabled" > /dev/null
-elif [[ "${cmd}" = "off" ]]; then
-	amixer -c 0 sset "Auto-Mute Mode" "Enabled" > /dev/null
-else
-	printf "Usage: $(basename ${0}) [on|off]\n"
-	exit 1
-fi
+eval "$(ensure kbsecret env -s keys bluetooth-speaker-mac)"
+
+a2dp "${BLUETOOTH_SPEAKER_MAC}"

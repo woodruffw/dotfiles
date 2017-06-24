@@ -336,6 +336,8 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/nft ~/scripts/nft
 		cp ~/.dotfiles/scripts/google ~/scripts/google
 		cp ~/.dotfiles/scripts/ytsearch ~/scripts/ytsearch
+		cp ~/.dotfiles/scripts/a2dp ~/scripts/a2dp
+		cp ~/.dotfiles/scripts/speaker ~/scripts/speaker
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
@@ -368,7 +370,6 @@ fetch_files() {
 	rm -f ~/scripts/surf-xclip
 	rm -f ~/scripts/email-fwd.rb
 	rm -f ~/scripts/magnet-to-torrent.pl
-	rm -f ~/scripts/speaker
 	rm -f ~/scripts/tepm
 	rm -f ~/scripts/kbsecret-zen-login
 	rm -f ~/.xsession-errors
