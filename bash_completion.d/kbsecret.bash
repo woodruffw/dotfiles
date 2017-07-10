@@ -31,7 +31,7 @@ complete -F _kbsecret_complete kbsecret
 # these are commands that obey the --introspect-flags contract
 _kbsecret_completable_subcommand() {
     cmd="${1}"
-    cmds=" dump-fields env list login new new-session pass raw-edit rm rm-session sessions stash-file todo" # gen
+    cmds=" dump-fields env generator generators list login new new-session pass raw-edit rm rm-session sessions stash-file todo" # gen
     [[ " $cmds " =~ " $cmd " ]]
     return "${?}"
 }
@@ -58,6 +58,7 @@ _kbsecret_complete_argument() {
     case "${arg}" in
         -s|--session) opts=$(kbsecret sessions);;
         -t|--type) opts=$(kbsecret types);;
+        -g|--generator) opts=$(kbsecret generators);;
         # XXX: is this a reasonable fallback?
         # a lot of commands take a record label at the end, but
         # many don't/won't or require a specifically typed record
