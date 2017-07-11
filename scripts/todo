@@ -39,7 +39,7 @@ sanity-checks() {
 
 session-call() {
 	cmd="${1}" ; shift
-	ensure kbsecret "${cmd}" -s "${SESSION}" "${@}"
+	ensure kbsecret "${cmd}" -s "${SESSION}" -a "${@}"
 }
 
 usage() {
