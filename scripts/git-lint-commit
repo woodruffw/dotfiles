@@ -28,11 +28,11 @@ def version
 end
 
 def w(l, s)
-  puts "W: (Line #{l}): #{s}"
+  puts "W: Line #{l}: #{s}"
 end
 
 def e(l, s)
-  puts "E: (Line #{l}): #{s}"
+  puts "E: Line #{l}: #{s}"
 end
 
 usage if ARGV.include?("--help") || ARGV.include?("-h")
