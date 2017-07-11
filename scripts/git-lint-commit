@@ -3,7 +3,7 @@
 
 # git-lint-commit: Lint a commit message for common mistakes.
 
-VERSION = 3
+VERSION = "1.0.4"
 
 def usage
   puts <<~EOS
