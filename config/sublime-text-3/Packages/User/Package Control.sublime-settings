@@ -10,8 +10,8 @@
 		"Clickable URLs",
 		"Color Highlighter",
 		"EditorConfig",
+		"Emoji Code",
 		"FileBrowser",
-		"FuzzyFilePath",
 		"Gist",
 		"Gnuplot",
 		"LaTeX-cwl",
@@ -24,8 +24,8 @@
 		"SimpleSession",
 		"SublimeLinter",
 		"SublimeLinter-rubocop",
+		"SublimeLinter-shellcheck",
 		"Terminal",
-		"Text Pastry",
-		"Zeal"
+		"Text Pastry"
 	]
 }
