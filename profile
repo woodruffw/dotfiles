@@ -29,6 +29,11 @@ if installed ruby && installed gem; then
 	PATH="${PATH}:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
 fi
 
+# add the rakudobrew bin path if installed
+if [[ -d ~/.rakudobrew ]]; then
+	PATH="${PATH}:${HOME}/.rakudobrew/bin"
+fi
+
 # why does this exist?
 if [[ -d ~/.local/bin ]]; then
 	PATH="${PATH}:${HOME}/.local/bin"
