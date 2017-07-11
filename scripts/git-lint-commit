@@ -3,6 +3,8 @@
 
 # git-lint-commit: Lint a commit message for common mistakes.
 
+VERSION = 3
+
 def usage
   puts <<~EOS
     Usage:
@@ -19,6 +21,12 @@ def usage
   exit
 end
 
+def version
+  puts "git-lint-commit version #{VERSION}."
+
+  exit
+end
+
 def w(l, s)
   puts "W: (Line #{l}): #{s}"
 end
@@ -28,6 +36,7 @@ def e(l, s)
 end
 
 usage if ARGV.include?("--help") || ARGV.include?("-h")
+version if ARGV.include?("--version") || ARGV.include?("-h")
 
 commit = ARGV.shift
 
