@@ -6,13 +6,14 @@
 def usage
   puts <<~EOS
     Usage:
-      git lint-commit [commit]
+      git lint-commit [commit|-]
 
     Arguments:
       If [commit] is supplied (either as a hash or other reference, like HEAD),
       then the requested commit message is linted.
 
-      Otherwise, standard input is linted.
+      Otherwise, standard input is linted. Supplying - also causes
+      the linter to read from standard input.
   EOS
 
   exit
@@ -30,7 +31,7 @@ usage if ARGV.include?("--help") || ARGV.include?("-h")
 
 commit = ARGV.shift
 
-lines = if commit
+lines = if commit && commit != "-"
           `git log --format=%B -n 1 #{commit}`
         else
           STDIN.read
