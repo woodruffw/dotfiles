@@ -64,7 +64,7 @@ new-snippet() {
 	code="${*}"
 	desc="placeholder" # kbsecret snip doesn't show the desc, so we don't care
 
-	session-call new -f snippet "${label}" "${code}" "${desc}"
+	session-call new -fa snippet "${label}" "${code}" "${desc}"
 }
 
 remove-snippet() {
