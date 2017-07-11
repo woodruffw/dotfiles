@@ -9,7 +9,7 @@ def find_gemspec(namespace)
   candidates = Dir[File.join(`pwd`.chomp, "*.gemspec")]
 
   # if there's only one gemspec, assume it's correct
-  # return candidates.first if candidates.size == 1
+  return candidates.first if candidates.size == 1
 
   # otherwise, take the first gemspec that matches the namespace
   candidates.find { |c| c =~ Regexp.new(namespace, Regexp::IGNORECASE) }
