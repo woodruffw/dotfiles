@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# slopcast: record a selected screen region
+# stolen and modified from SirCmpwn's dotfiles
+
+eval "$(slop)"
+
+ffmpeg -f x11grab -s "${W}"x"${H}" -i :0.0+"${X}","${Y}" slopcast.webm

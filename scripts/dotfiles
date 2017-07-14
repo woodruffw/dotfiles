@@ -340,6 +340,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/ytsearch ~/scripts/ytsearch
 		cp ~/.dotfiles/scripts/a2dp ~/scripts/a2dp
 		cp ~/.dotfiles/scripts/speaker ~/scripts/speaker
+		cp ~/.dotfiles/scripts/slopcast ~/scripts/slopcast
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
