@@ -1,5 +1,7 @@
 [
-	{ "keys": ["alt+up"], "command": "select_lines", "args": {"forward": false} },
-	{ "keys": ["alt+down"], "command": "select_lines", "args": {"forward": true} },
-	{ "keys": ["alt+a"], "command": "alignment" },
+    { "keys": ["alt+up"], "command": "select_lines", "args": {"forward": false} },
+    { "keys": ["alt+down"], "command": "select_lines", "args": {"forward": true} },
+    { "keys": ["alt+a"], "command": "alignment" },
+    { "keys": ["ctrl+,"], "command": "load_session" },
+    { "keys": ["ctrl+."], "command": "save_session" },
 ]
