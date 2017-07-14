@@ -89,13 +89,31 @@ man() {
 	man "${@}"
 }
 
-# prj - cd to projects
+# prj - cd to (personal) projects
 # cds to the project folder or to a specified project
 prj() {
 	if [[ -z "${1}" ]] ; then
-		cd "${HOME}/Dropbox/dev/"
+		cd "${HOME}/Dropbox/dev/self/"
 	else
-		cd "${HOME}/Dropbox/dev/${1}"*
+		cd "${HOME}/Dropbox/dev/self/${1}"*
+	fi
+}
+
+# gprj - cd to (group) projects
+gprj() {
+	if [[ -z "${1}" ]] ; then
+		cd "${HOME}/Dropbox/dev/group/"
+	else
+		cd "${HOME}/Dropbox/dev/group/${1}"*
+	fi
+}
+
+# frk - cd to forks
+frk() {
+	if [[ -z "${1}" ]] ; then
+		cd "${HOME}/Dropbox/dev/fork/"
+	else
+		cd "${HOME}/Dropbox/dev/fork/${1}"*
 	fi
 }
 
@@ -355,7 +373,25 @@ _completemarks() {
 _completeprj() {
 	curw=${COMP_WORDS[COMP_CWORD]}
 	# shellcheck disable=SC2034
-	wordlist="$(ls ~/Dropbox/dev 2> /dev/null)"
+	wordlist="$(ls ~/dev/self 2> /dev/null)"
+	compopt -o filenames
+	# shellcheck disable=SC2016
+	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
+}
+
+_completegprj() {
+	curw=${COMP_WORDS[COMP_CWORD]}
+	# shellcheck disable=SC2034
+	wordlist="$(ls ~/dev/group 2> /dev/null)"
+	compopt -o filenames
+	# shellcheck disable=SC2016
+	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
+}
+
+_completefrk() {
+	curw=${COMP_WORDS[COMP_CWORD]}
+	# shellcheck disable=SC2034
+	wordlist="$(ls ~/dev/fork 2> /dev/null)"
 	compopt -o filenames
 	# shellcheck disable=SC2016
 	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
@@ -367,6 +403,8 @@ _completeprj() {
 
 complete -F _completemarks jmp umrk
 complete -F _completeprj prj
+complete -F _completegprj gprj
+complete -F _completefrk frk
 complete -F _completegvcd gvcd
 
 # load bash completion if it exists
