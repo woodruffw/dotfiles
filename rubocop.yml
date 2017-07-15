@@ -19,4 +19,4 @@ Style/DoubleNegation:
   Enabled: false
 
 Metrics/LineLength:
-  Max: 90
+  Max: 100
