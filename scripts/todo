@@ -39,7 +39,7 @@ sanity-checks() {
 
 session-call() {
 	cmd="${1}" ; shift
-	ensure kbsecret "${cmd}" -s "${SESSION}" -a "${@}"
+	ensure kbsecret "${cmd}" -s "${SESSION}" "${@}"
 }
 
 usage() {
@@ -83,7 +83,7 @@ prune-todos() {
 new-todo() {
 	label="${1}" ; shift
 	message="${*}"
-	session-call new todo "${label}" "${message}"
+	session-call new todo -a "${label}" "${message}"
 }
 
 remove-todo() {
