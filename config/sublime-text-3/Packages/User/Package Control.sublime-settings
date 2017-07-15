@@ -5,6 +5,7 @@
 	],
 	"installed_packages":
 	[
+		"Alignment",
 		"AutoWrap",
 		"Awk",
 		"Clickable URLs",
