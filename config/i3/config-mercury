@@ -208,6 +208,7 @@ for_window [title="Netflix"] floating enable
 for_window [title="^TightVNC: .*$"] floating enable
 for_window [class="^Zenity$"] floating enable
 for_window [class="^Yad$"] floating enable
+for_window [class="^XOsview$"] floating enable, border none
 
 # these two never need to be initially focused
 no_focus [class="feh"]
