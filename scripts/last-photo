@@ -2,6 +2,8 @@
 
 # last-photo: grab the last N photos taken on my phone
 
+set -o pipefail
+
 die() {
   echo "Error: $*" >&2
   exit 1
@@ -15,12 +17,12 @@ ensure() {
 nphotos="${1:-1}"
 dest="${2:-${PWD}}"
 dev=$(ensure gvfs-mount --list \
-	| ensure grep "Android Phone ->" \
-	| ensure awk '{ print $5 }')
-ppath="${dev}Internal%20storage/storage/emulated/0/DCIM/100MEDIA"
+	| grep "mtp ->" \
+	| awk '{ print $4 }')
+ppath="${dev}Internal%20shared%20storage/DCIM/Camera/"
 
 photos=$(ensure gvfs-ls "${ppath}" \
-		| ensure tail -n "${nphotos}")
+		| tail -n "${nphotos}")
 
 for photo in ${photos}; do
 	ensure gvfs-copy "${ppath}/${photo}" "${dest}"
