@@ -4,4 +4,6 @@
     { "keys": ["alt+a"], "command": "alignment" },
     { "keys": ["ctrl+,"], "command": "load_session" },
     { "keys": ["ctrl+."], "command": "save_session" },
+    { "keys": ["ctrl+tab"], "command": "next_view" },
+    { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
 ]
