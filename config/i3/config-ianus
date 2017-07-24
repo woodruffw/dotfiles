@@ -196,10 +196,6 @@ bindsym $mod+r mode "resize"
 # audio and playback bindings
 bindsym Control+Up exec amixer -D pulse sset Master 10%+
 bindsym Control+Down exec amixer -D pulse sset Master 10%-
-bindsym Control+End exec muzak-cmd toggle
-bindsym Control+Left exec muzak-cmd previous
-bindsym Control+Right exec muzak-cmd next
-bindsym Control+Delete exec muzak-dmenu
 
 # open the file manager
 bindsym Control+Mod1+f exec pcmanfm
@@ -218,6 +214,9 @@ bindsym Control+Mod1+e exec ~/scripts/uzbl-xclip
 
 # activate screensaver
 bindsym Pause exec xscreensaver-command -lock
+
+# select a password through dmenu
+bindsym $mod+x exec kbsecret dmenu-pass
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
