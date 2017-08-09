@@ -62,9 +62,9 @@ list-snippets() {
 new-snippet() {
 	label="${1}" ; shift
 	code="${*}"
-	desc="placeholder" # kbsecret snip doesn't show the desc, so we don't care
+	payload="${code}"$'\x01'"placeholder" # kbsecret snip doesn't show the desc, so we don't care
 
-	session-call new -fa snippet "${label}" "${code}" "${desc}"
+	session-call new -fxi $'\x01' snippet "${label}" <<< "${payload}"
 }
 
 remove-snippet() {

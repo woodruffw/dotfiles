@@ -83,7 +83,7 @@ prune-todos() {
 new-todo() {
 	label="${1}" ; shift
 	message="${*}"
-	session-call new todo -a "${label}" "${message}"
+	session-call new todo -x "${label}" <<< "${message}"
 }
 
 remove-todo() {
