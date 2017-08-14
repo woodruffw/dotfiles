@@ -26,4 +26,4 @@ ensure installed pbin
 script -c 'PROMPT_COMMAND= TERM=xterm PS1="$ " bash --norc --noprofile -i' "${LOGFILE}"
 
 # remove ANSI escapes and header/trailer lines introduced by `script`
-sed -e 's/\x1B\[[0-9;]*[JKmsu]//g' -e '1d; $d' "${LOGFILE}" | pbin
+colorstrip < "${LOGFILE}" | sed '1d; $d' | pbin
