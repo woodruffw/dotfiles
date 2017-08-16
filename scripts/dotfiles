@@ -341,6 +341,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/a2dp ~/scripts/a2dp
 		cp ~/.dotfiles/scripts/speaker ~/scripts/speaker
 		cp ~/.dotfiles/scripts/slopcast ~/scripts/slopcast
+		cp ~/.dotfiles/scripts/nicegif ~/scripts/nicegif
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
