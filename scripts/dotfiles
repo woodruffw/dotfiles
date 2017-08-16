@@ -314,7 +314,7 @@ fetch_files() {
 		cp -R ~/.dotfiles/gnupg/* ~/.gnupg
 	fi
 
-	if [[ "${host}" = "mercury" || "${host}" = "ianus" ]] ; then
+	if [[ "${host}" = "mercury" || "${host}" = "janus" ]] ; then
 		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
 		cp ~/.dotfiles/scripts/play ~/scripts/play
 		cp ~/.dotfiles/scripts/play-xclip ~/scripts/play-xclip
