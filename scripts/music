@@ -31,21 +31,23 @@ mpvopts=(
 ensure installed ssh tmux ncmpcpp mpv
 ensure ssh -f -N -L6600:127.0.0.1:6600 "${server}"
 
-tmux new-session -d -s "${tmux_session}"
+if ! tmux list-sessions -F '#{session_name}' | grep -q "${tmux_session}"; then
+	tmux new-session -d -s "${tmux_session}"
 
-# Expected layout:
-#  _____________
-# |      |      |
-# | ncmp |  mpv |
-# | cpp  |      |
-# |      |      |
-# |      |      |
-#  -------------
-tmux split-window "${tmux_split}"
-tmux select-pane -t 0
-tmux send-keys "ncmpcpp -h 127.0.0.1" C-m
-tmux select-pane -t 1
-tmux send-keys "mpv ${mpvopts[*]} ${stream}" C-m
-tmux select-pane -t 0
+	# Expected layout:
+	#  _____________
+	# |      |      |
+	# | ncmp |  mpv |
+	# | cpp  |      |
+	# |      |      |
+	# |      |      |
+	#  -------------
+	tmux split-window "${tmux_split}"
+	tmux select-pane -t 0
+	tmux send-keys "ncmpcpp -h 127.0.0.1" C-m
+	tmux select-pane -t 1
+	tmux send-keys "mpv ${mpvopts[*]} ${stream}" C-m
+	tmux select-pane -t 0
+fi
 
 tmux attach-session -t "${tmux_session}"
