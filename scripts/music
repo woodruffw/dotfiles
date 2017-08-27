@@ -20,13 +20,18 @@ ensure() {
 tmux_session=music
 tmux_split="${1:--v}"
 server="zeenbox"
-stream="https://thing-in-itself.net/radio/"
 mpvopts=(
 	--no-force-window
 	--cache=no
 	--no-force-seekable
 	--no-resume-playback
 )
+
+if [[ "${LOW}" ]]; then
+	stream="https://thing-in-itself.net/radio-low/"
+else
+	stream="https://thing-in-itself.net/radio/"
+fi
 
 ensure installed ssh tmux ncmpcpp mpv
 ensure ssh -f -N -L6600:127.0.0.1:6600 "${server}"
