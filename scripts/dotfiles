@@ -249,6 +249,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/kbsecret-dmenu-pass ~/scripts/kbsecret-dmenu-pass
 		cp ~/.dotfiles/scripts/kbsecret-snip ~/scripts/kbsecret-snip
 		cp ~/.dotfiles/scripts/kbsecret-todo-list ~/scripts/kbsecret-todo-list
+		cp ~/.dotfiles/scripts/kbsecret-discover-sessions ~/scripts/kbsecret-discover-sessions
 		cp ~/.dotfiles/scripts/todo ~/scripts/todo
 		cp ~/.dotfiles/scripts/snip ~/scripts/snip
 		green "done"
