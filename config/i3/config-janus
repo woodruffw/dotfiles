@@ -256,7 +256,7 @@ for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Require
 for_window [title="^Steam Keyboard$"] floating enable
 
 # keep steam in its own workspace
-assign [class="Steam"] steam
+assign [class="Steam"] 3C
 
 # these two never need to be initially focused
 no_focus [class="feh"]
