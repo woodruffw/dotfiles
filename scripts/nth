@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# print the nth column on each line of stdin
+# inspired by https://github.com/ttsiodras/utils/blob/master/nth
+
+nth = ARGV.first.to_i
+sep = ENV["IFS"] || " "
+
+STDIN.each_line do |line|
+  fields = line.split sep
+  puts fields[nth]
+end
