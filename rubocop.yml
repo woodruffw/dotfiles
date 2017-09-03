@@ -18,6 +18,9 @@ Style/FormatString:
 Style/DoubleNegation:
   Enabled: false
 
+Style/RescueModifier:
+  Enabled: false
+
 Metrics/LineLength:
   Max: 100
 
