@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# remind: remind me to do something later
+# inspired vaguely by yossarian-bot's !remind
+
+def usage
+  STDERR.puts <<~EOS
+    Usage: remind <count> <unit> <message>
+
+    Valid counts are positive integers.
+
+    Examples:
+      $ remind 5 secs do foo
+      $ remind 10 m run bar
+      $ remind 1 hour something else
+  EOS
+
+  exit
+end
+
+def pushbullet(key, message)
+  system "curl", "-u", "#{key}:", "https://api.pushbullet.com/v2/pushes",
+         "-d", "type=note", "-d", "title=reminder", "-d", "body=#{message}"
+end
+
+query = ARGV.join " "
+/(?<count>\d+) (?<unit>\w+) (?<message>.+)/ =~ query
+
+usage unless count && unit && message
+
+count = count.to_i
+key   = `kbsecret env -v -s keys pushbullet-api`.chomp
+
+usage unless count.positive?
+abort "Missing Pushbullet key." if key.empty?
+
+secs = case unit
+       when "s", /sec(ond)?s?/
+         count
+       when "m", /min(ute)?s?/
+         count * 60
+       when "h", /hours?/
+         count * 60 * 60
+       else
+         usage
+       end
+
+Process.daemon
+
+sleep secs
+
+pushbullet key, message
