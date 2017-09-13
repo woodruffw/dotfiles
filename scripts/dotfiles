@@ -231,7 +231,7 @@ fetch_files() {
 			cp ~/.dotfiles/scripts/workspaces-"${host}" ~/scripts/workspaces
 
 			mkdir -p ~/.config/i3/workspaces
-			for ws in "com dev www"; do
+			for ws in com dev www; do
 				cp ~/.dotfiles/config/i3/workspaces/"${ws}".json ~/.config/i3/workspaces
 			done
 		fi
