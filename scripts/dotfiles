@@ -81,8 +81,8 @@ fetch_files() {
 	printf "Checking for rtorrent..."
 	if installed rtorrent ; then
 		printf "found. Reloading rtorrent.rc and magnet scripts..."
-		if [[ -f ~/.dotfiles/rtorrent-${host}.rc ]]; then
-			cp ~/.dotfiles/rtorrent-${host}.rc ~/.rtorrent.rc
+		if [[ -f ~/.dotfiles/rtorrent-"${host}".rc ]]; then
+			cp ~/.dotfiles/rtorrent-"${host}".rc ~/.rtorrent.rc
 		else
 			printf "skipping rtorrent.rc.\n"
 		fi
@@ -221,11 +221,20 @@ fetch_files() {
 	printf "Checking for i3..."
 	if installed i3 ; then
 		printf "found. Reloading config and scripts..."
-		cp ~/.dotfiles/config/i3/config-${host} ~/.config/i3/config
-		cp ~/.dotfiles/i3status-${host}.conf ~/.i3status.conf
+		cp ~/.dotfiles/config/i3/config-"${host}" ~/.config/i3/config
+		cp ~/.dotfiles/i3status-"${host}".conf ~/.i3status.conf
 		cp ~/.dotfiles/Xmodmap ~/.Xmodmap
 		cp ~/.dotfiles/scripts/statusbar ~/scripts/statusbar
-		cp ~/.dotfiles/scripts/monitors-${host} ~/scripts/monitors
+		cp ~/.dotfiles/scripts/monitors-"${host}" ~/scripts/monitors
+
+		if [[ -f ~/.dotfiles/scripts/workspaces-"${host}" ]]; then
+			cp ~/.dotfiles/scripts/workspaces-"${host}" ~/scripts/workspaces
+
+			mkdir -p ~/.config/i3/workspaces
+			for ws in "com dev www"; do
+				cp ~/.dotfiles/config/i3/workspaces/"${ws}".json ~/.config/i3/workspaces
+			done
+		fi
 		green "done"
 	else
 		yellow "not installed. Skipping"
@@ -322,7 +331,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/play-xclip ~/scripts/play-xclip
 		cp ~/.dotfiles/scripts/uzbl-xclip ~/scripts/uzbl-xclip
 		cp ~/.dotfiles/scripts/xdcc ~/scripts/xdcc
-		cp ~/.dotfiles/scripts/twitch-${host} ~/scripts/twitch
+		cp ~/.dotfiles/scripts/twitch-"${host}" ~/scripts/twitch
 		cp ~/.dotfiles/scripts/radio ~/scripts/radio
 		cp ~/.dotfiles/scripts/xyzradio ~/scripts/xyzradio
 		cp ~/.dotfiles/scripts/xontop ~/scripts/xontop
@@ -361,11 +370,11 @@ fetch_files() {
 
 	printf "Fetching cron-shunt and crontab..."
 	cp ~/.dotfiles/scripts/cron-shunt ~/scripts/cron-shunt
-	if [[ -f ~/.dotfiles/crontabs/${host}.cron ]] ; then
+	if [[ -f ~/.dotfiles/crontabs/"${host}".cron ]] ; then
 		mkdir -p ~/scripts/cron
-		cp ~/.dotfiles/crontabs/${host}.cron ~/scripts/cron/${host}.cron
+		cp ~/.dotfiles/crontabs/"${host}".cron ~/scripts/cron/"${host}".cron
 		crontab -r
-		crontab ~/scripts/cron/${host}.cron
+		crontab ~/scripts/cron/"${host}".cron
 		green "done"
 	else
 		printf "none required.\n"
