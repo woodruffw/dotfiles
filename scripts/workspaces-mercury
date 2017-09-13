@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# workspaces-mercury: set up my mobile workspaces
+
+i3-msg 'rename workspace 1 to 1 www'
+
+i3-msg 'workspace 1 www; append_layout ~/.config/i3/workspaces/www.json'
+i3-msg 'exec --no-startup-id firefox'
+
+i3-msg 'workspace 2 dev; append_layout ~/.config/i3/workspaces/dev.json'
+i3-msg 'exec --no-startup-id subl'
+i3-msg 'exec --no-startup-id urxvt'
+
+i3-msg 'workspace 3 com; append_layout ~/.config/i3/workspaces/com.json'
+i3-msg 'exec --no-startup-id hexchat'
+i3-msg 'exec --no-startup-id slack'
+i3-msg 'exec --no-startup-id thunderbird'
+
+i3-msg 'workspace 1 www'
