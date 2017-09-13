@@ -1,0 +1,63 @@
+// vim:ts=4:sw=4:et
+{
+    // stacked split container with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "stacked",
+    "percent": 0.54375,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 864,
+               "width": 796,
+               "x": 0,
+               "y": 0
+            },
+            "name": "editor",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^Sublime_text$",
+               "instance": "^sublime_text$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // tabbed split container with 1 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "tabbed",
+    "percent": 0.45625,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 460,
+               "width": 644,
+               "x": 0,
+               "y": 0
+            },
+            "name": "terminal",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^URxvt$",
+               "instance": "^urxvt$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

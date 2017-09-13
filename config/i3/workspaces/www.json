@@ -1,0 +1,32 @@
+// vim:ts=4:sw=4:et
+{
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "stacked",
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 864,
+               "width": 1596,
+               "x": 0,
+               "y": 0
+            },
+            "name": "browser",
+            "percent": 0.333333333333333,
+            "swallows": [
+               {
+               "class": "^Firefox$",
+               "instance": "^Navigator$",
+               "window_role": "^browser$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
