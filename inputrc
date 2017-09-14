@@ -8,8 +8,8 @@ set input-meta on
 set output-meta on
 set convert-meta off
 
-"\e[1;5D": backward-word
-"\e[1;5C": forward-word
+"\e\e[D": backward-word
+"\e\e[C": forward-word
 
 "\e[B": history-search-forward
 "\e[A": history-search-backward
