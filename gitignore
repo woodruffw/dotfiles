@@ -22,3 +22,10 @@ desktop.ini
 a.out
 _build/
 *.native
+
+# Ruby development byproducts
+vendor/
+.bundle/
+*.gem
+doc/
+.yardoc/
