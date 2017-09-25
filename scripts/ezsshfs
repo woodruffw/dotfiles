@@ -28,6 +28,7 @@ declare -A mntmap=(
   ["apollo"]="apollo /home/william ${mnt}/apollo"
   ["zeenbox"]="zeenbox /home/william ${mnt}/zeenbox"
   ["zeenbox-www"]="zeenbox /var/www/ ${mnt}/zeenbox-www"
+  ["umd"]="umd /homes/woodrufw ${mnt}/umd"
 )
 
 ensure installed "selecta"
