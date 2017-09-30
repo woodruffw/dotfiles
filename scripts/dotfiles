@@ -201,8 +201,11 @@ fetch_files() {
 
 	printf "Checking for Firefox..."
 	if installed firefox ; then
-		printf "found. Reloading pipefox..."
+		printf "found. Reloading pipefox and ff2mpv..."
 		cp ~/.dotfiles/scripts/pipefox ~/scripts/pipefox
+		cp ~/.dotfiles/scripts/ff2mpv ~/scripts/ff2mpv
+		mkdir -p ~/.mozilla/native-messaging-hosts/
+		cp ~/.dotfiles/mozilla/native-messaging-hosts/ff2mpv.json ~/.mozilla/native-messaging-hosts
 		green "done"
 	else
 		yellow "not installed. Skipping"
