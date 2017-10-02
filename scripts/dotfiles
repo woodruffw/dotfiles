@@ -311,6 +311,7 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/giphy-fetch ~/scripts/giphy-fetch
 	cp ~/.dotfiles/scripts/normalize-gifs ~/scripts/normalize-gifs
 	cp ~/.dotfiles/scripts/last-photo ~/scripts/last-photo
+	cp ~/.dotfiles/scripts/last-snap ~/scripts/last-snap
 	cp ~/.dotfiles/scripts/forecast ~/scripts/forecast
 	cp ~/.dotfiles/scripts/rubyvm-dump ~/scripts/rubyvm-dump
 	cp ~/.dotfiles/scripts/update-hosts ~/scripts/update-hosts
