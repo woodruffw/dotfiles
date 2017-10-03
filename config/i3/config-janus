@@ -238,7 +238,6 @@ for_window [class="File-roller"] floating enable
 for_window [class="Keybase"] floating enable
 for_window [title="floaterm"] floating enable, border none
 for_window [title="cava"] floating enable
-for_window [title="^TightVNC: .*$"] floating enable
 for_window [class="^Zenity$"] floating enable
 for_window [class="^Yad$"] floating enable
 for_window [class="^XOsview$"] floating enable, border none
