@@ -230,12 +230,8 @@ bar {
 
 for_window [class="feh"] floating enable
 for_window [class="mpv"] floating enable
-for_window [class="Pithos"] floating enable
 for_window [class="Surf"] floating enable
 for_window [class="^Uzbl-.*"] floating enable
-for_window [class="Audacity"] floating enable
-for_window [class="File-roller"] floating enable
-for_window [class="Keybase"] floating enable
 for_window [title="floaterm"] floating enable, border none
 for_window [title="cava"] floating enable
 for_window [class="^Zenity$"] floating enable
