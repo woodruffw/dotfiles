@@ -323,6 +323,7 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/ronnpp ~/scripts/ronnpp
 	cp ~/.dotfiles/scripts/psh ~/scripts/psh
 	cp ~/.dotfiles/scripts/nth ~/scripts/nth
+	cp ~/.dotfiles/scripts/mp4flip ~/scripts/mp4flip
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password

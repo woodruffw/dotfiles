@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# mp4flip: Flip all supplied MP4 recordings by 180 degrees.
+
+for file in "${@}"; do
+    rfile="${file%.*}-r.mp4"
+
+    ffmpeg -i "${file}" -c copy -metadata:s:v:0 rotate=180 "${rfile}"
+done
