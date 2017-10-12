@@ -335,7 +335,6 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/play ~/scripts/play
 		cp ~/.dotfiles/scripts/play-xclip ~/scripts/play-xclip
 		cp ~/.dotfiles/scripts/uzbl-xclip ~/scripts/uzbl-xclip
-		cp ~/.dotfiles/scripts/xdcc ~/scripts/xdcc
 		cp ~/.dotfiles/scripts/twitch-"${host}" ~/scripts/twitch
 		cp ~/.dotfiles/scripts/radio ~/scripts/radio
 		cp ~/.dotfiles/scripts/xyzradio ~/scripts/xyzradio
@@ -393,6 +392,7 @@ fetch_files() {
 	rm -f ~/scripts/magnet-to-torrent.pl
 	rm -f ~/scripts/tepm
 	rm -f ~/scripts/kbsecret-zen-login
+	rm -f ~/scripts/xdcc
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
