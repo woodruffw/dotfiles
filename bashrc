@@ -93,27 +93,27 @@ man() {
 # cds to the project folder or to a specified project
 prj() {
 	if [[ -z "${1}" ]] ; then
-		cd "${HOME}/Dropbox/dev/self/"
+		cd "${HOME}/dev/self/"
 	else
-		cd "${HOME}/Dropbox/dev/self/${1}"*
+		cd "${HOME}/dev/self/${1}"*
 	fi
 }
 
 # gprj - cd to (group) projects
 gprj() {
 	if [[ -z "${1}" ]] ; then
-		cd "${HOME}/Dropbox/dev/group/"
+		cd "${HOME}/dev/group/"
 	else
-		cd "${HOME}/Dropbox/dev/group/${1}"*
+		cd "${HOME}/dev/group/${1}"*
 	fi
 }
 
 # frk - cd to forks
 frk() {
 	if [[ -z "${1}" ]] ; then
-		cd "${HOME}/Dropbox/dev/fork/"
+		cd "${HOME}/dev/fork/"
 	else
-		cd "${HOME}/Dropbox/dev/fork/${1}"*
+		cd "${HOME}/dev/fork/${1}"*
 	fi
 }
 
