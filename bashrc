@@ -302,6 +302,8 @@ if [[ "${system}" = "Linux" ]] ; then
 	alias perm='stat -c "%a"'
 	alias ethdn='sudo ifconfig eth0 down'
 	alias ethup='sudo ifconfig eth0 up'
+	alias eastcoast='sudo timedatectl set-timezone America/New_York'
+	alias westcoast='sudo timedatectl set-timezone America/Los_Angeles'
 
 	if [[ "${host}" = "athena" ]] ; then
 		alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
