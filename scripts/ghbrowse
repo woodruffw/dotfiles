@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# ghbrowse: quickly navigate to a github repo i've recently worked on
+
+function fail {
+    >&2 echo "Fatal: ${*}."
+    exit 1
+}
+
+username=$(git config github.user)
+
+[[ -z "${username}" ]] && fail "\`git config github.user\` is empty"
+
+url="https://api.github.com/users/${username}/repos?type=all&sort=pushed"
+repo=$(curl "${url}" | jq -r ".[] | .full_name" | dmenu -p ghbrowse)
+
+"${BROWSER:-firefox}" "https://github.com/${repo}"
