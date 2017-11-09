@@ -221,6 +221,9 @@ bindsym $mod+z exec kbsecret yad-login
 # select a password through dmenu
 bindsym $mod+x exec kbsecret dmenu-pass
 
+# select a github repository through dmenu
+bindsym $mod+c exec ~/scripts/ghbrowse
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
