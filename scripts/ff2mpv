@@ -2,9 +2,10 @@
 # frozen_string_literal: true
 
 require "json"
+require "json"
 
 len = STDIN.read(4).unpack("L").first
-url = JSON.parse STDIN.read(len)
+url = JSON.parse(STDIN.read(len))["url"]
 
 system "notify-send", "ff2mpv", url
 
