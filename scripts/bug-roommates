@@ -1,11 +1,12 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 # bug-roommates: send my roommates something via groupme
 
 require "json"
 require "open3"
 
-URL = "https://api.groupme.com/v3/groups/%{group_id}/messages"
+URL = "https://api.groupme.com/v3/groups/%<group_id>s/messages"
 
 group_id = `kbsecret env -s keys -v groupme-roommate-id`.chomp
 token = `kbsecret env -s keys -v groupme-api`.chomp
@@ -19,7 +20,7 @@ request = {
   message: {
     source_guid: uuid,
     text: text,
-  }
+  },
 }
 
 Open3.popen2("curl -X POST #{header_flag} -d @- #{url}") do |stdin, stdout, _|
