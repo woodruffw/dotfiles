@@ -282,8 +282,6 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
 	cp ~/.dotfiles/scripts/% ~/scripts/%
-	cp ~/.dotfiles/scripts/colorscheme ~/scripts/colorscheme
-	cp ~/.dotfiles/scripts/colorscheme2 ~/scripts/colorscheme2
 	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
 	cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
 	cp ~/.dotfiles/scripts/jskel ~/scripts/jskel
@@ -394,6 +392,8 @@ fetch_files() {
 	rm -f ~/scripts/tepm
 	rm -f ~/scripts/kbsecret-zen-login
 	rm -f ~/scripts/xdcc
+	rm -f ~/scripts/colorscheme
+	rm -f ~/scripts/colorscheme2
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
