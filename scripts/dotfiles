@@ -396,6 +396,7 @@ fetch_files() {
 	rm -f ~/scripts/xdcc
 	rm -f ~/scripts/colorscheme
 	rm -f ~/scripts/colorscheme2
+	rm -f ~/scripts/twitter-github-bot.rb
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
