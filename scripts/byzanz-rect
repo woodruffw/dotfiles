@@ -3,14 +3,14 @@
 # byzanz-rect: use xrectsel to record an area with byzanz-record
 
 function installed {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
 }
 
 function fatal {
-	>&2 printf "Fatal: ${*}. Exiting.\n"
+	>&2 echo "Fatal: ${*}. Exiting."
 	exit 2
 }
 
