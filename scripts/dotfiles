@@ -324,6 +324,7 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/mp4flip ~/scripts/mp4flip
 	cp ~/.dotfiles/scripts/fftitle ~/scripts/fftitle
 	cp ~/.dotfiles/scripts/fftimelapse ~/scripts/fftimelapse
+	cp ~/.dotfiles/scripts/ffnicegif ~/scripts/ffnicegif
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
@@ -356,7 +357,6 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/a2dp ~/scripts/a2dp
 		cp ~/.dotfiles/scripts/speaker ~/scripts/speaker
 		cp ~/.dotfiles/scripts/slopcast ~/scripts/slopcast
-		cp ~/.dotfiles/scripts/nicegif ~/scripts/nicegif
 		cp ~/.dotfiles/scripts/remind ~/scripts/remind
 		cp ~/.dotfiles/scripts/ghbrowse ~/scripts/ghbrowse
 
@@ -397,6 +397,7 @@ fetch_files() {
 	rm -f ~/scripts/colorscheme
 	rm -f ~/scripts/colorscheme2
 	rm -f ~/scripts/twitter-github-bot.rb
+	rm -f ~/scripts/nicegif
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases

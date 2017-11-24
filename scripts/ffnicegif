@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# nicegif: Generate a more compact GIF from an input file
+# ffnicegif: Generate a more compact GIF from an input file
 # stolen from http://blog.pkh.me/p/21-high-quality-gif-with-ffmpeg.html
 
 set -eo pipefail
 
 function help {
-  echo "Usage: nicegif <input> <output>"
+  echo "Usage: ffnicegif <input> <output>"
   exit
 }
 
