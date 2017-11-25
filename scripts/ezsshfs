@@ -19,17 +19,10 @@ installed() {
   return ${?}
 }
 
-mnt="${HOME}/mnt"
-# bash doesn't support nested arrays!
-declare -A mntmap=(
-  # mnemonic => hostname | remote root | local mount point
-  ["athena"]="athena /home/william ${mnt}/athena"
-  ["athena-www"]="athena /var/www/html ${mnt}/athena-www"
-  ["apollo"]="apollo /home/william ${mnt}/apollo"
-  ["zeenbox"]="zeenbox /home/william ${mnt}/zeenbox"
-  ["zeenbox-www"]="zeenbox /var/www/ ${mnt}/zeenbox-www"
-  ["umd"]="umd /afs/glue.umd.edu/home/glue/w/o/woodrufw/home ${mnt}/umd"
-)
+[[ -f ~/.config/ezsshfsrc ]] || die "Missing ~/.config/ezsshfsrc"
+
+declare -A mntmap
+source ~/.config/ezsshfsrc
 
 ensure installed "selecta"
 ensure installed "sshfs"
