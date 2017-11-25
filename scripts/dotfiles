@@ -359,6 +359,7 @@ fetch_files() {
 		cp ~/.dotfiles/scripts/slopcast ~/scripts/slopcast
 		cp ~/.dotfiles/scripts/remind ~/scripts/remind
 		cp ~/.dotfiles/scripts/ghbrowse ~/scripts/ghbrowse
+		cp ~/.dotfiles/scripts/screenlock ~/scripts/screenlock
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/

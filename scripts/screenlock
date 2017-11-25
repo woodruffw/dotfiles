@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# screenlock: lock the screen with i3lock and a blurred screenshot
+
+# modified from https://gist.github.com/csivanich/10914698
+# i3lock blurred screen inspired by /u/patopop007 and the blog post
+# http://plankenau.com/blog/post-10/gaussianlock
+
+# Dependencies:
+# imagemagick
+# i3lock
+
+image=/tmp/i3lock.png
+
+# Get the screenshot, add the blur and lock the screen with it
+maim "${image}"
+convert "${image}" -scale "10%" -scale "1000%" "${image}"
+i3lock -i "${image}"
+rm -f "${image}"
