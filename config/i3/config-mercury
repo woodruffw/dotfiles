@@ -179,7 +179,7 @@ bindsym Control+Mod1+w exec ~/scripts/play-xclip
 bindsym Control+Mod1+e exec ~/scripts/uzbl-xclip
 
 # activate screensaver
-bindsym XF86Launch1 exec xscreensaver-command -lock
+bindsym XF86Launch1 exec ~/scripts/screenlock
 
 # save a password through yad
 bindsym $mod+z exec kbsecret yad-login
