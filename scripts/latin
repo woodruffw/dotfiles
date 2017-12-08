@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# latin: take a query from dmenu and try to find
+# the Latin entry for it on Wiktionary
+
+browser="${BROWSER:-firefox}"
+query=$(dmenu -p latin < /dev/null 2> /dev/null)
+
+[[ -z "${query}" ]] && exit 1
+
+"${browser}" "https://en.wiktionary.org/wiki/${query}#Latin"
