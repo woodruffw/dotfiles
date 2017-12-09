@@ -369,7 +369,6 @@ fetch_files() {
 
 	if [[ "${host}" = "athena" ]] ; then
 		cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
-		cp ~/.dotfiles/scripts/dailymail.rb ~/scripts/dailymail.rb
 		cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
 	fi
 
@@ -401,6 +400,7 @@ fetch_files() {
 	rm -f ~/scripts/colorscheme2
 	rm -f ~/scripts/twitter-github-bot.rb
 	rm -f ~/scripts/nicegif
+	rm -f ~/scripts/dailymail.rb
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
