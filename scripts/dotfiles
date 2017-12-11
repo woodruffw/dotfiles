@@ -215,7 +215,7 @@ fetch_files() {
 	if installed google-chrome ; then
 		printf "found. Reloading app scripts..."
 		cp ~/.dotfiles/scripts/netflix ~/scripts/netflix
-		cp ~/.dotfiles/scripts/subsonic ~/scripts/subsonic
+		cp ~/.dotfiles/scripts/plex ~/scripts/plex
 		green "done"
 	else
 		yellow "not installed. Skipping"
@@ -401,6 +401,7 @@ fetch_files() {
 	rm -f ~/scripts/twitter-github-bot.rb
 	rm -f ~/scripts/nicegif
 	rm -f ~/scripts/dailymail.rb
+	rm -f ~/scripts/subsonic
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases

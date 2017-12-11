@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# subsonic: open google-chrome to subsonic.
+# netflix: open google-chrome to plex.
 # this used to be an alias, but i want it to show up in dmenu.
 
 function installed() {
@@ -26,4 +26,4 @@ function notify() {
 
 installed google-chrome || { notify "$(basename "${0}") needs 'google-chrome'." ; exit 1 ; }
 
-google-chrome --app="https://pan.woodruffw.us" >/dev/null 2>&1
+google-chrome --app="https://app.plex.tv/desktop" >/dev/null 2>&1
