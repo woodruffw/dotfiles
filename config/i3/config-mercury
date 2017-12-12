@@ -158,10 +158,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # audio and playback bindings
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 10%-
-bindsym XF86AudioMute exec --no-startup-id amixer -D pulse sset Master toggle
-bindsym XF86AudioMicMute exec --no-startup-id amixer -D pulse sset Capture toggle
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 10%+
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 10%-
+bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
+bindsym XF86AudioMicMute exec amixer -D pulse sset Capture toggle
+bindsym XF86AudioPrev exec ~/scripts/sp prev
+bindsym XF86AudioNext exec ~/scripts/sp next
+bindsym XF86AudioPlay exec ~/scripts/sp play
 
 # open the file manager
 bindsym Control+Mod1+f exec pcmanfm
