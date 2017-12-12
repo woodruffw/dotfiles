@@ -278,6 +278,15 @@ fetch_files() {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for Spotify..."
+	if installed spotify; then
+		printf "found. Reloading scripts..."
+		cp ~/.dotfiles/scripts/sp ~/scripts/sp
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
