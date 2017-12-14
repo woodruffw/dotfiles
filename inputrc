@@ -14,8 +14,6 @@ set convert-meta off
 "\e[B": history-search-forward
 "\e[A": history-search-backward
 
-"\t": menu-complete
-
 # these shortcuts are stupid
 "\e-": self-insert
 "\e0": self-insert
