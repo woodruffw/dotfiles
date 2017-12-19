@@ -84,7 +84,7 @@ fetch_files() {
 		if [[ -f ~/.dotfiles/rtorrent-"${host}".rc ]]; then
 			cp ~/.dotfiles/rtorrent-"${host}".rc ~/.rtorrent.rc
 		else
-			printf "skipping rtorrent.rc.\n"
+			yellow "skipping rtorrent.rc."
 		fi
 
 		cp ~/.dotfiles/scripts/magnet.sh ~/scripts/magnet.sh
@@ -393,7 +393,7 @@ fetch_files() {
 		crontab ~/scripts/cron/"${host}".cron
 		green "done"
 	else
-		printf "none required.\n"
+		yellow "none required"
 	fi
 
 	printf "Doing some cleanup..."
