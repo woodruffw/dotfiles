@@ -256,14 +256,19 @@ fetch_files() {
 
 	printf "Checking for kbsecret..."
 	if installed kbsecret ; then
-		printf "found. Reloading scripts..."
+		printf "found. Reloading scripts and record types..."
 		cp ~/.dotfiles/scripts/kbsecret-yad-login ~/scripts/kbsecret-yad-login
 		cp ~/.dotfiles/scripts/kbsecret-dmenu-pass ~/scripts/kbsecret-dmenu-pass
 		cp ~/.dotfiles/scripts/kbsecret-snip ~/scripts/kbsecret-snip
 		cp ~/.dotfiles/scripts/kbsecret-todo-list ~/scripts/kbsecret-todo-list
 		cp ~/.dotfiles/scripts/kbsecret-discover-sessions ~/scripts/kbsecret-discover-sessions
+		cp ~/.dotfiles/scripts/kbsecret-recovery ~/scripts/kbsecret-recovery
 		cp ~/.dotfiles/scripts/todo ~/scripts/todo
 		cp ~/.dotfiles/scripts/snip ~/scripts/snip
+
+		mkdir -p ~/.config/kbsecret/record/
+		cp config/kbsecret/record/* ~/.config/kbsecret/record/
+
 		green "done"
 	else
 		yellow "not installed. Skipping"
