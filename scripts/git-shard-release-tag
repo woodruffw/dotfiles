@@ -11,7 +11,7 @@ def act(s)
   end
 end
 
-abort("No shards.yml?") unless File.exist?("shards.yml")
+abort("No shard.yml?") unless File.exist?("shard.yml")
 
 version = `shards version`.chomp
 tags = `git tag`.split
