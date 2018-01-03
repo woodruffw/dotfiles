@@ -14,4 +14,6 @@ username=$(git config github.user)
 url="https://api.github.com/users/${username}/repos?type=all&sort=pushed"
 repo=$(curl "${url}" | jq -r ".[] | .full_name" | dmenu -p ghbrowse)
 
+[[ -z "${repo}" ]] && exit
+
 "${BROWSER:-firefox}" "https://github.com/${repo}"
