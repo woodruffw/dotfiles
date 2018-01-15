@@ -22,6 +22,8 @@ force-seekable
 
 input-cursor=yes
 
+image-display-duration=inf
+
 [extension.webm]
 loop-file=inf
 
@@ -30,15 +32,3 @@ loop-file=inf
 
 [extension.gifv]
 loop-file=inf
-
-[extension.jpeg]
-keep-open
-
-[extension.jpg]
-keep-open
-
-[extension.png]
-keep-open
-
-[extension.webp]
-keep-open
