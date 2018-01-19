@@ -293,8 +293,6 @@ fetch_files() {
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
 	cp ~/.dotfiles/scripts/% ~/scripts/%
 	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
-	cp ~/.dotfiles/scripts/cskel ~/scripts/cskel
-	cp ~/.dotfiles/scripts/jskel ~/scripts/jskel
 	cp ~/.dotfiles/scripts/linecheck ~/scripts/linecheck
 	cp ~/.dotfiles/scripts/pbin ~/scripts/pbin
 	cp ~/.dotfiles/scripts/update ~/scripts/update
@@ -416,6 +414,8 @@ fetch_files() {
 	rm -f ~/scripts/nicegif
 	rm -f ~/scripts/dailymail.rb
 	rm -f ~/scripts/subsonic
+	rm -f ~/scripts/cskel
+	rm -f ~/scripts/jskel
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
