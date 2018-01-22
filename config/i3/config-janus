@@ -216,7 +216,7 @@ bindsym Control+Mod1+w exec ~/scripts/play-xclip
 bindsym Control+Mod1+e exec ~/scripts/uzbl-xclip
 
 # activate screensaver
-bindsym Pause exec xscreensaver-command -lock
+bindsym Pause exec ~/scripts/screenlock
 
 # save a password through yad
 bindsym $mod+z exec kbsecret yad-login
@@ -263,7 +263,6 @@ no_focus [class="mpv"]
 exec --no-startup-id compton -fCGb -D 8 -m 0.8 --vsync opengl --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id xscreensaver -nosplash
 exec --no-startup-id dropbox start -i
 exec --no-startup-id env KEYBASE_START_UI=hideWindow run_keybase
 exec --no-startup-id ibus-daemon -drx
