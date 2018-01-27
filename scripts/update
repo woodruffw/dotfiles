@@ -50,7 +50,7 @@ function do_npm {
 	npm update
 }
 
-installed apt-get && do_apt
+installed apt && do_apt
 installed pacman && do_pacman
 installed brew && do_brew
 
