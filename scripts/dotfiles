@@ -4,32 +4,32 @@
 # usage: dotfiles
 # this file is disgusting, and will never be fixed.
 
-installed() {
+function installed {
 	cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
 }
 
-green() {
+function green {
 	echo -e "${COLOR_GRN}${*}${COLOR_NRM}"
 }
 
-yellow() {
+function yellow {
 	echo -e "${COLOR_YLW}${*}${COLOR_NRM}"
 }
 
-die() {
+function die {
 	echo "Error: $*" >&2
 	exit 1
 }
 
-ensure() {
+function ensure {
 	"$@" \
 		|| die "Failed to run '$*'. Aborting."
 }
 
-fetch_files() {
+function fetch_files {
 	system=$(uname)
 	host=$(hostname)
 
