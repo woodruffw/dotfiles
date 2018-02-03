@@ -3,7 +3,7 @@
 #   poomf.sh
 #   Author: Joe Schillinger, William Woodruff
 #   ------------------------
-#   Upload to sr.ht.
+#   Upload to an RSUS endpoint (currently thing-in-itself).
 #   Heavily modified from Joe Schillinger's poomf.sh (now uguu.sh).
 #   ------------------------
 #   This code is licensed by Joe Schillinger under the MIT License.
@@ -74,10 +74,10 @@ if [[ ! "${keepexif}" ]]; then
     exiftool -overwrite_original -all= "${file}" > /dev/null
 fi
 
-eval "$(kbsecret env -s keys srht-api)"
+eval "$(kbsecret env -s keys rsus-api-key)"
 
-if [[ -n "${SRHT_API_KEY}" ]]; then
-    output=$(curl -sf -F key="${SRHT_API_KEY}" -F file="@${file}" "https://sr.ht/api/upload")
+if [[ -n "${RSUS_API_KEY}" ]]; then
+    output=$(curl -sf -F auth="${RSUS_API_KEY}" -F file="@${file}" "https://thing-in-itself.net/upload/")
 
     if [[ -n "${output}" ]]; then
         url=$(echo "${output}" | jq -M -r ".url")
