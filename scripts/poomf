@@ -66,7 +66,7 @@ elif [[ ! "${file}" ]]; then
     if [[ "${fullscreen}" ]]; then
         maim "${file}"
     elif [[ "${selection}" ]]; then
-        maim --bordersize 4000 -s "${file}"
+        maim --bordersize 4000 --color=0.2,0.2,0.2,0.9 -s "${file}"
     fi
 fi
 
