@@ -26,7 +26,7 @@ fi
 
 # add the rubygems bin path if installed
 if installed ruby && installed gem; then
-	PATH="${PATH}:$(ruby -rubygems -e 'puts Gem.user_dir')/bin"
+	PATH="${PATH}:$(ruby -e 'puts Gem.user_dir')/bin"
 fi
 
 # add the rakudobrew bin path if installed
