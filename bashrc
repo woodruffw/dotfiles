@@ -126,7 +126,7 @@ shah() {
 	fi
 }
 
-# fw, lw, ew - expand file, less, editor input from which
+# fw, lw, ew, rw - expand file, less, editor, realpath input from which
 # useful for reading from files on the PATH without their paths
 fw() {
 	file "$(which "${1}")"
@@ -138,6 +138,10 @@ lw() {
 
 ew() {
 	$EDITOR "$(which "${1}")"
+}
+
+rw() {
+	realpath "$(which "${1}")"
 }
 
 # jmp (jump) and friends, shamelessly taken from:
