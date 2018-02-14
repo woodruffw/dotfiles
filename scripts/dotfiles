@@ -342,6 +342,7 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/ffpreclip ~/scripts/ffpreclip
 	cp ~/.dotfiles/scripts/ffpip ~/scripts/ffpip
 	cp ~/.dotfiles/scripts/ffmono ~/scripts/ffmono
+	cp ~/.dotfiles/scripts/ffmonochrome ~/scripts/ffmonochrome
 	cp ~/.dotfiles/scripts/imgresize ~/scripts/imgresize
 
 	if [[ "${system}" = "Darwin" ]]; then
