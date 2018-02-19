@@ -291,6 +291,7 @@ function fetch_files {
 	printf "Checking for fontconfig..."
 	if installed fc-cache; then
 		printf "found. Reloading fonts.conf..."
+		mkdir -p ~/.config/fontconfig
 		cp ~/.dotfiles/config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
 		green "done"
 	else
