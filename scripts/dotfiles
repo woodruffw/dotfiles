@@ -288,6 +288,15 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for fontconfig..."
+	if installed fc-cache; then
+		printf "found. Reloading fonts.conf..."
+		cp ~/.dotfiles/config/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/$ ~/scripts/$
