@@ -354,6 +354,7 @@ shopt -s globstar # double globs match arbitary subdirs
 ################
 # KEY BINDINGS #
 ################
+bind -x '"\e[14~":pcmanfm . 2>/dev/null &' # open a file manager in the CWD
 bind -x '"\e[15~":ttyreset' # reset the terminal with F5
 bind -x '"\eW":"who"'
 bind -x '"\eU":"uptime"'
