@@ -29,3 +29,5 @@
 	gpgsign = true
 [pull]
 	rebase = true
+[gpg]
+	program = gpg2
