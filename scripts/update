@@ -50,8 +50,8 @@ function do_npm {
 	npm update
 }
 
-installed apt && do_apt
-installed pacman && do_pacman
+[[ "$(uname)" = "Linux" ]] && installed apt && do_apt
+[[ "$(uname)" = "Linux" ]] && installed pacman && do_pacman
 installed brew && do_brew
 
 installed gem && prompt "Update gems?" && do_gem
