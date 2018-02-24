@@ -8,7 +8,7 @@
 	status = auto
 	branch = auto
 [user]
-	email = william@tuffbizz.com
+	email = william@yossarian.net
 	name = William Woodruff
 	signingkey = 85AE00C504833B3C
 [push]
