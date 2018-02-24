@@ -263,6 +263,7 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/kbsecret-todo-list ~/scripts/kbsecret-todo-list
 		cp ~/.dotfiles/scripts/kbsecret-discover-sessions ~/scripts/kbsecret-discover-sessions
 		cp ~/.dotfiles/scripts/kbsecret-recovery ~/scripts/kbsecret-recovery
+		cp ~/.dotfiles/scripts/kbsecret-audit-pass ~/scripts/kbsecret-audit-pass
 		cp ~/.dotfiles/scripts/todo ~/scripts/todo
 		cp ~/.dotfiles/scripts/snip ~/scripts/snip
 		green "done"
