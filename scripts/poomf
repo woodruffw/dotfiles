@@ -70,6 +70,11 @@ elif [[ ! "${file}" ]]; then
     fi
 fi
 
+if [[ ! -f "${file}" ]]; then
+    info "file was no uploaded (no file specified)"
+    exit 2
+fi
+
 if [[ ! "${keepexif}" ]]; then
     exiftool -overwrite_original -all= "${file}" > /dev/null
 fi
@@ -85,7 +90,7 @@ if [[ -n "${RSUS_API_KEY}" ]]; then
         echo "${url}" | xclip -selection clipboard
         info "${url}"
     else
-        info "file was not uploaded, did you specify a valid filename?"
+        info "file was not uploaded (invalid file or server error?)"
     fi
 else
     info "missing API key?"
