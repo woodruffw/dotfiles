@@ -392,6 +392,7 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/ghbrowse ~/scripts/ghbrowse
 		cp ~/.dotfiles/scripts/screenlock ~/scripts/screenlock
 		cp ~/.dotfiles/scripts/latin ~/scripts/latin
+		cp ~/.dotfiles/scripts/vboxssh ~/scripts/vboxssh
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
