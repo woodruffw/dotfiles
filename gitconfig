@@ -2,6 +2,7 @@
 	pager = less
 	whitespace = blank-at-eol
 	excludesfile = ~/.gitignore
+	trustctime = false
 [color]
 	ui = 1
 	diff = auto
