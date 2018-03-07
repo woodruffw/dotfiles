@@ -435,6 +435,7 @@ function fetch_files {
 	rm -f ~/scripts/subsonic
 	rm -f ~/scripts/cskel
 	rm -f ~/scripts/jskel
+	rm -f ~/scripts/afs-umd
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
