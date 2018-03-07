@@ -314,7 +314,6 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/flac2mp3 ~/scripts/flac2mp3
 	cp ~/.dotfiles/scripts/mp3art ~/scripts/mp3art
 	cp ~/.dotfiles/scripts/flacart ~/scripts/flacart
-	cp ~/.dotfiles/scripts/mdmath ~/scripts/mdmath
 	cp ~/.dotfiles/scripts/worldtimes ~/scripts/worldtimes
 	cp ~/.dotfiles/scripts/diff-highlight ~/scripts/diff-highlight
 	cp ~/.dotfiles/scripts/uspatent ~/scripts/uspatent
@@ -436,6 +435,7 @@ function fetch_files {
 	rm -f ~/scripts/jskel
 	rm -f ~/scripts/afs-umd
 	rm -f ~/scripts/streamable-upload
+	rm -f ~/scripts/mdmath
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
