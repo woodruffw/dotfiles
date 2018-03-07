@@ -381,7 +381,6 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/open-pdf ~/scripts/open-pdf
 		cp ~/.dotfiles/scripts/bug-roommates ~/scripts/bug-roommates
 		cp ~/.dotfiles/scripts/music ~/scripts/music
-		cp ~/.dotfiles/scripts/streamable-upload ~/scripts/streamable-upload
 		cp ~/.dotfiles/scripts/nft ~/scripts/nft
 		cp ~/.dotfiles/scripts/google ~/scripts/google
 		cp ~/.dotfiles/scripts/ytsearch ~/scripts/ytsearch
@@ -436,6 +435,7 @@ function fetch_files {
 	rm -f ~/scripts/cskel
 	rm -f ~/scripts/jskel
 	rm -f ~/scripts/afs-umd
+	rm -f ~/scripts/streamable-upload
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
