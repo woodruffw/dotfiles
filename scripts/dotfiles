@@ -349,10 +349,12 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/ffflagflip ~/scripts/ffflagflip
 	cp ~/.dotfiles/scripts/ffwatermark ~/scripts/ffwatermark
 	cp ~/.dotfiles/scripts/ffautocrop ~/scripts/ffautocrop
+	cp ~/.dotfiles/scripts/ffclip ~/scripts/ffclip
 	cp ~/.dotfiles/scripts/ffpreclip ~/scripts/ffpreclip
 	cp ~/.dotfiles/scripts/ffpostclip ~/scripts/ffpostclip
 	cp ~/.dotfiles/scripts/ffpip ~/scripts/ffpip
 	cp ~/.dotfiles/scripts/ffmono ~/scripts/ffmono
+	cp ~/.dotfiles/scripts/ffreverse ~/scripts/ffreverse
 	cp ~/.dotfiles/scripts/ffmonochrome ~/scripts/ffmonochrome
 	cp ~/.dotfiles/scripts/imgresize ~/scripts/imgresize
 
