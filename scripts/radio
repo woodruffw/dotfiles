@@ -11,7 +11,7 @@
 
 player="mpv"
 playeropts="--force-window=no --no-ytdl"
-cmd="${1:-usage}"
+command="${1:-usage}"
 
 function error() {
 	>&2 echo "Fatal: ${*}. Exiting."
@@ -47,15 +47,15 @@ source ~/.radiorc
 
 [[ -z "${stations[0]}" ]] || error "Missing radio stations in ~/.radiorc"
 
-if [[ "${cmd}" = "usage" ]]; then
+if [[ "${command}" = "usage" ]]; then
 	usage
-elif [[ "${cmd}" = "list" ]]; then
+elif [[ "${command}" = "list" ]]; then
 	list_stations
 else
-	station="${stations["${cmd}"]}"
+	station="${stations["${command}"]}"
 
 	if [[ -z "${station}" ]]; then
-		echo "No such station: '${cmd}'."
+		echo "No such station: '${command}'."
 		list_stations
 		exit 1
 	else
