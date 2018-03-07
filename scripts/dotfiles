@@ -243,17 +243,6 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for muzak..."
-	if installed muzakd ; then
-		printf "found. Reloading utilities..."
-		cp ~/.dotfiles/scripts/muzak-now-playing ~/scripts/muzak-now-playing
-		cp ~/.dotfiles/scripts/muzak-rebase-index ~/scripts/muzak-rebase-index
-		cp ~/.dotfiles/scripts/muzak-9menu ~/scripts/muzak-9menu
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
 	printf "Checking for kbsecret..."
 	if installed kbsecret ; then
 		printf "found. Reloading scripts..."
@@ -438,6 +427,9 @@ function fetch_files {
 	rm -f ~/scripts/afs-umd
 	rm -f ~/scripts/streamable-upload
 	rm -f ~/scripts/mdmath
+	rm -f ~/scripts/muzak-now-playing
+	rm -f ~/scripts/muzak-rebase-index
+	rm -f ~/scripts/muzak-9menu
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
