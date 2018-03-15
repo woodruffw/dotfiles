@@ -13,6 +13,11 @@
         "Pretty JSON",
         "Vintage"
     ],
+    "indent_guide_options":
+    [
+        "draw_normal",
+        "draw_active"
+    ],
     "mouse_wheel_switches_tabs": true,
     "remember_open_files": false,
     "rulers":
