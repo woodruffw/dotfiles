@@ -205,6 +205,20 @@ pdfwc() {
 	pdftotext "${1}" - | wc -w
 }
 
+# print double-sided (long edge, for portrait prints)
+lpr2sle() {
+	[[ -f "${1}" ]] || { echo "Missing input file."; exit 1; }
+
+	lpr -o sides=two-sided-long-edge "${1}"
+}
+
+# print double-sided (short edge, for landscape prints)
+lpr2sse() {
+	[[ -f "${1}" ]] || { echo "Missing input file."; exit 1; }
+
+	lpr -o sides=two-sided-short-edge "${1}"
+}
+
 system=$(uname)
 host=$(hostname)
 
