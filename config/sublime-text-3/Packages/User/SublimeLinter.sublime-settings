@@ -1,0 +1,25 @@
+// SublimeLinter Settings - User
+{
+    "gutter_theme": "Default",
+
+    "styles": [
+        {
+            "mark_style": "outline",
+            "priority": 1,
+            "scope": "region.yellowish markup.changed.sublime_linter markup.warning.sublime_linter",
+            "icon": "warning",
+            "types": [
+                "warning"
+            ]
+        },
+        {
+            "mark_style": "outline",
+            "priority": 1,
+            "scope": "region.redish markup.deleted.sublime_linter markup.error.sublime_linter",
+            "icon": "error",
+            "types": [
+                "error"
+            ]
+        }
+    ],
+}
