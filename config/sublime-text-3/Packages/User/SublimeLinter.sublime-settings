@@ -1,5 +1,7 @@
 // SublimeLinter Settings - User
 {
+    "debug": true,
+
     "gutter_theme": "Default",
 
     "styles": [
