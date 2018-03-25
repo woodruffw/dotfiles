@@ -4,7 +4,7 @@
 # this resource will usually be a URL, file path, or something like that
 
 function installed {
-	local cmd=$(command -v "${1}")
+	cmd=$(command -v "${1}")
 
 	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
@@ -12,7 +12,7 @@ function installed {
 
 # make sure we have both of our dependencies
 if installed "xclip" ; then
-	if xclip -o 2>&1 > /dev/null ; then
+	if xclip -o >/dev/null 2>&1 ; then
 		resource=$(xclip -o)
 		if [[ ! -z "${resource}" ]]; then
 			notify-send "play-xclip" "Playing ${resource}"
