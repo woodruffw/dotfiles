@@ -299,7 +299,6 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/cart ~/scripts/cart
 	cp ~/.dotfiles/scripts/speedtest ~/scripts/speedtest
 	cp ~/.dotfiles/scripts/rip ~/scripts/rip
-	cp ~/.dotfiles/scripts/sms ~/scripts/sms
 	cp ~/.dotfiles/scripts/flac2mp3 ~/scripts/flac2mp3
 	cp ~/.dotfiles/scripts/mp3art ~/scripts/mp3art
 	cp ~/.dotfiles/scripts/flacart ~/scripts/flacart
@@ -431,6 +430,7 @@ function fetch_files {
 	rm -f ~/scripts/muzak-rebase-index
 	rm -f ~/scripts/muzak-9menu
 	rm -f ~/scripts/screenfetch
+	rm -f ~/scripts/sms
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
