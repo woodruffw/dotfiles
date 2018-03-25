@@ -5,7 +5,7 @@
 # inspired vaguely by yossarian-bot's !remind
 
 def usage
-  STDERR.puts <<~EOS
+  STDERR.puts <<~HELP
     Usage: remind <count> <unit> <message>
 
     Valid counts are positive integers.
@@ -14,7 +14,7 @@ def usage
       $ remind 5 secs do foo
       $ remind 10 m run bar
       $ remind 1 hour something else
-  EOS
+  HELP
 
   exit
 end
