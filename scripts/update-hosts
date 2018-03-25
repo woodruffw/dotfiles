@@ -3,19 +3,19 @@
 # update-hosts: fetch a list of known adware/malware/etc domains
 # and block them via /etc/hosts
 
-installed() {
+function installed {
   cmd=$(command -v "${1}")
 
   [[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
   return ${?}
 }
 
-die() {
+function die {
   echo "Error: $*"
   exit 1
 }
 
-ensure() {
+function ensure {
   "$@" \
     || die "$(basename "${0}"): Failed to run '$*'."
 }
