@@ -5,6 +5,7 @@
 
 require "json"
 require "open3"
+require "securerandom"
 
 URL = "https://api.groupme.com/v3/groups/%<group_id>s/messages"
 
@@ -13,7 +14,7 @@ token = `kbsecret env -s keys -v groupme-api`.chomp
 url = URL % { group_id: group_id }
 header_flag = "--header 'X-Access-Token: #{token}'"
 
-uuid = `uuidgen`.chomp
+uuid = SecureRandom.uuid
 text = ARGF.read.chomp
 
 request = {
