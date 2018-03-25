@@ -18,7 +18,7 @@ end
 
 begin
   KEY = `kbsecret env -vs keys wunderground-api`.chomp.freeze
-rescue => e
+rescue StandardError => e
   abort("Couldn't get API key from kbsecret: #{e}.")
 end
 
@@ -32,7 +32,7 @@ begin
 
   # even period numbers are day forecasts, odds are night forecasts
   days = forecast["txt_forecast"]["forecastday"].select { |w| w["period"].even? }
-rescue => e
+rescue StandardError => e
   puts "Something blew up: #{e}."
 end
 
