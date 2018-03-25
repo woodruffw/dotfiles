@@ -2,17 +2,17 @@
 
 # ezsshfs: wrap sshfs to make it a little nicer to use
 
-die() {
+function die {
   echo "Error: $*" >&2
   exit 1
 }
 
-ensure() {
+function ensure {
   "$@" \
     || die "Failed to run '$*'. Aborting."
 }
 
-installed() {
+function installed {
   cmd=$(command -v "${1}")
 
   [[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
