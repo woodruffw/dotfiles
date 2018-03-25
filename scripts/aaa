@@ -2,7 +2,7 @@
 
 # aaa: auto albumart
 
-function installed() {
+function installed {
 	cmd=$(command -v "${1}")
 
 	[[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
