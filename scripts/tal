@@ -13,19 +13,19 @@ player="mpv"
 playeropts="--force-window=no --no-ytdl"
 cmd="${1:-usage}"
 
-function error() {
+function error {
 	>&2 echo "Fatal: ${*}. Exiting."
 	exit 2
 }
 
-function installed() {
+function installed {
 	cmd=$(command -v "${1}")
 
 	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
 	return ${?}
 }
 
-function usage() {
+function usage {
 	echo "Usage: $(basename "${0}") <episode #>"
 	exit
 }
