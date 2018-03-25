@@ -1,20 +1,21 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require "open-uri"
+require "net/http"
 require "json"
 require "open3"
 
-URL = "https://www.reddit.com/r/%{subreddit}/hot.json?limit=100"
+URL = "https://www.reddit.com/r/%<subreddit>s/hot.json?limit=100"
 
 subreddit = ARGV.shift || "videos"
 url = URL % { subreddit: subreddit }
 
 begin
-  data = JSON.parse(open(url).read)
+  data = JSON.parse Net::HTTP.get(URI(url))
   url_blobs = data["data"]["children"].select { |c| c["kind"] == "t3" }
   urls = url_blobs.map { |c| c["data"]["url"] }
-rescue Exception => e
-  abort("Something exploded: #{e.to_s}.")
+rescue StandardError => e
+  abort("Something exploded: #{e}.")
 end
 
 abort("No URLs to play.") if urls.empty?
