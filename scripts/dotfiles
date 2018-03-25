@@ -364,7 +364,6 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/xontop ~/scripts/xontop
 		cp ~/.dotfiles/scripts/tal ~/scripts/tal
 		cp ~/.dotfiles/scripts/byzanz-rect ~/scripts/byzanz-rect
-		cp ~/.dotfiles/scripts/screenfetch ~/scripts/screenfetch
 		cp ~/.dotfiles/scripts/brewnav ~/scripts/brewnav
 		cp ~/.dotfiles/scripts/subreddit-watch ~/scripts/subreddit-watch
 		cp ~/.dotfiles/scripts/ezsshfs ~/scripts/ezsshfs
@@ -431,6 +430,7 @@ function fetch_files {
 	rm -f ~/scripts/muzak-now-playing
 	rm -f ~/scripts/muzak-rebase-index
 	rm -f ~/scripts/muzak-9menu
+	rm -f ~/scripts/screenfetch
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
