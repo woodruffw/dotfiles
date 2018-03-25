@@ -6,7 +6,7 @@
 if [[ -d ~/.api-keys ]] ; then
   for keyfile in ~/.api-keys/*
   do
-    source ${keyfile}
+    source "${keyfile}"
   done
 fi
 
