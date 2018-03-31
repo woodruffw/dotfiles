@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "kbsecret"
+require "net/http"
+require "json"
+require "cgi"
+
+URL = "https://maps.googleapis.com/maps/api/geocode/json?address=%<address>s&key=%<key>s"
+
+key   = KBSecret::Session[:keys]["google-geocoding-api-key"].value
+query = ARGV.join " "
+url = URL % { address: CGI.escape(query), key: CGI.escape(key) }
+
+abort("Missing query.") if query.empty?
+
+begin
+  resp = JSON.parse(Net::HTTP.get(URI(url)))
+  abort("Error: #{resp["status"]}") if resp["status"] != "OK"
+
+  result = resp["results"].first
+  puts result["formatted_address"]
+rescue StandardError => e
+  abort("Something exploded: #{e}.")
+end
