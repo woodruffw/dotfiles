@@ -10,7 +10,7 @@ URL = "https://maps.googleapis.com/maps/api/geocode/json?address=%<address>s&key
 
 key   = KBSecret::Session[:keys]["google-geocoding-api-key"].value
 query = ARGV.join " "
-url = URL % { address: CGI.escape(query), key: CGI.escape(key) }
+url   = URL % { address: CGI.escape(query), key: CGI.escape(key) }
 
 abort("Missing query.") if query.empty?
 
