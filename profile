@@ -64,6 +64,7 @@ unset MAILCHECK
 
 [[ -d ~/bin ]] && PATH="${HOME}/bin:${PATH}"
 [[ -d ~/scripts ]] && PATH="${HOME}/scripts:${PATH}"
+[[ -d ~/man ]] && MANPATH="${HOME}/man:${MANPATH}"
 
 if [[ "${system}" = "Linux" ]]; then
 	if [[ -d ~/.linuxbrew ]]; then # if linuxbrew is installed, add it to paths
