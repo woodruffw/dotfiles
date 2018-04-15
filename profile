@@ -67,14 +67,17 @@ unset MAILCHECK
 [[ -d ~/man ]] && MANPATH="${HOME}/man:${MANPATH}"
 
 if [[ "${system}" = "Linux" ]]; then
-	if [[ -d ~/.linuxbrew ]]; then # if linuxbrew is installed, add it to paths
+	# If linuxbrew is installed, add its bin and man directories to their respective paths.
+	if [[ -d ~/.linuxbrew ]]; then
 		PATH="${HOME}/.linuxbrew/bin:${PATH}"
 		export MANPATH="${HOME}/.linuxbrew/share/man:${MANPATH}"
 	fi
 
-	if [[ -d ~/.cargo ]]; then # if rust is installed via rustup, add it to paths
-		export PATH="${HOME}/.cargo/bin:${PATH}"
-	fi
+	# If rust is installed via rustup, add it to the PATH.
+	[[ -d ~/.cargo ]] && export PATH="${HOME}/.cargo/bin:${PATH}"
+
+	# If `snap` is installed, add it to the PATH.
+	[[ -d /snap/bin ]] && export PATH="/snap/bin:${PATH}"
 elif [[ "${system}" = "Darwin" ]]; then
 	export TERMINFO_DIRS="${HOME}/.terminfo:/usr/local/share/terminfo:${TERMINFO}:"
 	export LSCOLORS='gxfxcxdxbxegedabagacad'
