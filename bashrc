@@ -41,6 +41,22 @@ __generate_prompt() {
 	history -a
 	history -c
 	history -r
+
+	# update the terminal's title
+	__generate_title
+}
+
+# __generate_title - generate the terminal emulator's title dynamically
+__generate_title() {
+	local dir
+
+	if [[ "${PWD}" = "${HOME}" ]]; then
+		dir="~"
+	else
+		dir=$(basename "${PWD}")
+	fi
+
+	echo -ne "\033]0;${dir}\007"
 }
 
 # title - update the terminal's title
