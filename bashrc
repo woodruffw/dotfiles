@@ -48,20 +48,27 @@ __generate_prompt() {
 
 # __generate_title - generate the terminal emulator's title dynamically
 __generate_title() {
-	local dir
+	local title
 
-	if [[ "${PWD}" = "${HOME}" ]]; then
-		dir="~"
+	if [[ -n "${__MANUAL_TITLE}" ]]; then
+		title=${__MANUAL_TITLE}
+	elif [[ "${PWD}" = "${HOME}" ]]; then
+		title="~"
 	else
-		dir=$(basename "${PWD}")
+		title=$(basename "${PWD}")
 	fi
 
-	echo -ne "\033]0;${dir}\007"
+	echo -ne "\033]0;${title}\007"
 }
 
-# title - update the terminal's title
+# title - update the terminal's title manually
 title() {
-	echo -ne "\033]0;${*}\007"
+	export __MANUAL_TITLE="${*}"
+}
+
+# untitle - reset the terminal's title behavior
+untitle() {
+	unset __MANUAL_TITLE
 }
 
 # installed - check if a program is both available and a file (no aliases/functions)
