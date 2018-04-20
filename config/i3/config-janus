@@ -40,7 +40,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec dmenu_run -fn 'Terminus'
 
 # start rofi in window selection mode
-bindsym $mod+Shift+d exec rofi -show window -lines 5 -auto-select
+bindsym $mod+Shift+d exec rofi -show window -lines 5
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
