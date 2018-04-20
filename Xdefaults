@@ -39,12 +39,12 @@ URxvt.urgentOnBell: true
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
-! One day.
-! rofi.terminal: urxvt
-! rofi.hide-scrollbar: true
-! rofi.matching: fuzzy
-! rofi.color-normal: argb:00272822, #f8f8f2, argb:00272822, #141411, #f8f8f2
-! rofi.color-urgent: argb:00272822, #f92672, argb:00272822, #f92672, #f8f8f2
-! rofi.color-active: argb:00272822, #a6e22a, argb:00272822, #141411, #a6e22a
-! rofi.color-window: argb:ee272822, #002b36, #e6db74
-! rofi.separator-style: solid
+rofi.terminal: urxvt
+rofi.hide-scrollbar: true
+rofi.matching: fuzzy
+rofi.color-enabled: true
+rofi.color-normal: #252627, #f8f8f2, #252627, #141411, #f8f8f2
+rofi.color-urgent: #252627, #f92672, #252627, #f92672, #f8f8f2
+rofi.color-active: #252627, #a6e22a, #252627, #141411, #a6e22a
+rofi.color-window: #252627, #002b36, #e6db74
+rofi.separator-style: none
