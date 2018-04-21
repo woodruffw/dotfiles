@@ -52,6 +52,7 @@ usage() {
 		  list
 		  new <label> <code>
 		  rm <label>
+		  edit <label>
 	EOS
 }
 
@@ -72,6 +73,11 @@ remove-snippet() {
 	session-call rm "${label}"
 }
 
+edit-snippet() {
+	label="${1}"
+	session-call raw-edit "${label}"
+}
+
 not-found() {
 	echo "snip: no such command: '${1}'"
 }
@@ -88,6 +94,7 @@ else
 		ls|list ) list-snippets "${@}" ;;
 		n|new ) new-snippet "${@}" ;;
 		rm ) remove-snippet "${@}" ;;
+		edit ) edit-snippet "${@}" ;;
 		* ) not-found "${cmd}" ; usage ; exit 1 ;;
 	esac
 fi

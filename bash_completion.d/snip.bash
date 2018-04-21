@@ -4,8 +4,8 @@ _snip_complete() {
 	prev="${COMP_WORDS[COMP_CWORD-1]}"
 
 	case "${prev}" in
-		snip ) opts="help list new rm" ;;
-		rm ) opts=$(snip list) ;;
+		snip ) opts="help list new rm edit" ;;
+		rm|edit ) opts=$(snip list) ;;
 	esac
 
 	COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
