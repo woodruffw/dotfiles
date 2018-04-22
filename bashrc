@@ -401,9 +401,6 @@ bind -x '"\eL":"ls"'
 # reload configs when SIGURG is received
 trap bashreload SIGURG
 
-# update the terminal's title while a command is running
-trap '__MANUAL_TITLE="${BASH_COMMAND}" __generate_title' DEBUG
-
 ########################
 # COMPLETION FUNCTIONS #
 ########################
