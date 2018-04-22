@@ -28,7 +28,7 @@ URxvt.cursorUnderline: true
 URxvt.scrollBar: false
 URxvt.borderLess: false
 
-URxvt.perl-ext-common: default,matcher,resize-font
+URxvt.perl-ext-common: default,matcher,resize-font,confirm-paste
 
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
