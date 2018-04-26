@@ -376,6 +376,7 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/nft ~/scripts/nft
 		cp ~/.dotfiles/scripts/google ~/scripts/google
 		cp ~/.dotfiles/scripts/ytsearch ~/scripts/ytsearch
+		cp ~/.dotfiles/scripts/ytsearch2 ~/scripts/ytsearch2
 		cp ~/.dotfiles/scripts/a2dp ~/scripts/a2dp
 		cp ~/.dotfiles/scripts/speaker ~/scripts/speaker
 		cp ~/.dotfiles/scripts/slopcast ~/scripts/slopcast
