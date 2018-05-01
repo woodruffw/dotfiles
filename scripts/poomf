@@ -71,7 +71,7 @@ elif [[ ! "${file}" ]]; then
 fi
 
 if [[ ! -f "${file}" ]]; then
-    info "file was no uploaded (no file specified)"
+    info "file was not uploaded (no file specified)"
     exit 2
 fi
 
