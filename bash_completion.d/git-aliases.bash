@@ -64,7 +64,7 @@ function gcm()
 
 function gpod()
 {
-	git push origin :${1}
+	git push origin :"${1}"
 }
 
 function quickcommit()
