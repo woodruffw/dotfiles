@@ -22,11 +22,8 @@ end
 
 def dmenu(options)
   opts = options.join("\n")
-  Open3.popen2(DMENU_EXEC) do |stdin, stdout|
-    stdin.puts opts
-    stdin.close
-    stdout.gets&.chomp
-  end
+  stdout, = Open3.capture2 DMENU_EXEC, stdin_data: opts
+  stdout.chomp
 end
 
 url = URL_MAP[dmenu(URL_MAP.keys)]

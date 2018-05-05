@@ -12,7 +12,6 @@ URL = "https://api.groupme.com/v3/groups/%<group_id>s/messages"
 group_id = `kbsecret env -s keys -v groupme-roommate-id`.chomp
 token = `kbsecret env -s keys -v groupme-api`.chomp
 url = URL % { group_id: group_id }
-header_flag = "--header 'X-Access-Token: #{token}'"
 
 uuid = SecureRandom.uuid
 text = ARGF.read.chomp
@@ -24,9 +23,6 @@ request = {
   },
 }
 
-Open3.popen2("curl -X POST #{header_flag} -d @- #{url}") do |stdin, stdout, _|
-  stdin.write request.to_json
-  stdin.close
-  stdout.read
-  stdout.close
-end
+curl = ["curl", "-X", "POST", "--header", "X-Access-Token: #{token}", "-d", request.to_json, url]
+
+exec(*curl)
