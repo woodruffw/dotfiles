@@ -3,6 +3,7 @@
 
 require "net/http"
 require "json"
+require "open3"
 
 URL = "https://www.reddit.com/r/%<subreddit>s/hot.json?limit=100"
 
@@ -19,4 +20,4 @@ end
 
 abort("No URLs to play.") if urls.empty?
 
-`echo -e "#{urls.join("\n")}" | mpv --playlist=-`
+Open3.capture2 "mpv", "--playlist=-", stdin_data: urls.join("\n")
