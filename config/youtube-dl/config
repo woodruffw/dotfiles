@@ -1,0 +1,2 @@
+# always prefer ffmpeg over avconv
+--prefer-ffmpeg
