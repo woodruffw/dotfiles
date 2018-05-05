@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+# last-photo: grab the last N saved audio recordings taken on my phone
+
+set -o pipefail
+
+die() {
+  echo "Error: $*" >&2
+  exit 1
+}
+
+ensure() {
+  "$@" \
+    || die "Failed to run '$*'. Aborting."
+}
+
+nrecordings="${1:-1}"
+dest="${2:-${PWD}}"
+dev=$(ensure gvfs-mount --list \
+	| grep "mtp ->" \
+	| awk '{ print $4 }')
+ppath="${dev}Internal%20shared%20storage/Record/SoundRecord"
+
+recordings=$(ensure gvfs-ls "${ppath}" \
+		| tail -n "${nrecordings}")
+
+for photo in ${recordings}; do
+	ensure gvfs-copy "${ppath}/${photo}" "${dest}"
+done
