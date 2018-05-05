@@ -3,7 +3,6 @@
 
 require "net/http"
 require "json"
-require "open3"
 
 URL = "https://www.reddit.com/r/%<subreddit>s/hot.json?limit=100"
 
