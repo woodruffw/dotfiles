@@ -295,6 +295,7 @@ function fetch_files {
 		printf "found. Reloading config..."
 		mkdir -p ~/.config/youtube-dl
 		cp ~/.dotfiles/config/youtube-dl/config ~/.config/youtube-dl/config
+		green "done"
 	else
 		yellow "not installed. Skipping"
 	fi
