@@ -146,8 +146,8 @@ function fetch_files {
 	printf "Checking for newsbeuter..."
 	if installed newsbeuter ; then
 		printf "found. Reloading config and scripts..."
-		mkdir -p ~/.newsbeuter
-		cp ~/.dotfiles/newsbeuter/config ~/.newsbeuter/config
+		mkdir -p ~/.config/newsbeuter
+		cp ~/.dotfiles/config/newsbeuter/config ~/.config/newsbeuter/config
 		cp ~/.dotfiles/scripts/newsbeuter-yt-feed ~/scripts/newsbeuter-yt-feed
 		green "done"
 	else
