@@ -453,6 +453,7 @@ function fetch_files {
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
 	rm -f ~/.tepmrc
+	rm -f ~/.newsbeuter
 	green "done"
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
