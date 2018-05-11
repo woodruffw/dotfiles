@@ -1,11 +1,16 @@
-# reload all feeds when started
 auto-reload yes
-
-# reload every 30 mins while running
 reload-time 30
+reload-threads 4
+max-items 25
 
-# use uzbl-browser to browse
-browser "uzbl-tabbed %u"
+# save the cache in KBFS, for synchronization
+cache-file "/keybase/private/yossarian/newsbeuter/cache.db"
+
+# use notify-send to send new item notifications
+notify-program "notify-send"
+
+# use firefox to browse
+browser "firefox -new-tab %u"
 
 # use mpv to open with ,-y
 macro y set browser "mpv %u"; open-in-browser-and-mark-read ; set browser "uzbl-tabbed %u"
