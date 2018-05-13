@@ -13,5 +13,5 @@ class PipeCommand(sublime_plugin.TextCommand):
         if not args:
             return
         popen = Popen(args, stdin=DEVNULL, stdout=PIPE, stderr=DEVNULL)
-        output = popen.communicate()[0].decode("utf-8")
+        output = popen.communicate()[0].decode("utf-8").rstrip()
         self.view.run_command("insert", {"characters": output})
