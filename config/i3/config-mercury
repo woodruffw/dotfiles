@@ -205,7 +205,10 @@ for_window [title="floaterm"] floating enable, border pixel 1
 for_window [class="^Zenity$"] floating enable
 for_window [class="^Yad$"] floating enable
 
-# these two never need to be initially focused
+# why does slack start in _NET_WM_STATE_SKIP_TASKBAR?
+for_window [class="^Slack$"] floating disable
+
+# this never needs to be initially focused
 no_focus [class="feh"]
 
 exec --no-startup-id compton -fCGb -D 8 -m 0.8 --backend glx --vsync opengl-swc --shadow-exclude "class_g = 'slop'"
