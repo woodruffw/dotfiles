@@ -1,5 +1,6 @@
 // vim:ts=4:sw=4:et
 {
+    // stacked split container with 1 children
     "border": "normal",
     "floating": "auto_off",
     "layout": "stacked",
@@ -14,15 +15,14 @@
                "height": 864,
                "width": 1596,
                "x": 0,
-               "y": 0
+               "y": 16
             },
             "name": "browser",
-            "percent": 0.333333333333333,
+            "percent": 1,
             "swallows": [
                {
                "class": "^Firefox$",
                "instance": "^Navigator$",
-               "window_role": "^browser$"
                }
             ],
             "type": "con"
