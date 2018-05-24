@@ -15,3 +15,16 @@ id=$(xinput --list --short \
 
 xset mouse 2 0
 xinput set-prop "${id}" 'Evdev Scrolling Distance' 1 1 1
+
+# As far as I can tell, this is the mapping:
+# 1 -> 1 (left click)
+# 8 -> 2 (back button -> middle click)
+# 3 -> 3 (right click)
+# 4 -> 4 (scroll up)
+# 5 -> 5 (scroll down)
+# 6 -> 6 (scroll left)
+# 7 -> 7 (scroll right)
+# 0 -> 8 (nothing -> back button)
+# 0 -> 9 (nothing -> forward button)
+# 11, 12, 13 -> ???
+xmodmap -e "pointer = 1 8 3 4 5 6 7 0 0 10 11 12 13"
