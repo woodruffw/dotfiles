@@ -128,11 +128,11 @@ function fetch_files {
 	printf "Checking for mpv..."
 	if installed mpv ; then
 		printf "found. Reloading configs..."
-		mkdir -p ~/.mpv/{scripts,lua-settings}
+		mkdir -p ~/.mpv/{scripts,script-opts}
 		cp ~/.dotfiles/mpv/config ~/.mpv/config
 		cp ~/.dotfiles/mpv/input.conf ~/.mpv/input.conf
 		cp ~/.dotfiles/mpv/scripts/* ~/.mpv/scripts/
-		cp ~/.dotfiles/mpv/lua-settings/osc.conf ~/.mpv/lua-settings/osc.conf
+		cp ~/.dotfiles/mpv/script-opts/osc.conf ~/.mpv/script-opts/osc.conf
 		green "done"
 	else
 		yellow "not installed. Skipping"
@@ -465,6 +465,7 @@ function fetch_files {
 	rm -f ~/.git-aliases
 	rm -f ~/.tepmrc
 	rm -rf ~/.newsbeuter
+	rm -rf ~/.mpv/lua-settings/
 	green "done"
 
 	printf "Sync dotfiles-priv? (y/N): " && read ans
