@@ -222,3 +222,4 @@ exec --no-startup-id nm-applet
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id ~/scripts/workspaces
 exec --no-startup-id xmodmap ~/.Xmodmap
+exec --no-startup-id ~/scripts/microsoft-mouse

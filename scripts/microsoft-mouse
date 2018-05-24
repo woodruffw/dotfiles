@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# microsoft-mouse: set mouse preferences (speed and scroll speed) for my crappy wireless mouse
+
+device="Microsft Microsoft Wireless Optical Desktop"
+
+# exit unless the mouse is actually plugged in
+xinput --list --short | grep -q "${device}" || exit
+
+# our device id matches our device name, is a pointer, and is matched by id=\d+
+id=$(xinput --list --short \
+    | grep -e "${device}" \
+    | grep pointer \
+    | sed -n 's/.*id=\([0-9]\+\).*/\1/p')
+
+xset mouse 2 0
+xinput set-prop "${id}" 'Evdev Scrolling Distance' 1 1 1
