@@ -238,7 +238,7 @@ function fetch_files {
 		cp ~/.dotfiles/config/i3/config-"${host}" ~/.config/i3/config
 		cp ~/.dotfiles/i3status-"${host}".conf ~/.i3status.conf
 		cp ~/.dotfiles/Xmodmap ~/.Xmodmap
-		cp ~/.dotfiles/scripts/statusbar ~/scripts/statusbar
+		cp ~/.dotfiles/config/i3/statusbar ~/.config/i3/statusbar
 		cp ~/.dotfiles/scripts/monitors-"${host}" ~/scripts/monitors
 
 		if [[ -f ~/.dotfiles/scripts/workspaces-"${host}" ]]; then
@@ -461,6 +461,7 @@ function fetch_files {
 	rm -f ~/scripts/muzak-9menu
 	rm -f ~/scripts/screenfetch
 	rm -f ~/scripts/sms
+	rm -f ~/scripts/statusbar
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
