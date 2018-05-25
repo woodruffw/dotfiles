@@ -207,6 +207,7 @@ for_window [class="^Yad$"] floating enable
 
 # why does slack start in _NET_WM_STATE_SKIP_TASKBAR?
 for_window [class="^Slack$"] floating disable
+for_window [class="^Keybase$"] floating disable
 
 # this never needs to be initially focused
 no_focus [class="feh"]
