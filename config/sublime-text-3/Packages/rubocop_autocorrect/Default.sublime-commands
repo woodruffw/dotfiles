@@ -1,0 +1,6 @@
+[
+    {
+        "caption": "RuboCop: Autocorrect",
+        "command": "rubocop_auto_correct"
+    },
+]
