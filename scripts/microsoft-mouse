@@ -7,14 +7,15 @@ device="Microsft Microsoft Wireless Optical Desktop"
 # exit unless the mouse is actually plugged in
 xinput --list --short | grep -q "${device}" || exit
 
+# NOTE: 18.04 is using libinput instead of evdev, so this is no longer correct.
 # our device id matches our device name, is a pointer, and is matched by id=\d+
-id=$(xinput --list --short \
-    | grep -e "${device}" \
-    | grep pointer \
-    | sed -n 's/.*id=\([0-9]\+\).*/\1/p')
+# id=$(xinput --list --short \
+#     | grep -e "${device}" \
+#     | grep pointer \
+#     | sed -n 's/.*id=\([0-9]\+\).*/\1/p')
+# xinput set-prop "${id}" 'Evdev Scrolling Distance' 1 1 1
 
 xset mouse 2 0
-xinput set-prop "${id}" 'Evdev Scrolling Distance' 1 1 1
 
 # As far as I can tell, this is the mapping:
 # 1 -> 1 (left click)
@@ -26,5 +27,5 @@ xinput set-prop "${id}" 'Evdev Scrolling Distance' 1 1 1
 # 7 -> 7 (scroll right)
 # 2 -> 8 (middle click -> back button)
 # 9 -> 9 (forward button)
-# 11, 12, 13 -> ???
-xmodmap -e "pointer = 1 8 3 4 5 6 7 2 9 10 11 12 13"
+# 11, 12 -> ???
+xmodmap -e "pointer = 1 8 3 4 5 6 7 2 9 10 11 12"
