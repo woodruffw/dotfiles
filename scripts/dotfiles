@@ -150,12 +150,12 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for newsbeuter..."
-	if installed newsbeuter ; then
+	printf "Checking for newsboat..."
+	if installed newsboat ; then
 		printf "found. Reloading config and scripts..."
-		mkdir -p ~/.config/newsbeuter
-		cp ~/.dotfiles/config/newsbeuter/config ~/.config/newsbeuter/config
-		cp ~/.dotfiles/scripts/newsbeuter-yt-feed ~/scripts/newsbeuter-yt-feed
+		mkdir -p ~/.config/newsboat
+		cp ~/.dotfiles/config/newsboat/config ~/.config/newsboat/config
+		cp ~/.dotfiles/scripts/newsboat-yt-feed ~/scripts/newsboat-yt-feed
 		green "done"
 	else
 		yellow "not installed. Skipping"

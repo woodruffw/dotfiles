@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# newsbeuter-yt-feed.rb
+# newsboat-yt-feed.rb
 # Author: William Woodruff
 # ------------------------
-# Adds a YouTube channel to newsbeuter.
+# Adds a YouTube channel to newsboat.
 # Works with both old (/user/) and new (/channel/)-style YouTube channels.
 # ------------------------
 # This code is licensed by William Woodruff under the MIT License.
@@ -13,13 +13,13 @@
 require "uri"
 
 DEPS = [
-  "newsbeuter",
+  "newsboat",
 ].freeze
 
-NEWSBEUTER_URL_FILES = [
+NEWSBOARD_URL_FILES = [
   # is this is right precedence?
-  File.expand_path("~/.config/newsbeuter/urls"),
-  File.expand_path("~/.newsbeuter/urls"),
+  File.expand_path("~/.config/newsboat/urls"),
+  File.expand_path("~/.newsboat/urls"),
 ].freeze
 
 YOUTUBE_FEED_URLS = {
@@ -34,7 +34,7 @@ def which?(cmd)
 end
 
 def add_feed!(feed_url)
-  url_file = NEWSBEUTER_URL_FILES.find { |f| File.exist? f }
+  url_file = NEWSBOARD_URL_FILES.find { |f| File.exist? f }
 
   File.open(url_file, "a") { |io| io.puts "#{feed_url} \"YouTube\"" }
 end
@@ -62,4 +62,4 @@ end
 
 add_feed!(feed_url)
 
-puts "Added #{feed_url} to newsbeuter."
+puts "Added #{feed_url} to newsboat."
