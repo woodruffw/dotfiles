@@ -82,7 +82,9 @@ installed() {
 # bashreload - wipe aliases and re-source from ~/.profile and ~/.bashrc
 bashreload() {
 	unalias -a
+	# shellcheck source=/dev/null
 	source ~/.profile
+	# shellcheck source=/dev/null
 	source ~/.bashrc
 }
 
@@ -116,28 +118,34 @@ man() {
 # cds to the project folder or to a specified project
 prj() {
 	if [[ -z "${1}" ]] ; then
-		cd "${HOME}/dev/self/"
+		dir="${HOME}/dev/self/"
 	else
-		cd "${HOME}/dev/self/${1}"
+		dir="${HOME}/dev/self/${1}"
 	fi
+
+	cd "${dir}" || return
 }
 
 # gprj - cd to (group) projects
 gprj() {
 	if [[ -z "${1}" ]] ; then
-		cd "${HOME}/dev/group/"
+		dir="${HOME}/dev/group/"
 	else
-		cd "${HOME}/dev/group/${1}"
+		dir="${HOME}/dev/group/${1}"
 	fi
+
+	cd "${dir}" || return
 }
 
 # frk - cd to forks
 frk() {
 	if [[ -z "${1}" ]] ; then
-		cd "${HOME}/dev/fork/"
+		dir="${HOME}/dev/fork/"
 	else
-		cd "${HOME}/dev/fork/${1}"
+		dir="${HOME}/dev/fork/${1}"
 	fi
+
+	cd "${dir}" || return
 }
 
 # shah - get sha1 and output just the hash
@@ -206,7 +214,7 @@ http_headers() {
 
 # make a directory and cd into it
 mkcd() {
-	mkdir -p "$1" && cd "$1"
+	mkdir -p "$1" && cd "$1" || return
 }
 
 # dump a manpage to stdout, with nroff formatting cruft removed
@@ -374,6 +382,7 @@ elif [[ "${system}" = "Darwin" ]] ; then
 
 	# if homebrew's bash-completion is installed
 	if [[ -f "/usr/local/etc/bash_completion" ]] ; then
+		# shellcheck source=/dev/null
 		source /usr/local/etc/bash_completion
 	fi
 fi
@@ -450,4 +459,5 @@ complete -F _completefrk frk
 complete -F _completegvcd gvcd
 
 # load bash completion if it exists
+# shellcheck source=/dev/null
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
