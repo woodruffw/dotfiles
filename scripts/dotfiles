@@ -462,12 +462,14 @@ function fetch_files {
 	rm -f ~/scripts/screenfetch
 	rm -f ~/scripts/sms
 	rm -f ~/scripts/statusbar
+	rm -f ~/scripts/newsbeuter-yt-feed
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
 	rm -f ~/.tepmrc
 	rm -rf ~/.newsbeuter
 	rm -rf ~/.mpv/lua-settings/
+	rm -rf ~/.config/newsbeuter
 	green "done"
 
 	printf "Sync dotfiles-priv? (y/N): " && read -r ans
