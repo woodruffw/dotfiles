@@ -118,7 +118,7 @@ prj() {
 	if [[ -z "${1}" ]] ; then
 		cd "${HOME}/dev/self/"
 	else
-		cd "${HOME}/dev/self/${1}"*
+		cd "${HOME}/dev/self/${1}"
 	fi
 }
 
@@ -127,7 +127,7 @@ gprj() {
 	if [[ -z "${1}" ]] ; then
 		cd "${HOME}/dev/group/"
 	else
-		cd "${HOME}/dev/group/${1}"*
+		cd "${HOME}/dev/group/${1}"
 	fi
 }
 
@@ -136,7 +136,7 @@ frk() {
 	if [[ -z "${1}" ]] ; then
 		cd "${HOME}/dev/fork/"
 	else
-		cd "${HOME}/dev/fork/${1}"*
+		cd "${HOME}/dev/fork/${1}"
 	fi
 }
 
