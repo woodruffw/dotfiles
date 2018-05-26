@@ -49,7 +49,7 @@ function fetch_files {
 
 	# make sure the repo isn't clobbered
 	if [[ -d ~/.dotfiles/.git ]] ; then
-		cd ~/.dotfiles
+		ensure cd ~/.dotfiles
 		ensure git fetch origin --quiet > /dev/null
 		ensure git merge origin/master > /dev/null
 	else
@@ -470,11 +470,11 @@ function fetch_files {
 	rm -rf ~/.mpv/lua-settings/
 	green "done"
 
-	printf "Sync dotfiles-priv? (y/N): " && read ans
+	printf "Sync dotfiles-priv? (y/N): " && read -r ans
 	if [[ -n $ans && "${ans}" =~ [Yy] ]] ; then
 		ensure git clone git@gitlab.com:yossarian/dotfiles-priv.git ~/.dotfiles-priv 2> /dev/null
 		pushd . > /dev/null
-		cd ~/.dotfiles-priv
+		ensure cd ~/.dotfiles-priv
 		ensure bash ./install.sh
 		popd > /dev/null
 		ensure rm -rf ~/.dotfiles-priv
