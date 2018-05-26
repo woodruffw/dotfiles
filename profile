@@ -51,6 +51,7 @@ export PROMPT_COMMAND="__generate_prompt"
 # load API key files if they exist
 if [[ -d ~/.api-keys ]] ; then
 	for keyfile in ~/.api-keys/* ; do
+		# shellcheck source=/dev/null
 		source "${keyfile}"
 	done
 fi
@@ -89,7 +90,9 @@ fi
 export PATH
 
 if [[ -d ~/.opam ]]; then # if opam is installed, load the initialization script
+	# shellcheck source=/dev/null
 	source ~/.opam/opam-init/init.sh
 fi
 
+# shellcheck source=/dev/null
 source ~/.bashrc
