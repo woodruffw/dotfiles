@@ -47,6 +47,7 @@ export HISTCONTROL="ignoreboth"
 export HISTIGNORE="[ \t]+" # ignore commands started with whitespace
 export MARKPATH="${HOME}/.marks"
 export PROMPT_COMMAND="__generate_prompt"
+export NO_AT_BRIDGE=1
 
 # load API key files if they exist
 if [[ -d ~/.api-keys ]] ; then
