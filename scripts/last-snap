@@ -16,14 +16,14 @@ ensure() {
 
 nphotos="${1:-1}"
 dest="${2:-${PWD}}"
-dev=$(ensure gvfs-mount --list \
+dev=$(ensure gio mount --list \
 	| grep "mtp ->" \
 	| awk '{ print $4 }')
 ppath="${dev}Internal%20shared%20storage/Snapchat"
 
-photos=$(ensure gvfs-ls "${ppath}" \
+photos=$(ensure gio list "${ppath}" \
 		| tail -n "${nphotos}")
 
 for photo in ${photos}; do
-	ensure gvfs-copy "${ppath}/${photo}" "${dest}"
+	ensure gio copy "${ppath}/${photo}" "${dest}"
 done

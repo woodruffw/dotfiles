@@ -16,14 +16,14 @@ ensure() {
 
 nrecordings="${1:-1}"
 dest="${2:-${PWD}}"
-dev=$(ensure gvfs-mount --list \
+dev=$(ensure gio mount --list \
 	| grep "mtp ->" \
 	| awk '{ print $4 }')
 ppath="${dev}Internal%20shared%20storage/Record/SoundRecord"
 
-recordings=$(ensure gvfs-ls "${ppath}" \
+recordings=$(ensure gio list "${ppath}" \
 		| tail -n "${nrecordings}")
 
 for photo in ${recordings}; do
-	ensure gvfs-copy "${ppath}/${photo}" "${dest}"
+	ensure gio copy "${ppath}/${photo}" "${dest}"
 done
