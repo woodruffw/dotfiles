@@ -391,7 +391,6 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/brewnav ~/scripts/brewnav
 		cp ~/.dotfiles/scripts/subreddit-watch ~/scripts/subreddit-watch
 		cp ~/.dotfiles/scripts/ezsshfs ~/scripts/ezsshfs
-		cp ~/.dotfiles/scripts/nautilus-xenial-gopro-install ~/scripts/nautilus-xenial-gopro-install
 		cp ~/.dotfiles/scripts/open-pdf ~/scripts/open-pdf
 		cp ~/.dotfiles/scripts/bug-roommates ~/scripts/bug-roommates
 		cp ~/.dotfiles/scripts/music ~/scripts/music
@@ -463,6 +462,7 @@ function fetch_files {
 	rm -f ~/scripts/sms
 	rm -f ~/scripts/statusbar
 	rm -f ~/scripts/newsbeuter-yt-feed
+	rm -f ~/scripts/nautilus-xenial-gopro-install
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
