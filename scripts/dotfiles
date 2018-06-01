@@ -398,8 +398,6 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/google ~/scripts/google
 		cp ~/.dotfiles/scripts/ytsearch ~/scripts/ytsearch
 		cp ~/.dotfiles/scripts/ytsearch2 ~/scripts/ytsearch2
-		cp ~/.dotfiles/scripts/a2dp ~/scripts/a2dp
-		cp ~/.dotfiles/scripts/speaker ~/scripts/speaker
 		cp ~/.dotfiles/scripts/slopcast ~/scripts/slopcast
 		cp ~/.dotfiles/scripts/remind ~/scripts/remind
 		cp ~/.dotfiles/scripts/ghbrowse ~/scripts/ghbrowse
@@ -463,6 +461,8 @@ function fetch_files {
 	rm -f ~/scripts/statusbar
 	rm -f ~/scripts/newsbeuter-yt-feed
 	rm -f ~/scripts/nautilus-xenial-gopro-install
+	rm -f ~/scripts/a2dp
+	rm -f ~/scripts/speaker
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
