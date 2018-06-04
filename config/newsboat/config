@@ -13,4 +13,4 @@ notify-program "notify-send"
 browser "firefox -new-tab %u"
 
 # use mpv to open with ,-y
-macro y set browser "mpv %u"; open-in-browser-and-mark-read ; set browser "uzbl-tabbed %u"
+macro y set browser "mpv %u"; open-in-browser-and-mark-read ; set browser "firefox -new-tab %u"
