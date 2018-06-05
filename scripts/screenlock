@@ -16,5 +16,5 @@ transform=/tmp/i3lock.png
 # note: for whatever reason, `maim`'s JPG performance is way better than its PNG performance
 maim --format=jpg "${initial}"
 convert "${initial}" -scale "10%" -scale "1000%" "${transform}"
-i3lock -i "${transform}"
+i3lock -e -f -i "${transform}"
 rm -f "${initial}" "${transform}"
