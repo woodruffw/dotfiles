@@ -103,11 +103,7 @@ function fetch_files {
 	printf "Checking for tmux..."
 	if installed tmux ; then
 		printf "found. Reloading tmux.conf and session files..."
-		if [[ $(tmux -V | awk '{ print $2 }' | tr -d '.') -le "18" ]]; then
-			cp ~/.dotfiles/tmux.conf.1.8 ~/.tmux.conf
-		else
-			cp ~/.dotfiles/tmux.conf ~/.tmux.conf
-		fi
+		cp ~/.dotfiles/tmux.conf ~/.tmux.conf
 		mkdir -p ~/.tmux
 		cp ~/.dotfiles/tmux/* ~/.tmux/
 		green "done"
