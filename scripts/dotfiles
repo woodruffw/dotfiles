@@ -405,7 +405,6 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/latin ~/scripts/latin
 		cp ~/.dotfiles/scripts/vboxssh ~/scripts/vboxssh
 		cp ~/.dotfiles/scripts/geocode ~/scripts/geocode
-		cp ~/.dotfiles/scripts/microsoft-mouse ~/scripts/microsoft-mouse
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
@@ -463,6 +462,7 @@ function fetch_files {
 	rm -f ~/scripts/nautilus-xenial-gopro-install
 	rm -f ~/scripts/a2dp
 	rm -f ~/scripts/speaker
+	rm -f ~/scripts/microsoft-mouse
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases

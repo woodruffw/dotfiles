@@ -273,5 +273,4 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id xmodmap ~/.Xmodmap
-exec --no-startup-id ~/scripts/microsoft-mouse
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
