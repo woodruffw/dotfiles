@@ -137,7 +137,7 @@ gprj() {
 frk() {
 	local prjdir
 	prjdir="${HOME}/dev/fork"
-	projects="$(find "${prjdir}" -maxdepth 1 -mindepth -type d -exec basename {} \;)"
+	projects="$(find "${prjdir}" -maxdepth 1 -mindepth 1 -type d -exec basename {} \;)"
 
 	cd "${prjdir}/$(selecta <<< "${projects}")" || return
 }
