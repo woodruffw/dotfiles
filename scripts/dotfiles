@@ -93,8 +93,6 @@ function fetch_files {
 		else
 			yellow "skipping rtorrent.rc."
 		fi
-
-		cp ~/.dotfiles/scripts/magnet.sh ~/scripts/magnet.sh
 		green "done"
 	else
 		yellow "not installed. Skipping"
@@ -459,6 +457,7 @@ function fetch_files {
 	rm -f ~/scripts/a2dp
 	rm -f ~/scripts/speaker
 	rm -f ~/scripts/microsoft-mouse
+	rm -f ~/scripts/magnet.sh
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
