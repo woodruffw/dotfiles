@@ -20,12 +20,7 @@ ensure() {
 tmux_session=music
 tmux_split="${1:--v}"
 server="zeenbox"
-mpvopts=(
-	--no-force-window
-	--cache=no
-	--no-force-seekable
-	--no-resume-playback
-)
+mpvopts="--profile=radio"
 
 if [[ "${LOW}" ]]; then
 	stream="https://thing-in-itself.net/radio-low/"
@@ -51,7 +46,7 @@ if ! tmux list-sessions -F '#{session_name}' | grep -q "${tmux_session}"; then
 	tmux select-pane -t 0
 	tmux send-keys "ncmpcpp -h 127.0.0.1" C-m
 	tmux select-pane -t 1
-	tmux send-keys "mpv ${mpvopts[*]} ${stream}" C-m
+	tmux send-keys "mpv ${mpvopts} ${stream}" C-m
 	tmux select-pane -t 0
 fi
 

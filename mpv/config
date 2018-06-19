@@ -32,3 +32,9 @@ loop-file=inf
 
 [extension.gifv]
 loop-file=inf
+
+[radio]
+no-cache
+no-force-window
+no-force-seekable
+no-resume-playback
