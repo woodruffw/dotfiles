@@ -191,9 +191,8 @@ for_window [class="^Yad$"] floating enable
 for_window [class="^Slack$"] floating disable
 for_window [class="^Keybase$"] floating disable
 
-# these never need to be initially focused
+# this never needs to be initially focused
 no_focus [class="^feh$"]
-no_focus [class="^mpv$"]
 
 exec --no-startup-id compton -fCGb -D 8 -m 0.8 --backend glx --vsync opengl-swc --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors

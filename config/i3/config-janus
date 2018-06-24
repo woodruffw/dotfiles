@@ -240,9 +240,8 @@ for_window [title="^Steam Keyboard$"] floating enable
 # keep steam in its own workspace
 assign [class="Steam"] 3C
 
-# these never need to be initially focused
+# this never needs to be initially focused
 no_focus [class="^feh$"]
-no_focus [class="^mpv$"]
 
 exec --no-startup-id compton -fCGb -D 8 -m 0.8 --vsync opengl --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors
