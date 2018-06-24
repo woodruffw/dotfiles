@@ -239,9 +239,16 @@ function fetch_files {
 			cp ~/.dotfiles/scripts/workspaces-"${host}" ~/scripts/workspaces
 
 			mkdir -p ~/.config/i3/workspaces
-			for ws in com dev www; do
-				cp ~/.dotfiles/config/i3/workspaces/"${ws}".json ~/.config/i3/workspaces
-			done
+
+			if [[ "${host}" = "mercury" ]]; then
+				for ws in com dev www; do
+					cp ~/.dotfiles/config/i3/workspaces/"${ws}".json ~/.config/i3/workspaces
+				done
+			elif [[ "${host}" = "janus" ]]; then
+				for ws in 1A 1B 1C 2A; do
+					cp ~/.dotfiles/config/i3/workspaces/"${ws}".json ~/.config/i3/workspaces
+				done
+			fi
 		fi
 		green "done"
 	else

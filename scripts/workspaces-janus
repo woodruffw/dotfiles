@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# workspaces-janus: set up my workstation workspaces
+
+# no matter what i do, these files keep reappearing and cause subl to spawn a
+# bunch of windows, trashing the layout below.
+rm -rf ~/.config/sublime-text-3/Local/*.sublime_session
+
+i3-msg 'workspace 1A; append_layout ~/.config/i3/workspaces/1A.json'
+i3-msg 'exec --no-startup-id subl'
+
+i3-msg 'workspace 1B; append_layout ~/.config/i3/workspaces/1B.json'
+i3-msg 'exec --no-startup-id urxvt'
+i3-msg 'exec --no-startup-id hexchat'
+i3-msg 'exec --no-startup-id slack'
+
+i3-msg 'workspace 1C; append_layout ~/.config/i3/workspaces/1C.json'
+i3-msg 'exec --no-startup-id firefox'
+
+i3-msg 'workspace 2A; append_layout ~/.config/i3/workspaces/2A.json'
+i3-msg 'exec --no-startup-id thunderbird'
+
+i3-msg 'workspace 1A'
+i3-msg 'workspace 1B'
+i3-msg 'workspace 1C'
