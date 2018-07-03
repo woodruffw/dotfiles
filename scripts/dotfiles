@@ -419,19 +419,8 @@ function fetch_files {
 	chmod +x ~/scripts/*
 	green "done"
 
-	printf "Fetching cron-shunt and crontab..."
-	cp ~/.dotfiles/scripts/cron-shunt ~/scripts/cron-shunt
-	if [[ -f ~/.dotfiles/crontabs/"${host}".cron ]] ; then
-		mkdir -p ~/scripts/cron
-		cp ~/.dotfiles/crontabs/"${host}".cron ~/scripts/cron/"${host}".cron
-		crontab -r
-		crontab ~/scripts/cron/"${host}".cron
-		green "done"
-	else
-		yellow "none required"
-	fi
-
 	printf "Doing some cleanup..."
+	rm -rf ~/scripts/cron/
 	rm -f ~/scripts/$
 	rm -f ~/scripts/%
 	rm -f ~/scripts/haste
