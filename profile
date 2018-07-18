@@ -16,8 +16,6 @@ elif installed gvim; then
 	export EDITOR='gvim'
 elif installed vim; then
 	export EDITOR='vim'
-elif installed textadept; then
-	export EDITOR=textadept
 elif installed nano; then
 	export EDITOR='nano'
 else
