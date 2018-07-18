@@ -372,6 +372,7 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/ffdeshake ~/scripts/ffdeshake
 	cp ~/.dotfiles/scripts/ffstill ~/scripts/ffstill
 	cp ~/.dotfiles/scripts/imgresize ~/scripts/imgresize
+	cp ~/.dotfiles/scripts/urlgrep ~/scripts/urlgrep
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
