@@ -9,6 +9,6 @@ filename = ARGV.shift
 abort("Missing filename.") if filename.nil?
 abort("No such file.") unless File.exist?(filename)
 
-fixed = filename.gsub(/#U(\h{4})/) { [$1.to_i(16)].pack("U") }
+fixed = filename.gsub(/#U(\h{4})/) { [Regexp.last_match(1).to_i(16)].pack("U") }
 
 File.rename(filename, fixed)
