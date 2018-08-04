@@ -3,6 +3,6 @@
 # slopcast: record a selected screen region
 # stolen and modified from SirCmpwn's dotfiles
 
-eval "$(slop)"
+read -r X Y W H < <(slop -f "%x %y %w %h")
 
 ffmpeg -f x11grab -s "${W}"x"${H}" -i :0.0+"${X}","${Y}" slopcast.mp4
