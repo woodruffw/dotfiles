@@ -243,7 +243,7 @@ assign [class="Steam"] 3C
 # this never needs to be initially focused
 no_focus [class="^feh$"]
 
-exec --no-startup-id compton -fCGb -D 8 -m 0.8 --vsync opengl --shadow-exclude "class_g = 'slop'"
+exec --no-startup-id compton -fCG -D 8 -m 0.8 --backend glx --vsync opengl --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start -i
