@@ -3,11 +3,11 @@
 
 # git-shard-release-tag: Create a git tag for a Crystal shard's version.
 
-def act(s)
+def act(cmd)
   if ARGV.include? "--dry-run"
-    puts s
+    puts cmd
   else
-    system s
+    system cmd
   end
 end
 
