@@ -4,7 +4,7 @@
     "border": "normal",
     "floating": "auto_off",
     "layout": "stacked",
-    "percent": 1,
+    "percent": null,
     "type": "con",
     "nodes": [
         {
@@ -12,10 +12,10 @@
             "current_border_width": 2,
             "floating": "auto_off",
             "geometry": {
-               "height": 864,
+               "height": 857,
                "width": 1596,
                "x": 0,
-               "y": 16
+               "y": 0
             },
             "name": "browser",
             "percent": 1,
