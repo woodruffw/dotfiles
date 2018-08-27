@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+# geocode: print a more formal address for the given query
+
 require "kbsecret"
 require "net/http"
 require "json"
