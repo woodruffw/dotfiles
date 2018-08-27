@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# geoopen: print whether a location is open, and when it closes
+
+require "kbsecret"
+require "net/http"
+require "json"
+require "cgi"
+
+GEOCODING_URL = "https://maps.googleapis.com/maps/api/geocode/json?address=%<address>s&key=%<key>s"
+PLACES_URL = "https://maps.googleapis.com/maps/api/place/details/json?" \
+  "placeid=%<place_id>s&fields=opening_hours&key=%<key>s"
+
+keys          = KBSecret::Session[:keys]
+geocoding_key = keys["google-geocoding-api-key"].value
+places_key    = keys["google-places-api-key"].value
+query         = ARGV.join " "
+
+geocoding_url = GEOCODING_URL % { address: CGI.escape(query), key: CGI.escape(geocoding_key) }
+
+begin
+  resp = JSON.parse(Net::HTTP.get(URI(geocoding_url)))
+  abort "Error: #{resp["status"]}" if resp["status"] != "OK"
+
+  address = resp["results"].first["formatted_address"]
+  place_id = resp["results"].first["place_id"]
+
+  abort "Error: Missing place ID for #{query}?" unless place_id
+
+  places_url = PLACES_URL % { place_id: CGI.escape(place_id), key: CGI.escape(places_key) }
+  resp = JSON.parse(Net::HTTP.get(URI(places_url)))
+
+  abort "Error: #{resp["status"]}" if resp["status"] != "OK"
+
+  hours = resp["result"]["opening_hours"]
+
+  abort "Error: Missing hours for #{query} (place ID: #{place_id})?" unless hours
+
+  today = hours["periods"][Time.now.wday]
+
+  if hours["open_now"]
+    time = Time.strptime today["close"]["time"], "%H%M"
+    puts "#{address}: Open now, closes #{time}"
+  else
+    time = Time.strptime today["open"]["time"], "%H%M"
+    puts "#{address}: Closed now, opens #{time}"
+  end
+rescue StandardError => e
+  abort "Something exploded: #{e} #{e.backtrace}"
+end

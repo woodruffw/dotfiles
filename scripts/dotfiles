@@ -407,6 +407,7 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/latin ~/scripts/latin
 		cp ~/.dotfiles/scripts/vboxssh ~/scripts/vboxssh
 		cp ~/.dotfiles/scripts/geocode ~/scripts/geocode
+		cp ~/.dotfiles/scripts/geoopen ~/scripts/geoopen
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
