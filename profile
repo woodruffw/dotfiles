@@ -11,7 +11,7 @@ system=$(uname)
 
 # set the editor depending on what's installed
 if installed subl; then
-	export EDITOR='subl -w'
+	export EDITOR='subl'
 elif installed gvim; then
 	export EDITOR='gvim'
 elif installed vim; then
