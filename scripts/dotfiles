@@ -349,6 +349,7 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/git-fetch-pr ~/scripts/git-fetch-pr
 	cp ~/.dotfiles/scripts/git-lint-commit ~/scripts/git-lint-commit
 	cp ~/.dotfiles/scripts/git-move-commits ~/scripts/git-move-commits
+	cp ~/.dotfiles/scripts/git-open-all ~/scripts/git-open-all
 	cp ~/.dotfiles/scripts/ronnpp ~/scripts/ronnpp
 	cp ~/.dotfiles/scripts/psh ~/scripts/psh
 	cp ~/.dotfiles/scripts/nth ~/scripts/nth
