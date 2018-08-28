@@ -1,4 +1,5 @@
 [core]
+	editor = subl -w
 	pager = less
 	whitespace = blank-at-eol
 	excludesfile = ~/.gitignore
