@@ -76,6 +76,6 @@ function quickcommit()
 
 function gfg()
 {
-	git clone "https://github.com/$(git config --global github.user)/${1}.git"
+	git clone "git@github.com:$(git config --global github.user)/${1}.git"
 }
 
