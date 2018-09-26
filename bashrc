@@ -232,16 +232,23 @@ pdfwc() {
 
 # print double-sided (long edge, for portrait prints)
 lpr2sle() {
-	[[ -f "${1}" ]] || { echo "Missing input file."; exit 1; }
+	[[ -f "${1}" ]] || { echo "Missing input file."; return 1; }
 
 	lpr -o sides=two-sided-long-edge "${1}"
 }
 
 # print double-sided (short edge, for landscape prints)
 lpr2sse() {
-	[[ -f "${1}" ]] || { echo "Missing input file."; exit 1; }
+	[[ -f "${1}" ]] || { echo "Missing input file."; return 1; }
 
 	lpr -o sides=two-sided-short-edge "${1}"
+}
+
+# dump a random n-byte long string
+randstr() {
+	[[ "${1}" -gt 0 ]] || { echo "Positive length required."; return 1; }
+
+	tr -dc "A-Za-z0-9" < /dev/urandom | head -c "${1}"
 }
 
 system=$(uname)
