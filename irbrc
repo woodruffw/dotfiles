@@ -18,6 +18,7 @@ MODULES = [
   "digest/md5",
   "base64",
   "irbtools",
+  "csv",
 ].freeze
 
 MODULES.each do |m|
