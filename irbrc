@@ -29,6 +29,13 @@ requireish "awesome_print" do
   AwesomePrint.irb!
 end
 
+class Integer
+  # I do this enough that it's worth a custom method.
+  def hexstr
+    to_s 16
+  end
+end
+
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 IRB.conf[:AUTO_INDENT] = true
 
