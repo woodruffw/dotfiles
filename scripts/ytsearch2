@@ -9,6 +9,7 @@ query=$(dmenu -p youtube < /dev/null 2> /dev/null)
 [[ -z "${query}" ]] && exit 1
 
 # Look upon my pipeline, and weep.
+# TODO: Use -K to add captions.
 youtube-dl -j "ytsearch4:${query}" \
     | jq -r ".thumbnail" \
     | feh -s -y 200 -E 300 -t --index-info '' -A 'echo %F' -f - \
