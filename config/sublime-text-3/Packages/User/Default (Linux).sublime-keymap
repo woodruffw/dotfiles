@@ -7,5 +7,6 @@
     { "keys": ["ctrl+tab"], "command": "next_view" },
     { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
     { "keys": ["ctrl+shift+`"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
-    { "keys": ["ctrl+shift+\\"], "command": "pipe" }
+    { "keys": ["ctrl+shift+\\"], "command": "pipe" },
+    { "keys": ["ctrl+l"], "command": "expand_selection", "args": {"to": "line"} },
 ]
