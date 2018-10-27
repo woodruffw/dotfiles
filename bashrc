@@ -432,3 +432,8 @@ complete -F _completegvcd gvcd
 # load bash completion if it exists
 # shellcheck source=/dev/null
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
+
+# this should have been loaded above, but i've seen some inconsistency.
+# shellcheck source=/dev/null
+[[ -f /usr/share/bash-completion/completions/man ]] && ! type -p _man && \
+	source /usr/share/bash-completion/completions/man
