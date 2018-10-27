@@ -23,20 +23,14 @@
 		"JSON Reindent",
 		"LaTeX-cwl",
 		"LaTeXing",
-		"Markdown Extended",
 		"MarkdownPreview",
-		"Matlab Completions",
-		"NASM x86 Assembly",
 		"Package Control",
-		"Pretty JSON",
 		"ShellCommand",
 		"SimpleSession",
 		"SublimeLinter",
 		"SublimeLinter-contrib-git-lint-commit",
 		"SublimeLinter-flake8",
 		"SublimeLinter-rubocop",
-		"SublimeLinter-shellcheck",
-		"Terminal",
-		"Text Pastry"
+		"SublimeLinter-shellcheck"
 	]
 }
