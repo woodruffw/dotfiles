@@ -202,7 +202,8 @@ function fetch_files {
 
 	printf "Checking for Firefox..."
 	if installed firefox && ! running firefox ; then
-		printf "found. Reloading pipefox and ff2mpv..."
+		printf "found. Reloading ffox, pipefox and ff2mpv..."
+		cp ~/.dotfiles/scripts/ffox ~/scripts/ffox
 		cp ~/.dotfiles/scripts/pipefox ~/scripts/pipefox
 		cp ~/.dotfiles/scripts/ff2mpv ~/scripts/ff2mpv
 		mkdir -p ~/.mozilla/native-messaging-hosts/
