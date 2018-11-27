@@ -9,7 +9,7 @@ rm -rf ~/.config/sublime-text-3/Local/*.sublime_session
 i3-msg 'rename workspace 1 to 1 www'
 
 i3-msg 'workspace 1 www; append_layout ~/.config/i3/workspaces/www.json'
-i3-msg 'exec --no-startup-id firefox'
+i3-msg 'exec --no-startup-id ~/scripts/ffox'
 
 i3-msg 'workspace 2 dev; append_layout ~/.config/i3/workspaces/dev.json'
 i3-msg 'exec --no-startup-id subl'
