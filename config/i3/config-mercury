@@ -191,6 +191,9 @@ for_window [class="^Yad$"] floating enable
 for_window [class="^Slack$"] floating disable
 for_window [class="^Keybase$"] floating disable
 
+# consistent title formatting
+for_window [class=".*"] title_format "%title (%instance)"
+
 # this never needs to be initially focused
 no_focus [class="^feh$"]
 
