@@ -346,6 +346,8 @@ fi
 if [[ "${system}" = "Linux" ]] ; then
 	alias ls='ls --color=auto'
 	alias perm='stat -c "%a"'
+	alias vpndn='sudo systemctl stop wg-quick@wg0'
+	alias vpnup='sudo systemctl start wg-quick@wg0'
 	alias ethdn='sudo ifconfig eth0 down'
 	alias ethup='sudo ifconfig eth0 up'
 	alias eastcoast='sudo timedatectl set-timezone America/New_York'
