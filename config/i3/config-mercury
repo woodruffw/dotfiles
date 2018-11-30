@@ -194,6 +194,9 @@ for_window [class="^Keybase$"] floating disable
 # this never needs to be initially focused
 no_focus [class="^feh$"]
 
+# never steal window focus, but always set the urgent indicator
+focus_on_window_activation urgent
+
 exec --no-startup-id compton -fCGb -D 8 -m 0.8 --backend glx --vsync opengl-swc --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id bash ~/.fehbg
