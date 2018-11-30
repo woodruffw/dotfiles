@@ -243,11 +243,9 @@ for_window [class=".*"] title_format "%title (%instance)"
 # keep steam in its own workspace
 assign [class="Steam"] 3C
 
-# this never needs to be initially focused
+# these never need to be initially focused
 no_focus [class="^feh$"]
-
-# never steal window focus, but always set the urgent indicator
-focus_on_window_activation urgent
+no_focus [class="^Firefox$"]
 
 exec --no-startup-id compton -fCG -D 8 -m 0.8 --backend glx --glx-no-stencil --vsync opengl-swc --sw-opti --unredir-if-possible --paint-on-overlay --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors
