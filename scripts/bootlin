@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# bootlin: take a query from dmenu search for it on
+# Bootlin's Elixir Cross Referencer
+
+browser="${BROWSER:-firefox}"
+query=$(dmenu -p bootlin < /dev/null 2> /dev/null)
+
+[[ -z "${query}" ]] && exit 1
+
+"${browser}" "https://elixir.bootlin.com/linux/latest/ident/${query}"
