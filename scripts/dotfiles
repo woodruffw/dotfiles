@@ -322,6 +322,17 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for mutt..."
+	if installed mutt; then
+		printf "found. Reloading config..."
+		cp ~/.dotfiles/muttrc ~/.muttrc
+		mkdir -p ~/.mutt
+		cp -R ~/.dotfiles/mutt/* ~/mutt
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
