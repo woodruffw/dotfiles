@@ -327,7 +327,7 @@ function fetch_files {
 		printf "found. Reloading config..."
 		cp ~/.dotfiles/muttrc ~/.muttrc
 		mkdir -p ~/.mutt
-		cp -R ~/.dotfiles/mutt/* ~/mutt
+		cp -R ~/.dotfiles/mutt/* ~/.mutt
 		green "done"
 	else
 		yellow "not installed. Skipping"
