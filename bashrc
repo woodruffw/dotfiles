@@ -118,7 +118,7 @@ man() {
 # cds to the project folder or to a specified project
 prj() {
 	local prjdir
-	prjdir="${HOME}/dev/self"
+	prjdir="${HOME}/devel/self"
 	projects="$(find "${prjdir}" -maxdepth 1 -mindepth 1 -type d -exec basename {} \;)"
 
 	cd "${prjdir}/$(selecta <<< "${projects}")" || return
@@ -127,7 +127,7 @@ prj() {
 # gprj - cd to (group) projects
 gprj() {
 	local prjdir
-	prjdir="${HOME}/dev/group"
+	prjdir="${HOME}/devel/group"
 	projects="$(find "${prjdir}" -maxdepth 1 -mindepth 1 -type d -exec basename {} \;)"
 
 	cd "${prjdir}/$(selecta <<< "${projects}")" || return
@@ -136,7 +136,7 @@ gprj() {
 # frk - cd to forks
 frk() {
 	local prjdir
-	prjdir="${HOME}/dev/fork"
+	prjdir="${HOME}/devel/fork"
 	projects="$(find "${prjdir}" -maxdepth 1 -mindepth 1 -type d -exec basename {} \;)"
 
 	cd "${prjdir}/$(selecta <<< "${projects}")" || return
