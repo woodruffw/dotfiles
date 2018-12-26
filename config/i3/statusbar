@@ -2,6 +2,6 @@
 
 i3status | while :
 do
-	read line
+	read -r line
 	echo "${line}" || exit 1
 done
