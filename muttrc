@@ -33,6 +33,7 @@ set recall = no
 set imap_check_subscribed = yes
 set copy = no
 set wait_key = no
+set new_mail_command = "notify-send 'New Email' '%n new messages, %u unread.' &"
 
 color hdrdefault magenta default
 color quoted magenta default
