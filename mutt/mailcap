@@ -1,1 +1,4 @@
 text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
+image/*; feh -
+image/gif; mpv -
+application/pdf; mupdf %s
