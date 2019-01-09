@@ -490,7 +490,7 @@ function fetch_files {
 
 	printf "Sync dotfiles-priv? (y/N): " && read -r ans
 	if [[ -n $ans && "${ans}" =~ [Yy] ]] ; then
-		ensure git clone git@gitlab.com:yossarian/dotfiles-priv.git ~/.dotfiles-priv 2> /dev/null
+		ensure git clone git@github.com:woodruffw/dotfiles-priv.git ~/.dotfiles-priv 2> /dev/null
 		pushd . > /dev/null
 		ensure cd ~/.dotfiles-priv
 		ensure bash ./install.sh
