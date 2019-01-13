@@ -3,3 +3,11 @@ image/*; feh -
 application/pdf; mupdf %s
 image/gif; mpv -
 video/*; mpv -
+
+# thanks, microsoft!
+application/msword; loffice %s & x-neomutt-keep
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; loffice %s & x-neomutt-keep
+application/vnd.ms-excel; loffice %s & x-neomutt-keep
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; loffice %s & x-neomutt-keep
+application/vnd.ms-powerpoint; loffice %s & x-neomutt-keep
+application/vnd.openxmlformats-officedocument.presentationml.presentation; loffice %s & x-neomutt-keep
