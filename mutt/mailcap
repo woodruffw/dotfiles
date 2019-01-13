@@ -11,3 +11,7 @@ application/vnd.ms-excel; loffice %s & x-neomutt-keep
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; loffice %s & x-neomutt-keep
 application/vnd.ms-powerpoint; loffice %s & x-neomutt-keep
 application/vnd.openxmlformats-officedocument.presentationml.presentation; loffice %s & x-neomutt-keep
+
+application/vnd.oasis.opendocument.text; loffice %s & x-neomutt-keep
+application/vnd.oasis.opendocument.spreadsheet; loffice %s & x-neomutt-keep
+application/vnd.oasis.opendocument.presentation; loffice %s & x-neomutt-keep
