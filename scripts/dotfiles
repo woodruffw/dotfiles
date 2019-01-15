@@ -322,8 +322,8 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for mutt..."
-	if installed mutt; then
+	printf "Checking for neomutt..."
+	if installed neomutt; then
 		printf "found. Reloading config..."
 		cp ~/.dotfiles/muttrc ~/.muttrc
 		mkdir -p ~/.mutt
