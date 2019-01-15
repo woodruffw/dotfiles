@@ -61,8 +61,8 @@
             "percent": 0.333333333333333,
             "swallows": [
                {
-               "class": "^Thunderbird$",
-               "instance": "^Mail$"
+               "title": "^mutt$",
+               "instance": "^mutt$"
                }
             ],
             "type": "con"

@@ -13,7 +13,8 @@
     "percent": 1,
     "swallows": [
        {
-       "title": "^mutt$"
+       "title": "^mutt$",
+       "instance": "^mutt$"
        }
     ],
     "type": "con"
