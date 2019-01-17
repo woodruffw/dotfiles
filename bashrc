@@ -251,6 +251,14 @@ randstr() {
 	tr -dc "A-Za-z0-9" < /dev/urandom | head -c "${1}"
 }
 
+# send someone (probably myself) a file
+mailfile() {
+	[[ -f "${1}" ]] || { echo "Missing input file."; return 1; }
+	installed neomutt ||  { echo "Missing neomutt."; return 1; }
+
+	neomutt -s "mailfile" -a "${1}"
+}
+
 system=$(uname)
 host=$(hostname)
 
