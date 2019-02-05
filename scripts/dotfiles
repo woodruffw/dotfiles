@@ -357,9 +357,6 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/gif-length-groups ~/scripts/gif-length-groups
 	cp ~/.dotfiles/scripts/giphy-fetch ~/scripts/giphy-fetch
 	cp ~/.dotfiles/scripts/normalize-gifs ~/scripts/normalize-gifs
-	cp ~/.dotfiles/scripts/last-photo ~/scripts/last-photo
-	cp ~/.dotfiles/scripts/last-snap ~/scripts/last-snap
-	cp ~/.dotfiles/scripts/last-recording ~/scripts/last-recording
 	cp ~/.dotfiles/scripts/forecast ~/scripts/forecast
 	cp ~/.dotfiles/scripts/rubyvm-dump ~/scripts/rubyvm-dump
 	cp ~/.dotfiles/scripts/update-hosts ~/scripts/update-hosts
@@ -480,6 +477,10 @@ function fetch_files {
 	rm -f ~/scripts/speaker
 	rm -f ~/scripts/microsoft-mouse
 	rm -f ~/scripts/magnet.sh
+	rm -f ~/scripts/last-photo
+	rm -f ~/scripts/last-snap
+	rm -f ~/scripts/last-recording
+
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
 	rm -f ~/.git-aliases
