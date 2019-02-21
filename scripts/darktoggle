@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# darktoggle: Toggle Dark Mode for an app on macOS
+
+[[ "$(uname)" = "Darwin" ]] || { echo "Wrong OS, dummy."; exit 1; }
+
+if [[ "${#}" -ne 1 || "${1}" = "-h" ]]; then
+  1>&2 echo "usage: darktoggle <appname>"
+  exit
+fi
+
+appname="${1}"
+appid="$(osascript -e "id of app \"${appname}\"" 2>/dev/null)"
+
+if [[ -z "${appid}" ]]; then
+  1>&2 echo "unknown application: ${appname}"
+  exit
+fi
+
+current="$(defaults read "${appid}" NSRequiresAquaSystemAppearance 2>/dev/null)"
+
+if [[ -z "${current}" || "${current}" = 0 ]]; then
+  toggle="yes"
+else
+  toggle="no"
+fi
+
+defaults write "${appid}" NSRequiresAquaSystemAppearance -bool "${toggle}"

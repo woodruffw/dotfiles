@@ -396,6 +396,7 @@ function fetch_files {
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
+		cp ~/.dotfiles/scripts/darktoggle ~/scripts/darktoggle
 		cp -R ~/.dotfiles/gnupg/* ~/.gnupg
 	fi
 
