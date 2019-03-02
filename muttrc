@@ -23,6 +23,8 @@ bind index,pager \Cp sidebar-prev
 bind index,pager \Cn sidebar-next
 bind index,pager \Co sidebar-open
 
+set header_cache = ~/.cache/mutt
+set message_cachedir = ~/.cache/mutt
 set editor = "subl -w"
 set sort_aux = reverse-last-date-received
 set sort = threads
