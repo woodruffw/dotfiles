@@ -420,7 +420,6 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/uzbl-xclip ~/scripts/uzbl-xclip
 		cp ~/.dotfiles/scripts/twitch-"${host}" ~/scripts/twitch
 		cp ~/.dotfiles/scripts/xyzradio ~/scripts/xyzradio
-		cp ~/.dotfiles/scripts/xontop ~/scripts/xontop
 		cp ~/.dotfiles/scripts/byzanz-rect ~/scripts/byzanz-rect
 		cp ~/.dotfiles/scripts/brewnav ~/scripts/brewnav
 		cp ~/.dotfiles/scripts/subreddit-watch ~/scripts/subreddit-watch
