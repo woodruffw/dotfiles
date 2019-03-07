@@ -364,8 +364,6 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/bak ~/scripts/bak
 	cp ~/.dotfiles/scripts/psh ~/scripts/psh
 	cp ~/.dotfiles/scripts/nth ~/scripts/nth
-	cp ~/.dotfiles/scripts/mp4flip ~/scripts/mp4flip
-	cp ~/.dotfiles/scripts/imgresize ~/scripts/imgresize
 
 	snippet fftitle
 	snippet fftimelapse
@@ -407,6 +405,7 @@ function fetch_files {
 	snippet git-takeout
 	snippet ronnpp
 	snippet linecheck
+	snippet imgresize
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
@@ -499,6 +498,7 @@ function fetch_files {
 	rm -f ~/scripts/last-recording
 	rm -f ~/scripts/pid2xid
 	rm -f ~/scripts/bug-roommates
+	rm -f ~/scripts/mp4flip
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
