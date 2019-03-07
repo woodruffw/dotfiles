@@ -36,6 +36,11 @@ function ensure {
 		|| die "Failed to run '$*'. Aborting."
 }
 
+function snippet {
+	dest="${2:-${1}}"
+	cp ~/.snippets/"${1}"/"${1}" ~/scripts/"${dest}"
+}
+
 function fetch_files {
 	system=$(uname)
 	host=$(hostname)
@@ -47,7 +52,7 @@ function fetch_files {
 
 	pushd . > /dev/null
 
-	# make sure the repo isn't clobbered
+	# make sure the repos aren't clobbered
 	if [[ -d ~/.dotfiles/.git ]] ; then
 		ensure cd ~/.dotfiles
 		ensure git fetch origin --quiet > /dev/null
@@ -55,6 +60,15 @@ function fetch_files {
 	else
 		ensure rm -rf ~/.dotfiles
 		ensure git clone https://github.com/woodruffw/dotfiles ~/.dotfiles > /dev/null
+	fi
+
+	if [[ -d ~/.snippets/.git ]] ; then
+		ensure cd ~/.snippets
+		ensure git fetch origin --quiet > /dev/null
+		ensure git merge origin/master > /dev/null
+	else
+		ensure rm -rf ~/.snippets
+		ensure git clone https://github.com/woodruffw/snippets ~/.snippets > /dev/null
 	fi
 
 	popd > /dev/null
@@ -149,7 +163,7 @@ function fetch_files {
 		printf "found. Reloading config and scripts..."
 		mkdir -p ~/.config/newsboat
 		cp ~/.dotfiles/config/newsboat/config ~/.config/newsboat/config
-		cp ~/.dotfiles/scripts/newsboat-yt-feed ~/scripts/newsboat-yt-feed
+		snippet newsboat-yt-feed
 		green "done"
 	else
 		yellow "not installed. Skipping"
@@ -336,63 +350,63 @@ function fetch_files {
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
-	cp ~/.dotfiles/scripts/linecheck ~/scripts/linecheck
 	cp ~/.dotfiles/scripts/pbin ~/scripts/pbin
 	cp ~/.dotfiles/scripts/update ~/scripts/update
 	cp ~/.dotfiles/scripts/cart ~/scripts/cart
 	cp ~/.dotfiles/scripts/speedtest ~/scripts/speedtest
-	cp ~/.dotfiles/scripts/rip ~/scripts/rip
-	cp ~/.dotfiles/scripts/flac2mp3 ~/scripts/flac2mp3
-	cp ~/.dotfiles/scripts/mp3art ~/scripts/mp3art
-	cp ~/.dotfiles/scripts/flacart ~/scripts/flacart
 	cp ~/.dotfiles/scripts/worldtimes ~/scripts/worldtimes
 	cp ~/.dotfiles/scripts/diff-highlight ~/scripts/diff-highlight
-	cp ~/.dotfiles/scripts/uspatent ~/scripts/uspatent
-	cp ~/.dotfiles/scripts/pid2xid ~/scripts/pid2xid
-	cp ~/.dotfiles/scripts/albumart ~/scripts/albumart
 	cp ~/.dotfiles/scripts/fwuf ~/scripts/fwuf
 	cp ~/.dotfiles/scripts/aaa ~/scripts/aaa
 	cp ~/.dotfiles/scripts/selecta ~/scripts/selecta
-	cp ~/.dotfiles/scripts/ffmpeg-mosaic ~/scripts/ffmpeg-mosaic
-	cp ~/.dotfiles/scripts/gif-length-groups ~/scripts/gif-length-groups
-	cp ~/.dotfiles/scripts/giphy-fetch ~/scripts/giphy-fetch
-	cp ~/.dotfiles/scripts/normalize-gifs ~/scripts/normalize-gifs
-	cp ~/.dotfiles/scripts/forecast ~/scripts/forecast
-	cp ~/.dotfiles/scripts/rubyvm-dump ~/scripts/rubyvm-dump
 	cp ~/.dotfiles/scripts/update-hosts ~/scripts/update-hosts
 	cp ~/.dotfiles/scripts/license ~/scripts/license
 	cp ~/.dotfiles/scripts/bak ~/scripts/bak
-	cp ~/.dotfiles/scripts/git-gem-release-tag ~/scripts/git-gem-release-tag
-	cp ~/.dotfiles/scripts/git-shard-release-tag ~/scripts/git-shard-release-tag
-	cp ~/.dotfiles/scripts/git-fetch-pr ~/scripts/git-fetch-pr
-	cp ~/.dotfiles/scripts/git-lint-commit ~/scripts/git-lint-commit
-	cp ~/.dotfiles/scripts/git-move-commits ~/scripts/git-move-commits
-	cp ~/.dotfiles/scripts/git-open-all ~/scripts/git-open-all
-	cp ~/.dotfiles/scripts/git-takeout ~/scripts/git-takeout
-	cp ~/.dotfiles/scripts/ronnpp ~/scripts/ronnpp
 	cp ~/.dotfiles/scripts/psh ~/scripts/psh
 	cp ~/.dotfiles/scripts/nth ~/scripts/nth
 	cp ~/.dotfiles/scripts/mp4flip ~/scripts/mp4flip
-	cp ~/.dotfiles/scripts/fftitle ~/scripts/fftitle
-	cp ~/.dotfiles/scripts/fftimelapse ~/scripts/fftimelapse
-	cp ~/.dotfiles/scripts/ffnicegif ~/scripts/ffnicegif
-	cp ~/.dotfiles/scripts/ffcat ~/scripts/ffcat
-	cp ~/.dotfiles/scripts/ffflagflip ~/scripts/ffflagflip
-	cp ~/.dotfiles/scripts/ffwatermark ~/scripts/ffwatermark
-	cp ~/.dotfiles/scripts/ffautocrop ~/scripts/ffautocrop
-	cp ~/.dotfiles/scripts/ffclip ~/scripts/ffclip
-	cp ~/.dotfiles/scripts/ffpreclip ~/scripts/ffpreclip
-	cp ~/.dotfiles/scripts/ffpostclip ~/scripts/ffpostclip
-	cp ~/.dotfiles/scripts/ffpip ~/scripts/ffpip
-	cp ~/.dotfiles/scripts/ffmono ~/scripts/ffmono
-	cp ~/.dotfiles/scripts/ffreverse ~/scripts/ffreverse
-	cp ~/.dotfiles/scripts/ffmonochrome ~/scripts/ffmonochrome
-	cp ~/.dotfiles/scripts/ffboxblur ~/scripts/ffboxblur
-	cp ~/.dotfiles/scripts/ffgolapse ~/scripts/ffgolapse
-	cp ~/.dotfiles/scripts/ffdeshake ~/scripts/ffdeshake
-	cp ~/.dotfiles/scripts/ffstill ~/scripts/ffstill
 	cp ~/.dotfiles/scripts/imgresize ~/scripts/imgresize
-	cp ~/.dotfiles/scripts/urlgrep ~/scripts/urlgrep
+
+	snippet fftitle
+	snippet fftimelapse
+	snippet ffnicegif
+	snippet ffcat
+	snippet ffflagflip
+	snippet ffwatermark
+	snippet ffautocrop
+	snippet ffclip
+	snippet ffpreclip
+	snippet ffpostclip
+	snippet ffpip
+	snippet ffmono
+	snippet ffreverse
+	snippet ffmonochrome
+	snippet ffboxblur
+	snippet ffgolapse
+	snippet ffdeshake
+	snippet ffstill
+	snippet urlgrep
+	snippet albumart
+	snippet rip
+	snippet flac2mp3
+	snippet mp3art
+	snippet flacart
+	snippet uspatent
+	snippet gif-length-groups
+	snippet giphy-fetch
+	snippet ffmpeg-mosaic
+	snippet normalize-gifs
+	snippet forecast
+	snippet rubyvm-dump
+	snippet git-gem-release-tag
+	snippet git-shard-release-tag
+	snippet git-fetch-pr
+	snippet git-lint-commit
+	snippet git-move-commits
+	snippet git-open-all
+	snippet git-takeout
+	snippet ronnpp
+	snippet linecheck
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
@@ -402,20 +416,16 @@ function fetch_files {
 
 	if [[ "${host}" = "mercury" || "${host}" = "janus" ]] ; then
 		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
-		cp ~/.dotfiles/scripts/play ~/scripts/play
 		cp ~/.dotfiles/scripts/play-xclip ~/scripts/play-xclip
 		cp ~/.dotfiles/scripts/uzbl-xclip ~/scripts/uzbl-xclip
 		cp ~/.dotfiles/scripts/twitch-"${host}" ~/scripts/twitch
-		cp ~/.dotfiles/scripts/radio ~/scripts/radio
 		cp ~/.dotfiles/scripts/xyzradio ~/scripts/xyzradio
 		cp ~/.dotfiles/scripts/xontop ~/scripts/xontop
-		cp ~/.dotfiles/scripts/tal ~/scripts/tal
 		cp ~/.dotfiles/scripts/byzanz-rect ~/scripts/byzanz-rect
 		cp ~/.dotfiles/scripts/brewnav ~/scripts/brewnav
 		cp ~/.dotfiles/scripts/subreddit-watch ~/scripts/subreddit-watch
 		cp ~/.dotfiles/scripts/ezsshfs ~/scripts/ezsshfs
 		cp ~/.dotfiles/scripts/open-pdf ~/scripts/open-pdf
-		cp ~/.dotfiles/scripts/bug-roommates ~/scripts/bug-roommates
 		cp ~/.dotfiles/scripts/music ~/scripts/music
 		cp ~/.dotfiles/scripts/nft ~/scripts/nft
 		cp ~/.dotfiles/scripts/google ~/scripts/google
@@ -427,9 +437,14 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/screenlock ~/scripts/screenlock
 		cp ~/.dotfiles/scripts/latin ~/scripts/latin
 		cp ~/.dotfiles/scripts/bootlin ~/scripts/bootlin
-		cp ~/.dotfiles/scripts/vboxssh ~/scripts/vboxssh
 		cp ~/.dotfiles/scripts/geocode ~/scripts/geocode
 		cp ~/.dotfiles/scripts/geoopen ~/scripts/geoopen
+
+		snippet play
+		snippet vboxssh
+		snippet xontop
+		snippet tal
+		snippet radio
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
@@ -438,6 +453,8 @@ function fetch_files {
 	if [[ "${host}" = "athena" ]] ; then
 		cp ~/.dotfiles/scripts/wwwbackup ~/scripts/wwwbackup
 		cp ~/.dotfiles/scripts/twitter-fortune-bot.pl ~/scripts/twitter-fortune-bot.pl
+
+		snippet vbnla
 	fi
 
 	chmod +x ~/scripts/*
@@ -481,6 +498,8 @@ function fetch_files {
 	rm -f ~/scripts/last-photo
 	rm -f ~/scripts/last-snap
 	rm -f ~/scripts/last-recording
+	rm -f ~/scripts/pid2xid
+	rm -f ~/scripts/bug-roommates
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
