@@ -220,6 +220,7 @@ for_window [class="^Uzbl-.*"] floating enable
 for_window [title="floaterm"] floating enable, border pixel 1
 for_window [class="^Zenity$"] floating enable
 for_window [class="^Yad$"] floating enable
+for_window [class="^Xmessage$"] floating enable
 
 # why does slack start in _NET_WM_STATE_SKIP_TASKBAR?
 for_window [class="^Slack$"] floating disable
