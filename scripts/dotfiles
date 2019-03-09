@@ -394,7 +394,6 @@ function fetch_files {
 	snippet giphy-fetch
 	snippet ffmpeg-mosaic
 	snippet normalize-gifs
-	snippet forecast
 	snippet rubyvm-dump
 	snippet git-gem-release-tag
 	snippet git-shard-release-tag
@@ -437,6 +436,7 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/bootlin ~/scripts/bootlin
 		cp ~/.dotfiles/scripts/geocode ~/scripts/geocode
 		cp ~/.dotfiles/scripts/geoopen ~/scripts/geoopen
+		cp ~/.dotfiles/scripts/forecast ~/scripts/forecast
 
 		snippet play
 		snippet vboxssh
