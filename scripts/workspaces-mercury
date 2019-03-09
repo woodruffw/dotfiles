@@ -6,6 +6,8 @@
 # bunch of windows, trashing the layout below.
 rm -rf ~/.config/sublime-text-3/Local/*.sublime_session
 
+xmessage -timeout 3 -buttons 'Yes:0,No:1' -default 'Yes' 'Load workspaces?' || exit
+
 i3-msg 'rename workspace 1 to 1 www'
 
 i3-msg 'workspace 1 www; append_layout ~/.config/i3/workspaces/www.json'
