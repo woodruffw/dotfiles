@@ -24,6 +24,6 @@ function notify() {
 	eval "${notify_cmd}" &
 }
 
-installed google-chrome || { notify "$(basename "${0}") needs 'google-chrome'." ; exit 1 ; }
+installed chromium-browser || { notify "$(basename "${0}") needs 'chromium-browser'." ; exit 1 ; }
 
-google-chrome --app="https://app.plex.tv/desktop" >/dev/null 2>&1
+chromium-browser --app="https://app.plex.tv/desktop" >/dev/null 2>&1
