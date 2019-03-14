@@ -405,6 +405,7 @@ function fetch_files {
 	snippet ronnpp
 	snippet linecheck
 	snippet imgresize
+	snippet ssqdb
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
