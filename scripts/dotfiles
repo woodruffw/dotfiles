@@ -437,7 +437,6 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/bootlin ~/scripts/bootlin
 		cp ~/.dotfiles/scripts/geocode ~/scripts/geocode
 		cp ~/.dotfiles/scripts/geoopen ~/scripts/geoopen
-		cp ~/.dotfiles/scripts/forecast ~/scripts/forecast
 
 		snippet play
 		snippet vboxssh
@@ -500,6 +499,7 @@ function fetch_files {
 	rm -f ~/scripts/pid2xid
 	rm -f ~/scripts/bug-roommates
 	rm -f ~/scripts/mp4flip
+	rm -f ~/scripts/forecast
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
