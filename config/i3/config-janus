@@ -252,7 +252,7 @@ exec --no-startup-id compton -fCG -D 8 -m 0.8 --backend glx --glx-no-stencil --v
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start -i
-exec --no-startup-id run_keybase -a
+exec --no-startup-id run_keybase -ag
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
