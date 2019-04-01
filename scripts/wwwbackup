@@ -9,7 +9,7 @@ fi
 
 shopt -s nullglob
 
-cap="7" # don't go over 7 stored backups
+cap="3" # don't go over 3 stored backups
 www_root="/var/www/html"
 backup_dir="${HOME}/www_backups"
 backup_slug="${backup_dir}/$(date +%Y-%m-%d).tar.gz"
