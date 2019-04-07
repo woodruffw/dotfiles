@@ -243,7 +243,6 @@ function fetch_files {
 	printf "Checking for Chromium..."
 	if installed chromium-browser ; then
 		printf "found. Reloading app scripts..."
-		cp ~/.dotfiles/scripts/netflix ~/scripts/netflix
 		cp ~/.dotfiles/scripts/plex ~/scripts/plex
 		green "done"
 	else
@@ -500,6 +499,7 @@ function fetch_files {
 	rm -f ~/scripts/bug-roommates
 	rm -f ~/scripts/mp4flip
 	rm -f ~/scripts/forecast
+	rm -f ~/scripts/netflix
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
