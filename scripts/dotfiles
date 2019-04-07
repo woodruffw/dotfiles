@@ -240,8 +240,8 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for Google Chrome..."
-	if installed google-chrome ; then
+	printf "Checking for Chromium..."
+	if installed chromium-browser ; then
 		printf "found. Reloading app scripts..."
 		cp ~/.dotfiles/scripts/netflix ~/scripts/netflix
 		cp ~/.dotfiles/scripts/plex ~/scripts/plex
