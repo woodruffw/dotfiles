@@ -9,6 +9,11 @@ source ~/.mutt/account.yossarian
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/account.yossarian<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/account.terpmail<enter><change-folder>!<enter>'
 
+# Aliases
+set query_command="goobook query %s"
+bind editor <Tab> complete-query
+macro index,pager a "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
+
 # Fetch mail shortcut
 bind index G imap-fetch-mail
 
