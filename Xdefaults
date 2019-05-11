@@ -3,13 +3,13 @@ URxvt.termName: rxvt-unicode-256color
 URxvt.font: xft:Latin Modern Mono:size=10:antialias=false,-xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:Courier New:size=10:antialias=false,xft:Symbola:pixelsize=10:antialias=true:hinting=slight
 
 *.background: rgb:1d/1c/1c
-*.foreground: White
+*.foreground: rgb:f6/f6/f6
 *.geometry: 80x24
 *.color0: black
 *.color1: red3
 *.color2: green3
 *.color3: yellow3
-*.color4: rgb:c7/15/85
+*.color4: black
 *.color5: magenta3
 *.color6: cyan3
 *.color7: gray90
@@ -18,7 +18,7 @@ URxvt.font: xft:Latin Modern Mono:size=10:antialias=false,-xos4-terminus-medium-
 *.color10: rgb:8a/e2/34
 *.color11: yellow
 *.color12: rgb:72/9f/cf
-*.color13: magenta
+*.color13: coral
 *.color14: cyan
 *.color15: white
 
