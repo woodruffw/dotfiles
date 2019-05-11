@@ -7,9 +7,9 @@ URxvt.font: xft:Latin Modern Mono:size=10:antialias=false,-xos4-terminus-medium-
 *.geometry: 80x24
 *.color0: black
 *.color1: red3
-*.color2: green3
+*.color2: green
 *.color3: yellow3
-*.color4: black
+*.color4: blue
 *.color5: magenta3
 *.color6: cyan3
 *.color7: gray90
