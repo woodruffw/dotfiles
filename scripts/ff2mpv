@@ -9,5 +9,5 @@ url = JSON.parse(STDIN.read(len))["url"]
 
 system "notify-send", "ff2mpv", url
 
-pid = spawn "mpv", "--no-terminal", "--", url, in: :close, out: :close, err: :close
+pid = spawn "mpv", "--no-terminal", "--", url, in: :close, out: "/dev/null", err: "/dev/null"
 Process.detach pid
