@@ -6,8 +6,6 @@ osc=yes
 screenshot-format=png
 screenshot-template="~/Dropbox/screenshots/%F - %p"
 
-cache-default=50000
-
 alang=jpn
 slang=enm,eng
 
