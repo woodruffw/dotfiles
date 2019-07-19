@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# gimme-file: email myself a file via neomutt
+
+set -eo pipefail
+
+function help {
+    echo "Usage: gimme-file <file>"
+    exit
+}
+
+function installed {
+  cmd=$(command -v "${1}")
+
+  [[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+  return ${?}
+}
+
+installed neomutt || { >&2 echo "Missing neomutt."; exit 1; }
+[[ "${#}" -eq 1 && -f "${1}" ]] || help
+
+neomutt -e "set crypt_autosign = no" \
+  -s "$(basename "${1}")" \
+  -a "${1}" -- "william@yossarian.net" \
+  < /dev/null
