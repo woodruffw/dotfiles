@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Action
+Name[en_US]=gimme-file
+Name[en]=gimme-file
+Name[C]=gimme-file
+ToolbarLabel[en_US]=gimme-file
+ToolbarLabel[en]=gimme-file
+ToolbarLabel[C]=gimme-file
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+Name[en_US]=gimme-file
+Name[en]=gimme-file
+Name[C]=gimme-file
+Exec=/home/william/scripts/gimme-file %f
