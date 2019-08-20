@@ -19,6 +19,14 @@ function installed {
   return ${?}
 }
 
+function plat_umount {
+  if installed fusermount; then
+    fusermount -u "${1}" 2> /dev/null
+  else
+    umount "${1}"
+  fi
+}
+
 [[ -f ~/.config/ezsshfsrc ]] || die "Missing ~/.config/ezsshfsrc"
 
 declare -A mntmap
@@ -26,7 +34,6 @@ source ~/.config/ezsshfsrc
 
 ensure installed "selecta"
 ensure installed "sshfs"
-ensure installed "fusermount"
 
 key=$(printf "%s\n" "${!mntmap[@]}" | selecta)
 
@@ -39,7 +46,7 @@ mpath="${paths[2]}"
 mkdir -p "${mpath}"
 
 if [[ "${1}" = "-u" ]]; then
-  fusermount -u "${mpath}" 2> /dev/null
+  plat_umount "${mpath}"
 else
   sshfs "${host}:${spath}" "${mpath}"
 fi
