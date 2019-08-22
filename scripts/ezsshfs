@@ -39,7 +39,7 @@ key=$(printf "%s\n" "${!mntmap[@]}" | selecta)
 
 [[ -n "${key}" && -n "${mntmap[${key}]}" ]] || die "Missing or no such key."
 
-paths=(${mntmap[${key}]})
+read -ra paths <<< "${mntmap[${key}]}"
 host="${paths[0]}"
 spath="${paths[1]}"
 mpath="${paths[2]}"
