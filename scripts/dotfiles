@@ -429,7 +429,6 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/ytsearch ~/scripts/ytsearch
 		cp ~/.dotfiles/scripts/ytsearch2 ~/scripts/ytsearch2
 		cp ~/.dotfiles/scripts/slopcast ~/scripts/slopcast
-		cp ~/.dotfiles/scripts/remind ~/scripts/remind
 		cp ~/.dotfiles/scripts/ghbrowse ~/scripts/ghbrowse
 		cp ~/.dotfiles/scripts/screenlock ~/scripts/screenlock
 		cp ~/.dotfiles/scripts/latin ~/scripts/latin
