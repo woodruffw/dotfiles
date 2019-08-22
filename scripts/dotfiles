@@ -500,6 +500,7 @@ function fetch_files {
 	rm -f ~/scripts/mp4flip
 	rm -f ~/scripts/forecast
 	rm -f ~/scripts/netflix
+	rm -f ~/scripts/remind
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
