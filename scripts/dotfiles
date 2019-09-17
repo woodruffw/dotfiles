@@ -401,6 +401,7 @@ function fetch_files {
 	snippet git-move-commits
 	snippet git-open-all
 	snippet git-takeout
+	snippet git-unws
 	snippet ronnpp
 	snippet linecheck
 	snippet imgresize
