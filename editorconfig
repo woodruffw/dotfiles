@@ -5,12 +5,12 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{rb,sh,cr}]
+[*.{c,h,cpp,hpp,cxx,hxx,rb,sh,cr}]
 charset = utf-8
 indent_style = space
 indent_size = 2
 
-[*.{c,h,cpp,hpp,cxx,hxx,py,rs}]
+[*.{py,rs}]
 indent_style = space
 indent_size = 4
 
