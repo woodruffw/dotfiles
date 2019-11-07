@@ -322,6 +322,8 @@ alias rmhk='ssh-keygen -R'
 alias mkdir='mkdir -p'
 alias getconfigs='dotfiles ; allreload'
 alias ocaml='rlwrap ocaml'
+alias jsonl2json='jq -s "."'
+alias json2jsonl='jq -c ".[]"'
 
 # if colordiff is installed, alias diff to it
 if installed colordiff ; then
