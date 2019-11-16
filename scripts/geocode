@@ -10,6 +10,9 @@ require "cgi"
 
 URL = "https://maps.googleapis.com/maps/api/geocode/json?address=%<address>s&key=%<key>s"
 
+coords = ARGV.first == "-c"
+ARGV.shift if coords
+
 key   = KBSecret::Session[:keys]["google-geocoding-api-key"].value
 query = ARGV.join " "
 url   = URL % { address: CGI.escape(query), key: CGI.escape(key) }
@@ -21,7 +24,11 @@ begin
   abort("Error: #{resp["status"]}") if resp["status"] != "OK"
 
   result = resp["results"].first
-  puts result["formatted_address"]
+  if coords
+    puts "#{result["geometry"]["location"]["lat"]}, #{result["geometry"]["location"]["lng"]}"
+  else
+    puts result["formatted_address"]
+  end
 rescue StandardError => e
   abort("Something exploded: #{e}.")
 end
