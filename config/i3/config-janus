@@ -82,7 +82,7 @@ bindsym $mod+a focus parent
 bindsym $mod+shift+a focus child
 
 set $mon1 DisplayPort-2
-set $mon2 HDMI-A-0
+set $mon2 DisplayPort-1
 set $mon3 HDMI-A-0
 
 # this is getting out of control.
