@@ -22,6 +22,8 @@ input-cursor=yes
 
 image-display-duration=inf
 
+hwdec=auto-safe
+
 [extension.webm]
 loop-file=inf
 
