@@ -64,9 +64,9 @@ elif [[ ! "${file}" ]]; then
     file=~/Dropbox/screenshots/$(date +%s).png
 
     if [[ "${fullscreen}" ]]; then
-        maim "${file}"
+        maim -u "${file}"
     elif [[ "${selection}" ]]; then
-        maim --bordersize 4000 --color=0.2,0.2,0.2,0.9 -s "${file}"
+        maim -u --bordersize 4000 --color=0.2,0.2,0.2,0.9 -s "${file}"
     fi
 fi
 
