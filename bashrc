@@ -13,15 +13,13 @@
 # __generate_prompt - generate the PS1 dynamically
 __generate_prompt() {
 	exitcode="${?}"
-	jobcount=$(jobs | wc -l | sed -e 's/^[ \t]*//')
-	branch=$(git symbolic-ref HEAD 2> /dev/null)
-
 	if [[ "${exitcode}" -eq 0 ]]; then
 		exitcode="\[${COLOR_GRN}\]${exitcode}\[${COLOR_NRM}\]"
 	else
 		exitcode="\[${COLOR_RED}\]${exitcode}\[${COLOR_NRM}\]"
 	fi
 
+	jobcount=$(jobs | wc -l | sed -e 's/^[ \t]*//')
 	if [[ "${jobcount}" -eq 0 ]]; then
 		jobcount="\[${COLOR_GRN}\]${jobcount}\[${COLOR_NRM}\]"
 	else
@@ -30,12 +28,20 @@ __generate_prompt() {
 
 	jobsexit="[${jobcount}:${exitcode}]"
 
+	PS1="\u@\h \W ${jobsexit}"
+
+	branch=$(git symbolic-ref HEAD 2> /dev/null)
 	if [[ -n "${branch}" ]]; then
 		branch="\[${COLOR_RED}\]${branch#refs/heads/}\[${COLOR_NRM}\]"
-		PS1="\u@\h \W ${jobsexit} ${branch} \$ "
-	else
-		PS1="\u@\h \W ${jobsexit} \$ "
+		PS1="${PS1} ${branch}"
 	fi
+
+	if [[ -n "${VIRTUAL_ENV}" ]]; then
+		virtualenv="${COLOR_GRN}$(basename "${VIRTUAL_ENV}")${COLOR_NRM}"
+		PS1="${PS1} ${virtualenv}"
+	fi
+
+	PS1="${PS1} \$ "
 
 	# update the history and reload it
 	history -a
