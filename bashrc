@@ -4,7 +4,7 @@
 # bashrc #
 ##########
 
-[[ -z "${PS1}" ]] && return
+[[ -t 0 && "${-}" == *i* ]] || return
 
 #############
 # FUNCTIONS #
@@ -36,7 +36,7 @@ __generate_prompt() {
 		PS1="${PS1} ${branch}"
 	fi
 
-	if [[ -n "${VIRTUAL_ENV}" ]]; then
+	if [[ -v VIRTUAL_ENV ]]; then
 		virtualenv="${COLOR_GRN}$(basename "${VIRTUAL_ENV}")${COLOR_NRM}"
 		PS1="${PS1} ${virtualenv}"
 	fi
