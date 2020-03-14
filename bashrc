@@ -358,6 +358,10 @@ if installed exiftool ; then
 	alias exifmine='exiftool -all= -copyright="William Woodruff" -overwrite_original'
 fi
 
+if installed pledger; then
+	alias pledger='PLEDGER_DIR=/keybase/private/yossarian/expenses pledger'
+fi
+
 # system-dependent aliases
 if [[ "${system}" = "Linux" ]] ; then
 	alias ls='ls --color=auto'
