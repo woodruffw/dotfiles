@@ -408,6 +408,7 @@ function fetch_files {
 	snippet imgresize
 	snippet ssqdb
 	snippet reorient
+	snippet partyhard
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
