@@ -6,6 +6,7 @@
 # bunch of windows, trashing the layout below.
 rm -rf ~/.config/sublime-text-3/Local/*.sublime_session
 
+xset dpms force on
 xmessage -timeout 3 -buttons 'Yes:0,No:1' -default 'Yes' 'Load workspaces?' || exit
 
 i3-msg 'workspace 1A; append_layout ~/.config/i3/workspaces/1A.json'
