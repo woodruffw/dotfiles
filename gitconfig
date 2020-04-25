@@ -4,36 +4,51 @@
 	whitespace = blank-at-eol
 	excludesfile = ~/.gitignore
 	trustctime = false
+
 [color]
 	ui = 1
 	diff = auto
 	status = auto
 	branch = auto
+
 [user]
 	email = william@yossarian.net
 	name = William Woodruff
 	signingkey = 85AE00C504833B3C
+
 [push]
 	default = current
+
 [help]
 	autocorrect = 1
+
 [github]
 	user = woodruffw
+
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
 	diff = diff-highlight | less
+
 [interactive]
 	diffFilter = diff-highlight
+
 [diff]
 	compactionHeuristic = true
+
 [commit]
 	gpgsign = true
+
 [pull]
 	rebase = true
+
 [gpg]
 	program = gpg2
+
 [alias]
     lg = log --color --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit
     lgg = log --color --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit --stat --summary
 		prune-stale = remote prune origin
+
+[rerere]
+	enabled = 1
