@@ -382,6 +382,16 @@ function fetch_files {
 	snippet ffgolapse
 	snippet ffdeshake
 	snippet ffstill
+	snippet ffdialtone
+	snippet ffsbs
+	snippet fffaceblur
+	snippet ffdtmf
+	snippet ffspectrum
+	snippet ffaudiovis
+	snippet ffnegate
+	snippet ffmirror
+	snippet ffspin
+	snippet ffsubshot
 	snippet urlgrep
 	snippet albumart
 	snippet rip
