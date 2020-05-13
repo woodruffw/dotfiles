@@ -392,6 +392,7 @@ function fetch_files {
 	snippet ffmirror
 	snippet ffspin
 	snippet ffsubshot
+	snippet ffframes
 	snippet urlgrep
 	snippet albumart
 	snippet rip
@@ -419,6 +420,7 @@ function fetch_files {
 	snippet ssqdb
 	snippet reorient
 	snippet partyhard
+	snippet ffmpeg-srt-scene
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
