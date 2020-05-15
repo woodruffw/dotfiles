@@ -175,25 +175,6 @@ rw() {
 	realpath "$(which "${1}")"
 }
 
-# jmp (jump) and friends, shamelessly taken from:
-# http://jeroenjanssens.com/2013/08/16/quickly-navigate-your-filesystem-from-the-command-line.html
-jmp() {
-	cd -P "${MARKPATH}/${1}" 2> /dev/null || echo "No such mark: ${1}"
-}
-
-mrk() {
-	mkdir -p "${MARKPATH}" ; ln -s "${PWD}" "${MARKPATH}/${1}"
-}
-
-umrk() {
-	rm "${MARKPATH}/${1}"
-}
-
-mrks() {
-	# shellcheck disable=SC2012
-	ls -l "${MARKPATH}" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
-}
-
 # dump the HTTP response code for a URL to stdout
 http_code() {
 	if [[ -n "${1}" ]] ; then
@@ -432,22 +413,10 @@ bind -x '"\eL":"ls"'
 # reload configs when SIGURG is received
 trap bashreload SIGURG
 
-########################
-# COMPLETION FUNCTIONS #
-########################
-
-_completemarks() {
-	curw=${COMP_WORDS[COMP_CWORD]}
-	wordlist="$(ls "${MARKPATH}" 2> /dev/null)"
-	# shellcheck disable=SC2016
-	COMPREPLY=($(compgen -W '${wordlist[@]}' -- "${curw}"))
-}
-
 ###########################
 # COMPLETION ASSOCIATIONS #
 ###########################
 
-complete -F _completemarks jmp umrk
 complete -F _completegvcd gvcd
 
 # load bash completion if it exists
