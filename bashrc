@@ -427,3 +427,5 @@ complete -F _completegvcd gvcd
 # shellcheck source=/dev/null
 [[ -f /usr/share/bash-completion/completions/man ]] && ! type -p _man && \
 	source /usr/share/bash-completion/completions/man
+
+eval "$(kbs2 --completions=bash)"
