@@ -33,7 +33,7 @@ function installed() {
 }
 
 function check_dependencies() {
-    local deps=(notify-send zenity xclip curl jq exiftool maim kbsecret)
+    local deps=(notify-send zenity xclip curl jq exiftool maim kbs2)
 
     for dep in "${deps[@]}"; do
         if ! installed "${dep}" ; then
@@ -79,7 +79,7 @@ if [[ ! "${keepexif}" ]]; then
     exiftool -overwrite_original -all= "${file}" > /dev/null
 fi
 
-eval "$(kbsecret env -s keys rsus-api-key)"
+eval "$(kbs2 env rsus-api-key)"
 
 if [[ -n "${RSUS_API_KEY}" ]]; then
     output=$(curl -sf -F auth="${RSUS_API_KEY}" -F file="@${file}" "https://thing-in-itself.net/upload/")

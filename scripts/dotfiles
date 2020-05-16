@@ -281,8 +281,8 @@ function fetch_files {
 	printf "Checking for kbs2..."
 	if installed kbs2 ; then
 		printf "found. Reloading scripts..."
-		cp ~/.dotfiles/scripts/kbsecret-yad-login ~/scripts/kbsecret-yad-login
-		cp ~/.dotfiles/scripts/kbsecret-dmenu-pass ~/scripts/kbsecret-dmenu-pass
+		cp ~/.dotfiles/scripts/kbs2-yad-login ~/scripts/kbs2-yad-login
+		cp ~/.dotfiles/scripts/kbs2-dmenu-pass ~/scripts/kbs2-dmenu-pass
 		green "done"
 	else
 		yellow "not installed. Skipping"

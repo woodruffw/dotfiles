@@ -3,7 +3,7 @@
 
 # geoopen: print whether a location is open, and when it closes
 
-require "kbsecret"
+require "date"
 require "net/http"
 require "json"
 require "cgi"
@@ -12,9 +12,8 @@ GEOCODING_URL = "https://maps.googleapis.com/maps/api/geocode/json?address=%<add
 PLACES_URL = "https://maps.googleapis.com/maps/api/place/details/json?" \
   "placeid=%<place_id>s&fields=opening_hours&key=%<key>s"
 
-keys          = KBSecret::Session[:keys]
-geocoding_key = keys["google-geocoding-api-key"].value
-places_key    = keys["google-places-api-key"].value
+geocoding_key = `kbs2 env -v google-geocoding-api-key`.chomp!
+places_key    = `kbs2 env -v google-places-api-key`.chomp!
 query         = ARGV.join " "
 
 geocoding_url = GEOCODING_URL % { address: CGI.escape(query), key: CGI.escape(geocoding_key) }
@@ -39,11 +38,12 @@ begin
 
   today = hours["periods"][Time.now.wday]
 
+  puts resp
   if hours["open_now"]
-    time = Time.strptime today["close"]["time"], "%H%M"
+    time = DateTime.strptime today["close"]["time"], "%H%M"
     puts "#{address}: Open now, closes #{time}"
   else
-    time = Time.strptime today["open"]["time"], "%H%M"
+    time = DateTime.strptime today["open"]["time"], "%H%M"
     puts "#{address}: Closed now, opens #{time}"
   end
 rescue StandardError => e
