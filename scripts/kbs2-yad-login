@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# kbs2-yad-login: Add a login record to kbs2 via a YAD form.
+
+record=$(
+  yad \
+    --form \
+    --separator=$'\x01' \
+    --item-separator=$'\x01' \
+    --text-align=left \
+    --text="New Login" \
+    --title="kbs2" \
+    --field="Label" \
+    --field="Username" \
+    --field="Password:H"
+)
+
+label=$(awk -F $'\x01' '{ print $1 }' <<< "${record}")
+username=$(awk -F $'\x01' '{ print $2 }' <<< "${record}")
+password=$(awk -F $'\x01' '{ print $3 }' <<< "${record}")
+
+kbs2 new login "${label}" <<< "${username}"$'\x01'"${password}"

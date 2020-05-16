@@ -278,20 +278,11 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for kbsecret..."
-	if installed kbsecret ; then
+	printf "Checking for kbs2..."
+	if installed kbs2 ; then
 		printf "found. Reloading scripts..."
 		cp ~/.dotfiles/scripts/kbsecret-yad-login ~/scripts/kbsecret-yad-login
 		cp ~/.dotfiles/scripts/kbsecret-dmenu-pass ~/scripts/kbsecret-dmenu-pass
-		cp ~/.dotfiles/scripts/kbsecret-snip ~/scripts/kbsecret-snip
-		cp ~/.dotfiles/scripts/kbsecret-todo-list ~/scripts/kbsecret-todo-list
-		cp ~/.dotfiles/scripts/kbsecret-discover-sessions ~/scripts/kbsecret-discover-sessions
-		cp ~/.dotfiles/scripts/kbsecret-recovery ~/scripts/kbsecret-recovery
-		cp ~/.dotfiles/scripts/kbsecret-audit-pass ~/scripts/kbsecret-audit-pass
-		cp ~/.dotfiles/scripts/kbsecret-zxcvbn ~/scripts/kbsecret-zxcvbn
-		cp ~/.dotfiles/scripts/kbsecret-qr ~/scripts/kbsecret-qr
-		cp ~/.dotfiles/scripts/todo ~/scripts/todo
-		cp ~/.dotfiles/scripts/snip ~/scripts/snip
 		green "done"
 	else
 		yellow "not installed. Skipping"
@@ -517,6 +508,17 @@ function fetch_files {
 	rm -f ~/scripts/forecast
 	rm -f ~/scripts/netflix
 	rm -f ~/scripts/remind
+	rm -f ~/scripts/kbsecret-yad-login
+	rm -f ~/scripts/kbsecret-dmenu-pass
+	rm -f ~/scripts/kbsecret-snip
+	rm -f ~/scripts/kbsecret-todo-list
+	rm -f ~/scripts/kbsecret-discover-sessions
+	rm -f ~/scripts/kbsecret-recovery
+	rm -f ~/scripts/kbsecret-audit-pass
+	rm -f ~/scripts/kbsecret-zxcvbn
+	rm -f ~/scripts/kbsecret-qr
+	rm -f ~/scripts/todo
+	rm -f ~/scripts/snip
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
