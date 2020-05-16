@@ -166,10 +166,10 @@ bindsym Control+Mod1+e exec ~/scripts/uzbl-xclip
 bindsym XF86Launch1 exec ~/scripts/screenlock
 
 # save a password through yad
-bindsym $mod+z exec kbsecret yad-login
+bindsym $mod+z exec kbs2 yad-login
 
 # select a password through dmenu
-bindsym $mod+x exec kbsecret dmenu-pass
+bindsym $mod+x exec kbs2 dmenu-pass
 
 # select a github repository through dmenu
 bindsym $mod+c exec ~/scripts/ghbrowse
