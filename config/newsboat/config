@@ -3,8 +3,7 @@ reload-time 30
 reload-threads 4
 max-items 25
 
-# save the cache in KBFS, for synchronization
-cache-file "/keybase/private/yossarian/newsbeuter/cache.db"
+cache-file "/home/william/.newsboat/cache.db"
 
 # use notify-send to send new item notifications
 notify-program "notify-send"

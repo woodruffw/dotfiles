@@ -224,7 +224,6 @@ for_window [class="^Xmessage$"] floating enable
 
 # why does slack start in _NET_WM_STATE_SKIP_TASKBAR?
 for_window [class="^Slack$"] floating disable
-for_window [class="^Keybase$"] floating disable
 
 # floating steam dialogs
 for_window [class="^Steam$" title="^Friends$"] floating enable
@@ -252,7 +251,6 @@ exec --no-startup-id compton -fCG -D 8 -m 0.8 --backend glx --glx-no-stencil --v
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id dropbox start -i
-exec --no-startup-id run_keybase -ag
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
