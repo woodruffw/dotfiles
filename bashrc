@@ -340,7 +340,7 @@ if installed exiftool ; then
 fi
 
 if installed pledger; then
-	alias pledger='PLEDGER_DIR=/keybase/private/yossarian/expenses pledger'
+	alias pledger='PLEDGER_DIR=~/Dropbox/expenses pledger'
 fi
 
 # system-dependent aliases
