@@ -2,6 +2,8 @@
 
 # kbs2-dmenu-pass: List all kbs2 logins in dmenu, feed the selected one into the clipboard.
 
+set -eo pipefail
+
 labels=$(kbs2 list -k login)
 label=$(dmenu -p kbs2 <<< "${labels}")
 

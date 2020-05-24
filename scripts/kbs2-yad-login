@@ -2,6 +2,8 @@
 
 # kbs2-yad-login: Add a login record to kbs2 via a YAD form.
 
+set -eo pipefail
+
 record=$(
   yad \
     --form \
