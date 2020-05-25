@@ -280,7 +280,8 @@ function fetch_files {
 
 	printf "Checking for kbs2..."
 	if installed kbs2 ; then
-		printf "found. Reloading scripts..."
+		printf "found. Reloading config and scripts..."
+		cp -R ~/.dotfiles/config/kbs2/* ~/.config/kbs2
 		cp ~/.dotfiles/scripts/kbs2-yad-login ~/scripts/kbs2-yad-login
 		cp ~/.dotfiles/scripts/kbs2-dmenu-pass ~/scripts/kbs2-dmenu-pass
 		cp ~/.dotfiles/scripts/kbs2-qr ~/scripts/kbs2-qr
