@@ -299,15 +299,6 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for Spotify..."
-	if installed spotify; then
-		printf "found. Reloading scripts..."
-		cp ~/.dotfiles/scripts/sp ~/scripts/sp
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
 	printf "Checking for fontconfig..."
 	if installed fc-cache; then
 		printf "found. Reloading fonts.conf..."
@@ -522,6 +513,7 @@ function fetch_files {
 	rm -f ~/scripts/kbsecret-qr
 	rm -f ~/scripts/todo
 	rm -f ~/scripts/snip
+	rm -f ~/scripts/sp
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
