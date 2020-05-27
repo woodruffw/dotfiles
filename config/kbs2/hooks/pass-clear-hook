@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 
-notify-send "kbs2 pass" "Cleared the clipboard"
+system=$(uname -s)
+
+if [[ "${system}" == Linux ]]; then
+  notify-send "kbs2 pass" "Cleared the clipboard"
+elif [[ "${system}" == Darwin ]]; then
+  osascript -e 'display notification "Cleared the clipboard" with title "kbs2 pass"'
+else
+  >&2 echo "[+] Unsupported system: ${system}"
+fi
