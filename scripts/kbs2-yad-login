@@ -14,7 +14,10 @@ record=$(
     --title="kbs2" \
     --field="Label" \
     --field="Username" \
-    --field="Password:H"
+    --field="Password:H" \
+    "" \
+    "" \
+    "$(kbs2 generate)"
 )
 
 label=$(awk -F $'\x01' '{ print $1 }' <<< "${record}")
