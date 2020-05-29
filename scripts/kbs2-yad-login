@@ -24,4 +24,4 @@ label=$(awk -F $'\x01' '{ print $1 }' <<< "${record}")
 username=$(awk -F $'\x01' '{ print $2 }' <<< "${record}")
 password=$(awk -F $'\x01' '{ print $3 }' <<< "${record}")
 
-kbs2 new login "${label}" <<< "${username}"$'\x01'"${password}"
+kbs2 new "${label}" <<< "${username}"$'\x01'"${password}"
