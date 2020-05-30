@@ -428,4 +428,6 @@ complete -F _completegvcd gvcd
 [[ -f /usr/share/bash-completion/completions/man ]] && ! type -p _man && \
 	source /usr/share/bash-completion/completions/man
 
-eval "$(kbs2 --completions=bash)"
+if installed kbs2; then
+	eval "$(kbs2 --completions=bash)"
+fi
