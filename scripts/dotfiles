@@ -449,7 +449,6 @@ function fetch_files {
 		snippet vboxssh
 		snippet xontop
 		snippet tal
-		snippet radio
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
@@ -521,6 +520,7 @@ function fetch_files {
 	rm -f ~/scripts/todo
 	rm -f ~/scripts/snip
 	rm -f ~/scripts/sp
+	rm -f ~/scripts/radio
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
