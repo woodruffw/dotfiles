@@ -335,7 +335,6 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
 	cp ~/.dotfiles/scripts/pbin ~/scripts/pbin
 	cp ~/.dotfiles/scripts/update ~/scripts/update
-	cp ~/.dotfiles/scripts/cart ~/scripts/cart
 	cp ~/.dotfiles/scripts/speedtest ~/scripts/speedtest
 	cp ~/.dotfiles/scripts/worldtimes ~/scripts/worldtimes
 	cp ~/.dotfiles/scripts/diff-highlight ~/scripts/diff-highlight
@@ -418,7 +417,6 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/xyzradio ~/scripts/xyzradio
 		cp ~/.dotfiles/scripts/byzanz-rect ~/scripts/byzanz-rect
 		cp ~/.dotfiles/scripts/brewnav ~/scripts/brewnav
-		cp ~/.dotfiles/scripts/subreddit-watch ~/scripts/subreddit-watch
 		cp ~/.dotfiles/scripts/ezsshfs ~/scripts/ezsshfs
 		cp ~/.dotfiles/scripts/open-pdf ~/scripts/open-pdf
 		cp ~/.dotfiles/scripts/music ~/scripts/music
@@ -512,6 +510,8 @@ function fetch_files {
 	rm -f ~/scripts/sp
 	rm -f ~/scripts/radio
 	rm -f ~/scripts/uzbl-xclip
+	rm -f ~/scripts/subreddit-watch
+	rm -f ~/scripts/cart
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
