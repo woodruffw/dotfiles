@@ -330,6 +330,15 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for gpg2..."
+	if installed gpg2; then
+		printf "found. Reloading config..."
+		cp -R ~/.dotfiles/gnupg/* ~/.gnupg
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
@@ -405,8 +414,6 @@ function fetch_files {
 	snippet reorient
 	snippet partyhard
 	snippet ffmpeg-srt-scene
-
-	cp -R ~/.dotfiles/gnupg/* ~/.gnupg
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
