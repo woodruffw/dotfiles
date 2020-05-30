@@ -290,15 +290,6 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for uzbl..."
-	if installed uzbl ; then
-		printf "found. Reloading config..."
-		cp ~/.dotfiles/config/uzbl/config ~/.config/uzbl/config
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
 	printf "Checking for fontconfig..."
 	if installed fc-cache; then
 		printf "found. Reloading fonts.conf..."
@@ -423,7 +414,6 @@ function fetch_files {
 	if [[ "${host}" = "mercury" || "${host}" = "janus" ]] ; then
 		cp ~/.dotfiles/scripts/poomf ~/scripts/poomf
 		cp ~/.dotfiles/scripts/play-xclip ~/scripts/play-xclip
-		cp ~/.dotfiles/scripts/uzbl-xclip ~/scripts/uzbl-xclip
 		cp ~/.dotfiles/scripts/twitch-"${host}" ~/scripts/twitch
 		cp ~/.dotfiles/scripts/xyzradio ~/scripts/xyzradio
 		cp ~/.dotfiles/scripts/byzanz-rect ~/scripts/byzanz-rect
@@ -521,6 +511,7 @@ function fetch_files {
 	rm -f ~/scripts/snip
 	rm -f ~/scripts/sp
 	rm -f ~/scripts/radio
+	rm -f ~/scripts/uzbl-xclip
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
