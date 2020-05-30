@@ -16,7 +16,8 @@ macro index,pager a "<pipe-message>goobook add<return>" "add the sender address 
 bind index G imap-fetch-mail
 
 # Link, HTML handling
-macro pager \cb <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 

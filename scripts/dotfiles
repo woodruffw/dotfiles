@@ -203,15 +203,6 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for urlview..."
-	if installed urlview ; then
-		printf "found. Reloading config..."
-		cp ~/.dotfiles/urlview ~/.urlview
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
 	printf "Checking for LaTeX..."
 	if installed latex ; then
 		printf "found. Reloading texmf and updating the database..."
