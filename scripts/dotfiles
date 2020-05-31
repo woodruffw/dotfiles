@@ -277,6 +277,7 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/kbs2-dmenu-pass ~/scripts/kbs2-dmenu-pass
 		cp ~/.dotfiles/scripts/kbs2-qr ~/scripts/kbs2-qr
 		cp ~/.dotfiles/scripts/kbs2-snip ~/scripts/kbs2-snip
+		cp ~/.dotfiles/scripts/kbs2-audit-pass ~/scripts/kbs2-audit-pass
 		green "done"
 	else
 		yellow "not installed. Skipping"
