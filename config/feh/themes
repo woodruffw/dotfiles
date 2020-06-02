@@ -1,4 +1,4 @@
 # feh themes
 
 # default theme - borderless, scale the image down and use imagemagick
-feh --borderless --auto-zoom --conversion-timeout 1
+feh --borderless --scale-down --conversion-timeout 1
