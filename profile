@@ -46,14 +46,6 @@ export HISTIGNORE="[ \t]+" # ignore commands started with whitespace
 export PROMPT_COMMAND="__generate_prompt"
 export NO_AT_BRIDGE=1
 
-# load API key files if they exist
-if [[ -d ~/.api-keys ]] ; then
-	for keyfile in ~/.api-keys/* ; do
-		# shellcheck source=/dev/null
-		source "${keyfile}"
-	done
-fi
-
 # unset LESSOPEN and LESSPIPE (never used, and a security hole)
 unset LESSOPEN
 unset LESSPIPE
