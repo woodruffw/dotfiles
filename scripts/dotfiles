@@ -323,6 +323,15 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for gdb..."
+	if installed gdb; then
+		printf "found. Reloading config..."
+		cp ~/.dotfiles/gdbinit ~/.gdbinit
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
