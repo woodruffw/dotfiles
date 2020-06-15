@@ -4,7 +4,10 @@
 
 set -eo pipefail
 
->&2 echo "[+] post-hook: $PWD"
+>&2 echo "[+] post-hook: ${0}"
+
+[[ -n "${KBS2_HOOK}" ]] \
+  || { >&2 echo "Fatal: Not being run as a hook?"; exit 1; }
 
 git add -A . 2>/dev/null
 git commit --no-gpg-sign -m "$(date)" 2>/dev/null
