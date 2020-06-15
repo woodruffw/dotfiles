@@ -59,9 +59,9 @@ unset MAILCHECK
 
 if [[ "${system}" = "Linux" ]]; then
 	# If linuxbrew is installed, add its bin and man directories to their respective paths.
-	if [[ -d ~/.linuxbrew ]]; then
-		PATH="${HOME}/.linuxbrew/bin:${PATH}"
-		export MANPATH="${HOME}/.linuxbrew/share/man:${MANPATH}"
+	if [[ -d /home/linuxbrew/.linuxbrew ]]; then
+		# shellcheck disable=SC2046
+		eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 	fi
 
 	# If rust is installed via rustup, add it to the PATH.
