@@ -3,7 +3,6 @@
 
 # geocode: print a more formal address for the given query
 
-require "kbsecret"
 require "net/http"
 require "json"
 require "cgi"
@@ -13,7 +12,7 @@ URL = "https://maps.googleapis.com/maps/api/geocode/json?address=%<address>s&key
 coords = ARGV.first == "-c"
 ARGV.shift if coords
 
-key   = KBSecret::Session[:keys]["google-geocoding-api-key"].value
+key = `kbs2 env -v google-geocoding-api-key`.chomp!
 query = ARGV.join " "
 url   = URL % { address: CGI.escape(query), key: CGI.escape(key) }
 
