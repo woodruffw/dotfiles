@@ -33,6 +33,7 @@
 		"SublimeLinter-contrib-git-lint-commit",
 		"SublimeLinter-flake8",
 		"SublimeLinter-rubocop",
-		"SublimeLinter-shellcheck"
+		"SublimeLinter-shellcheck",
+		"TOML"
 	]
 }
