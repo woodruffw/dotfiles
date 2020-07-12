@@ -311,6 +311,7 @@ alias getconfigs='dotfiles ; allreload'
 alias ocaml='rlwrap ocaml'
 alias jsonl2json='jq -s "."'
 alias json2jsonl='jq -c ".[]"'
+alias snip='kbs2 snip'
 
 # if colordiff is installed, alias diff to it
 if installed colordiff ; then
