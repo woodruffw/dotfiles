@@ -1,13 +1,17 @@
-directory = /home/william/rtorrent/downloads
-session = /home/william/rtorrent/session/
+directory.default.set = /home/william/rtorrent/downloads
+session.path.set = /home/william/rtorrent/session/
 
-port_range = 6890-6999
-port_random = yes
-dht = auto
-encryption = require,require_RC4
-peer_exchange = yes
-pieces.sync.always_safe = yes
-network.max_open_files = 64
+pieces.hash.on_completion.set = yes
+
+network.port_range.set = 7800-8800
+network.port_random.set = yes
+
+dht.mode.set = auto
+
+protocol.encryption.set = require,require_RC4,allow_incoming,try_outgoing
+protocol.pex.set = yes
+
+network.max_open_files.set = 64
 
 schedule = watch_directory,10,10,load_start=/home/william/rtorrent/watch/*.torrent
 schedule = tied_directory,10,10,start_tied=
