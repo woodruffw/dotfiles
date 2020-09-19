@@ -52,3 +52,11 @@
 
 [rerere]
 	enabled = 1
+
+[url "git@github.com:woodruffw-forks/"]
+	insteadOf = forks:
+	pushInsteadOf = forks:
+
+[url "git@github.com:woodruffw/"]
+	insteadOf = self:
+	pushInsteadOf = self:
