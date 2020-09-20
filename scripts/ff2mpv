@@ -2,12 +2,16 @@
 # frozen_string_literal: true
 
 require "json"
-require "json"
 
 len = STDIN.read(4).unpack1("L")
-url = JSON.parse(STDIN.read(len))["url"]
+data = JSON.parse(STDIN.read(len))
+url = data["url"]
+opt = data["opt"]
+
+args = %w[--no-terminal]
+args << "--no-video" unless opt["video"]
 
 system "notify-send", "ff2mpv", url
+pid = spawn "mpv", *args, "--", url, in: :close, out: "/dev/null", err: "/dev/null"
 
-pid = spawn "mpv", "--no-terminal", "--", url, in: :close, out: "/dev/null", err: "/dev/null"
 Process.detach pid
