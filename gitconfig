@@ -60,3 +60,7 @@
 [url "git@github.com:woodruffw/"]
 	insteadOf = self:
 	pushInsteadOf = self:
+
+[url "git@github.com:trailofbits/"]
+	insteadOf = tob:
+	pushInsteadOf = tob:
