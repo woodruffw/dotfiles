@@ -16,8 +16,8 @@ macro index,pager a "<pipe-message>goobook add<return>" "add the sender address 
 bind index G imap-fetch-mail
 
 # Link, HTML handling
-macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro index,pager \cb "<pipe-message> urlscan<enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<enter>" "call urlscan to extract URLs out of a message"
 set mailcap_path = ~/.mutt/mailcap
 auto_view text/html
 
@@ -26,6 +26,9 @@ bind index,pager B sidebar-toggle-visible
 bind index,pager \Cp sidebar-prev
 bind index,pager \Cn sidebar-next
 bind index,pager \Co sidebar-open
+
+# Semi-automatic list unsubscription
+macro index,pager U "<pipe-message>~/.mutt/bin/list-unsubscribe<enter>"
 
 set header_cache = ~/.cache/mutt/hcache
 set message_cachedir = ~/.cache/mutt/
