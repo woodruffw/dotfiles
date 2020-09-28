@@ -433,6 +433,7 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/geocode ~/scripts/geocode
 		cp ~/.dotfiles/scripts/geoopen ~/scripts/geoopen
 		cp ~/.dotfiles/scripts/gimme-file ~/scripts/gimme-file
+		cp ~/.dotfiles/scripts/mumble-insecure ~/scripts/mumble-insecure
 
 		snippet play
 		snippet vboxssh
