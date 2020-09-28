@@ -3,8 +3,6 @@
 # mumble-insecure: Run the mumble client with a less secure OpenSSL config
 # See: https://bugs.launchpad.net/ubuntu/+source/gnutls28/+bug/1856428
 
-set -eo pipefail
-
 read -r -d '' OPENSSL_CONF_INI <<'OPENSSL_CONF'
 openssl_conf = openssl_init
 
