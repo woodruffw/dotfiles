@@ -3,8 +3,9 @@
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Latin Modern Mono",
 	"font_size": 11,
-	"highlight_modified_tabs": true,
+	"ui_scale": 1.63,
 	"highlight_line": true,
+	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages":
 	[
