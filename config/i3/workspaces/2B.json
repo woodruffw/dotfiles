@@ -4,16 +4,17 @@
     "current_border_width": 4,
     "floating": "auto_off",
     "geometry": {
-       "height": 748,
-       "width": 1044,
+       "height": 2099,
+       "width": 1916,
        "x": 0,
        "y": 0
     },
     "percent": 1,
     "swallows": [
        {
-        "title": "^mutt$",
-        "instance": "^mutt$"
+         "class": "^Firefox$",
+         "instance": "^Navigator$",
+         "window_role": "^browser$"
        }
     ],
     "type": "con"
