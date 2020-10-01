@@ -230,7 +230,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 for_window [class=".*"] title_format "%title (%instance)"
 
 # keep steam in its own workspace
-assign [class="Steam"] 3B
+assign [class="Steam"] 2B
 
 # these never need to be initially focused
 no_focus [class="^feh$"]
