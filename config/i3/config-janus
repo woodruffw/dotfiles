@@ -6,7 +6,7 @@ set $mod mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Latin Modern Mono 8
+font pango:Latin Modern Mono 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -247,6 +247,7 @@ assign [class="Steam"] 3C
 no_focus [class="^feh$"]
 no_focus [class="^Firefox$"]
 
+exec --no-startup-id xrdb -load ~/.Xdefaults
 exec --no-startup-id compton -fCG -D 8 -m 0.8 --backend glx --glx-no-stencil --vsync opengl-swc --sw-opti --unredir-if-possible --paint-on-overlay --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id nitrogen --restore
