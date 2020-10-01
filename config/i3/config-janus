@@ -236,7 +236,6 @@ assign [class="Steam"] 3B
 no_focus [class="^feh$"]
 no_focus [class="^Firefox$"]
 
-exec --no-startup-id xrdb -load ~/.Xdefaults
 exec --no-startup-id compton -fCG -D 8 -m 0.8 --backend glx --glx-no-stencil --vsync opengl-swc --sw-opti --unredir-if-possible --paint-on-overlay --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id nitrogen --restore

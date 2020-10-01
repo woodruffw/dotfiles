@@ -194,8 +194,8 @@ function fetch_files {
 
 	printf "Checking for urxvt..."
 	if installed urxvt ; then
-		printf "found. Reloading Xdefaults and extensions..."
-		cp ~/.dotfiles/Xdefaults ~/.Xdefaults
+		printf "found. Reloading Xresources and extensions..."
+		cp ~/.dotfiles/Xresources ~/.Xresources
 		mkdir -p ~/.urxvt/ext
 		cp -R ~/.dotfiles/urxvt/ext/* ~/.urxvt/ext
 		green "done"
