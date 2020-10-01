@@ -6,7 +6,7 @@ set $mod mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Latin Modern Mono 8
+font pango:Latin Modern Mono 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -81,53 +81,42 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+shift+a focus child
 
-set $mon1 DisplayPort-2
-set $mon2 DisplayPort-1
-set $mon3 HDMI-A-0
+set $mon1 HDMI-A-0
+set $mon2 DisplayPort-2
 
 # this is getting out of control.
 workspace 1A output $mon1
 workspace 1B output $mon2
-workspace 1C output $mon3
 workspace 2A output $mon1
 workspace 2B output $mon2
-workspace 2C output $mon3
 workspace 3A output $mon1
 workspace 3B output $mon2
-workspace 3C output $mon3
 workspace 4A output $mon1
 workspace 4B output $mon2
-workspace 4C output $mon3
 workspace 5A output $mon1
 workspace 5B output $mon2
-workspace 5C output $mon3
 workspace 6A output $mon1
 workspace 6B output $mon2
-workspace 6C output $mon3
 workspace 7A output $mon1
 workspace 7B output $mon2
-workspace 7C output $mon3
 workspace 8A output $mon1
 workspace 8B output $mon2
-workspace 8C output $mon3
 workspace 9A output $mon1
 workspace 9B output $mon2
-workspace 9C output $mon3
 workspace 10A output $mon1
 workspace 10B output $mon2
-workspace 10C output $mon3
 
 # switch to workspace
-bindsym $mod+1 workspace 1A, workspace 1B, workspace 1C
-bindsym $mod+2 workspace 2A, workspace 2B, workspace 2C
-bindsym $mod+3 workspace 3A, workspace 3B, workspace 3C
-bindsym $mod+4 workspace 4A, workspace 4B, workspace 4C
-bindsym $mod+5 workspace 5A, workspace 5B, workspace 5C
-bindsym $mod+6 workspace 6A, workspace 6B, workspace 6C
-bindsym $mod+7 workspace 7A, workspace 7B, workspace 7C
-bindsym $mod+8 workspace 8A, workspace 8B, workspace 8C
-bindsym $mod+9 workspace 9A, workspace 9B, workspace 9C
-bindsym $mod+0 workspace 10A, workspace 10B, workspace 10C
+bindsym $mod+1 workspace 1A, workspace 1B
+bindsym $mod+2 workspace 2A, workspace 2B
+bindsym $mod+3 workspace 3A, workspace 3B
+bindsym $mod+4 workspace 4A, workspace 4B
+bindsym $mod+5 workspace 5A, workspace 5B
+bindsym $mod+6 workspace 6A, workspace 6B
+bindsym $mod+7 workspace 7A, workspace 7B
+bindsym $mod+8 workspace 8A, workspace 8B
+bindsym $mod+9 workspace 9A, workspace 9B
+bindsym $mod+0 workspace 10A, workspace 10B
 
 # move focused container to center workspace
 bindsym $mod+Shift+1 move container to workspace 1B
@@ -241,7 +230,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 for_window [class=".*"] title_format "%title (%instance)"
 
 # keep steam in its own workspace
-assign [class="Steam"] 3C
+assign [class="Steam"] 3B
 
 # these never need to be initially focused
 no_focus [class="^feh$"]

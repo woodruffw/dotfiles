@@ -17,12 +17,11 @@ i3-msg 'exec --no-startup-id urxvt'
 i3-msg 'exec --no-startup-id hexchat'
 i3-msg 'exec --no-startup-id slack'
 
-i3-msg 'workspace 1C; append_layout ~/.config/i3/workspaces/1C.json'
-i3-msg 'exec --no-startup-id ~/scripts/ffox'
-
 i3-msg 'workspace 2A; append_layout ~/.config/i3/workspaces/2A.json'
 i3-msg 'exec --no-startup-id urxvt -title mutt -name mutt -e bash -c "sleep 30 && neomutt"'
 
+i3-msg 'workspace 2B; append_layout ~/.config/i3/workspaces/2B.json'
+i3-msg 'exec --no-startup-id ~/scripts/ffox'
+
 i3-msg 'workspace 1A'
 i3-msg 'workspace 1B'
-i3-msg 'workspace 1C'
