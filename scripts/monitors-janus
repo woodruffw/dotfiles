@@ -5,8 +5,5 @@ xrandr --dpi 163 \
     --output DisplayPort-2 --pos 2160x1680 --rotate normal \
     --output DisplayPort-0 --off \
     --output DisplayPort-1 --off
-    # --output DisplayPort-2 --mode 3840x2160 --pos 0x0 --rotate left \
-    # --output HDMI-A-0 --scale 2x2 --pos 2160x0 --panning 3840x2160+2160+0 --rotate normal \
-    # --output DisplayPort-0 --off
 
 xrandr --output DisplayPort-2 --primary
