@@ -259,7 +259,7 @@ function fetch_files {
 					cp ~/.dotfiles/config/i3/workspaces/"${ws}".json ~/.config/i3/workspaces
 				done
 			elif [[ "${host}" = "janus" ]]; then
-				for ws in 1A 1B 1C 2A; do
+				for ws in 1A 1B 2A; do
 					cp ~/.dotfiles/config/i3/workspaces/"${ws}".json ~/.config/i3/workspaces
 				done
 			fi
