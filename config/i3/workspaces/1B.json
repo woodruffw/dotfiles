@@ -70,7 +70,7 @@
             "percent": 0.333333333333333,
             "swallows": [
                {
-               "class": "^hexchat$",
+               "class": "^Hexchat$",
                "instance": "^hexchat$"
                }
             ],
