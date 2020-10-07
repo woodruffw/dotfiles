@@ -332,6 +332,16 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for cargo..."
+	if installed cargo; then
+		printf "found. Reloading config..."
+		mkdir -p ~/.cargo
+		cp ~/.dotfiles/cargo/config ~/.cargo/config
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
