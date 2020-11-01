@@ -1,9 +1,31 @@
-#!/bin/sh
+#!/bin/bash
+
+# The year of the Linux desktop strikes again: something about
+# the combination of my GPU, monitors, and kernel modesetting
+# parameters makes the names that xrandr sees for each monitor
+# unstable (e.g. {DisplayPort-1, DP-1}, {HDMI-A-0, HDMI-0}, ...).
+# The functions below "fix" the problem by finding the first monitor
+# of each type (since I only use one of each).
+
+monitor_name() {
+  # --listactivemonitors prints strings like this:
+  #  0: +DP-3 3840/609x2160/349+0+0  DP-3
+  awk 'NR==1 { print $4 }'
+}
+
+find_displayport() {
+  xrandr --listactivemonitors | grep -E "DP|DisplayPort" | monitor_name
+}
+
+find_hdmi() {
+  xrandr --listactivemonitors | grep -E "HDMI" | monitor_name
+}
+
+dp_mon=$(find_displayport)
+hdmi_mon=$(find_hdmi)
 
 xrandr --dpi 163 \
-    --output HDMI-A-0 --pos 0x0 --rotate left --left-of DisplayPort-2 \
-    --output DisplayPort-2 --pos 2160x1680 --rotate normal \
-    --output DisplayPort-0 --off \
-    --output DisplayPort-1 --off
+    --output "${hdmi_mon}" --pos 0x0 --rotate left --left-of "${dp_mon}" \
+    --output "${dp_mon}" --pos 2160x1680 --rotate normal
 
-xrandr --output DisplayPort-2 --primary
+xrandr --output "${dp_mon}" --primary
