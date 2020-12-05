@@ -345,6 +345,16 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for dunst..."
+	if installed dunst; then
+		printf "found. Reloading config..."
+		mkdir -p ~/.config/dunst/
+		cp ~/.dotfiles/config/dunst/dunstrc."${host}" ~/.config/dunst/dunstrc
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
 	cp ~/.dotfiles/scripts/dotfiles ~/scripts/dotfiles.new
 	cp ~/.dotfiles/scripts/colormake ~/scripts/colormake
