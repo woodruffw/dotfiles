@@ -370,6 +370,7 @@ function fetch_files {
 	cp ~/.dotfiles/scripts/bak ~/scripts/bak
 	cp ~/.dotfiles/scripts/psh ~/scripts/psh
 	cp ~/.dotfiles/scripts/nth ~/scripts/nth
+	cp ~/.dotfiles/scripts/sp ~/scripts/sp
 
 	snippet fftitle
 	snippet fftimelapse
@@ -533,7 +534,6 @@ function fetch_files {
 	rm -f ~/scripts/kbsecret-qr
 	rm -f ~/scripts/todo
 	rm -f ~/scripts/snip
-	rm -f ~/scripts/sp
 	rm -f ~/scripts/radio
 	rm -f ~/scripts/uzbl-xclip
 	rm -f ~/scripts/subreddit-watch
