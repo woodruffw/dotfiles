@@ -18,31 +18,11 @@
                "y": 36
             },
             "name": "irc",
-            "percent": 0.333333333333333,
+            "percent": 0.5,
             "swallows": [
                {
                "class": "^Hexchat$",
                "instance": "^hexchat$"
-               }
-            ],
-            "type": "con"
-        },
-        {
-            "border": "normal",
-            "current_border_width": 2,
-            "floating": "auto_off",
-            "geometry": {
-               "height": 848,
-               "width": 1596,
-               "x": 2,
-               "y": 32
-            },
-            "name": "slack",
-            "percent": 0.333333333333333,
-            "swallows": [
-               {
-               "class": "^Slack$",
-               "instance": "^slack$"
                }
             ],
             "type": "con"
@@ -58,7 +38,7 @@
                "y": 0
             },
             "name": "email",
-            "percent": 0.333333333333333,
+            "percent": 0.5,
             "swallows": [
                {
                "title": "^mutt$",
