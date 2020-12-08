@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# obs: wrap obs with some env nonsense to fix the preview window
+# see: https://obsproject.com/forum/threads/bug-fix-black-preview-embed-window-on-linux-w-hidpi-monitors.135041/
+
+QT_AUTO_SCREEN_SCALE_FACTOR=0 obs
