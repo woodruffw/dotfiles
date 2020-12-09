@@ -11,7 +11,6 @@ this_spotify=$(realpath "${0}")
 # have to search until we find a spotify that hopefully isn't ours.
 # You could probably fool this with a hardlink, so don't.
 while read -r spotify; do
-  spotify=$(realpath "${spotify}")
   if [[ "${spotify}" != "${this_spotify}" ]]; then
     real_spotify="${spotify}"
   fi
