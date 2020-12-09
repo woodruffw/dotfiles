@@ -3,6 +3,25 @@
 # obs: wrap obs with some env nonsense to fix the preview window
 # see: https://obsproject.com/forum/threads/bug-fix-black-preview-embed-window-on-linux-w-hidpi-monitors.135041/
 
-real_obs=$(type -pa obs | sed -n "2p")
+set -euo pipefail
 
-QT_AUTO_SCREEN_SCALE_FACTOR=0 "${real_obs}"
+this_obs=$(realpath "${0}")
+
+# NOTE(ww): Incredible dumbness: we can't just get the second path returned by `type`,
+# since it's perfectly acceptable for PATH to contain duplicate entries. Instead, we
+# have to search until we find an OBS that hopefully isn't ours.
+# You could probably fool this with a hardlink, so don't.
+while read -r obs; do
+  obs=$(realpath "${obs}")
+  if [[ "${obs}" != "${this_obs}" ]]; then
+    real_obs="${obs}"
+  fi
+done < <(type -pa obs)
+
+if [[ -n "${real_obs}" ]]; then
+  QT_AUTO_SCREEN_SCALE_FACTOR=0 "${real_obs}"
+else
+  2>&1 echo "Fatal: Couldn't find a real OBS to wrap."
+  exit 1
+fi
+
