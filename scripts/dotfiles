@@ -443,8 +443,8 @@ function fetch_files {
 
 	# Wrappers with various HiDPI fixes.
 	if [[ "${host}" = "janus" ]]; then
-		cp ~/.dotfiles/scripts/obs ~/scripts/obs
-		cp ~/.dotfiles/scripts/spotify ~/scripts/spotify
+		dotscript obs
+		dotscript spotify
 	fi
 
 	if [[ "${host}" = "mercury" || "${host}" = "janus" ]] ; then
