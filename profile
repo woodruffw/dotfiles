@@ -75,16 +75,11 @@ elif [[ "${system}" = "Darwin" ]]; then
 	gpg-agent --daemon
 fi
 
-export PATH
-
-if [[ -d ~/.opam ]]; then # if opam is installed, load the initialization script
-	# shellcheck source=/dev/null
-	source ~/.opam/opam-init/init.sh
-fi
-
 # these always get added last, since they may wrap other commands
 [[ -d ~/bin ]] && PATH="${HOME}/bin:${PATH}"
 [[ -d ~/scripts ]] && PATH="${HOME}/scripts:${PATH}"
+
+export PATH
 
 # shellcheck source=/dev/null
 source ~/.bashrc
