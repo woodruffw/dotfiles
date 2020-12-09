@@ -441,8 +441,10 @@ function fetch_files {
 		cp ~/.dotfiles/scripts/darktoggle ~/scripts/darktoggle
 	fi
 
+	# Wrappers with various HiDPI fixes.
 	if [[ "${host}" = "janus" ]]; then
 		cp ~/.dotfiles/scripts/obs ~/scripts/obs
+		cp ~/.dotfiles/scripts/spotify ~/scripts/spotify
 	fi
 
 	if [[ "${host}" = "mercury" || "${host}" = "janus" ]] ; then

@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# spotify: wrap spotify with an appropriate HiDPI flag for my monitor
+
+set -euo pipefail
+
+this_spotify=$(realpath "${0}")
+
+# NOTE(ww): Incredible dumbness: we can't just get the second path returned by `type`,
+# since it's perfectly acceptable for PATH to contain duplicate entries. Instead, we
+# have to search until we find a spotify that hopefully isn't ours.
+# You could probably fool this with a hardlink, so don't.
+while read -r spotify; do
+  spotify=$(realpath "${spotify}")
+  if [[ "${spotify}" != "${this_spotify}" ]]; then
+    real_spotify="${spotify}"
+  fi
+done < <(type -pa spotify)
+
+if [[ -n "${real_spotify}" ]]; then
+  # grab the correct fractional DPI from the X resource DB
+  dpi=$(xrdb -query | grep "$(hostname).fractionalDpi" | cut -f2)
+  "${real_spotify}" --force-device-scale-factor="${dpi}" "${@}"
+else
+  2>&1 echo "Fatal: Couldn't find a real Spotify to wrap."
+  exit 1
+fi
