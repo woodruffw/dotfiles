@@ -1,4 +1,5 @@
 Xft.dpi: 163
+janus.fractionalDpi: 1.63
 
 URxvt.termName: rxvt-unicode-256color
 
