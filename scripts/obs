@@ -19,7 +19,7 @@ while read -r obs; do
 done < <(type -pa obs)
 
 if [[ -n "${real_obs}" ]]; then
-  QT_AUTO_SCREEN_SCALE_FACTOR=0 "${real_obs}"
+  QT_AUTO_SCREEN_SCALE_FACTOR=0 "${real_obs}" "${@}"
 else
   2>&1 echo "Fatal: Couldn't find a real OBS to wrap."
   exit 1
