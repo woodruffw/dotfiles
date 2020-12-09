@@ -53,8 +53,6 @@ unset LESSPIPE
 # disable new mail alerts
 unset MAILCHECK
 
-[[ -d ~/bin ]] && PATH="${HOME}/bin:${PATH}"
-[[ -d ~/scripts ]] && PATH="${HOME}/scripts:${PATH}"
 [[ -d ~/man ]] && MANPATH="${HOME}/man:${MANPATH}"
 
 if [[ "${system}" = "Linux" ]]; then
@@ -83,6 +81,10 @@ if [[ -d ~/.opam ]]; then # if opam is installed, load the initialization script
 	# shellcheck source=/dev/null
 	source ~/.opam/opam-init/init.sh
 fi
+
+# these always get added last, since they may wrap other commands
+[[ -d ~/bin ]] && PATH="${HOME}/bin:${PATH}"
+[[ -d ~/scripts ]] && PATH="${HOME}/scripts:${PATH}"
 
 # shellcheck source=/dev/null
 source ~/.bashrc
