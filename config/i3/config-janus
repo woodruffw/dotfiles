@@ -245,4 +245,3 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 exec --no-startup-id ~/scripts/workspaces
 exec --no-startup-id xmodmap ~/.Xmodmap
-exec --no-startup-id ~/.cargo/bin/kbs2 agent
