@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-# ffox: run Firefox
-
-# Dark themes make input fields in Firefox unreadable.
-export GTK_THEME=Adwaita:light
-
-exec firefox "${@}"

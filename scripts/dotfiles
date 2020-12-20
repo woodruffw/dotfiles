@@ -224,8 +224,7 @@ function fetch_files {
 
 	printf "Checking for Firefox..."
 	if installed firefox && ! running firefox ; then
-		printf "found. Reloading ffox, pipefox and ff2mpv..."
-		dotscript ffox
+		printf "found. Reloading pipefox and ff2mpv..."
 		dotscript pipefox
 		dotscript ff2mpv
 		mkdir -p ~/.mozilla/native-messaging-hosts/
@@ -550,6 +549,7 @@ function fetch_files {
 	rm -f ~/scripts/subreddit-watch
 	rm -f ~/scripts/cart
 	rm -f ~/scripts/speedtest
+	rm -f ~/scripts/ffox
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
