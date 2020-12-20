@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# netflix: open firefox in SSB mode to netflix.com.
+# this used to be an alias, but i want it to show up in dmenu.
+
+function installed() {
+  cmd=$(command -v "${1}")
+
+  [[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+  return ${?}
+}
+
+function notify() {
+  notify-send --expire-time=3000 info "${*}"
+}
+
+installed firefox || { notify "$(basename "${0}") needs 'firefox'." ; exit 1 ; }
+
+firefox --ssb "https://netflix.com"

@@ -224,7 +224,8 @@ function fetch_files {
 
 	printf "Checking for Firefox..."
 	if installed firefox && ! running firefox ; then
-		printf "found. Reloading pipefox and ff2mpv..."
+		printf "found. Reloading netflix, pipefox and ff2mpv..."
+		dotscript netflix
 		dotscript pipefox
 		dotscript ff2mpv
 		mkdir -p ~/.mozilla/native-messaging-hosts/
@@ -531,7 +532,6 @@ function fetch_files {
 	rm -f ~/scripts/bug-roommates
 	rm -f ~/scripts/mp4flip
 	rm -f ~/scripts/forecast
-	rm -f ~/scripts/netflix
 	rm -f ~/scripts/remind
 	rm -f ~/scripts/kbsecret-yad-login
 	rm -f ~/scripts/kbsecret-dmenu-pass
