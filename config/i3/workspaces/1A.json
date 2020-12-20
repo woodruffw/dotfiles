@@ -19,10 +19,8 @@
             },
             "percent": 1,
             "swallows": [
-               {
-                 "class": "^Sublime_text$",
-                 "instance": "^sublime_text$"
-               }
+                 {"class": "^Sublime_text$"},
+                 {"instance": "^sublime_text$"}
             ],
             "type": "con"
         }
