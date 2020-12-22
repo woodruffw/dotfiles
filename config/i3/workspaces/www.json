@@ -20,10 +20,9 @@
             "name": "browser",
             "percent": 1,
             "swallows": [
-               {
-               "class": "^Firefox$",
-               "instance": "^Navigator$",
-               }
+               {"class": "^Firefox$"},
+               {"instance": "^Navigator$"},
+               {"window_role": "^browser$"}
             ],
             "type": "con"
         }
