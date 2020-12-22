@@ -198,6 +198,7 @@ for_window [class=".*"] title_format "%title (%instance)"
 no_focus [class="^feh$"]
 no_focus [class="^Firefox$"]
 
+exec --no-startup-id setxkbmap -option caps:super
 exec --no-startup-id compton -fCGb -D 8 -m 0.8 --backend glx --vsync opengl-swc --shadow-exclude "class_g = 'slop'"
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id bash ~/.fehbg
@@ -207,6 +208,5 @@ exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id ~/scripts/workspaces
-exec --no-startup-id xmodmap ~/.Xmodmap
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id synclient HorizTwoFingerScroll=1

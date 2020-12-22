@@ -1,3 +1,0 @@
-clear Lock
-keycode 66 = Hyper_L
-add mod4 = Hyper_L
