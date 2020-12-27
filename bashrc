@@ -12,6 +12,7 @@
 
 # __generate_prompt - generate the PS1 dynamically
 __generate_prompt() {
+	local exitcode
 	exitcode="${?}"
 	if [[ "${exitcode}" -eq 0 ]]; then
 		exitcode="\[${COLOR_GRN}\]${exitcode}\[${COLOR_NRM}\]"
@@ -19,6 +20,7 @@ __generate_prompt() {
 		exitcode="\[${COLOR_RED}\]${exitcode}\[${COLOR_NRM}\]"
 	fi
 
+	local jobcount
 	jobcount=$(jobs | wc -l | sed -e 's/^[ \t]*//')
 	if [[ "${jobcount}" -eq 0 ]]; then
 		jobcount="\[${COLOR_GRN}\]${jobcount}\[${COLOR_NRM}\]"
@@ -30,6 +32,7 @@ __generate_prompt() {
 
 	PS1="\u@\h \W ${jobsexit}"
 
+	local branch
 	branch=$(git symbolic-ref HEAD 2> /dev/null)
 	if [[ -n "${branch}" ]]; then
 		branch="\[${COLOR_RED}\]${branch#refs/heads/}\[${COLOR_NRM}\]"
@@ -37,6 +40,7 @@ __generate_prompt() {
 	fi
 
 	if [[ -v VIRTUAL_ENV ]]; then
+		local virtualenv
 		virtualenv="${COLOR_GRN}$(basename "${VIRTUAL_ENV}")${COLOR_NRM}"
 		PS1="${PS1} ${virtualenv}"
 	fi
