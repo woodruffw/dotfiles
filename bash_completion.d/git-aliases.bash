@@ -30,14 +30,11 @@ alias g='git'
 alias gi='git init'
 alias ga='git add --all'
 alias gd='git diff'
-alias gdmom='git diff master origin/master'
 alias gp='git push'
-alias gpom='git push origin master'
 alias gb='git branch'
 alias gbd='git branch -D'
 alias gck='git checkout'
 alias gckb='git checkout -b'
-alias gckm='git checkout master'
 alias gr='git remote'
 alias grao='git remote add origin'
 alias grau='git remote add upstream'
@@ -45,8 +42,6 @@ alias gf='git fetch'
 alias gfu='git fetch upstream'
 alias gfo='git fetch origin'
 alias gm='git merge'
-alias gmum='git merge upstream/master'
-alias gmom='git merge origin/master'
 alias gcln='git clone'
 alias gmv='git mv'
 alias grst='git reset'
@@ -57,25 +52,49 @@ alias gs='git show'
 alias gc='git commit'
 alias glg='git log --graph --date-order --oneline --all'
 
-function gcm()
-{
+function __git_find_main_branch() {
+  mapfile -t branches < <(git branch --format='%(refname:short)')
+  for branch in "${branches[@]}"; do
+    [[ "${branch}" == "main" || "${branch}" == "master" ]] \
+      && echo -n "${branch}" \
+      && return
+  done
+}
+
+function gcm() {
 	git commit -m "${@}"
 }
 
-function gpod()
-{
+function gpod() {
 	git push origin :"${1}"
 }
 
-function quickcommit()
-{
+function quickcommit() {
 	git add -A .
 	git commit -m "${1:-no commit msg}"
 	git push
 }
 
-function gfg()
-{
+function gfg() {
 	git clone "git@github.com:$(git config --global github.user)/${1}.git"
 }
 
+function gpom() {
+	git push origin "$(__git_find_main_branch)"
+}
+
+function gckm() {
+	git checkout "$(__git_find_main_branch)"
+}
+
+function gmum() {
+	git merge "upstream/$(__git_find_main_branch)"
+}
+
+function gm0m() {
+	git merge "origin/$(__git_find_main_branch)"
+}
+
+function gdmom {
+	git diff "$(__git_find_main_branch)" "origin/$(__git_find_main_branch)"
+}
