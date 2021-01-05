@@ -1,9 +1,8 @@
 {
-	"color_scheme": "Packages/User/SublimeLinter/MonokaiCustom (SL).tmTheme",
+	"color_scheme": "Packages/CustomThemes/MonokaiCustom.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Latin Modern Mono",
 	"font_size": 11,
-	"ui_scale": 1.63,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
@@ -33,6 +32,7 @@
 	"theme": "Adaptive.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true,
+	"ui_scale": 1.63,
 	"update_check": false,
 	"word_wrap": false
 }
