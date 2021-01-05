@@ -12,9 +12,6 @@ set convert-meta off
 "\e\e[D": backward-word
 "\e\e[C": forward-word
 
-"\e[B": history-search-forward
-"\e[A": history-search-backward
-
 # these shortcuts are stupid
 "\e-": self-insert
 "\e0": self-insert
