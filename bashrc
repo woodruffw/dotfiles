@@ -436,3 +436,8 @@ complete -F _completegvcd gvcd
 if installed kbs2; then
 	eval "$(kbs2 --completions=bash)"
 fi
+
+if installed pyenv; then
+	eval "$(pyenv init -)"
+	eval "$(pyenv virtualenv-init -)"
+fi
