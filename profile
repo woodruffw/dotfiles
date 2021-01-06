@@ -76,7 +76,9 @@ elif [[ "${system}" = "Darwin" ]]; then
 fi
 
 if [[ -d ~/.pyenv/bin ]]; then
-	export PATH="${HOME}/.pyenv/bin:$PATH"
+	# Add both bin and shims explicitly, since we only load the latter via
+	# `pyenv init` inside bashrc.
+	export PATH="${HOME}/.pyenv/bin:${HOME}/.pyenv/shims:$PATH"
 fi
 
 # these always get added last, since they may wrap other commands
