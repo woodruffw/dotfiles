@@ -61,7 +61,7 @@ done
 if [[ "${interactive}" ]]; then
     file=$(zenity --file-selection)
 elif [[ ! "${file}" ]]; then
-    file=~/Dropbox/screenshots/$(date +%s).png
+    file=~/Downloads/screenshots/$(date +%s).png
 
     if [[ "${fullscreen}" ]]; then
         maim -u "${file}"
