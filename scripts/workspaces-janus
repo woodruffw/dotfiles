@@ -10,7 +10,6 @@ xset dpms force on
 
 yad --title="Load workspaces?" --timeout=5 || exit
 
-kbs2 agent unwrap
 kbs2 ssh-add janus-ssh-key
 
 sleep 0.1
