@@ -345,7 +345,7 @@ if installed exiftool ; then
 fi
 
 if installed pledger; then
-	alias pledger='PLEDGER_DIR=~/Dropbox/expenses pledger'
+	alias pledger='PLEDGER_DIR=~/mnt/athena/expenses pledger'
 fi
 
 # system-dependent aliases
