@@ -8,6 +8,8 @@ rm -rf ~/.config/sublime-text-3/Local/*.sublime_session
 
 yad --title="Load workspaces?" --timeout=5 || exit
 
+kbs2 agent unwrap
+
 i3-msg 'rename workspace 1 to 1 www'
 
 i3-msg 'workspace 1 www; append_layout ~/.config/i3/workspaces/www.json'
@@ -20,7 +22,7 @@ i3-msg 'exec --no-startup-id urxvt'
 i3-msg 'workspace 3 com; append_layout ~/.config/i3/workspaces/com.json'
 i3-msg 'exec --no-startup-id hexchat'
 i3-msg 'exec --no-startup-id slack'
-i3-msg 'exec --no-startup-id urxvt -title mutt -name mutt -e bash -c "sleep 30 && neomutt"'
+i3-msg 'exec --no-startup-id urxvt -title mutt -name mutt -e bash -c neomutt'
 
 
 i3-msg 'workspace 1 www'
