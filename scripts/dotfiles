@@ -286,6 +286,7 @@ function fetch_files {
 		dotscript kbs2-snip
 		dotscript kbs2-audit-pass
 		dotscript kbs2-ssh-add
+		dotscript kbs2-gpg-add
 		green "done"
 	else
 		yellow "not installed. Skipping"
