@@ -9,6 +9,7 @@ rm -rf ~/.config/sublime-text-3/Local/*.sublime_session
 yad --title="Load workspaces?" --timeout=5 || exit
 
 kbs2 ssh-add mercury-ssh-key
+kbs2 gpg-add personal-gpg-passphrase
 
 i3-msg 'rename workspace 1 to 1 www'
 
