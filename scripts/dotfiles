@@ -479,6 +479,9 @@ function fetch_files {
 
 		mkdir -p ~/.local/share/file-manager/actions/
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
+
+		# MIME application associations.
+		cp ~/.dotfiles/mimeapps.list ~/.config/dotfiles/mimeapps.list
 	fi
 
 	if [[ "${host}" = "athena" ]] ; then
