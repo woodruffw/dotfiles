@@ -481,7 +481,7 @@ function fetch_files {
 		cp ~/.dotfiles/local/share/file-manager/actions/*.desktop ~/.local/share/file-manager/actions/
 
 		# MIME application associations.
-		cp ~/.dotfiles/mimeapps.list ~/.config/dotfiles/mimeapps.list
+		cp ~/.dotfiles/config/mimeapps.list ~/.config/mimeapps.list
 	fi
 
 	if [[ "${host}" = "athena" ]] ; then
