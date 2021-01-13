@@ -9,4 +9,6 @@
     { "keys": ["ctrl+shift+`"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
     { "keys": ["ctrl+shift+\\"], "command": "pipe" },
     { "keys": ["ctrl+l"], "command": "expand_selection", "args": {"to": "line"} },
+    { "keys": ["alt+home"], "command": "move_to", "args": {"to": "bof"} },
+    { "keys": ["alt+end"], "command": "move_to", "args": {"to": "eof"} },
 ]
