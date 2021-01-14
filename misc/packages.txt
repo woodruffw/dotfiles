@@ -38,3 +38,4 @@ vim
 wget
 xclip
 yad
+shellcheck
