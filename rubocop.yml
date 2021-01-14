@@ -1,6 +1,7 @@
 # Global style enforcement.
 
 AllCops:
+  NewCops: enable
   TargetRubyVersion: 2.7
 
 Style/StringLiterals:
