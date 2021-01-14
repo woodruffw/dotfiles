@@ -82,7 +82,8 @@ if [[ -d ~/.pyenv/bin ]]; then
 fi
 
 if [[ -d ~/.rbenv/bin ]]; then
-	export PATH="${HOME}/.rbenv/bin:$PATH"
+	# Same as pyenv.
+	export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:$PATH"
 fi
 
 # these always get added last, since they may wrap other commands
