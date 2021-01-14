@@ -81,6 +81,10 @@ if [[ -d ~/.pyenv/bin ]]; then
 	export PATH="${HOME}/.pyenv/bin:${HOME}/.pyenv/shims:$PATH"
 fi
 
+if [[ -d ~/.rbenv/bin ]]; then
+	export PATH="${HOME}/.rbenv/bin:$PATH"
+fi
+
 # these always get added last, since they may wrap other commands
 [[ -d ~/bin ]] && PATH="${HOME}/bin:${PATH}"
 [[ -d ~/scripts ]] && PATH="${HOME}/scripts:${PATH}"

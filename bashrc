@@ -441,3 +441,7 @@ if installed pyenv; then
 	eval "$(pyenv init -)"
 	eval "$(pyenv virtualenv-init -)"
 fi
+
+if installed rbenv; then
+	eval "$(rbenv init -)"
+fi
