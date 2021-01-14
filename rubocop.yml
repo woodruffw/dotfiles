@@ -1,7 +1,7 @@
 # Global style enforcement.
 
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.7
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
