@@ -193,7 +193,11 @@ function fetch_files {
 		mkdir -p ~/.bundle
 		cp ~/.dotfiles/bundle/config ~/.bundle/config
 		cp ~/.dotfiles/irbrc ~/.irbrc
-		cp ~/.dotfiles/gemrc ~/.gemrc
+		if installed rbenv; then
+			cp ~/.dotfiles/gemrc.rbenv ~/.gemrc
+		else
+			cp ~/.dotfiles/gemrc ~/.gemrc
+		fi
 		cp ~/.dotfiles/rubocop.yml ~/.rubocop.yml
 		green "done"
 	else
