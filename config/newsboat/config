@@ -3,7 +3,7 @@ reload-time 30
 reload-threads 4
 max-items 25
 
-cache-file "/home/william/.newsboat/cache.db"
+cache-file "/home/william/.config/newsboat/cache.db"
 
 # use notify-send to send new item notifications
 notify-program "notify-send"
