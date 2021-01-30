@@ -25,5 +25,6 @@ i3-msg 'exec --no-startup-id hexchat'
 i3-msg 'exec --no-startup-id slack'
 i3-msg 'exec --no-startup-id urxvt -title mutt -name mutt -e bash -c neomutt'
 
-
 i3-msg 'workspace 1 www'
+
+ezsshfs athena
