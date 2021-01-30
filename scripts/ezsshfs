@@ -35,7 +35,10 @@ source ~/.config/ezsshfsrc
 ensure installed "selecta"
 ensure installed "sshfs"
 
-key=$(printf "%s\n" "${!mntmap[@]}" | selecta)
+key="${1}"
+if [[ -z "${key}" ]]; then
+  key=$(printf "%s\n" "${!mntmap[@]}" | selecta)
+fi
 
 [[ -n "${key}" && -n "${mntmap[${key}]}" ]] || die "Missing or no such key."
 
