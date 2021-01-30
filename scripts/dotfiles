@@ -228,8 +228,9 @@ function fetch_files {
 
 	printf "Checking for Firefox..."
 	if installed firefox && ! running firefox ; then
-		printf "found. Reloading netflix, pipefox and ff2mpv..."
+		printf "found. Reloading netflix, plex, pipefox and ff2mpv..."
 		dotscript netflix
+		dotscript plex
 		dotscript pipefox
 		dotscript ff2mpv
 		mkdir -p ~/.mozilla/native-messaging-hosts/
@@ -239,15 +240,6 @@ function fetch_files {
 		# Recent versions of Firefox lock up when native manifests are updated (even if not
 		# actually changed) while running.
 		yellow "not reloading while Firefox is running. Skipping"
-	else
-		yellow "not installed. Skipping"
-	fi
-
-	printf "Checking for Chromium..."
-	if installed chromium-browser ; then
-		printf "found. Reloading app scripts..."
-		dotscript plex
-		green "done"
 	else
 		yellow "not installed. Skipping"
 	fi

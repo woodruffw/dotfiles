@@ -1,29 +1,19 @@
 #!/usr/bin/env bash
 
-# plex: open google-chrome to plex.
+# plex: open firefox in SSB mode to plex.tv.
 # this used to be an alias, but i want it to show up in dmenu.
 
 function installed() {
-	cmd=$(command -v "${1}")
+  cmd=$(command -v "${1}")
 
-	[[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
-	return ${?}
+  [[ -n  "${cmd}" ]] && [[ -f "${cmd}" ]]
+  return ${?}
 }
 
 function notify() {
-	local notify_cmd="xmessage -center -timeout 3 '${*}'"
-
-	if installed zenity; then
-		notify_cmd="zenity --info --timeout=3 --text='${*}'"
-	fi
-
-	if installed notify-send; then
-		notify_cmd="notify-send --expire-time=3000 info '${*}'"
-	fi
-
-	eval "${notify_cmd}" &
+  notify-send --expire-time=3000 info "${*}"
 }
 
-installed chromium-browser || { notify "$(basename "${0}") needs 'chromium-browser'." ; exit 1 ; }
+installed firefox || { notify "$(basename "${0}") needs 'firefox'." ; exit 1 ; }
 
-chromium-browser --app="https://app.plex.tv/desktop" >/dev/null 2>&1
+firefox --ssb "https://app.plex.tv/desktop"
