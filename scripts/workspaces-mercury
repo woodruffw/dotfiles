@@ -28,3 +28,4 @@ i3-msg 'exec --no-startup-id urxvt -title mutt -name mutt -e bash -c neomutt'
 i3-msg 'workspace 1 www'
 
 ezsshfs athena
+ezsshfs arabella
