@@ -43,8 +43,6 @@ code = snippets[selection]
 
 return unless code
 
-puts options
-
 if options[:print]
   puts code
 else
