@@ -36,7 +36,7 @@ ensure installed "selecta"
 ensure installed "sshfs"
 
 key="${1}"
-if [[ -z "${key}" ]]; then
+if [[ -z "${key}" || "${key}" = "-u" ]]; then
   key=$(printf "%s\n" "${!mntmap[@]}" | selecta)
 fi
 
