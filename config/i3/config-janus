@@ -166,9 +166,9 @@ bindsym $mod+r mode "resize"
 # audio and playback bindings
 bindsym Control+Up exec amixer -D pulse sset Master 10%+
 bindsym Control+Down exec amixer -D pulse sset Master 10%-
-bindsym Control+Left exec ~/scripts/sp prev
-bindsym Control+Right exec ~/scripts/sp next
-bindsym Control+End exec ~/scripts/sp play
+bindsym Control+Left exec playerctl previous
+bindsym Control+Right exec playerctl next
+bindsym Control+End exec playerctl play-pause
 
 # open the file manager
 bindsym Control+Mod1+f exec pcmanfm
