@@ -372,7 +372,6 @@ function fetch_files {
 	dotscript bak
 	dotscript psh
 	dotscript nth
-	dotscript sp
 
 	snippet fftitle
 	snippet fftimelapse
@@ -441,7 +440,6 @@ function fetch_files {
 	# Wrappers with various HiDPI fixes.
 	if [[ "${host}" = "janus" ]]; then
 		dotscript obs
-		dotscript spotify
 	fi
 
 	if [[ "${host}" = "mercury" || "${host}" = "janus" ]] ; then
@@ -550,6 +548,8 @@ function fetch_files {
 	rm -f ~/scripts/cart
 	rm -f ~/scripts/speedtest
 	rm -f ~/scripts/ffox
+	rm -f ~/scripts/spotify
+	rm -f ~/scripts/sp
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
