@@ -39,3 +39,4 @@ wget
 xclip
 yad
 shellcheck
+playerctl

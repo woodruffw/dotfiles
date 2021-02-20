@@ -1,0 +1,6 @@
+sccache
+spotifyd --locked --features pulseaudio_backend,dbus_mpris
+spotify-tui
+kbs2 --locked
+pledger
+ripgrep
