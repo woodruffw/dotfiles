@@ -1,0 +1,57 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# notify-hook: do a desktop notification for spotifyd
+
+require "digest"
+require "etc"
+require "net/http"
+require "pathname"
+require "tempfile"
+require "uri"
+
+exit unless %w[start change].include? ENV["PLAYER_EVENT"]
+
+SPOTIFY_ICON_CACHE = Pathname.new "/tmp/spotify-icons-#{Etc.getlogin}"
+SPOTIFY_ICON_CACHE.mkdir unless SPOTIFY_ICON_CACHE.exist?
+
+module StringExt
+  def squish!
+    gsub!(/\A[[:space:]]+/, "")
+    gsub!(/[[:space:]]+\z/, "")
+    gsub!(/[[:space:]]+/, " ")
+    self
+  end
+end
+
+String.include StringExt
+
+def get_or_cache(icon_uri)
+  hashed = Digest::SHA2.hexdigest icon_uri
+  cache_dest = SPOTIFY_ICON_CACHE / hashed
+
+  unless cache_dest.file?
+    cache_dest.open("w+") do |f|
+      resp = Net::HTTP.get(URI(icon_uri))
+      f.write resp
+    end
+  end
+
+  cache_dest
+end
+
+metadata = begin
+  lines = `playerctl --player=spotifyd metadata`.split("\n").map(&:squish!).map do |l|
+    l.split(/[[:space:]]/, 3)
+  end
+  lines.map { |l| [l[1], l[2]] }.to_h
+end
+
+cmd = %w[notify-send]
+
+cmd << "--icon=#{get_or_cache(metadata["mpris:artUrl"])}"
+
+cmd << metadata["xesam:artist"]
+cmd << "#{metadata["xesam:album"]} - #{metadata["xesam:title"]}"
+
+system(*cmd)
