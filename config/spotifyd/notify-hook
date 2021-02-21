@@ -39,7 +39,7 @@ def get_or_cache(icon_url)
     exit
   end
 
-  hashed = Digest::SHA2.hexdigest icon_url
+  hashed = Digest::SHA2.hexdigest icon_url.to_s
   cache_dest = SPOTIFY_ICON_CACHE / hashed
 
   unless cache_dest.file?
