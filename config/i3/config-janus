@@ -166,9 +166,9 @@ bindsym $mod+r mode "resize"
 # audio and playback bindings
 bindsym Control+Up exec amixer -D pulse sset Master 10%+
 bindsym Control+Down exec amixer -D pulse sset Master 10%-
-bindsym Control+Left exec playerctl previous
-bindsym Control+Right exec playerctl next
-bindsym Control+End exec playerctl play-pause
+bindsym Control+Left exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+bindsym Control+Right exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+bindsym Control+End exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 # open the file manager
 bindsym Control+Mod1+f exec pcmanfm
