@@ -26,13 +26,25 @@ end
 
 String.include StringExt
 
-def get_or_cache(icon_uri)
-  hashed = Digest::SHA2.hexdigest icon_uri
+def get_or_cache(icon_url)
+  if icon_url.nil?
+    notify body: "no icon URL; exiting"
+    exit
+  end
+
+  icon_url = URI(icon_url)
+
+  if icon_url.scheme != "https"
+    notify body: "insecure icon URL; exiting"
+    exit
+  end
+
+  hashed = Digest::SHA2.hexdigest icon_url
   cache_dest = SPOTIFY_ICON_CACHE / hashed
 
   unless cache_dest.file?
     cache_dest.open("w+") do |f|
-      resp = Net::HTTP.get(URI(icon_uri))
+      resp = Net::HTTP.get(icon_url)
       f.write resp
     end
   end
@@ -40,18 +52,29 @@ def get_or_cache(icon_uri)
   cache_dest
 end
 
+def notify(body:, summary: "spotifyd", icon: nil)
+  cmd = %w[notify-send]
+
+  cmd << "--icon=#{icon}" unless icon.nil?
+  cmd << summary
+  cmd << body
+
+  system(*cmd)
+end
+
 metadata = begin
   lines = `playerctl --player=spotifyd metadata`.split("\n").map(&:squish!).map do |l|
     l.split(/[[:space:]]/, 3)
   end
+
+  if lines.empty?
+    notify body: "no metadata (playerctl failure?); exiting"
+    exit
+  end
+
   lines.map { |l| [l[1], l[2]] }.to_h
 end
 
-cmd = %w[notify-send]
-
-cmd << "--icon=#{get_or_cache(metadata["mpris:artUrl"])}"
-
-cmd << metadata["xesam:artist"]
-cmd << "#{metadata["xesam:album"]} - #{metadata["xesam:title"]}"
-
-system(*cmd)
+notify summary: metadata["xesam:artist"],
+       body: "#{metadata["xesam:album"]} - #{metadata["xesam:title"]}",
+       icon: get_or_cache(metadata["mpris:artUrl"])
