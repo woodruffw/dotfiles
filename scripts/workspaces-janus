@@ -38,4 +38,4 @@ i3-msg 'workspace 1B'
 ezsshfs athena
 ezsshfs arabella
 
-pidof spotifyd || SPOTIFYD_CLIENT_ID=$(kbs2 env --value-only spotify-client-id) spotifyd
+pidof spotifyd || spotifyd
