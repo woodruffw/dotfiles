@@ -4,7 +4,7 @@ force-window
 osc=yes
 
 screenshot-format=png
-screenshot-template="~/Dropbox/screenshots/%F - %p"
+screenshot-template="~/Downloads/screenshots/%F - %p"
 
 alang=jpn
 slang=enm,eng
