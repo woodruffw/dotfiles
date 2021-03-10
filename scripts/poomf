@@ -76,7 +76,13 @@ if [[ ! -f "${file}" ]]; then
 fi
 
 if [[ ! "${keepexif}" ]]; then
-    exiftool -overwrite_original -all= "${file}" > /dev/null
+    # Use a tempfile, to avoid clobbering the original file's metadata.
+    # Preserve the suffix, to help the file server serve it with the correct content type.
+    suffix="${file#*.}"
+    tmpfile=$(mktemp -u --suffix=."${suffix}")
+    exiftool -all= "${file}" -out "${tmpfile}" > /dev/null
+    file="${tmpfile}"
+    trap 'rm -f ${tmpfile}' EXIT
 fi
 
 eval "$(kbs2 env rsus-api-key)"
