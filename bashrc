@@ -12,8 +12,7 @@
 
 # __generate_prompt - generate the PS1 dynamically
 __generate_prompt() {
-	local exitcode
-	exitcode="${?}"
+	local exitcode="${?}"
 	if [[ "${exitcode}" -eq 0 ]]; then
 		exitcode="\[${COLOR_GRN}\]${exitcode}\[${COLOR_NRM}\]"
 	else
