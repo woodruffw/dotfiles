@@ -366,6 +366,15 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for shellcheck..."
+	if installed shellcheck; then
+		printf "found. Reloading config..."
+		cp ~/.dotfiles/shellcheckrc ~/.shellcheckrc
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
   dotscript dotfiles dotfiles.new
 	dotscript colormake
