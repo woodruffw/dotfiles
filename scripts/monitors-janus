@@ -25,7 +25,7 @@ dp_mon=$(find_displayport)
 hdmi_mon=$(find_hdmi)
 
 xrandr --dpi 163 \
-    --output "${hdmi_mon}" --pos 0x0 --rotate left --left-of "${dp_mon}" \
-    --output "${dp_mon}" --pos 2160x1680 --rotate normal
+    --output "${dp_mon}" --pos 0x0 --rotate left --left-of "${hdmi_mon}" \
+    --output "${hdmi_mon}" --pos 2160x1680 --rotate normal
 
-xrandr --output "${dp_mon}" --primary
+xrandr --output "${hdmi_mon}" --primary
