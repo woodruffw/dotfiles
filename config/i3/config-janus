@@ -81,8 +81,8 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+shift+a focus child
 
-set $mon1 HDMI-A-0
-set $mon2 DisplayPort-1
+set $mon1 DisplayPort-1
+set $mon2 HDMI-A-0
 
 # this is getting out of control.
 workspace 1A output $mon1
