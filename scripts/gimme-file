@@ -17,9 +17,12 @@ function installed {
 }
 
 installed neomutt || { >&2 echo "Missing neomutt."; exit 1; }
+installed notify-send || { >&2 echo "Missing notify-send."; exit 1; }
 [[ "${#}" -eq 1 && -f "${1}" ]] || help
 
 neomutt -e "set crypt_autosign = no" \
   -s "$(basename "${1}")" \
   -a "${1}" -- "william@yossarian.net" \
   < /dev/null
+
+notify-send "gimme-file" "done: ${1}"
