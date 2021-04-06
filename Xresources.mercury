@@ -1,6 +1,13 @@
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
 URxvt.termName: rxvt-unicode-256color
 
-URxvt.font: xft:Latin Modern Mono:size=10:antialias=false,-xos4-terminus-medium-*-*-*-14-*-*-*-*-*-iso8859-15,xft:Courier New:size=10:antialias=false,xft:Symbola:pixelsize=10:antialias=true:hinting=slight
+URxvt.font: xft:Latin Modern Mono:size=10,xft:Symbola:size=10
 
 *.background: rgb:1d/1c/1c
 *.foreground: rgb:f6/f6/f6
