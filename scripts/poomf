@@ -80,7 +80,8 @@ if [[ ! "${keepexif}" ]]; then
     # Preserve the suffix, to help the file server serve it with the correct content type.
     suffix="${file#*.}"
     tmpfile=$(mktemp -u --suffix=."${suffix}")
-    exiftool -all= "${file}" -out "${tmpfile}" > /dev/null
+    # Remove all EXIF tags, except for Orientation.
+    exiftool -all:all= -tagsFromFile @ -exif:Orientation "${file}" -out "${tmpfile}" > /dev/null
     file="${tmpfile}"
     trap 'rm -f ${tmpfile}' EXIT
 fi
