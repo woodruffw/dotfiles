@@ -39,9 +39,6 @@
 [commit]
 	gpgSign = true
 
-[tag]
-	gpgSign = true
-
 [pull]
 	rebase = true
 
