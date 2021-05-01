@@ -40,3 +40,4 @@ xclip
 yad
 shellcheck
 playerctl
+entr
