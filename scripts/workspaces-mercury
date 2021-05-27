@@ -4,7 +4,7 @@
 
 # no matter what i do, these files keep reappearing and cause subl to spawn a
 # bunch of windows, trashing the layout below.
-rm -rf ~/.config/sublime-text-3/Local/*.sublime_session
+rm -rf ~/.config/sublime-text/Local/*.sublime_session
 
 yad --title="Load workspaces?" --timeout=5 || exit
 

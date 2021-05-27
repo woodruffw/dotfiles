@@ -177,10 +177,10 @@ function fetch_files {
 	printf "Checking for Sublime Text..."
 	if installed subl ; then
 		printf "found. Reloading preferences and themes..."
-		cp -R ~/.dotfiles/config/sublime-text-3/* ~/.config/sublime-text-3
+		cp -R ~/.dotfiles/config/sublime-text/* ~/.config/sublime-text
 		# Annoying special case.
-		cp ~/.dotfiles/config/sublime-text-3/Packages/User/Preferences.sublime-settings."${host}" \
-			~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+		cp ~/.dotfiles/config/sublime-text/Packages/User/Preferences.sublime-settings."${host}" \
+			~/.config/sublime-text/Packages/User/Preferences.sublime-settings
 		cp -R ~/.dotfiles/editorconfig ~/.editorconfig
 		green "done"
 	else
