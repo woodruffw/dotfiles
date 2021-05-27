@@ -34,5 +34,6 @@
 	"trim_trailing_white_space_on_save": true,
 	"ui_scale": 1.63,
 	"update_check": false,
-	"word_wrap": false
+	"word_wrap": false,
+	"hardware_acceleration": "opengl"
 }
