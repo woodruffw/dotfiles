@@ -3,6 +3,7 @@
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.7
+  SuggestExtensions: false
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
@@ -28,7 +29,7 @@ Style/RescueModifier:
 Style/TrailingUnderscoreVariable:
   Enabled: false
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 100
 
 Metrics/MethodLength:
