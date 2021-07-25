@@ -337,11 +337,12 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for cargo..."
-	if installed cargo; then
-		printf "found. Reloading config..."
+	printf "Checking for Rust..."
+	if installed rustc; then
+		printf "found. Reloading configs..."
 		mkdir -p ~/.cargo
 		cp ~/.dotfiles/cargo/config ~/.cargo/config
+		cp ~/.dotfiles/rustfmt.toml ~/.rustfmt.toml
 		green "done"
 	else
 		yellow "not installed. Skipping"
