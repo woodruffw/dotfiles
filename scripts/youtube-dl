@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# a shim for yt-dlp masquerading as youtube-dl
+
+yt-dlp "${@}"

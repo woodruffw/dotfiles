@@ -298,11 +298,12 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for youtube-dl..."
-	if installed youtube-dl; then
+	printf "Checking for yt-dlp..."
+	if installed yt-dlp; then
 		printf "found. Reloading config..."
-		mkdir -p ~/.config/youtube-dl
-		cp ~/.dotfiles/config/youtube-dl/config ~/.config/youtube-dl/config
+		dotscript youtube-dl
+		mkdir -p ~/.config/yt-dlp
+		cp ~/.dotfiles/config/yt-dlp/config ~/.config/yt-dlp/config
 		green "done"
 	else
 		yellow "not installed. Skipping"
