@@ -219,7 +219,7 @@ function fetch_files {
 	if installed alacritty ; then
 		printf "found. Reloading config..."
 		mkdir -p ~/.config/alacritty
-		cp -R ~/.dotfiles/config/alacritty ~/.config/alacritty
+		cp -R ~/.dotfiles/config/alacritty/* ~/.config/alacritty
 		green "done"
 	else
 		yellow "not installed. Skipping"
