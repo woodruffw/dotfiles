@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# termck: make sure a bunch of things render correctly in the terminal
+
+# emojis
+echo "♥👍😍🙊🥱🥺✨✅🎊🏄"
+
+# text formatting
+echo -e "\e[1mbold\e[0m"
+echo -e "\e[3mitalic\e[0m"
+echo -e "\e[3m\e[1mbold italic\e[0m"
+echo -e "\e[4munderline\e[0m"
+echo -e "\e[9mstrikethrough\e[0m"

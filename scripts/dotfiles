@@ -402,6 +402,7 @@ function fetch_files {
 	dotscript bak
 	dotscript psh
 	dotscript nth
+	dotscript termck
 
 	snippet fftitle
 	snippet fftimelapse

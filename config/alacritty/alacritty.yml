@@ -1,19 +1,19 @@
 font:
   normal:
-    family: LMMono10
+    family: monospace
     style: Regular
 
   bold:
-    family: LMMonoLt10
-    style: Bold
+    family: LMMonoCaps10
+    style: Regular
 
   italic:
-    family: LMMono10
+    family: monospace
     style: Italic
 
   bold_italic:
-    family: LMMonoLt10
-    style: BoldOblique
+    family: LMMonoCaps10
+    style: Oblique
 
   size: 12
 
