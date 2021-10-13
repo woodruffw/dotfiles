@@ -2,4 +2,4 @@
 
 # nft: nice floating terminal
 
-urxvt -title floaterm -depth 32
+alacritty --title floaterm
