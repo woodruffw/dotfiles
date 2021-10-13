@@ -215,6 +215,16 @@ function fetch_files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for alacritty..."
+	if installed alacritty ; then
+		printf "found. Reloading config..."
+		mkdir -p ~/.config/alacritty
+		cp -R ~/.dotfiles/alacritty ~/.config/alacritty
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Checking for LaTeX..."
 	if installed latex ; then
 		printf "found. Reloading texmf and updating the database..."

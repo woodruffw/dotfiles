@@ -1,0 +1,18 @@
+font:
+  normal:
+    family: LMMono10
+    style: Regular
+
+  bold:
+    family: LMMonoLt10
+    style: Bold
+
+  italic:
+    family: LMMono10
+    style: Italic
+
+  bold_italic:
+    family: LMMonoLt10
+    style: BoldOblique
+
+  size: 12
