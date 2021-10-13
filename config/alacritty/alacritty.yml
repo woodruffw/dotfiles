@@ -16,3 +16,11 @@ font:
     style: BoldOblique
 
   size: 12
+
+key_bindings:
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown }
+  - { key: Home, mods: Shift, action: ScrollToTop }
+  - { key: End, mods: Shift, action: ScrollToBottom }
