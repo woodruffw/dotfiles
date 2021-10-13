@@ -44,21 +44,6 @@ set copy = no
 set wait_key = no
 set new_mail_command = "notify-send 'New Email' '%n new messages, %u unread.' &"
 
-color hdrdefault magenta default
-color quoted magenta default
-color signature green default
-color attachment red default
-color prompt brightmagenta default
-color message brightred default
-color error brightred default
-color indicator default red
-color status brightgreen blue
-color tree white default
-color normal white default
-color markers red default
-color search white default
-color tilde brightmagenta default
-color index yellow default ~F
-color index red default "~N|~O"
-
 my_hdr X-Clacks-Overhead: GNU
+
+source ~/.mutt/colorscheme.muttrc
