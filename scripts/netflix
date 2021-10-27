@@ -16,4 +16,4 @@ function notify() {
 
 installed firefox || { notify "$(basename "${0}") needs 'firefox'." ; exit 1 ; }
 
-firefox --ssb "https://netflix.com"
+firefox -new-window "https://netflix.com"
