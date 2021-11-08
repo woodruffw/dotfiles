@@ -28,10 +28,11 @@
 		"ShellCommand",
 		"SimpleSession",
 		"SublimeLinter",
+		"SublimeLinter-annotations",
 		"SublimeLinter-contrib-git-lint-commit",
 		"SublimeLinter-flake8",
 		"SublimeLinter-rubocop",
 		"SublimeLinter-shellcheck",
-		"TOML"
-	]
+		"TOML",
+	],
 }
