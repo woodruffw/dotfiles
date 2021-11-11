@@ -463,6 +463,7 @@ function fetch_files {
 	snippet ffmpeg-srt-scene
 	snippet docker-shellin
 	snippet quotecard
+	snippet mupdf-prompt
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
