@@ -1,8 +1,3 @@
-# grep org.gnome.eog.desktop < /usr/share/applications/defaults.list | cut -d '=' -f 1 | xargs xdg-mime default feh.desktop
-# grep Totem.desktop < /usr/share/applications/defaults.list | cut -d '=' -f 1 | xargs xdg-mime default mpv.desktop
-# grep org.gnome.gedit.desktop < /usr/share/applications/defaults.list | cut -d '=' -f 1 | xargs xdg-mime default sublime_text.desktop
-# grep ubuntusdk.desktop < /usr/share/applications/defaults.list | cut -d '=' -f 1 | xargs xdg-mime default sublime_text.desktop
-
 [Default Applications]
 image/jpeg=feh.desktop
 image/png=feh.desktop
@@ -119,6 +114,10 @@ text/xml=sublime_text.desktop
 text/x-c++hdr=sublime_text.desktop
 text/x-c++src=sublime_text.desktop
 text/x-xsrc=sublime_text.desktop
+application/pdf=userapp-mupdf-prompt-5JFRC1.desktop
 
 [Added Associations]
 application/octet-stream=sublime_text.desktop;
+application/pdf=userapp-mupdf-prompt-5JFRC1.desktop;
+
+[Removed Associations]
