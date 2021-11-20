@@ -432,15 +432,7 @@ complete -F _completegvcd gvcd
 [[ -f /usr/share/bash-completion/completions/man ]] && ! type -p _man && \
 	source /usr/share/bash-completion/completions/man
 
-if installed kbs2; then
-	eval "$(kbs2 --completions=bash)"
-fi
-
-if installed pyenv; then
-	eval "$(pyenv init -)"
-	eval "$(pyenv virtualenv-init -)"
-fi
-
-if installed rbenv; then
-	eval "$(rbenv init -)"
-fi
+installed kbs2 && eval "$(kbs2 --completions=bash)"
+installed pyenv && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
+installed rbenv && eval "$(rbenv init -)"
+installed pip && eval "$(pip completion --bash)"
