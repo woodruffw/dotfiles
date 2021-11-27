@@ -416,24 +416,3 @@ bind -x '"\eL":"ls"'
 
 # reload configs when SIGURG is received
 trap bashreload SIGURG
-
-###########################
-# COMPLETION ASSOCIATIONS #
-###########################
-
-complete -F _completegvcd gvcd
-
-# load bash completion if it exists
-# shellcheck source=/dev/null
-[[ -f /etc/bash_completion ]] && source /etc/bash_completion
-
-# this should have been loaded above, but i've seen some inconsistency.
-# shellcheck source=/dev/null
-[[ -f /usr/share/bash-completion/completions/man ]] && ! type -p _man && \
-	source /usr/share/bash-completion/completions/man
-
-installed kbs2 && eval "$(kbs2 --completions=bash)"
-installed pyenv && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
-installed rbenv && eval "$(rbenv init -)"
-installed pip && eval "$(pip completion --bash)"
-installed rustup && eval "$(rustup completions bash rustup)" && eval "$(rustup completions bash cargo)"
