@@ -1,49 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 xlogin*login.translations: #override \
 	Ctrl<Key>R: abort-display()\n\
 	<Key>F1: set-session-argument(failsafe) finish-field()\n\
@@ -61,6 +15,14 @@ xlogin*greeting: Welcome to CLIENTHOST
 xlogin*namePrompt: \040\040\040\040\040\040\040Login:
 xlogin*fail: Login incorrect or forbidden by policy
 xlogin*echoPasswd: true
+
+! Make `xlogin` 800x300
+xlogin.Login.width: 800
+xlogin.Login.height: 300
+
+! These coordinates are for the top left, so they're half-adjusted by the dimensions above.
+xlogin.Login.x: 3680
+xlogin.Login.y: 930
 
 #if WIDTH > 800
 xlogin*greetFont: -adobe-helvetica-bold-o-normal--24-240-75-75-p-138-iso8859-1
