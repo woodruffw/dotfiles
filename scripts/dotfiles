@@ -218,7 +218,7 @@ function fetch_files {
 	printf "Checking for XDM..."
 	if installed xdm ; then
 		printf "found. Reloading xsession..."
-		cp ~/.dotfiles/xession."${host}" ~/.xsession
+		cp ~/.dotfiles/xsession."${host}" ~/.xsession
 		green "done"
 	else
 		yellow "not installed. Skipping"
