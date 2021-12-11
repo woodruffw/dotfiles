@@ -275,7 +275,6 @@ export COLOR_NRM='\033[0m'
 ###########
 
 # system-independent aliases
-alias less='less -N'
 alias make='colormake'
 alias mk='make'
 alias mkc='make clean'
