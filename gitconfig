@@ -14,7 +14,7 @@
 [user]
 	email = william@yossarian.net
 	name = William Woodruff
-	signingkey = 85AE00C504833B3C
+	signingkey = 600D68320BE45ACC
 
 [push]
 	default = current
