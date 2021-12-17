@@ -22,6 +22,8 @@ function installed {
 function plat_umount {
   if installed fusermount; then
     fusermount -u "${1}" 2> /dev/null
+  elif installed diskutil; then
+    diskutil unmount force "${1}"
   else
     umount "${1}"
   fi
