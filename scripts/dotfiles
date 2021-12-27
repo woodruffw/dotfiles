@@ -46,7 +46,7 @@ function dotscript {
 	cp ~/.dotfiles/scripts/"${1}" ~/scripts/"${dest}"
 }
 
-function fetch_files {
+function fetch-files {
 	system=$(uname)
 	host=$(hostname)
 
@@ -615,6 +615,31 @@ function fetch_files {
 	green "All done"
 }
 
-fetch_files
+function rebuild-completions {
+	printf "Rebuilding completion scripts..."
+	# kbs2
+	installed kbs2 && kbs2 --completions bash > ~/.bash_completion.d/kbs2.bash
+
+	# pyenv
+	installed pyenv && \
+		pyenv init - > ~/.bash_completion.d/pyenv.bash && \
+		pyenv virtualenv-init - >> ~/.bash_completion.d/pyenv.bash
+
+	# rbenv
+	installed rbenv && rbenv init - > ~/.bash_completion.d/rbenv.bash
+
+	# pip
+	installed pip && pip completion --bash > ~/.bash_completion.d/pip.bash
+
+	# rustup & cargo
+	installed rustup && \
+		rustup completions bash rustup > ~/.bash_completion.d/rustup.bash && \
+		rustup completions bash cargo > ~/.bash_completion.d/cargo.bash
+
+	green "done"
+}
+
+fetch-files
+rebuild-completions
 
 mv ~/scripts/dotfiles.new ~/scripts/dotfiles

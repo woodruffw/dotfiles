@@ -430,9 +430,3 @@ complete -F _completegvcd gvcd
 # shellcheck source=/dev/null
 [[ -f /usr/share/bash-completion/completions/man ]] && ! type -p _man && \
 	source /usr/share/bash-completion/completions/man
-
-installed kbs2 && eval "$(kbs2 --completions=bash)"
-installed pyenv && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
-installed rbenv && eval "$(rbenv init -)"
-installed pip && eval "$(pip completion --bash)"
-installed rustup && eval "$(rustup completions bash rustup)" && eval "$(rustup completions bash cargo)"
