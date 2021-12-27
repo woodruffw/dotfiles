@@ -37,30 +37,7 @@ function do_brew {
 	brew cleanup -s
 }
 
-function do_cpan {
-	cpan -u
-}
-
-function do_pip {
-	# http://stackoverflow.com/questions/2720014/upgrading-all-packages-with-pip
-	pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | sudo xargs -n1 pip install -U
-	pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | sudo xargs -n1 pip install -U
-}
-
-function do_gem {
-	gem update
-}
-
-function do_npm {
-	npm update
-}
-
 [[ "$(uname)" = "Linux" ]] && installed apt && do_apt
 [[ "$(uname)" = "Linux" ]] && installed snap && do_snap
 [[ "$(uname)" = "Linux" ]] && installed pacman && do_pacman
 installed brew && do_brew
-
-installed gem && prompt "Update gems?" && do_gem
-installed pip && prompt "Update Python packages?" && do_pip
-installed cpan && prompt "Update CPAN modules?" && do_cpan
-installed npm && prompt "Update NPM modules?" && do_npm
