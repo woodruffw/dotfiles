@@ -5,11 +5,13 @@ pieces.hash.on_completion.set = yes
 
 network.port_range.set = 7800-8800
 network.port_random.set = yes
+network.http.ssl_verify_peer.set = 0
 
 dht.mode.set = auto
-
-protocol.encryption.set = require,require_RC4,allow_incoming,try_outgoing
+dht.port.set = 6881
 protocol.pex.set = yes
+
+protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
 
 network.max_open_files.set = 64
 
