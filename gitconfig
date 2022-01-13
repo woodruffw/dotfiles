@@ -20,7 +20,7 @@
     default = current
 
 [help]
-    autocorrect = 1
+    autocorrect = 50
 
 [github]
     user = woodruffw
