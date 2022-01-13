@@ -1,67 +1,67 @@
 [core]
-	editor = subl -w
-	pager = less
-	whitespace = blank-at-eol
-	excludesfile = ~/.gitignore
-	trustctime = false
+    editor = subl -w
+    pager = less
+    whitespace = blank-at-eol
+    excludesfile = ~/.gitignore
+    trustctime = false
 
 [color]
-	ui = 1
-	diff = auto
-	status = auto
-	branch = auto
+    ui = 1
+    diff = auto
+    status = auto
+    branch = auto
 
 [user]
-	email = william@yossarian.net
-	name = William Woodruff
-	signingkey = 600D68320BE45ACC
+    email = william@yossarian.net
+    name = William Woodruff
+    signingkey = 600D68320BE45ACC
 
 [push]
-	default = current
+    default = current
 
 [help]
-	autocorrect = 1
+    autocorrect = 1
 
 [github]
-	user = woodruffw
+    user = woodruffw
 
 [pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
 
 [interactive]
-	diffFilter = diff-highlight
+    diffFilter = diff-highlight
 
 [diff]
-	compactionHeuristic = true
+    compactionHeuristic = true
 
 [commit]
-	gpgSign = true
-	verbose = true
+    gpgSign = true
+    verbose = true
 
 [pull]
-	rebase = true
+    rebase = true
 
 [gpg]
-	program = gpg2
+    program = gpg2
 
 [alias]
     lg = log --color --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit
     lgg = log --color --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit --stat --summary
-		prune-stale = remote prune origin
+    prune-stale = remote prune origin
 
 [rerere]
-	enabled = 1
+    enabled = 1
 
 [url "git@github.com:woodruffw-forks/"]
-	insteadOf = forks:
-	pushInsteadOf = forks:
+    insteadOf = forks:
+    pushInsteadOf = forks:
 
 [url "git@github.com:woodruffw/"]
-	insteadOf = self:
-	pushInsteadOf = self:
+    insteadOf = self:
+    pushInsteadOf = self:
 
 [url "git@github.com:trailofbits/"]
-	insteadOf = tob:
-	pushInsteadOf = tob:
+    insteadOf = tob:
+    pushInsteadOf = tob:
