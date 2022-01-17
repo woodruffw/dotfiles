@@ -62,9 +62,9 @@ __generate_title() {
 	if [[ -n "${__MANUAL_TITLE}" ]]; then
 		title=${__MANUAL_TITLE}
 	elif [[ "${PWD}" = "${HOME}" ]]; then
-		title="~"
+		title="${HOSTNAME} ~"
 	else
-		title=$(basename "${PWD}")
+		title="${HOSTNAME} $(basename "${PWD}")"
 	fi
 
 	echo -ne "\033]0;${title}\007"
