@@ -2,4 +2,4 @@
 
 # a shim for yt-dlp masquerading as youtube-dl
 
-yt-dlp "${@}"
+yt-dlp --compat-options youtube-dl "${@}"
