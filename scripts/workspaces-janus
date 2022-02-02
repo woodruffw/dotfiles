@@ -37,5 +37,3 @@ i3-msg 'workspace 1B'
 
 ezsshfs athena
 ezsshfs arabella
-
-pidof spotifyd || spotifyd
