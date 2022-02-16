@@ -9,7 +9,12 @@ reentrant-hooks = false
 
 [[generators]]
 name = "default"
-alphabet = "abcdefghijklmnopqrstuvwxyz0123456789(){}[]-_+="
+alphabets = [
+  "abcdefghijklmnopqrstuvwxyz",
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  "0123456789",
+  "(){}[]-_+=",
+]
 length = 16
 
 [commands.new]
