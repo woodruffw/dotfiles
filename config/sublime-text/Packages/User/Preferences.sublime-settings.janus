@@ -1,6 +1,7 @@
 {
 	"color_scheme": "Packages/CustomThemes/MonokaiCustom.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", ".Trash", ".Trash-*", "target"],
 	"font_face": "Latin Modern Mono",
 	"font_size": 14,
 	"highlight_line": true,
@@ -12,7 +13,7 @@
 		"LaTeX Snippets",
 		"Man Page Support",
 		"Pretty JSON",
-		"Vintage"
+		"Vintage",
 	],
 	"indent_guide_options":
 	[
@@ -36,5 +37,5 @@
 	"ui_scale": 1.63,
 	"update_check": false,
 	"word_wrap": false,
-	"hardware_acceleration": "opengl"
+	"hardware_acceleration": "opengl",
 }
