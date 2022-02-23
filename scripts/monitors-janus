@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 vertical_monitor="DisplayPort-2"
 horizontal_monitor="DisplayPort-0"
