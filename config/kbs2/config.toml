@@ -18,6 +18,7 @@ alphabets = [
 length = 16
 
 [commands.new]
+default-username = "william@yossarian.net"
 generate-on-empty = true
 post-hook = "~/.config/kbs2/hooks/push-repo"
 
@@ -36,6 +37,7 @@ post-hook = "~/.config/kbs2/hooks/push-repo"
 
 [commands.ext.dmenu-pass]
 notify-username = true
+chooser = "rofi -dmenu -p kbs2"
 
 [commands.ext.choose-pass]
 notify-username = true

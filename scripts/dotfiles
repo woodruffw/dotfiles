@@ -396,6 +396,15 @@ function fetch-files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for rofi..."
+	if installed rofi; then
+		printf "found. Reloading config..."
+		cp ~/.dotfiles/config/rofi/* ~/.config/rofi
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
 	printf "Fetching scripts..."
   dotscript dotfiles dotfiles.new
 	dotscript colormake
