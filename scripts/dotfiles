@@ -215,15 +215,6 @@ function fetch-files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for XDM..."
-	if installed xdm ; then
-		printf "found. Reloading xsession..."
-		cp ~/.dotfiles/xsession."${host}" ~/.xsession
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
 	printf "Checking for alacritty..."
 	if installed alacritty ; then
 		printf "found. Reloading config..."

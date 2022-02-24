@@ -1,2 +1,0 @@
-# NOTE(ww): Wrap i3 in `bash --login` so the WM gets a reasonable startup environment.
-bash --login -c i3
