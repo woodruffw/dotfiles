@@ -18,8 +18,8 @@ bindsym $mod+Shift+Return exec ~/scripts/nft
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'Latin Modern Mono'
+# start rofi (a program launcher)
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 # start rofi in window selection mode
 bindsym $mod+Shift+d exec rofi -show window -lines 5
@@ -194,7 +194,7 @@ bindsym $mod+z exec kbs2 yad-login
 # select a password through dmenu
 bindsym $mod+x exec kbs2 dmenu-pass
 
-# select a github repository through dmenu
+# select a github repository through rofi
 bindsym $mod+c exec ~/scripts/ghbrowse
 
 # Start i3bar to display a workspace bar (plus the system information i3status

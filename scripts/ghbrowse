@@ -12,7 +12,7 @@ username=$(git config github.user)
 [[ -z "${username}" ]] && fail "\`git config github.user\` is empty"
 
 url="https://api.github.com/users/${username}/repos?type=all&sort=pushed"
-repo=$(curl "${url}" | jq -r ".[] | .full_name" | dmenu -p ghbrowse)
+repo=$(curl --silent "${url}" | jq -r ".[] | .full_name" | rofi -dmenu -p ghbrowse)
 
 [[ -z "${repo}" ]] && exit
 
