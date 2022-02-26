@@ -493,7 +493,6 @@ function fetch-files {
 		dotscript brewnav
 		dotscript ezsshfs
 		dotscript open-pdf
-		dotscript music
 		dotscript nft
 		dotscript google
 		dotscript ytsearch
@@ -592,6 +591,7 @@ function fetch-files {
 	rm -f ~/scripts/ffox
 	rm -f ~/scripts/spotify
 	rm -f ~/scripts/sp
+	rm -f ~/scripts/music
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
