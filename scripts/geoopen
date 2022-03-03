@@ -36,15 +36,16 @@ begin
 
   abort "Error: Missing hours for #{query} (place ID: #{place_id})?" unless hours
 
-  today = hours["periods"][Time.now.wday]
+  today = hours["periods"][Time.now.wday - 1]
 
-  puts resp
+  puts address
+  puts hours["weekday_text"][Time.now.wday - 1]
   if hours["open_now"]
     time = DateTime.strptime today["close"]["time"], "%H%M"
-    puts "#{address}: Open now, closes #{time}"
+    puts "Open now, closes #{time}"
   else
     time = DateTime.strptime today["open"]["time"], "%H%M"
-    puts "#{address}: Closed now, opens #{time}"
+    puts "Closed now, opens #{time}"
   end
 rescue StandardError => e
   abort "Something exploded: #{e} #{e.backtrace}"
