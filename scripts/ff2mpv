@@ -1,15 +1,23 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+require "English"
 require "json"
 
-len = STDIN.read(4).unpack1("L")
-data = JSON.parse(STDIN.read(len))
+def notify(msg, err: false)
+  urgency = err ? "critical" : "normal"
+  system "notify-send", "--urgency=#{urgency}", "ff2mpv", msg
+end
+
+len = $stdin.read(4).unpack1("L")
+data = JSON.parse($stdin.read(len))
 url = data["url"]
 
 args = %w[--no-terminal]
 
-system "notify-send", "ff2mpv", url
+notify url
 pid = spawn "mpv", *args, "--", url, in: :close, out: "/dev/null", err: "/dev/null"
 
-Process.detach pid
+Process.wait pid
+
+notify "failed to play #{url}", err: true unless $CHILD_STATUS.success?
