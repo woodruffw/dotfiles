@@ -391,7 +391,7 @@ function fetch-files {
 	if installed rofi; then
 		printf "found. Reloading config..."
 		mkdir -p ~/.config/rofi
-		cp ~/.dotfiles/config/rofi/* ~/.config/rofi
+		cp ~/.dotfiles/config/rofi/config.rasi."${host}" ~/.config/rofi
 		green "done"
 	else
 		yellow "not installed. Skipping"
