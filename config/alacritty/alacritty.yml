@@ -17,6 +17,11 @@ font:
 
   size: 12
 
+window:
+   dimensions:
+     columns: 80
+     lines: 24
+
 key_bindings:
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
