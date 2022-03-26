@@ -18,8 +18,8 @@ bindsym $mod+Shift+Return exec ~/scripts/nft
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run -fn 'Latin Modern Mono'
+# start rofi (a program launcher)
+bindsym $mod+d exec --no-startup-id rofi -show run
 
 # start rofi in window selection mode
 bindsym $mod+Shift+d exec rofi -show window -lines 5
