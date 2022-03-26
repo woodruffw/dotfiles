@@ -390,6 +390,7 @@ function fetch-files {
 	printf "Checking for rofi..."
 	if installed rofi; then
 		printf "found. Reloading config..."
+		mkdir -p ~/.config/rofi
 		cp ~/.dotfiles/config/rofi/* ~/.config/rofi
 		green "done"
 	else
