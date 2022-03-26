@@ -18,7 +18,7 @@ i3-msg 'exec --no-startup-id firefox'
 
 i3-msg 'workspace 2 dev; append_layout ~/.config/i3/workspaces/dev.json'
 i3-msg 'exec --no-startup-id subl'
-i3-msg 'exec --no-startup-id urxvt'
+i3-msg 'exec --no-startup-id alacritty'
 
 i3-msg 'workspace 3 com; append_layout ~/.config/i3/workspaces/com.json'
 i3-msg 'exec --no-startup-id hexchat'
