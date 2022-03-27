@@ -12,6 +12,8 @@ desktop.ini
 *~
 *#
 *.swp
+*.sublime-project
+*.sublime-workspace
 
 # Compilation byproducts
 *.so
