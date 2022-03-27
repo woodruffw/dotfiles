@@ -1,0 +1,13 @@
+{
+	"clients": {
+		"rust-analyzer": {
+			"enabled": true,
+			"settings": {
+				"files.excludeDirs": "target",
+				"assist.importGranularity": "module",
+				"assist.importPrefix": "by_crate",
+				// "rustfmt.extraArgs": ["+nightly"],
+			}
+		}
+	}
+}
