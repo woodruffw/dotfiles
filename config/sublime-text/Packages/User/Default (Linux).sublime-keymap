@@ -9,4 +9,57 @@
     { "keys": ["ctrl+l"], "command": "expand_selection", "args": {"to": "line"} },
     { "keys": ["alt+home"], "command": "move_to", "args": {"to": "bof"} },
     { "keys": ["alt+end"], "command": "move_to", "args": {"to": "eof"} },
+
+    // Run Code Action
+    {
+        "command": "lsp_code_actions",
+        "keys": [
+            "ctrl+."
+        ],
+        "context": [
+            {
+                "key": "lsp.session_with_capability",
+                "operator": "equal",
+                "operand": "codeActionProvider"
+            }
+        ]
+    },
+
+    // Goto Definition
+    {
+        "command": "lsp_symbol_definition",
+        "args": {
+            "side_by_side": false
+        },
+        "keys": [
+            "f12"
+        ],
+        "context": [
+            {
+                "key": "lsp.session_with_capability",
+                "operator": "equal",
+                "operand": "definitionProvider"
+            },
+            {
+                "key": "auto_complete_visible",
+                "operator": "equal",
+                "operand": false
+            }
+        ]
+    },
+
+    // Rename
+    {
+        "command": "lsp_symbol_rename",
+        "keys": [
+            "ctrl+,"
+        ],
+        "context": [
+            {
+                "key": "lsp.session_with_capability",
+                "operator": "equal",
+                "operand": "renameProvider"
+            }
+        ]
+    },
 ]
