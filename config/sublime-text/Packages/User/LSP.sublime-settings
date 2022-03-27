@@ -1,4 +1,10 @@
 {
+	"lsp_format_on_save": true,
+	"lsp_code_actions_on_save": {
+	  "source.fixAll": true,
+	  "source.organizeImports": true,
+	},
+	"show_code_actions": "bulb",
 	"clients": {
 		"rust-analyzer": {
 			"enabled": true,
@@ -6,7 +12,7 @@
 				"files.excludeDirs": "target",
 				"assist.importGranularity": "module",
 				"assist.importPrefix": "by_crate",
-				// "rustfmt.extraArgs": ["+nightly"],
+				"rustfmt.extraArgs": ["+nightly"],
 			}
 		}
 	}
