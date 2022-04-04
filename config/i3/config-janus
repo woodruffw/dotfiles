@@ -205,9 +205,8 @@ bar {
 }
 
 for_window [class="^feh$"] floating enable
-for_window [class="^Uzbl-.*"] floating enable
 for_window [title="floaterm"] floating enable, border pixel 1
-for_window [title="netflix.com"] floating enable, border pixel 0
+for_window [title="^Jellyfin"] border pixel 0
 for_window [class="^Zenity$"] floating enable
 for_window [class="^Yad$"] floating enable
 for_window [class="^Xmessage$"] floating enable

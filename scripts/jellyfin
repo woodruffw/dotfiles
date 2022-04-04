@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# plex: open firefox to plex.tv.
+# jellyfin: open firefox to jellyfin.
 # this used to be an alias, but i want it to show up in dmenu.
 
 function installed() {
@@ -16,4 +16,4 @@ function notify() {
 
 installed firefox || { notify "$(basename "${0}") needs 'firefox'." ; exit 1 ; }
 
-firefox -new-window "https://app.plex.tv/desktop"
+i3-msg 'exec firefox -new-window "https://thing-in-itself.net/jellyfin"'

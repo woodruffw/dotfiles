@@ -238,9 +238,9 @@ function fetch-files {
 
 	printf "Checking for Firefox..."
 	if installed firefox && ! running firefox ; then
-		printf "found. Reloading netflix, plex, pipefox and ff2mpv..."
+		printf "found. Reloading netflix, jellyfin, pipefox and ff2mpv..."
 		dotscript netflix
-		dotscript plex
+		dotscript jellyfin
 		dotscript pipefox
 		dotscript ff2mpv
 		mkdir -p ~/.mozilla/native-messaging-hosts/
@@ -593,6 +593,7 @@ function fetch-files {
 	rm -f ~/scripts/spotify
 	rm -f ~/scripts/sp
 	rm -f ~/scripts/music
+	rm -f ~/scripts/plex
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
