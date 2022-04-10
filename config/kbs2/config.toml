@@ -41,3 +41,6 @@ chooser = "rofi -dmenu -p kbs2"
 
 [commands.ext.choose-pass]
 notify-username = true
+
+[commands.ext.snip]
+chooser = "rofi -dmenu -p kbs2"
