@@ -44,6 +44,4 @@ set copy = no
 set wait_key = no
 set new_mail_command = "notify-send 'New Email' '%n new messages, %u unread.' &"
 
-my_hdr X-Clacks-Overhead: GNU
-
 source ~/.mutt/colorscheme.muttrc
