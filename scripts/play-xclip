@@ -10,19 +10,17 @@ function installed {
 	return ${?}
 }
 
-# make sure we have both of our dependencies
-if installed "xclip" ; then
-	if xclip -o >/dev/null 2>&1 ; then
-		resource=$(xclip -o)
-		if [[ ! -z "${resource}" ]]; then
-			notify-send "play-xclip" "Playing ${resource}"
-			~/scripts/play "${resource}"
-		else
-			notify-send "play-xclip" "No resource to play."
-		fi
-	else
-		notify-send "play-xclip" "No resource to play."
-	fi
+function die-notify {
+	notify-send "play-xclip" "${1}"
+	exit 1
+}
+
+installed xclip || die-notify "missing xclip"
+
+contents="$(xclip -o)"
+if [[ -n "${contents}" ]]; then
+	notify-send "play-xclip" "playing ${contents}"
+	~/scripts/play "${contents}"
 else
-	notify-send "play-xclip" "xclip is needed."
+	die-notify "no resource to play"
 fi
