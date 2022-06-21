@@ -21,8 +21,7 @@ for org in "${orgs[@]}"; do
     repos=("${repos[@]}" "${new_repos[@]}")
 done
 
-# TODO: This is slightly wrong; will exhaust argv if `repos` gets too large.
-repo=$(printf "%s\n" "${repos[@]}" | rofi -dmenu -p ghbrowse)
+repo=$( (IFS=$'\n'; rofi -dmenu -p ghbrowse <<< "${repos[*]}") )
 
 [[ -z "${repo}" ]] && exit
 
