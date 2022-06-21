@@ -7,12 +7,22 @@ function fail {
     exit 1
 }
 
-username=$(git config github.user)
+read -ra orgs < <(git config ghbrowse.orgs)
+if [[ "${#orgs[@]}" -eq 0 ]]; then
+    read -ra orgs < <(git config github.user)
+fi
 
-[[ -z "${username}" ]] && fail "\`git config github.user\` is empty"
+[[ "${#orgs[@]}" -eq 0 ]] && fail "missing github.user and ghbrowse.orgs in git config"
 
-url="https://api.github.com/users/${username}/repos?type=all&sort=pushed"
-repo=$(curl --silent "${url}" | jq -r ".[] | .full_name" | rofi -dmenu -p ghbrowse)
+repos=()
+for org in "${orgs[@]}"; do
+    url="https://api.github.com/users/${org}/repos?type=all&sort=pushed"
+    mapfile -t new_repos < <(curl --silent "${url}" | jq -r ".[] | .full_name")
+    repos=("${repos[@]}" "${new_repos[@]}")
+done
+
+# TODO: This is slightly wrong; will exhaust argv if `repos` gets too large.
+repo=$(printf "%s\n" "${repos[@]}" | rofi -dmenu -p ghbrowse)
 
 [[ -z "${repo}" ]] && exit
 
