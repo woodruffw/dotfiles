@@ -9,7 +9,7 @@ rm -rf ~/.config/sublime-text/Local/*.sublime_session
 yad --title="Load workspaces?" --timeout=5 || exit
 
 # This is split up so that I can cancel kbs2 without subsequent commands failing.
-kbs2 agent unwrap
+kbs2 agent && kbs2 agent unwrap
 kbs2 agent query && kbs2 ssh-add mercury-ssh-key
 kbs2 agent query && kbs2 gpg-add personal-gpg-passphrase
 
