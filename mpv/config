@@ -22,6 +22,7 @@ input-cursor=yes
 
 image-display-duration=inf
 
+vo=gpu
 hwdec=auto-safe
 
 [extension.webm]
