@@ -95,6 +95,10 @@ function fetch-files {
 	cp ~/.dotfiles/gitconfig ~/.gitconfig
 	green "done"
 
+	# it's safe to assume pip is installed
+	mkdir -p ~/.pip
+	cp -R ~/.dotfiles/pip/* ~/.pip
+
 	printf "Checking for curl..."
 	if installed curl ; then
 		printf "found. Reloading curlrc..."
@@ -632,6 +636,9 @@ function rebuild-completions {
 
 	# pip
 	installed pip && pip completion --bash > ~/.bash_completion.d/pip.bash
+
+	# pipx
+	installed pipx && register-python-argcomplete pipx > ~/.bash_completion.d/pipx.bash
 
 	# rustup & cargo
 	installed rustup && \
