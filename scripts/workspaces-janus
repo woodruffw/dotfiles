@@ -8,7 +8,7 @@ rm -rf ~/.config/sublime-text/Local/*.sublime_session
 
 xset dpms force on
 
-yad --title="Load workspaces?" --timeout=5 || exit
+yad --title="Load workspaces?" || exit
 
 # This is split up so that I can cancel kbs2 without subsequent commands failing.
 kbs2 agent && kbs2 agent unwrap
