@@ -204,7 +204,6 @@ exec --no-startup-id compton -fCGb -D 8 -m 0.8 --backend glx --vsync opengl-swc 
 exec --no-startup-id sh ~/scripts/monitors
 exec --no-startup-id bash ~/.fehbg
 exec --no-startup-id ibus-daemon -drx
-exec --no-startup-id redshift-gtk
 exec --no-startup-id nm-applet
 exec --no-startup-id gnome-settings-daemon
 exec --no-startup-id ~/scripts/workspaces

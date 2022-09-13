@@ -25,8 +25,6 @@ pavucontrol
 pcmanfm
 pinta
 qrencode
-redshift-gtk
-rxvt-unicode-256color
 slop
 sshfs
 tmux
