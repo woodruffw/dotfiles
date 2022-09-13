@@ -401,6 +401,17 @@ function fetch-files {
 		yellow "not installed. Skipping"
 	fi
 
+	printf "Checking for systemd..."
+	if installed systemd; then
+		printf "found. Reloading user services..."
+		mkdir -p ~/.config/systemd/user
+		cp -R ~/.dotfiles/config/systemd/user/* ~/.config/systemd/user
+		green "done"
+	else
+		yellow "not installed. Skipping"
+	fi
+
+
 	printf "Fetching scripts..."
   dotscript dotfiles dotfiles.new
 	dotscript colormake
