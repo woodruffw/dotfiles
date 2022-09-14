@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# ripcord: run Ripcord with an OpenSSL bodge
+
+set -eo pipefail
+
+# https://dev.cancel.fm/wiki?name=OpenSSL+Linux+Issues
+OPENSSL_CONF="" Ripcord.real
