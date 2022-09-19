@@ -33,5 +33,13 @@ vendor/
 doc/
 .yardoc/
 
+# Python development byproducts
+env/
+__pycache__/
+*.py[cod]
+dist/
+*.egg-info/
+.coverage
+
 # Configuration/environment files
 .env
