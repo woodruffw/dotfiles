@@ -68,3 +68,5 @@
 
 [ghbrowse]
     orgs = woodruffw woodruffw-forks
+[init]
+	defaultBranch = main
