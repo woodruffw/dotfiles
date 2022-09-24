@@ -74,3 +74,6 @@
 
 [init]
 	defaultBranch = main
+
+[gpg "ssh"]
+    allowedSignersFile = /home/william/.config/git/allowed_signers
