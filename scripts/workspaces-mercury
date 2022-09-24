@@ -11,6 +11,7 @@ yad --title="Load workspaces?" || exit
 # This is split up so that I can cancel kbs2 without subsequent commands failing.
 kbs2 agent && kbs2 agent unwrap
 kbs2 agent query && kbs2 ssh-add mercury-ssh-key
+kbs2 agent query && kbs2 ssh-add git-signing-ssh-key
 kbs2 agent query && kbs2 gpg-add personal-gpg-passphrase
 
 i3-msg 'rename workspace 1 to 1 www'

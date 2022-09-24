@@ -13,6 +13,7 @@ yad --title="Load workspaces?" || exit
 # This is split up so that I can cancel kbs2 without subsequent commands failing.
 kbs2 agent && kbs2 agent unwrap
 kbs2 agent query && kbs2 ssh-add janus-ssh-key
+kbs2 agent query && kbs2 ssh-add git-signing-ssh-key
 kbs2 agent query && kbs2 gpg-add personal-gpg-passphrase
 
 sleep 0.1
