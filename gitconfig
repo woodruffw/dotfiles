@@ -37,7 +37,11 @@
     compactionHeuristic = true
 
 [commit]
+    gpgsign = true
     verbose = true
+
+[tag]
+    gpgsign = true
 
 [pull]
     rebase = true
@@ -67,5 +71,6 @@
 
 [ghbrowse]
     orgs = woodruffw woodruffw-forks
+
 [init]
 	defaultBranch = main
