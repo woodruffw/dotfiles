@@ -93,6 +93,8 @@ function fetch-files {
 	printf "Reloading git-aliases, gitignore, and gitconfig..."
 	cp ~/.dotfiles/gitignore ~/.gitignore
 	cp ~/.dotfiles/gitconfig ~/.gitconfig
+	mkdir -p ~/.config/git
+	cp -R ~/.dotfiles/config/git/* ~/.config/git
 	green "done"
 
 	# it's safe to assume pip is installed
