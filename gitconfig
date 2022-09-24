@@ -14,7 +14,7 @@
 [user]
     email = william@yossarian.net
     name = William Woodruff
-    signingkey = 600D68320BE45ACC
+	signingKey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP/Y6OP1ZoAqBP3/e0oMi2xvB/Dwm2Eml7Wsu7m+xxnh william@yossarian.net
 
 [push]
     default = current
@@ -37,14 +37,13 @@
     compactionHeuristic = true
 
 [commit]
-    gpgSign = true
     verbose = true
 
 [pull]
     rebase = true
 
 [gpg]
-    program = gpg2
+    format = ssh
 
 [alias]
     lg = log --color --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit
