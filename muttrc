@@ -32,7 +32,7 @@ macro index,pager U "<pipe-message>~/.mutt/bin/list-unsubscribe<enter>"
 
 set header_cache = ~/.cache/mutt/
 set message_cachedir = ~/.cache/mutt/
-set editor = "subl -w"
+set editor = "subl -nw"
 set sort_aux = reverse-last-date-received
 set sort = threads
 set sort_browser = date
