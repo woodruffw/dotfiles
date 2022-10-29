@@ -98,3 +98,7 @@ function gm0m() {
 function gdmom {
 	git diff "$(__git_find_main_branch)" "origin/$(__git_find_main_branch)"
 }
+
+function ghcln {
+	git clone "git@github.com:${1}.git"
+}
