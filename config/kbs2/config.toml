@@ -25,7 +25,6 @@ post-hook = "~/.config/kbs2/hooks/push-repo"
 [commands.pass]
 clipboard-duration = 10
 clear-after = true
-x11-clipboard = "Clipboard"
 clear-hook = "~/.config/kbs2/hooks/pass-clear-notify"
 
 [commands.edit]
