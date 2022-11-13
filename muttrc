@@ -44,7 +44,7 @@ set wait_key = no
 set new_mail_command = "notify-send 'New Email' '%n new messages, %u unread.' &"
 
 set imap_check_subscribed = yes
-set imap_idle = yes
+set imap_idle = no
 set imap_qresync = yes
 
 # Performance tuning, adapted from:
