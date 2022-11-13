@@ -41,7 +41,7 @@ set sleep_time = 0
 set recall = no
 set copy = no
 set wait_key = no
-set new_mail_command = "notify-send 'New Email' '%n new messages, %u unread.' &"
+set new_mail_command = "~/.mutt/bin/list-unsubscribe '%n' '%u' &"
 
 set imap_check_subscribed = yes
 set imap_idle = no
