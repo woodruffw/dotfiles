@@ -19,7 +19,7 @@
 
     ### Text ###
 
-    font = Monospace 8
+    font = Latin Modern Mono 10
     line_height = 0
     markup = full
     format = "<b>%s</b>\n%b"
