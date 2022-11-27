@@ -30,8 +30,8 @@ bind index,pager \Co sidebar-open
 # Semi-automatic list unsubscription
 macro index,pager U "<pipe-message>~/.mutt/bin/list-unsubscribe<enter>"
 
-set header_cache = ~/.cache/mutt/
-set message_cachedir = ~/.cache/mutt/
+set header_cache = ~/.cache/mutt/headers
+set message_cachedir = ~/.cache/mutt/bodies
 set editor = "subl -nw"
 set sort_aux = reverse-last-date-received
 set sort = threads
@@ -46,6 +46,7 @@ set new_mail_command = "~/.mutt/bin/mbox-notify '%n' '%u' &"
 set imap_check_subscribed = yes
 set imap_idle = yes
 set imap_qresync = yes
+set imap_keepalive = 300
 
 # Performance tuning, adapted from:
 # https://www.codeblueprint.co.uk/2016/12/19/a-kernel-devs-approach-to-improving.html
@@ -53,5 +54,7 @@ set strict_threads = yes
 set maildir_header_cache_verify = no
 set read_inc = 0
 set time_inc = 50
+set mail_check = 300
+set timeout = 10
 
 source ~/.mutt/colorscheme.muttrc
