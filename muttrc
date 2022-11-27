@@ -52,7 +52,7 @@ set imap_keepalive = 300
 # https://www.codeblueprint.co.uk/2016/12/19/a-kernel-devs-approach-to-improving.html
 set strict_threads = yes
 set maildir_header_cache_verify = no
-set read_inc = 0
+set read_inc = 50
 set time_inc = 50
 set mail_check = 300
 set timeout = 10
