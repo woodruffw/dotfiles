@@ -18,6 +18,10 @@ function die-notify {
 installed xclip || die-notify "missing xclip"
 
 contents="$(xclip -o)"
+if [[ -z "${contents}" ]]; then
+	contents="$(xclip -o -selection clipboard)"
+fi
+
 if [[ -n "${contents}" ]]; then
 	notify-send "play-xclip" "playing ${contents}"
 	~/scripts/play "${contents}"
