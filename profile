@@ -65,9 +65,6 @@ if [[ "${system}" = "Linux" ]]; then
 	# If rust is installed via rustup, add it to the PATH.
 	[[ -d ~/.cargo ]] && export PATH="${HOME}/.cargo/bin:${PATH}"
 
-	# If `snap` is installed, add it to the PATH.
-	[[ -d /snap/bin ]] && export PATH="/snap/bin:${PATH}"
-
 	export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 elif [[ "${system}" = "Darwin" ]]; then
 	export TERMINFO_DIRS="${HOME}/.terminfo:/usr/local/share/terminfo:${TERMINFO}:"
