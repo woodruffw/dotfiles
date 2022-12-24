@@ -62,16 +62,11 @@ if [[ "${system}" = "Linux" ]]; then
 		eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 	fi
 
-	# If rust is installed via rustup, add it to the PATH.
-	[[ -d ~/.cargo ]] && export PATH="${HOME}/.cargo/bin:${PATH}"
-
 	export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 elif [[ "${system}" = "Darwin" ]]; then
 	export TERMINFO_DIRS="${HOME}/.terminfo:/usr/local/share/terminfo:${TERMINFO}:"
 	export LSCOLORS='gxfxcxdxbxegedabagacad'
 	PATH="${PATH}:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin"
-
-	gpg-agent --daemon
 fi
 
 if [[ -d ~/.pyenv/bin ]]; then
@@ -79,6 +74,8 @@ if [[ -d ~/.pyenv/bin ]]; then
 	# `pyenv init` inside bashrc.
 	export PATH="${HOME}/.pyenv/bin:${HOME}/.pyenv/shims:$PATH"
 fi
+
+[[ -d ~/.cargo ]] && export PATH="${HOME}/.cargo/bin:${PATH}"
 
 if [[ -d ~/.rbenv/bin ]]; then
 	# Same as pyenv.

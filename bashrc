@@ -387,9 +387,9 @@ elif [[ "${system}" = "Darwin" ]] ; then
 	fi
 
 	# if homebrew's bash-completion is installed
-	if [[ -f "/usr/local/etc/bash_completion" ]] ; then
+	if [[ -f "/opt/homebrew/etc/bash_completion" ]] ; then
 		# shellcheck source=/dev/null
-		source /usr/local/etc/bash_completion
+		source /opt/homebrew/etc/bash_completion
 	fi
 fi
 
