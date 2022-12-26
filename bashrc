@@ -310,13 +310,6 @@ elif [[ "${system}" = "Darwin" ]] ; then
 	alias ethdn='sudo ifconfig en0 down'
 	alias ethup='sudo ifconfig en0 up'
 
-	# if homebrew's nginx is installed
-	if [[ -f "/usr/local/bin/nginx" ]] ; then
-		alias nginxconf='vim /usr/local/etc/nginx/nginx.conf'
-		alias nginxreload='sudo nginx -s reload'
-		alias www='cd /usr/local/var/www'
-	fi
-
 	# if homebrew's bash-completion is installed
 	if [[ -f "/opt/homebrew/etc/bash_completion" ]] ; then
 		# shellcheck source=/dev/null
