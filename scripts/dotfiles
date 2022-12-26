@@ -535,7 +535,6 @@ function fetch-files {
 
 	if [[ "${host}" = "athena" ]] ; then
 		dotscript wwwbackup
-		dotscript twitter-fortune-bot.pl
 
 		snippet vbnla
 	fi
