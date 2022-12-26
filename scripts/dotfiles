@@ -417,7 +417,6 @@ function fetch-files {
 
 	printf "Fetching scripts..."
 	dotscript dotfiles dotfiles.new
-	dotscript pbin
 	dotscript update
 	dotscript worldtimes
 	dotscript diff-highlight
@@ -497,12 +496,12 @@ function fetch-files {
 	# Wrappers with various HiDPI fixes.
 	if [[ "${host}" = "janus" ]]; then
 		dotscript obs
+		dotscript twitch
 	fi
 
 	if [[ "${host}" = "mercury" || "${host}" = "janus" ]] ; then
 		dotscript poomf
 		dotscript play-xclip
-		dotscript twitch-"${host}" twitch
 		dotscript xyzradio
 		dotscript byzanz-rect
 		dotscript ezsshfs
@@ -613,6 +612,7 @@ function fetch-files {
 	rm -f ~/scripts/fwuf
 	rm -f ~/scripts/aaa
 	rm -f ~/scripts/brewnav
+	rm -f ~/scripts/pbin
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
