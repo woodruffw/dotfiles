@@ -421,13 +421,10 @@ function fetch-files {
 	dotscript update
 	dotscript worldtimes
 	dotscript diff-highlight
-	dotscript fwuf
-	dotscript aaa
 	dotscript selecta
 	dotscript update-hosts
 	dotscript license
 	dotscript bak
-	dotscript psh
 	dotscript nth
 	dotscript termck
 
@@ -508,7 +505,6 @@ function fetch-files {
 		dotscript twitch-"${host}" twitch
 		dotscript xyzradio
 		dotscript byzanz-rect
-		dotscript brewnav
 		dotscript ezsshfs
 		dotscript open-pdf
 		dotscript nft
@@ -613,6 +609,10 @@ function fetch-files {
 	rm -f ~/scripts/music
 	rm -f ~/scripts/plex
 	rm -f ~/scripts/colormake
+	rm -f ~/scripts/psh
+	rm -f ~/scripts/fwuf
+	rm -f ~/scripts/aaa
+	rm -f ~/scripts/brewnav
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
