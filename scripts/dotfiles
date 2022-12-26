@@ -299,6 +299,7 @@ function fetch-files {
 		dotscript kbs2-audit-pass
 		dotscript kbs2-ssh-add
 		dotscript kbs2-gpg-add
+		dotscript kbs2-git-ssh-signing
 		green "done"
 	else
 		yellow "not installed. Skipping"
@@ -415,8 +416,7 @@ function fetch-files {
 
 
 	printf "Fetching scripts..."
-  dotscript dotfiles dotfiles.new
-	dotscript colormake
+	dotscript dotfiles dotfiles.new
 	dotscript pbin
 	dotscript update
 	dotscript worldtimes
@@ -612,6 +612,7 @@ function fetch-files {
 	rm -f ~/scripts/sp
 	rm -f ~/scripts/music
 	rm -f ~/scripts/plex
+	rm -f ~/scripts/colormake
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old

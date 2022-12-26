@@ -10,31 +10,16 @@ installed() {
 system=$(uname)
 
 # set the editor depending on what's installed
-if installed subl; then
+if installed code; then
+	export EDITOR='code'
+elif installed subl; then
 	export EDITOR='subl'
-elif installed gvim; then
-	export EDITOR='gvim'
 elif installed vim; then
 	export EDITOR='vim'
 elif installed nano; then
 	export EDITOR='nano'
 else
 	export EDITOR='ed' # the universal editor!
-fi
-
-# add the rubygems bin path if installed
-if installed ruby && installed gem; then
-	PATH="${PATH}:$(ruby -e 'puts Gem.user_dir')/bin"
-fi
-
-# add the rakudobrew bin path if installed
-if [[ -d ~/.rakudobrew ]]; then
-	PATH="${PATH}:${HOME}/.rakudobrew/bin"
-fi
-
-# why does this exist?
-if [[ -d ~/.local/bin ]]; then
-	PATH="${PATH}:${HOME}/.local/bin"
 fi
 
 # system-independent environment variables
@@ -56,17 +41,21 @@ unset MAILCHECK
 [[ -d ~/man ]] && MANPATH="${HOME}/man:${MANPATH}"
 
 if [[ "${system}" = "Linux" ]]; then
-	# If linuxbrew is installed, add its bin and man directories to their respective paths.
-	if [[ -d /home/linuxbrew/.linuxbrew ]]; then
-		# shellcheck disable=SC2046
-		eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-	fi
-
 	export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 elif [[ "${system}" = "Darwin" ]]; then
 	export TERMINFO_DIRS="${HOME}/.terminfo:/usr/local/share/terminfo:${TERMINFO}:"
 	export LSCOLORS='gxfxcxdxbxegedabagacad'
 	PATH="${PATH}:/usr/local/bin:/usr/local/sbin:/bin:/sbin:/usr/bin:/usr/sbin:/usr/X11/bin"
+fi
+
+# add the rubygems bin path if installed
+if installed ruby && installed gem; then
+	PATH="${PATH}:$(ruby -e 'puts Gem.user_dir')/bin"
+fi
+
+# everything Python related
+if [[ -d ~/.local/bin ]]; then
+	PATH="${PATH}:${HOME}/.local/bin"
 fi
 
 if [[ -d ~/.pyenv/bin ]]; then

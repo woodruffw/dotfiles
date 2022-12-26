@@ -127,25 +127,7 @@ man() {
 # cds to the project folder or to a specified project
 prj() {
 	local prjdir
-	prjdir="${HOME}/devel/self"
-	projects="$(find "${prjdir}" -maxdepth 1 -mindepth 1 -type d -exec basename {} \;)"
-
-	cd "${prjdir}/$(selecta <<< "${projects}")" || return
-}
-
-# gprj - cd to (group) projects
-gprj() {
-	local prjdir
-	prjdir="${HOME}/devel/group"
-	projects="$(find "${prjdir}" -maxdepth 1 -mindepth 1 -type d -exec basename {} \;)"
-
-	cd "${prjdir}/$(selecta <<< "${projects}")" || return
-}
-
-# frk - cd to forks
-frk() {
-	local prjdir
-	prjdir="${HOME}/devel/fork"
+	prjdir="${HOME}/devel"
 	projects="$(find "${prjdir}" -maxdepth 1 -mindepth 1 -type d -exec basename {} \;)"
 
 	cd "${prjdir}/$(selecta <<< "${projects}")" || return
@@ -260,36 +242,25 @@ host=$(hostname)
 # terminal specific and need to stay here.
 
 # convenient colors
-export COLOR_BLK='\e[0;30m'
-export COLOR_RED='\e[1;31m'
-export COLOR_GRN='\e[0;32m'
-export COLOR_YLW='\e[0;33m'
-export COLOR_BLU='\e[0;34m'
-export COLOR_MAG='\e[0;35m'
-export COLOR_CYN='\e[0;36m'
-export COLOR_WHT='\e[0;37m'
-export COLOR_NRM='\033[0m'
+export COLOR_BLK="$(tput setaf 0)"
+export COLOR_RED="$(tput setaf 1)"
+export COLOR_GRN="$(tput setaf 2)"
+export COLOR_YLW="$(tput setaf 3)"
+export COLOR_BLU="$(tput setaf 4)"
+export COLOR_MAG="$(tput setaf 5)"
+export COLOR_CYN="$(tput setaf 6)"
+export COLOR_WHT="$(tput setaf 7)"
+export COLOR_NRM="$(tput sgr0)"
 
 ###########
 # Aliases #
 ###########
 
 # system-independent aliases
-alias make='colormake'
-alias mk='make'
-alias mkc='make clean'
-alias smi='sudo make install'
-alias smu='sudo make uninstall'
 alias unmount='umount'
-alias cm='cmake'
-alias cls='clear'
 alias df='df -kh'
 alias du='du -kh'
 alias pls='sudo $(tail -1 ~/.bash_history)'
-alias svim='sudo vim'
-alias vi='vim'
-alias vmi='vim'
-alias vimrc='vim ~/.vimrc'
 alias htop='htop --sort-key PERCENT_CPU'
 alias +r='chmod +r'
 alias +w='chmod +w'
@@ -297,45 +268,17 @@ alias +x='chmod +x'
 alias la='ls -a'
 alias ll='ls -lh'
 alias lsl='ls | less'
-alias rr='rm -r'
 alias ttyreset='stty sane; tput rs1'
-alias ret='echo $?'
 alias ..='cd ..'
-alias .2='cd ../..'
-alias .3='cd ../../..'
-alias .4='cd ../../../..'
 alias crone='crontab -e'
 alias cronl='crontab -l'
 alias reboot='sudo reboot'
 alias rmhk='ssh-keygen -R'
 alias mkdir='mkdir -p'
 alias getconfigs='dotfiles ; allreload'
-alias ocaml='rlwrap ocaml'
 alias jsonl2json='jq -s "."'
 alias json2jsonl='jq -c ".[]"'
 alias snip='kbs2 snip'
-
-# if colordiff is installed, alias diff to it
-if installed colordiff ; then
-	alias diff='colordiff'
-fi
-
-# if jekyll is installed, add its aliases
-if installed jekyll ; then
-	alias jb='jekyll build'
-	alias jc='jekyll clean'
-	alias js='jekyll serve --config _config.yml,_config_local.yml --force_polling'
-fi
-
-# if gnu smalltalk is installed, alias it to st (gst is a git alias)
-# this is clearly becoming a problem
-if installed gst ; then
-	alias st='\gst'
-fi
-
-if installed matlab ; then
-	alias matlab='matlab -nojvm'
-fi
 
 if installed exiftool ; then
 	alias exifnuke='exiftool -all= -overwrite_original'
@@ -360,18 +303,6 @@ if [[ "${system}" = "Linux" ]] ; then
 	if [[ "${host}" = "athena" ]] ; then
 		alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
 		alias www='cd /var/www/html'
-	fi
-
-	if [[ -f "/usr/bin/apt-get" ]] ; then # Ubuntu, Debian systems
-		alias sagu='sudo apt update'
-		alias saguu='sudo apt update ; sudo apt upgrade'
-		alias sagi='sudo apt install'
-		alias sagr='sudo apt remove'
-		alias sagar='sudo apt autoremove'
-	elif [[ -f "/usr/bin/pacman" ]] ; then # Arch-based systems
-		alias sps='sudo pacman -S'
-		alias spr='sudo pacman -R'
-		alias sprs='sudo pacman -Rs'
 	fi
 elif [[ "${system}" = "Darwin" ]] ; then
 	alias ls='ls -G'
