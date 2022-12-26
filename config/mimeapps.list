@@ -101,23 +101,23 @@ video/x-totem-stream=mpv.desktop
 x-content/video-dvd=mpv.desktop
 x-content/video-vcd=mpv.desktop
 x-content/video-svcd=mpv.desktop
-application/x-perl=sublime_text.desktop
-text/plain=sublime_text.desktop
-text/x-chdr=sublime_text.desktop
-text/x-csrc=sublime_text.desktop
-text/x-dtd=sublime_text.desktop
-text/x-java=sublime_text.desktop
-text/mathml=sublime_text.desktop
-text/x-python=sublime_text.desktop
-text/x-sql=sublime_text.desktop
-text/xml=sublime_text.desktop
-text/x-c++hdr=sublime_text.desktop
-text/x-c++src=sublime_text.desktop
-text/x-xsrc=sublime_text.desktop
+application/x-perl=code.desktop
+text/plain=code.desktop
+text/x-chdr=code.desktop
+text/x-csrc=code.desktop
+text/x-dtd=code.desktop
+text/x-java=code.desktop
+text/mathml=code.desktop
+text/x-python=code.desktop
+text/x-sql=code.desktop
+text/xml=code.desktop
+text/x-c++hdr=code.desktop
+text/x-c++src=code.desktop
+text/x-xsrc=code.desktop
 application/pdf=userapp-mupdf-prompt-5JFRC1.desktop
 
 [Added Associations]
-application/octet-stream=sublime_text.desktop;
+application/octet-stream=code.desktop;
 application/pdf=userapp-mupdf-prompt-5JFRC1.desktop;
 
 [Removed Associations]
