@@ -14,6 +14,7 @@ desktop.ini
 *.swp
 *.sublime-project
 *.sublime-workspace
+.vscode/
 
 # Compilation byproducts
 *.so
