@@ -2,10 +2,6 @@
 
 # workspaces-janus: set up my workstation workspaces
 
-# no matter what i do, these files keep reappearing and cause subl to spawn a
-# bunch of windows, trashing the layout below.
-rm -rf ~/.config/sublime-text/Local/*.sublime_session
-
 xset dpms force on
 
 yad --title="Load workspaces?" || exit
@@ -24,7 +20,7 @@ sleep 0.1
 sleep 0.1
 i3-msg 'workspace 1A; append_layout ~/.config/i3/workspaces/1A.json'
 sleep 0.1
-i3-msg 'exec --no-startup-id subl'
+i3-msg 'exec --no-startup-id code'
 sleep 0.1
 
 sleep 0.1

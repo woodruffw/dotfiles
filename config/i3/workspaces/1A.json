@@ -19,8 +19,8 @@
             },
             "percent": 1,
             "swallows": [
-                 {"class": "^Sublime_text$"},
-                 {"instance": "^sublime_text$"}
+                 {"class": "^Code$"},
+                 {"instance": "^code$"}
             ],
             "type": "con"
         }
