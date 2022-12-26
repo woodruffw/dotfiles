@@ -419,7 +419,6 @@ function fetch-files {
 	dotscript dotfiles dotfiles.new
 	dotscript update
 	dotscript worldtimes
-	dotscript diff-highlight
 	dotscript selecta
 	dotscript update-hosts
 	dotscript license
@@ -612,6 +611,7 @@ function fetch-files {
 	rm -f ~/scripts/aaa
 	rm -f ~/scripts/brewnav
 	rm -f ~/scripts/pbin
+	rm -f ~/scripts/diff-highlight
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
