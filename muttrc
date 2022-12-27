@@ -54,7 +54,7 @@ set strict_threads = yes
 set maildir_header_cache_verify = no
 set read_inc = 50
 set time_inc = 50
-set mail_check = 300
+set mail_check = 60
 set timeout = 10
 
 source ~/.mutt/colorscheme.muttrc
