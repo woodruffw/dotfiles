@@ -376,15 +376,6 @@ function fetch-files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for spotifyd..."
-	if installed spotifyd; then
-		printf "found. Reloading config..."
-		cp -R ~/.dotfiles/config/spotifyd/* ~/.config/spotifyd
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
 	printf "Checking for shellcheck..."
 	if installed shellcheck; then
 		printf "found. Reloading config..."
@@ -501,7 +492,6 @@ function fetch-files {
 	if [[ "${host}" = "mercury" || "${host}" = "janus" ]] ; then
 		dotscript poomf
 		dotscript play-xclip
-		dotscript xyzradio
 		dotscript byzanz-rect
 		dotscript ezsshfs
 		dotscript open-pdf
@@ -612,6 +602,7 @@ function fetch-files {
 	rm -f ~/scripts/brewnav
 	rm -f ~/scripts/pbin
 	rm -f ~/scripts/diff-highlight
+	rm -f ~/scripts/xyzradio
 
 	rm -f ~/.xsession-errors
 	rm -f ~/.xsession-errors.old
