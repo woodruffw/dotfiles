@@ -17,6 +17,7 @@
 
 [push]
     default = current
+    autoSetupRemote = true
 
 [help]
     autocorrect = 50
