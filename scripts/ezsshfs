@@ -53,5 +53,5 @@ mkdir -p "${mpath}"
 if [[ "${1}" = "-u" ]]; then
   plat_umount "${mpath}"
 else
-  sshfs "${host}:${spath}" "${mpath}"
+  sshfs "${host}:${spath}" "${mpath}" -o reconnect
 fi
