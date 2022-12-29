@@ -2,4 +2,5 @@
 
 # nft: nice floating terminal
 
-alacritty --title floaterm
+alacritty msg create-window --title floaterm \
+    || alacritty --title floaterm

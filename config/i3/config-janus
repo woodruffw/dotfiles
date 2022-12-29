@@ -12,7 +12,7 @@ font pango:Latin Modern Mono 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec "alacritty msg create-window || alacritty"
 bindsym $mod+Shift+Return exec ~/scripts/nft
 
 # kill focused window
