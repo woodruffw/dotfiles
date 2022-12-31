@@ -572,10 +572,6 @@ function fetch-files {
 	rm -f ~/scripts/diff-highlight
 	rm -f ~/scripts/xyzradio
 
-	rm -f ~/.xsession-errors
-	rm -f ~/.xsession-errors.old
-	rm -f ~/.git-aliases
-	rm -f ~/.tepmrc
 	rm -rf ~/.newsbeuter
 	rm -rf ~/.mpv/lua-settings/
 	rm -rf ~/.config/newsbeuter
