@@ -133,15 +133,6 @@ prj() {
 	cd "${prjdir}/$(selecta <<< "${projects}")" || return
 }
 
-# shah - get sha1 and output just the hash
-shah() {
-	if [[ -n "${1}" ]] ; then
-		shasum "${1}" | awk '{ print $1 }'
-	else
-		echo "Usage: shah <file>"
-	fi
-}
-
 # fw, lw, ew, rw - expand file, less, editor, realpath input from which
 # useful for reading from files on the PATH without their paths
 fw() {
@@ -260,14 +251,12 @@ export COLOR_NRM="$(tput sgr0)"
 alias unmount='umount'
 alias df='df -kh'
 alias du='du -kh'
-alias pls='sudo $(tail -1 ~/.bash_history)'
 alias htop='htop --sort-key PERCENT_CPU'
 alias +r='chmod +r'
 alias +w='chmod +w'
 alias +x='chmod +x'
 alias la='ls -a'
 alias ll='ls -lh'
-alias lsl='ls | less'
 alias ttyreset='stty sane; tput rs1'
 alias ..='cd ..'
 alias crone='crontab -e'
@@ -297,8 +286,6 @@ if [[ "${system}" = "Linux" ]] ; then
 	alias vpnup='sudo systemctl start wg-quick@wg0'
 	alias ethdn='sudo ifconfig eth0 down'
 	alias ethup='sudo ifconfig eth0 up'
-	alias eastcoast='sudo timedatectl set-timezone America/New_York'
-	alias westcoast='sudo timedatectl set-timezone America/Los_Angeles'
 
 	if [[ "${host}" = "athena" ]] ; then
 		alias nginxconf='sudo vim /etc/nginx/sites-enabled/default'
@@ -329,9 +316,6 @@ shopt -s globstar # double globs match arbitary subdirs
 ################
 bind -x '"\eOS":pcmanfm . >/dev/null 2>&1 &' # open a file manager in the CWD
 bind -x '"\e[15~":ttyreset' # reset the terminal with F5
-bind -x '"\eW":"who"'
-bind -x '"\eU":"uptime"'
-bind -x '"\eL":"ls"'
 
 #########
 # TRAPS #
