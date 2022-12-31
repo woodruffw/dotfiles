@@ -537,43 +537,6 @@ function fetch-files {
 	green "done"
 
 	printf "Doing some cleanup..."
-	rm -rf ~/scripts/cron/
-	rm -f ~/scripts/$
-	rm -f ~/scripts/%
-	rm -f ~/scripts/haste
-	rm -f ~/scripts/mpv-xclip
-	rm -f ~/scripts/surf-xclip
-	rm -f ~/scripts/email-fwd.rb
-	rm -f ~/scripts/magnet-to-torrent.pl
-	rm -f ~/scripts/tepm
-	rm -f ~/scripts/kbsecret-zen-login
-	rm -f ~/scripts/xdcc
-	rm -f ~/scripts/colorscheme
-	rm -f ~/scripts/colorscheme2
-	rm -f ~/scripts/twitter-github-bot.rb
-	rm -f ~/scripts/nicegif
-	rm -f ~/scripts/dailymail.rb
-	rm -f ~/scripts/subsonic
-	rm -f ~/scripts/cskel
-	rm -f ~/scripts/jskel
-	rm -f ~/scripts/afs-umd
-	rm -f ~/scripts/streamable-upload
-	rm -f ~/scripts/mdmath
-	rm -f ~/scripts/muzak-now-playing
-	rm -f ~/scripts/muzak-rebase-index
-	rm -f ~/scripts/muzak-9menu
-	rm -f ~/scripts/screenfetch
-	rm -f ~/scripts/sms
-	rm -f ~/scripts/statusbar
-	rm -f ~/scripts/newsbeuter-yt-feed
-	rm -f ~/scripts/nautilus-xenial-gopro-install
-	rm -f ~/scripts/a2dp
-	rm -f ~/scripts/speaker
-	rm -f ~/scripts/microsoft-mouse
-	rm -f ~/scripts/magnet.sh
-	rm -f ~/scripts/last-photo
-	rm -f ~/scripts/last-snap
-	rm -f ~/scripts/last-recording
 	rm -f ~/scripts/pid2xid
 	rm -f ~/scripts/bug-roommates
 	rm -f ~/scripts/mp4flip
