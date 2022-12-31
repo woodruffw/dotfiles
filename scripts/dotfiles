@@ -46,6 +46,11 @@ function dotscript {
 	cp ~/.dotfiles/scripts/"${1}" ~/scripts/"${dest}"
 }
 
+function kbs2-contrib {
+	curl --silent --output ~/scripts/"${1}" \
+		https://raw.githubusercontent.com/woodruffw/kbs2/master/contrib/ext-cmds/"${1}"/"${1}"
+}
+
 function fetch-files {
 	system=$(uname)
 	host=$(hostname)
@@ -292,14 +297,14 @@ function fetch-files {
 	if installed kbs2 ; then
 		printf "found. Reloading config and scripts..."
 		cp -R ~/.dotfiles/config/kbs2/* ~/.config/kbs2
-		dotscript kbs2-yad-login
-		dotscript kbs2-dmenu-pass
-		dotscript kbs2-qr
-		dotscript kbs2-snip
-		dotscript kbs2-audit-pass
-		dotscript kbs2-ssh-add
-		dotscript kbs2-gpg-add
-		dotscript kbs2-git-ssh-signing
+		kbs2-contrib kbs2-yad-login
+		kbs2-contrib kbs2-dmenu-pass
+		kbs2-contrib kbs2-qr
+		kbs2-contrib kbs2-snip
+		kbs2-contrib kbs2-audit-pass
+		kbs2-contrib kbs2-ssh-add
+		kbs2-contrib kbs2-gpg-add
+		kbs2-contrib kbs2-git-ssh-signing
 		green "done"
 	else
 		yellow "not installed. Skipping"
