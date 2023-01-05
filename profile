@@ -53,6 +53,11 @@ if installed ruby && installed gem; then
 	PATH="${PATH}:$(ruby -e 'puts Gem.user_dir')/bin"
 fi
 
+# add opam if installed
+if installed opam; then
+	eval "$(opam env)"
+fi
+
 # everything Python related
 if [[ -d ~/.local/bin ]]; then
 	PATH="${PATH}:${HOME}/.local/bin"
