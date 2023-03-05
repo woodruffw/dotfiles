@@ -34,6 +34,9 @@ post-hook = "~/.config/kbs2/hooks/push-repo"
 [commands.rm]
 post-hook = "~/.config/kbs2/hooks/push-repo"
 
+[commands.rename]
+post-hook = "~/.config/kbs2/hooks/push-repo"
+
 [commands.ext.dmenu-pass]
 notify-username = true
 chooser = "rofi -dmenu -p kbs2"
