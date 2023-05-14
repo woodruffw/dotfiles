@@ -44,7 +44,7 @@ set wait_key = no
 set new_mail_command = "~/.mutt/bin/mbox-notify '%n' '%u' &"
 
 set imap_check_subscribed = yes
-set imap_idle = yes
+set imap_idle = no
 set imap_qresync = yes
 set imap_keepalive = 60
 set imap_poll_timeout = 10
