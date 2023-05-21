@@ -527,37 +527,6 @@ function fetch-files {
 	green "done"
 
 	printf "Doing some cleanup..."
-	rm -f ~/scripts/pid2xid
-	rm -f ~/scripts/bug-roommates
-	rm -f ~/scripts/mp4flip
-	rm -f ~/scripts/forecast
-	rm -f ~/scripts/remind
-	rm -f ~/scripts/kbsecret-yad-login
-	rm -f ~/scripts/kbsecret-dmenu-pass
-	rm -f ~/scripts/kbsecret-snip
-	rm -f ~/scripts/kbsecret-todo-list
-	rm -f ~/scripts/kbsecret-discover-sessions
-	rm -f ~/scripts/kbsecret-recovery
-	rm -f ~/scripts/kbsecret-audit-pass
-	rm -f ~/scripts/kbsecret-zxcvbn
-	rm -f ~/scripts/kbsecret-qr
-	rm -f ~/scripts/todo
-	rm -f ~/scripts/snip
-	rm -f ~/scripts/radio
-	rm -f ~/scripts/uzbl-xclip
-	rm -f ~/scripts/subreddit-watch
-	rm -f ~/scripts/cart
-	rm -f ~/scripts/speedtest
-	rm -f ~/scripts/ffox
-	rm -f ~/scripts/spotify
-	rm -f ~/scripts/sp
-	rm -f ~/scripts/music
-	rm -f ~/scripts/plex
-	rm -f ~/scripts/colormake
-	rm -f ~/scripts/psh
-	rm -f ~/scripts/fwuf
-	rm -f ~/scripts/aaa
-	rm -f ~/scripts/brewnav
 	rm -f ~/scripts/pbin
 	rm -f ~/scripts/diff-highlight
 	rm -f ~/scripts/xyzradio
