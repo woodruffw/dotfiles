@@ -9,7 +9,6 @@ exiftool
 feh
 gawk
 git
-hexchat
 htop
 i3
 jq

@@ -139,16 +139,6 @@ function fetch-files {
 		yellow "not installed. Skipping"
 	fi
 
-	printf "Checking for hexchat..."
-	if installed hexchat ; then
-		printf "found. Reloading configs and addons..."
-		mkdir -p ~/.config/hexchat
-		cp -R ~/.dotfiles/config/hexchat/* ~/.config/hexchat/
-		green "done"
-	else
-		yellow "not installed. Skipping"
-	fi
-
 	printf "Checking for mpv..."
 	if installed mpv ; then
 		printf "found. Reloading configs..."

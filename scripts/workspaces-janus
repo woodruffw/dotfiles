@@ -26,7 +26,7 @@ sleep 0.1
 sleep 0.1
 i3-msg 'workspace 1B; append_layout ~/.config/i3/workspaces/1B.json'
 i3-msg 'exec --no-startup-id alacritty'
-i3-msg 'exec --no-startup-id hexchat'
+i3-msg 'exec --no-startup-id IRCCloud'
 i3-msg 'exec --no-startup-id firefox'
 sleep 0.1
 
