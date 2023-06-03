@@ -504,6 +504,7 @@ function fetch-files {
 		dotscript gimme-file
 		dotscript mumble-insecure
 		dotscript ripcord
+		dotscript subsonic-scan
 
 		snippet play
 		snippet vboxssh

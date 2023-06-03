@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+# subsonic-scan: force a re-scan of a subsonic (really navidrome)
+# instance.
+
+require "digest"
+require "net/http"
+require "securerandom"
+
+# Replace with your server.
+SERVER = "https://thing-in-itself.net/navidrome"
+
+# Replace with your username/password.
+USERNAME = "william"
+PASSWORD = `kbs2 pass navidrome`.chomp
+SALT = SecureRandom.hex 16
+SALTY_BOY = Digest::MD5.hexdigest "#{PASSWORD}#{SALT}"
+
+def basic_parms
+  "u=#{USERNAME}&t=#{SALTY_BOY}&s=#{SALT}&v=1.16.1&c=subsonic-scan&f=json"
+end
+
+uri = URI("#{SERVER}/rest/startScan?#{basic_parms}")
+Net::HTTP.get(uri)
+
+puts "OK"
