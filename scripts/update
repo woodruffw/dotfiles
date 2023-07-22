@@ -37,7 +37,19 @@ function do_brew {
 	brew cleanup -s
 }
 
+function do_pyenv {
+	pyenv update
+}
+
+function do_rbenv {
+	rbenv_root="$(rbenv root)"
+	git -C "${rbenv_root}" pull
+	[[ -d "${rbenv_root}/plugins/ruby-build" ]] && git -C "${rbenv_root}/plugins/ruby-build" pull
+}
+
 [[ "$(uname)" = "Linux" ]] && installed apt && do_apt
 [[ "$(uname)" = "Linux" ]] && installed snap && do_snap
 [[ "$(uname)" = "Linux" ]] && installed pacman && do_pacman
 installed brew && do_brew
+installed pyenv && do_pyenv
+installed rbenv && do_rbenv
