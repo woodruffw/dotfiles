@@ -462,6 +462,7 @@ function fetch-files {
 	snippet git-takeout
 	snippet git-unws
 	snippet git-dwtb
+	snippet git-fork-remote
 	snippet ronnpp
 	snippet linecheck
 	snippet imgresize
