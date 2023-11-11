@@ -44,3 +44,4 @@ dist/
 
 # Configuration/environment files
 .env
+.gdb_history
