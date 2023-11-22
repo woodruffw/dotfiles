@@ -1,0 +1,52 @@
+[font]
+size = 12
+
+[font.bold]
+family = "Latin Modern Mono Light"
+style = "Bold"
+
+[font.bold_italic]
+family = "Latin Modern Mono Light"
+style = "Bold Italic"
+
+[font.italic]
+family = "monospace"
+style = "Italic"
+
+[font.normal]
+family = "monospace"
+style = "Regular"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mods = "Shift"
+
+[window.dimensions]
+columns = 80
+lines = 24
