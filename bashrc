@@ -174,11 +174,6 @@ mkcd() {
 	mkdir -p "$1" && cd "$1" || return
 }
 
-# dump a manpage to stdout, with nroff formatting cruft removed
-mand() {
-	man "$1" | col -bx
-}
-
 # sum $1 or stdin, one number per line
 # http://stackoverflow.com/a/450821
 sum() {
