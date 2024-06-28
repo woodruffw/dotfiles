@@ -473,6 +473,7 @@ function fetch-files {
 	snippet docker-shellin
 	snippet quotecard
 	snippet mupdf-prompt
+	snippet x509dump
 
 	if [[ "${system}" = "Darwin" ]]; then
 		cp ~/.dotfiles/scripts/osx-vnc-password ~/scripts/osx-vnc-password
