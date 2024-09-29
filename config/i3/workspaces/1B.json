@@ -60,25 +60,6 @@
                 }
             ],
             "type": "con"
-        },
-        {
-            "border": "normal",
-            "current_border_width": 2,
-            "floating": "auto_off",
-            "geometry": {
-                "height": 2080,
-                "width": 1920,
-                "x": 4080,
-                "y": 40
-            },
-            "percent": 0.5,
-            "swallows": [
-                {
-                    "class": "^IRCCloud$",
-                    "instance": "^irccloud$"
-                }
-            ],
-            "type": "con"
         }
     ]
 }
