@@ -324,7 +324,7 @@ function fetch-files {
 	printf "Checking for aerc..."
 	if installed aerc; then
 		printf "found. Reloading config..."
-		cp -R ~/.dotfiles/aerc/* ~/.config/aerc
+		cp -R ~/.dotfiles/config/aerc/* ~/.config/aerc
 		green "done"
 	else
 		yellow "not installed. Skipping"
