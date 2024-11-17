@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# feishin: wrap feishin while disabling sandboxing (because it's broken)
+
+set -euo pipefail
+
+Feishin.real --no-sandbox "${@}"

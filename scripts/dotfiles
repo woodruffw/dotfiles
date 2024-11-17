@@ -505,6 +505,7 @@ function fetch-files {
 		dotscript mumble-insecure
 		dotscript ripcord
 		dotscript subsonic-scan
+		dotscript feishin
 
 		snippet play
 		snippet vboxssh
