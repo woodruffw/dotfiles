@@ -70,7 +70,7 @@
     orgs = woodruffw woodruffw-forks
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [gpg "ssh"]
     allowedSignersFile = /home/william/.config/git/allowed_signers
