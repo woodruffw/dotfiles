@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# desktop: basic post-i3 desktop setup
+
+xset dpms force on
+
+yad --title="Load desktop?" || exit
+
+# This is split up so that I can cancel kbs2 without subsequent commands failing.
+kbs2 agent && kbs2 agent unwrap
+kbs2 agent query && kbs2 ssh-add janus-ssh-key
+kbs2 agent query && kbs2 ssh-add git-signing-ssh-key
+
+ezsshfs athena
+ezsshfs arabella

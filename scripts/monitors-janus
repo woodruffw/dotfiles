@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-vertical_monitor="DisplayPort-2"
 horizontal_monitor="DisplayPort-0"
 
-xrandr --dpi 163 \
-    --output "${vertical_monitor}" --pos 0x0 --rotate left --left-of "${horizontal_monitor}" \
-    --output "${horizontal_monitor}" --pos 2160x1680 --rotate normal
-
-xrandr --output "${horizontal_monitor}" --primary
+xrandr --dpi 163 --output "${horizontal_monitor}" --primary

@@ -81,54 +81,42 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+shift+a focus child
 
-set $mon1 DisplayPort-2
-set $mon2 DisplayPort-0
+set $mon DisplayPort-0
 
-# this is getting out of control.
-workspace 1A output $mon1
-workspace 1B output $mon2
-workspace 2A output $mon1
-workspace 2B output $mon2
-workspace 3A output $mon1
-workspace 3B output $mon2
-workspace 4A output $mon1
-workspace 4B output $mon2
-workspace 5A output $mon1
-workspace 5B output $mon2
-workspace 6A output $mon1
-workspace 6B output $mon2
-workspace 7A output $mon1
-workspace 7B output $mon2
-workspace 8A output $mon1
-workspace 8B output $mon2
-workspace 9A output $mon1
-workspace 9B output $mon2
-workspace 10A output $mon1
-workspace 10B output $mon2
+workspace 1 output $mon
+workspace 2 output $mon
+workspace 3 output $mon
+workspace 4 output $mon
+workspace 5 output $mon
+workspace 6 output $mon
+workspace 7 output $mon
+workspace 8 output $mon
+workspace 9 output $mon
+workspace 10 output $mon
 
 # switch to workspace
-bindsym $mod+1 workspace 1A, workspace 1B
-bindsym $mod+2 workspace 2A, workspace 2B
-bindsym $mod+3 workspace 3A, workspace 3B
-bindsym $mod+4 workspace 4A, workspace 4B
-bindsym $mod+5 workspace 5A, workspace 5B
-bindsym $mod+6 workspace 6A, workspace 6B
-bindsym $mod+7 workspace 7A, workspace 7B
-bindsym $mod+8 workspace 8A, workspace 8B
-bindsym $mod+9 workspace 9A, workspace 9B
-bindsym $mod+0 workspace 10A, workspace 10B
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
 # move focused container to center workspace
-bindsym $mod+Shift+1 move container to workspace 1B
-bindsym $mod+Shift+2 move container to workspace 2B
-bindsym $mod+Shift+3 move container to workspace 3B
-bindsym $mod+Shift+4 move container to workspace 4B
-bindsym $mod+Shift+5 move container to workspace 5B
-bindsym $mod+Shift+6 move container to workspace 6B
-bindsym $mod+Shift+7 move container to workspace 7B
-bindsym $mod+Shift+8 move container to workspace 8B
-bindsym $mod+Shift+9 move container to workspace 9B
-bindsym $mod+Shift+0 move container to workspace 10B
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -230,7 +218,7 @@ for_window [title="^Steam Keyboard$"] floating enable
 for_window [class=".*"] title_format "%title (%instance)"
 
 # keep steam in its own workspace
-assign [class="Steam"] 2B
+assign [class="Steam"] 3
 
 # these never need to be initially focused
 no_focus [class="^feh$"]
@@ -244,4 +232,4 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id ibus-daemon -drx
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
-exec --no-startup-id ~/scripts/workspaces
+exec --no-startup-id ~/.config/i3/desktop

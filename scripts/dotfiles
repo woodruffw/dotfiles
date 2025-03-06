@@ -260,24 +260,9 @@ function fetch-files {
 		printf "found. Reloading config and scripts..."
 		cp ~/.dotfiles/config/i3/config-"${host}" ~/.config/i3/config
 		cp ~/.dotfiles/i3status-"${host}".conf ~/.i3status.conf
+		cp ~/.dotfiles/config/i3/desktop ~/.config/i3/desktop
 		cp ~/.dotfiles/config/i3/statusbar ~/.config/i3/statusbar
 		dotscript monitors-"${host}" monitors
-
-		if [[ -f ~/.dotfiles/scripts/workspaces-"${host}" ]]; then
-			dotscript workspaces-"${host}" workspaces
-
-			mkdir -p ~/.config/i3/workspaces
-
-			if [[ "${host}" = "mercury" ]]; then
-				for ws in com dev www; do
-					cp ~/.dotfiles/config/i3/workspaces/"${ws}".json ~/.config/i3/workspaces
-				done
-			elif [[ "${host}" = "janus" ]]; then
-				for ws in 1A 1B 2A; do
-					cp ~/.dotfiles/config/i3/workspaces/"${ws}".json ~/.config/i3/workspaces
-				done
-			fi
-		fi
 		green "done"
 	else
 		yellow "not installed. Skipping"
@@ -532,6 +517,7 @@ function fetch-files {
 	rm -f ~/scripts/pbin
 	rm -f ~/scripts/diff-highlight
 	rm -f ~/scripts/xyzradio
+	rm -f ~/scripts/workspaces
 
 	rm -rf ~/.newsbeuter
 	rm -rf ~/.mpv/lua-settings/
