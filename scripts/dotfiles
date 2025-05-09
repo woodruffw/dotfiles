@@ -562,6 +562,10 @@ function rebuild-completions {
 		rustup completions bash rustup > ~/.bash_completion.d/rustup.bash && \
 		rustup completions bash cargo > ~/.bash_completion.d/cargo.bash
 
+	# zizmor
+	installed zizmor && \
+		zizmor --completions bash > ~/.bash_completion.d/zizmor.bash
+
 	green "done"
 }
 
